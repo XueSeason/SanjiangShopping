@@ -91,11 +91,11 @@
 //    XSWriteMemberNameViewController *wvc = [[XSWriteMemberNameViewController alloc] init];
 //    [self.navigationController pushViewController:wvc animated:YES];
     
-//    XSBindMemberCardViewController *bvc = [[XSBindMemberCardViewController alloc] init];
-//    [self.navigationController pushViewController:bvc animated:YES];
+    XSBindMemberCardViewController *bvc = [[XSBindMemberCardViewController alloc] init];
+    [self.navigationController pushViewController:bvc animated:YES];
     
-    XSMyMemberCardViewController *mvc = [[XSMyMemberCardViewController alloc] init];
-    [self.navigationController pushViewController:mvc animated:YES];
+//    XSMyMemberCardViewController *mvc = [[XSMyMemberCardViewController alloc] init];
+//    [self.navigationController pushViewController:mvc animated:YES];
 }
 
 - (void)favorite {

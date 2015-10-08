@@ -137,6 +137,8 @@
         self.searchController.active = NO;
     }
     
+    [self scrollViewDidScroll:_scrollView];
+    
     // 加载本地JSON
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     _homeModel = [defaults objectForKey:@"HomeModel"];
