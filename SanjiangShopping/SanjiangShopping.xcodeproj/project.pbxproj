@@ -1,0 +1,1443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B161C4A71BAAB21500B23AA5 /* CommodityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161C4A61BAAB21500B23AA5 /* CommodityListModel.m */; settings = {ASSET_TAGS = (); }; };
+		B161CD081B96C9F300D4689C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD071B96C9F300D4689C /* main.m */; };
+		B161CD131B96C9F300D4689C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B161CD121B96C9F300D4689C /* Images.xcassets */; };
+		B161CD161B96C9F300D4689C /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B161CD141B96C9F300D4689C /* LaunchScreen.xib */; };
+		B161CD221B96C9F400D4689C /* SanjiangShoppingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD211B96C9F400D4689C /* SanjiangShoppingTests.m */; };
+		B161CD9E1B96CA7000D4689C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD2D1B96CA7000D4689C /* AppDelegate.m */; };
+		B161CD9F1B96CA7000D4689C /* NetworkConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD301B96CA7000D4689C /* NetworkConstant.m */; };
+		B161CDA01B96CA7000D4689C /* NotificationNameConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD321B96CA7000D4689C /* NotificationNameConstant.m */; };
+		B161CDB51B96CA7000D4689C /* XSTabBarConteroller.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD5C1B96CA7000D4689C /* XSTabBarConteroller.m */; };
+		B161CDBD1B96CA7000D4689C /* XSButtonGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD771B96CA7000D4689C /* XSButtonGridView.m */; };
+		B161CDBE1B96CA7000D4689C /* HotWordsView.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD7A1B96CA7000D4689C /* HotWordsView.m */; };
+		B161CDC01B96CA7000D4689C /* XSNavigationBarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD811B96CA7000D4689C /* XSNavigationBarHelper.m */; };
+		B161CDC11B96CA7000D4689C /* XSSearchBarHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD831B96CA7000D4689C /* XSSearchBarHelper.m */; };
+		B161CDC21B96CA7000D4689C /* BaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD891B96CA7000D4689C /* BaseModel.m */; };
+		B161CDC31B96CA7000D4689C /* CollectionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD8C1B96CA7000D4689C /* CollectionModel.m */; };
+		B161CDC41B96CA7000D4689C /* MenuModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD8E1B96CA7000D4689C /* MenuModel.m */; };
+		B161CDC51B96CA7000D4689C /* FloorDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD911B96CA7000D4689C /* FloorDataModel.m */; };
+		B161CDC61B96CA7000D4689C /* HeadModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD931B96CA7000D4689C /* HeadModel.m */; };
+		B161CDC71B96CA7000D4689C /* HomeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD951B96CA7000D4689C /* HomeModel.m */; };
+		B161CDC81B96CA7000D4689C /* HomeMoreModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD971B96CA7000D4689C /* HomeMoreModel.m */; };
+		B161CDC91B96CA7000D4689C /* PromotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD9A1B96CA7000D4689C /* PromotionModel.m */; };
+		B161CDCA1B96CA7000D4689C /* HotWordsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD9D1B96CA7000D4689C /* HotWordsModel.m */; };
+		B16487751BB256C200778A07 /* XS4211View.m in Sources */ = {isa = PBXBuildFile; fileRef = B16487741BB256C200778A07 /* XS4211View.m */; settings = {ASSET_TAGS = (); }; };
+		B19C25AA1BB4CAB5007F96CC /* XSThemeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B19C25A91BB4CAB5007F96CC /* XSThemeView.m */; settings = {ASSET_TAGS = (); }; };
+		B19C25F61BB4F6C2007F96CC /* BuyPannel.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19C25F51BB4F6C2007F96CC /* BuyPannel.xib */; settings = {ASSET_TAGS = (); }; };
+		B19C25FE1BB51437007F96CC /* XSNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = B19C25FD1BB51437007F96CC /* XSNameView.m */; settings = {ASSET_TAGS = (); }; };
+		B19C260B1BB52F8E007F96CC /* MoreDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19C260A1BB52F8E007F96CC /* MoreDetailView.xib */; settings = {ASSET_TAGS = (); }; };
+		B1A61C501BB3DB0000AF8795 /* XSBuyNowView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1A61C4F1BB3DB0000AF8795 /* XSBuyNowView.m */; settings = {ASSET_TAGS = (); }; };
+		B1BCF6B81BB39C5C006020E3 /* RecommendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1BCF6B71BB39C5C006020E3 /* RecommendView.xib */; settings = {ASSET_TAGS = (); }; };
+		B1BCF6BC1BB3A0A6006020E3 /* XSMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BCF6BB1BB3A0A6006020E3 /* XSMoreView.m */; settings = {ASSET_TAGS = (); }; };
+		B1BCF6C41BB3CEDF006020E3 /* XS1111WhiteView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BCF6C31BB3CEDF006020E3 /* XS1111WhiteView.m */; settings = {ASSET_TAGS = (); }; };
+		B1BCF6C71BB3CF7B006020E3 /* XS1111GrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BCF6C61BB3CF7B006020E3 /* XS1111GrayView.m */; settings = {ASSET_TAGS = (); }; };
+		B1D931F51B9EEB4800498D8B /* CartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D931F41B9EEB4800498D8B /* CartModel.m */; };
+		B1E9AA5E1BB902FA00CFDFD3 /* CommodityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9AA5D1BB902FA00CFDFD3 /* CommodityModel.m */; settings = {ASSET_TAGS = (); }; };
+		B1E9EABE1BAF92FA0008A839 /* XSSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9EABD1BAF92FA0008A839 /* XSSegmentControl.m */; settings = {ASSET_TAGS = (); }; };
+		B1E9EAC61BAF99550008A839 /* XSDropView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9EAC51BAF99550008A839 /* XSDropView.m */; settings = {ASSET_TAGS = (); }; };
+		B1F041EF1BB2404B0045B9A5 /* XSBannerView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F041EE1BB2404B0045B9A5 /* XSBannerView.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D181BC6004F009F19DA /* XSForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43CFA1BC6004F009F19DA /* XSForgetPasswordViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D191BC6004F009F19DA /* XSForgetPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43CFB1BC6004F009F19DA /* XSForgetPasswordViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D1A1BC6004F009F19DA /* XSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43CFE1BC6004F009F19DA /* XSLoginViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D1B1BC6004F009F19DA /* XSLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43CFF1BC6004F009F19DA /* XSLoginViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D1C1BC6004F009F19DA /* XSBindMemberCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D031BC6004F009F19DA /* XSBindMemberCardViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D1D1BC6004F009F19DA /* XSBindMemberCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D041BC6004F009F19DA /* XSBindMemberCardViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D1E1BC6004F009F19DA /* XSMyMemberCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D071BC6004F009F19DA /* XSMyMemberCardViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D1F1BC6004F009F19DA /* XSMyMemberCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D081BC6004F009F19DA /* XSMyMemberCardViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D201BC6004F009F19DA /* XSPhoneNumberVerifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D0B1BC6004F009F19DA /* XSPhoneNumberVerifyViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D211BC6004F009F19DA /* XSPhoneNumberVerifyViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D0C1BC6004F009F19DA /* XSPhoneNumberVerifyViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D221BC6004F009F19DA /* XSWriteMemberNameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D0E1BC6004F009F19DA /* XSWriteMemberNameViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D231BC6004F009F19DA /* XSWriteMemberNameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D0F1BC6004F009F19DA /* XSWriteMemberNameViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D241BC6004F009F19DA /* XSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D121BC6004F009F19DA /* XSRegisterViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D251BC6004F009F19DA /* XSRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D131BC6004F009F19DA /* XSRegisterViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D261BC6004F009F19DA /* XSAccountCenterView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D151BC6004F009F19DA /* XSAccountCenterView.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D271BC6004F009F19DA /* XSAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D171BC6004F009F19DA /* XSAccountViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D6F1BC600E1009F19DA /* XSPromotionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D2A1BC600E1009F19DA /* XSPromotionCell.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D701BC600E1009F19DA /* XSPromotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D2B1BC600E1009F19DA /* XSPromotionCell.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D711BC600E1009F19DA /* XSPromotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D2D1BC600E1009F19DA /* XSPromotionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D721BC600E1009F19DA /* XSBannerCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D301BC600E1009F19DA /* XSBannerCollectionReusableView.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D731BC600E1009F19DA /* XSBannerCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D311BC600E1009F19DA /* XSBannerCollectionReusableView.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D741BC600E1009F19DA /* XSHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D331BC600E1009F19DA /* XSHeaderCollectionReusableView.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D751BC600E1009F19DA /* XSHeaderCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D341BC600E1009F19DA /* XSHeaderCollectionReusableView.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D761BC600E1009F19DA /* XSMutiCatagoryCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D361BC600E1009F19DA /* XSMutiCatagoryCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D771BC600E1009F19DA /* XSMutiCatagoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D371BC600E1009F19DA /* XSMutiCatagoryCollectionViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D781BC600E1009F19DA /* XSMutiCatagoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D391BC600E1009F19DA /* XSMutiCatagoryTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D791BC600E1009F19DA /* XSMutiCatagoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D3A1BC600E1009F19DA /* XSMutiCatagoryTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D7A1BC600E1009F19DA /* XSMutiCatagoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D3C1BC600E1009F19DA /* XSMutiCatagoryViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D7B1BC600E1009F19DA /* XSMutiCatagoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D3D1BC600E1009F19DA /* XSMutiCatagoryViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D7C1BC600E1009F19DA /* XSAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D411BC600E1009F19DA /* XSAddressViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D7D1BC600E1009F19DA /* XSAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D421BC600E1009F19DA /* XSAddressViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D7E1BC600E1009F19DA /* ControlPannel.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D441BC600E1009F19DA /* ControlPannel.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D7F1BC600E1009F19DA /* XSAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D461BC600E1009F19DA /* XSAddressTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D801BC600E1009F19DA /* XSAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D471BC600E1009F19DA /* XSAddressTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D811BC600E1009F19DA /* XSShoppingCartTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D491BC600E1009F19DA /* XSShoppingCartTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D821BC600E1009F19DA /* XSShoppingCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D4A1BC600E1009F19DA /* XSShoppingCartTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D831BC600E1009F19DA /* XSShoppingCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D4C1BC600E1009F19DA /* XSShoppingCartViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D841BC600E1009F19DA /* XSCommodityListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D4F1BC600E1009F19DA /* XSCommodityListTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D851BC600E1009F19DA /* XSCommodityListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D501BC600E1009F19DA /* XSCommodityListTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D861BC600E1009F19DA /* XSCommodityListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D521BC600E1009F19DA /* XSCommodityListViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D871BC600E1009F19DA /* XSFilterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D541BC600E1009F19DA /* XSFilterViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D881BC600E1009F19DA /* XSFilterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D551BC600E1009F19DA /* XSFilterViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D891BC600E1009F19DA /* XSCommodityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D581BC600E1009F19DA /* XSCommodityViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D8A1BC600E1009F19DA /* XSFeedbackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D5A1BC600E1009F19DA /* XSFeedbackTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D8B1BC600E1009F19DA /* XSFeedbackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D5B1BC600E1009F19DA /* XSFeedbackTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D8C1BC600E1009F19DA /* XSFreshFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D5E1BC600E1009F19DA /* XSFreshFoodViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D8D1BC600E1009F19DA /* XSHomeDynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D611BC600E1009F19DA /* XSHomeDynamicViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D8E1BC600E1009F19DA /* XSHomeStaticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D631BC600E1009F19DA /* XSHomeStaticViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D8F1BC600E1009F19DA /* XSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D651BC600E1009F19DA /* XSHomeViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D901BC600E1009F19DA /* XSClearHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D681BC600E1009F19DA /* XSClearHistoryTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D911BC600E1009F19DA /* XSClearHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D691BC600E1009F19DA /* XSClearHistoryTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F43D921BC600E1009F19DA /* XSResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D6B1BC600E1009F19DA /* XSResultTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D931BC600E1009F19DA /* XSSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D6D1BC600E1009F19DA /* XSSearchTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1F43D941BC600E1009F19DA /* XSSearchTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D6E1BC600E1009F19DA /* XSSearchTableViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		B1F622291BB0DD3B0037C70F /* XSCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F622281BB0DD3B0037C70F /* XSCodeGenerator.m */; settings = {ASSET_TAGS = (); }; };
+		B1F9EF871BB389060040F9E0 /* XSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F9EF861BB389060040F9E0 /* XSScrollView.m */; settings = {ASSET_TAGS = (); }; };
+		B1FDF5861BB90B55008418E8 /* XSCountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FDF5851BB90B55008418E8 /* XSCountDownLabel.m */; settings = {ASSET_TAGS = (); }; };
+		E60EE3714EAFCEA717DDB766 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08795A3937B2DB14EE781AA3 /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B161CD1C1B96C9F400D4689C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B161CCFA1B96C9F300D4689C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B161CD011B96C9F300D4689C;
+			remoteInfo = SanjiangShopping;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		08795A3937B2DB14EE781AA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4ED5DFA06B54F3B809C18E92 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		5FA4290FEC567EB3EE84BD68 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B12D0F051BB13CF3003FFC5F /* ThemeColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeColor.h; sourceTree = "<group>"; };
+		B161C4A51BAAB21500B23AA5 /* CommodityListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommodityListModel.h; sourceTree = "<group>"; };
+		B161C4A61BAAB21500B23AA5 /* CommodityListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommodityListModel.m; sourceTree = "<group>"; };
+		B161CD021B96C9F300D4689C /* SanjiangShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SanjiangShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B161CD061B96C9F300D4689C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B161CD071B96C9F300D4689C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B161CD121B96C9F300D4689C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		B161CD151B96C9F300D4689C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		B161CD1B1B96C9F400D4689C /* SanjiangShoppingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SanjiangShoppingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B161CD201B96C9F400D4689C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B161CD211B96C9F400D4689C /* SanjiangShoppingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SanjiangShoppingTests.m; sourceTree = "<group>"; };
+		B161CD2C1B96CA7000D4689C /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B161CD2D1B96CA7000D4689C /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B161CD2F1B96CA7000D4689C /* NetworkConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworkConstant.h; sourceTree = "<group>"; };
+		B161CD301B96CA7000D4689C /* NetworkConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworkConstant.m; sourceTree = "<group>"; };
+		B161CD311B96CA7000D4689C /* NotificationNameConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationNameConstant.h; sourceTree = "<group>"; };
+		B161CD321B96CA7000D4689C /* NotificationNameConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationNameConstant.m; sourceTree = "<group>"; };
+		B161CD5B1B96CA7000D4689C /* XSTabBarConteroller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSTabBarConteroller.h; sourceTree = "<group>"; };
+		B161CD5C1B96CA7000D4689C /* XSTabBarConteroller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSTabBarConteroller.m; sourceTree = "<group>"; };
+		B161CD761B96CA7000D4689C /* XSButtonGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSButtonGridView.h; sourceTree = "<group>"; };
+		B161CD771B96CA7000D4689C /* XSButtonGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSButtonGridView.m; sourceTree = "<group>"; };
+		B161CD791B96CA7000D4689C /* HotWordsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotWordsView.h; sourceTree = "<group>"; };
+		B161CD7A1B96CA7000D4689C /* HotWordsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotWordsView.m; sourceTree = "<group>"; };
+		B161CD801B96CA7000D4689C /* XSNavigationBarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSNavigationBarHelper.h; sourceTree = "<group>"; };
+		B161CD811B96CA7000D4689C /* XSNavigationBarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSNavigationBarHelper.m; sourceTree = "<group>"; };
+		B161CD821B96CA7000D4689C /* XSSearchBarHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSSearchBarHelper.h; sourceTree = "<group>"; };
+		B161CD831B96CA7000D4689C /* XSSearchBarHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSSearchBarHelper.m; sourceTree = "<group>"; };
+		B161CD851B96CA7000D4689C /* AppMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppMacro.h; sourceTree = "<group>"; };
+		B161CD861B96CA7000D4689C /* UtilsMacro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UtilsMacro.h; sourceTree = "<group>"; };
+		B161CD881B96CA7000D4689C /* BaseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseModel.h; sourceTree = "<group>"; };
+		B161CD891B96CA7000D4689C /* BaseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseModel.m; sourceTree = "<group>"; };
+		B161CD8B1B96CA7000D4689C /* CollectionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionModel.h; sourceTree = "<group>"; };
+		B161CD8C1B96CA7000D4689C /* CollectionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionModel.m; sourceTree = "<group>"; };
+		B161CD8D1B96CA7000D4689C /* MenuModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuModel.h; sourceTree = "<group>"; };
+		B161CD8E1B96CA7000D4689C /* MenuModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuModel.m; sourceTree = "<group>"; };
+		B161CD901B96CA7000D4689C /* FloorDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FloorDataModel.h; sourceTree = "<group>"; };
+		B161CD911B96CA7000D4689C /* FloorDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FloorDataModel.m; sourceTree = "<group>"; };
+		B161CD921B96CA7000D4689C /* HeadModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HeadModel.h; sourceTree = "<group>"; };
+		B161CD931B96CA7000D4689C /* HeadModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HeadModel.m; sourceTree = "<group>"; };
+		B161CD941B96CA7000D4689C /* HomeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeModel.h; sourceTree = "<group>"; };
+		B161CD951B96CA7000D4689C /* HomeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeModel.m; sourceTree = "<group>"; };
+		B161CD961B96CA7000D4689C /* HomeMoreModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeMoreModel.h; sourceTree = "<group>"; };
+		B161CD971B96CA7000D4689C /* HomeMoreModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeMoreModel.m; sourceTree = "<group>"; };
+		B161CD991B96CA7000D4689C /* PromotionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PromotionModel.h; sourceTree = "<group>"; };
+		B161CD9A1B96CA7000D4689C /* PromotionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PromotionModel.m; sourceTree = "<group>"; };
+		B161CD9C1B96CA7000D4689C /* HotWordsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotWordsModel.h; sourceTree = "<group>"; };
+		B161CD9D1B96CA7000D4689C /* HotWordsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotWordsModel.m; sourceTree = "<group>"; };
+		B16487731BB256C200778A07 /* XS4211View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XS4211View.h; sourceTree = "<group>"; };
+		B16487741BB256C200778A07 /* XS4211View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XS4211View.m; sourceTree = "<group>"; };
+		B19C25A81BB4CAB5007F96CC /* XSThemeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSThemeView.h; sourceTree = "<group>"; };
+		B19C25A91BB4CAB5007F96CC /* XSThemeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSThemeView.m; sourceTree = "<group>"; };
+		B19C25F51BB4F6C2007F96CC /* BuyPannel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyPannel.xib; sourceTree = "<group>"; };
+		B19C25FC1BB51437007F96CC /* XSNameView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSNameView.h; sourceTree = "<group>"; };
+		B19C25FD1BB51437007F96CC /* XSNameView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSNameView.m; sourceTree = "<group>"; };
+		B19C260A1BB52F8E007F96CC /* MoreDetailView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MoreDetailView.xib; sourceTree = "<group>"; };
+		B1A61C4E1BB3DB0000AF8795 /* XSBuyNowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSBuyNowView.h; sourceTree = "<group>"; };
+		B1A61C4F1BB3DB0000AF8795 /* XSBuyNowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSBuyNowView.m; sourceTree = "<group>"; };
+		B1BCF6B71BB39C5C006020E3 /* RecommendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RecommendView.xib; sourceTree = "<group>"; };
+		B1BCF6BA1BB3A0A6006020E3 /* XSMoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMoreView.h; sourceTree = "<group>"; };
+		B1BCF6BB1BB3A0A6006020E3 /* XSMoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMoreView.m; sourceTree = "<group>"; };
+		B1BCF6C21BB3CEDF006020E3 /* XS1111WhiteView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XS1111WhiteView.h; sourceTree = "<group>"; };
+		B1BCF6C31BB3CEDF006020E3 /* XS1111WhiteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XS1111WhiteView.m; sourceTree = "<group>"; };
+		B1BCF6C51BB3CF7B006020E3 /* XS1111GrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XS1111GrayView.h; sourceTree = "<group>"; };
+		B1BCF6C61BB3CF7B006020E3 /* XS1111GrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XS1111GrayView.m; sourceTree = "<group>"; };
+		B1D931F31B9EEB4800498D8B /* CartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartModel.h; sourceTree = "<group>"; };
+		B1D931F41B9EEB4800498D8B /* CartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartModel.m; sourceTree = "<group>"; };
+		B1E9AA5C1BB902FA00CFDFD3 /* CommodityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommodityModel.h; sourceTree = "<group>"; };
+		B1E9AA5D1BB902FA00CFDFD3 /* CommodityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommodityModel.m; sourceTree = "<group>"; };
+		B1E9EABC1BAF92FA0008A839 /* XSSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSSegmentControl.h; sourceTree = "<group>"; };
+		B1E9EABD1BAF92FA0008A839 /* XSSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSSegmentControl.m; sourceTree = "<group>"; };
+		B1E9EAC41BAF99550008A839 /* XSDropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSDropView.h; sourceTree = "<group>"; };
+		B1E9EAC51BAF99550008A839 /* XSDropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSDropView.m; sourceTree = "<group>"; };
+		B1F041ED1BB2404B0045B9A5 /* XSBannerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSBannerView.h; sourceTree = "<group>"; };
+		B1F041EE1BB2404B0045B9A5 /* XSBannerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSBannerView.m; sourceTree = "<group>"; };
+		B1F43CF91BC6004F009F19DA /* XSForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSForgetPasswordViewController.h; sourceTree = "<group>"; };
+		B1F43CFA1BC6004F009F19DA /* XSForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSForgetPasswordViewController.m; sourceTree = "<group>"; };
+		B1F43CFB1BC6004F009F19DA /* XSForgetPasswordViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSForgetPasswordViewController.xib; sourceTree = "<group>"; };
+		B1F43CFD1BC6004F009F19DA /* XSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSLoginViewController.h; sourceTree = "<group>"; };
+		B1F43CFE1BC6004F009F19DA /* XSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSLoginViewController.m; sourceTree = "<group>"; };
+		B1F43CFF1BC6004F009F19DA /* XSLoginViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSLoginViewController.xib; sourceTree = "<group>"; };
+		B1F43D021BC6004F009F19DA /* XSBindMemberCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSBindMemberCardViewController.h; sourceTree = "<group>"; };
+		B1F43D031BC6004F009F19DA /* XSBindMemberCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSBindMemberCardViewController.m; sourceTree = "<group>"; };
+		B1F43D041BC6004F009F19DA /* XSBindMemberCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSBindMemberCardViewController.xib; sourceTree = "<group>"; };
+		B1F43D061BC6004F009F19DA /* XSMyMemberCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMyMemberCardViewController.h; sourceTree = "<group>"; };
+		B1F43D071BC6004F009F19DA /* XSMyMemberCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMyMemberCardViewController.m; sourceTree = "<group>"; };
+		B1F43D081BC6004F009F19DA /* XSMyMemberCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSMyMemberCardViewController.xib; sourceTree = "<group>"; };
+		B1F43D0A1BC6004F009F19DA /* XSPhoneNumberVerifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSPhoneNumberVerifyViewController.h; sourceTree = "<group>"; };
+		B1F43D0B1BC6004F009F19DA /* XSPhoneNumberVerifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSPhoneNumberVerifyViewController.m; sourceTree = "<group>"; };
+		B1F43D0C1BC6004F009F19DA /* XSPhoneNumberVerifyViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSPhoneNumberVerifyViewController.xib; sourceTree = "<group>"; };
+		B1F43D0D1BC6004F009F19DA /* XSWriteMemberNameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSWriteMemberNameViewController.h; sourceTree = "<group>"; };
+		B1F43D0E1BC6004F009F19DA /* XSWriteMemberNameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSWriteMemberNameViewController.m; sourceTree = "<group>"; };
+		B1F43D0F1BC6004F009F19DA /* XSWriteMemberNameViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSWriteMemberNameViewController.xib; sourceTree = "<group>"; };
+		B1F43D111BC6004F009F19DA /* XSRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSRegisterViewController.h; sourceTree = "<group>"; };
+		B1F43D121BC6004F009F19DA /* XSRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSRegisterViewController.m; sourceTree = "<group>"; };
+		B1F43D131BC6004F009F19DA /* XSRegisterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSRegisterViewController.xib; sourceTree = "<group>"; };
+		B1F43D141BC6004F009F19DA /* XSAccountCenterView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAccountCenterView.h; sourceTree = "<group>"; };
+		B1F43D151BC6004F009F19DA /* XSAccountCenterView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSAccountCenterView.m; sourceTree = "<group>"; };
+		B1F43D161BC6004F009F19DA /* XSAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAccountViewController.h; sourceTree = "<group>"; };
+		B1F43D171BC6004F009F19DA /* XSAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSAccountViewController.m; sourceTree = "<group>"; };
+		B1F43D291BC600E1009F19DA /* XSPromotionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSPromotionCell.h; sourceTree = "<group>"; };
+		B1F43D2A1BC600E1009F19DA /* XSPromotionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSPromotionCell.m; sourceTree = "<group>"; };
+		B1F43D2B1BC600E1009F19DA /* XSPromotionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSPromotionCell.xib; sourceTree = "<group>"; };
+		B1F43D2C1BC600E1009F19DA /* XSPromotionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSPromotionViewController.h; sourceTree = "<group>"; };
+		B1F43D2D1BC600E1009F19DA /* XSPromotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSPromotionViewController.m; sourceTree = "<group>"; };
+		B1F43D2F1BC600E1009F19DA /* XSBannerCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSBannerCollectionReusableView.h; sourceTree = "<group>"; };
+		B1F43D301BC600E1009F19DA /* XSBannerCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSBannerCollectionReusableView.m; sourceTree = "<group>"; };
+		B1F43D311BC600E1009F19DA /* XSBannerCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSBannerCollectionReusableView.xib; sourceTree = "<group>"; };
+		B1F43D321BC600E1009F19DA /* XSHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSHeaderCollectionReusableView.h; sourceTree = "<group>"; };
+		B1F43D331BC600E1009F19DA /* XSHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSHeaderCollectionReusableView.m; sourceTree = "<group>"; };
+		B1F43D341BC600E1009F19DA /* XSHeaderCollectionReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSHeaderCollectionReusableView.xib; sourceTree = "<group>"; };
+		B1F43D351BC600E1009F19DA /* XSMutiCatagoryCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMutiCatagoryCollectionViewCell.h; sourceTree = "<group>"; };
+		B1F43D361BC600E1009F19DA /* XSMutiCatagoryCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMutiCatagoryCollectionViewCell.m; sourceTree = "<group>"; };
+		B1F43D371BC600E1009F19DA /* XSMutiCatagoryCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSMutiCatagoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		B1F43D381BC600E1009F19DA /* XSMutiCatagoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMutiCatagoryTableViewCell.h; sourceTree = "<group>"; };
+		B1F43D391BC600E1009F19DA /* XSMutiCatagoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMutiCatagoryTableViewCell.m; sourceTree = "<group>"; };
+		B1F43D3A1BC600E1009F19DA /* XSMutiCatagoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSMutiCatagoryTableViewCell.xib; sourceTree = "<group>"; };
+		B1F43D3B1BC600E1009F19DA /* XSMutiCatagoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMutiCatagoryViewController.h; sourceTree = "<group>"; };
+		B1F43D3C1BC600E1009F19DA /* XSMutiCatagoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMutiCatagoryViewController.m; sourceTree = "<group>"; };
+		B1F43D3D1BC600E1009F19DA /* XSMutiCatagoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSMutiCatagoryViewController.xib; sourceTree = "<group>"; };
+		B1F43D401BC600E1009F19DA /* XSAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAddressViewController.h; sourceTree = "<group>"; };
+		B1F43D411BC600E1009F19DA /* XSAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSAddressViewController.m; sourceTree = "<group>"; };
+		B1F43D421BC600E1009F19DA /* XSAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSAddressViewController.xib; sourceTree = "<group>"; };
+		B1F43D441BC600E1009F19DA /* ControlPannel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlPannel.xib; sourceTree = "<group>"; };
+		B1F43D451BC600E1009F19DA /* XSAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAddressTableViewCell.h; sourceTree = "<group>"; };
+		B1F43D461BC600E1009F19DA /* XSAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSAddressTableViewCell.m; sourceTree = "<group>"; };
+		B1F43D471BC600E1009F19DA /* XSAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSAddressTableViewCell.xib; sourceTree = "<group>"; };
+		B1F43D481BC600E1009F19DA /* XSShoppingCartTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSShoppingCartTableViewCell.h; sourceTree = "<group>"; };
+		B1F43D491BC600E1009F19DA /* XSShoppingCartTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSShoppingCartTableViewCell.m; sourceTree = "<group>"; };
+		B1F43D4A1BC600E1009F19DA /* XSShoppingCartTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSShoppingCartTableViewCell.xib; sourceTree = "<group>"; };
+		B1F43D4B1BC600E1009F19DA /* XSShoppingCartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSShoppingCartViewController.h; sourceTree = "<group>"; };
+		B1F43D4C1BC600E1009F19DA /* XSShoppingCartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSShoppingCartViewController.m; sourceTree = "<group>"; };
+		B1F43D4E1BC600E1009F19DA /* XSCommodityListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityListTableViewCell.h; sourceTree = "<group>"; };
+		B1F43D4F1BC600E1009F19DA /* XSCommodityListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityListTableViewCell.m; sourceTree = "<group>"; };
+		B1F43D501BC600E1009F19DA /* XSCommodityListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCommodityListTableViewCell.xib; sourceTree = "<group>"; };
+		B1F43D511BC600E1009F19DA /* XSCommodityListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityListViewController.h; sourceTree = "<group>"; };
+		B1F43D521BC600E1009F19DA /* XSCommodityListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityListViewController.m; sourceTree = "<group>"; };
+		B1F43D531BC600E1009F19DA /* XSFilterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSFilterViewController.h; sourceTree = "<group>"; };
+		B1F43D541BC600E1009F19DA /* XSFilterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSFilterViewController.m; sourceTree = "<group>"; };
+		B1F43D551BC600E1009F19DA /* XSFilterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSFilterViewController.xib; sourceTree = "<group>"; };
+		B1F43D571BC600E1009F19DA /* XSCommodityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityViewController.h; sourceTree = "<group>"; };
+		B1F43D581BC600E1009F19DA /* XSCommodityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityViewController.m; sourceTree = "<group>"; };
+		B1F43D591BC600E1009F19DA /* XSFeedbackTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSFeedbackTableViewCell.h; sourceTree = "<group>"; };
+		B1F43D5A1BC600E1009F19DA /* XSFeedbackTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSFeedbackTableViewCell.m; sourceTree = "<group>"; };
+		B1F43D5B1BC600E1009F19DA /* XSFeedbackTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSFeedbackTableViewCell.xib; sourceTree = "<group>"; };
+		B1F43D5D1BC600E1009F19DA /* XSFreshFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSFreshFoodViewController.h; sourceTree = "<group>"; };
+		B1F43D5E1BC600E1009F19DA /* XSFreshFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSFreshFoodViewController.m; sourceTree = "<group>"; };
+		B1F43D601BC600E1009F19DA /* XSHomeDynamicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSHomeDynamicViewController.h; sourceTree = "<group>"; };
+		B1F43D611BC600E1009F19DA /* XSHomeDynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSHomeDynamicViewController.m; sourceTree = "<group>"; };
+		B1F43D621BC600E1009F19DA /* XSHomeStaticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSHomeStaticViewController.h; sourceTree = "<group>"; };
+		B1F43D631BC600E1009F19DA /* XSHomeStaticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSHomeStaticViewController.m; sourceTree = "<group>"; };
+		B1F43D641BC600E1009F19DA /* XSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSHomeViewController.h; sourceTree = "<group>"; };
+		B1F43D651BC600E1009F19DA /* XSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSHomeViewController.m; sourceTree = "<group>"; };
+		B1F43D671BC600E1009F19DA /* XSClearHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSClearHistoryTableViewCell.h; sourceTree = "<group>"; };
+		B1F43D681BC600E1009F19DA /* XSClearHistoryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSClearHistoryTableViewCell.m; sourceTree = "<group>"; };
+		B1F43D691BC600E1009F19DA /* XSClearHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSClearHistoryTableViewCell.xib; sourceTree = "<group>"; };
+		B1F43D6A1BC600E1009F19DA /* XSResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSResultTableViewController.h; sourceTree = "<group>"; };
+		B1F43D6B1BC600E1009F19DA /* XSResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSResultTableViewController.m; sourceTree = "<group>"; };
+		B1F43D6C1BC600E1009F19DA /* XSSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSSearchTableViewController.h; sourceTree = "<group>"; };
+		B1F43D6D1BC600E1009F19DA /* XSSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSSearchTableViewController.m; sourceTree = "<group>"; };
+		B1F43D6E1BC600E1009F19DA /* XSSearchTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSSearchTableViewController.xib; sourceTree = "<group>"; };
+		B1F622271BB0DD3B0037C70F /* XSCodeGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCodeGenerator.h; sourceTree = "<group>"; };
+		B1F622281BB0DD3B0037C70F /* XSCodeGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCodeGenerator.m; sourceTree = "<group>"; };
+		B1F9EF851BB389060040F9E0 /* XSScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSScrollView.h; sourceTree = "<group>"; };
+		B1F9EF861BB389060040F9E0 /* XSScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSScrollView.m; sourceTree = "<group>"; };
+		B1FDF5841BB90B55008418E8 /* XSCountDownLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCountDownLabel.h; sourceTree = "<group>"; };
+		B1FDF5851BB90B55008418E8 /* XSCountDownLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCountDownLabel.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B161CCFF1B96C9F300D4689C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E60EE3714EAFCEA717DDB766 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B161CD181B96C9F400D4689C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6DA45E2E6B10ACCE8F3627BC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4ED5DFA06B54F3B809C18E92 /* Pods.debug.xcconfig */,
+				5FA4290FEC567EB3EE84BD68 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		B13FDBBC1BAA56AC00DB3381 /* OtherView */ = {
+			isa = PBXGroup;
+			children = (
+				B1E9AA5F1BB9042200CFDFD3 /* XSCountDownLabel */,
+				B1E9EAC31BAF98A00008A839 /* XSDropView */,
+				B1E9EABB1BAF92FA0008A839 /* XSSegmentControl */,
+			);
+			path = OtherView;
+			sourceTree = "<group>";
+		};
+		B161C4A41BAAB1ED00B23AA5 /* CommodityList */ = {
+			isa = PBXGroup;
+			children = (
+				B161C4A51BAAB21500B23AA5 /* CommodityListModel.h */,
+				B161C4A61BAAB21500B23AA5 /* CommodityListModel.m */,
+			);
+			path = CommodityList;
+			sourceTree = "<group>";
+		};
+		B161CCF91B96C9F300D4689C = {
+			isa = PBXGroup;
+			children = (
+				B161CD041B96C9F300D4689C /* SanjiangShopping */,
+				B161CD1E1B96C9F400D4689C /* SanjiangShoppingTests */,
+				B161CD031B96C9F300D4689C /* Products */,
+				6DA45E2E6B10ACCE8F3627BC /* Pods */,
+				C55B08C3CAD128743CB1FF73 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B161CD031B96C9F300D4689C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD021B96C9F300D4689C /* SanjiangShopping.app */,
+				B161CD1B1B96C9F400D4689C /* SanjiangShoppingTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B161CD041B96C9F300D4689C /* SanjiangShopping */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD2B1B96CA7000D4689C /* AppDelegate */,
+				B161CD2E1B96CA7000D4689C /* Constant */,
+				B161CD331B96CA7000D4689C /* Controller */,
+				B161CD5D1B96CA7000D4689C /* General */,
+				B161CD7B1B96CA7000D4689C /* Helpers */,
+				B161CD841B96CA7000D4689C /* Macro */,
+				B161CD871B96CA7000D4689C /* Models */,
+				B161CD051B96C9F300D4689C /* Supporting Files */,
+			);
+			path = SanjiangShopping;
+			sourceTree = "<group>";
+		};
+		B161CD051B96C9F300D4689C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD121B96C9F300D4689C /* Images.xcassets */,
+				B161CD141B96C9F300D4689C /* LaunchScreen.xib */,
+				B161CD061B96C9F300D4689C /* Info.plist */,
+				B161CD071B96C9F300D4689C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B161CD1E1B96C9F400D4689C /* SanjiangShoppingTests */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD211B96C9F400D4689C /* SanjiangShoppingTests.m */,
+				B161CD1F1B96C9F400D4689C /* Supporting Files */,
+			);
+			path = SanjiangShoppingTests;
+			sourceTree = "<group>";
+		};
+		B161CD1F1B96C9F400D4689C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD201B96C9F400D4689C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B161CD2B1B96CA7000D4689C /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD2C1B96CA7000D4689C /* AppDelegate.h */,
+				B161CD2D1B96CA7000D4689C /* AppDelegate.m */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		B161CD2E1B96CA7000D4689C /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD2F1B96CA7000D4689C /* NetworkConstant.h */,
+				B161CD301B96CA7000D4689C /* NetworkConstant.m */,
+				B161CD311B96CA7000D4689C /* NotificationNameConstant.h */,
+				B161CD321B96CA7000D4689C /* NotificationNameConstant.m */,
+			);
+			path = Constant;
+			sourceTree = "<group>";
+		};
+		B161CD331B96CA7000D4689C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D5F1BC600E1009F19DA /* 首页 */,
+				B1F43D2E1BC600E1009F19DA /* 分类页 */,
+				B1F43D281BC600E1009F19DA /* 促销 */,
+				B1F43D3E1BC600E1009F19DA /* 购物车 */,
+				B1F43CF71BC6004F009F19DA /* 我的三江 */,
+				B1F43D4D1BC600E1009F19DA /* 商品列表 */,
+				B1F43D561BC600E1009F19DA /* 商品详情 */,
+				B1F43D5C1BC600E1009F19DA /* 生鲜超市 */,
+				B1F43D661BC600E1009F19DA /* 搜索 */,
+				B161CD5A1B96CA7000D4689C /* XSTabBarController */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		B161CD5A1B96CA7000D4689C /* XSTabBarController */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD5B1B96CA7000D4689C /* XSTabBarConteroller.h */,
+				B161CD5C1B96CA7000D4689C /* XSTabBarConteroller.m */,
+			);
+			path = XSTabBarController;
+			sourceTree = "<group>";
+		};
+		B161CD5D1B96CA7000D4689C /* General */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD5E1B96CA7000D4689C /* Views */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		B161CD5E1B96CA7000D4689C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD5F1B96CA7000D4689C /* HomeView */,
+				B161CD781B96CA7000D4689C /* SearchView */,
+				B19C25EE1BB4E9E8007F96CC /* CommodityView */,
+				B13FDBBC1BAA56AC00DB3381 /* OtherView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B161CD5F1B96CA7000D4689C /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				B1F041E11BB23EDF0045B9A5 /* View_4211 */,
+				B1BCF6BD1BB3CE96006020E3 /* View_1111_Gary */,
+				B1BCF6C01BB3CE96006020E3 /* View_1111_White */,
+				B1F041E81BB23EDF0045B9A5 /* View_Scroll */,
+				B1F041E71BB23EDF0045B9A5 /* View_BuyNow */,
+				B1F041E41BB23EDF0045B9A5 /* View_Banner */,
+				B1F041E91BB23EDF0045B9A5 /* View_Theme */,
+				B1BCF6B61BB39C5B006020E3 /* View_Recommend */,
+				B1BCF6B91BB3A0A6006020E3 /* View_More */,
+				B161CD751B96CA7000D4689C /* XSButtonGridView */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		B161CD751B96CA7000D4689C /* XSButtonGridView */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD761B96CA7000D4689C /* XSButtonGridView.h */,
+				B161CD771B96CA7000D4689C /* XSButtonGridView.m */,
+			);
+			path = XSButtonGridView;
+			sourceTree = "<group>";
+		};
+		B161CD781B96CA7000D4689C /* SearchView */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD791B96CA7000D4689C /* HotWordsView.h */,
+				B161CD7A1B96CA7000D4689C /* HotWordsView.m */,
+			);
+			path = SearchView;
+			sourceTree = "<group>";
+		};
+		B161CD7B1B96CA7000D4689C /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B1F622261BB0DCD80037C70F /* Tools */,
+				B161CD7F1B96CA7000D4689C /* NativeViewHelper */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B161CD7F1B96CA7000D4689C /* NativeViewHelper */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD801B96CA7000D4689C /* XSNavigationBarHelper.h */,
+				B161CD811B96CA7000D4689C /* XSNavigationBarHelper.m */,
+				B161CD821B96CA7000D4689C /* XSSearchBarHelper.h */,
+				B161CD831B96CA7000D4689C /* XSSearchBarHelper.m */,
+			);
+			path = NativeViewHelper;
+			sourceTree = "<group>";
+		};
+		B161CD841B96CA7000D4689C /* Macro */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD851B96CA7000D4689C /* AppMacro.h */,
+				B161CD861B96CA7000D4689C /* UtilsMacro.h */,
+				B12D0F051BB13CF3003FFC5F /* ThemeColor.h */,
+			);
+			path = Macro;
+			sourceTree = "<group>";
+		};
+		B161CD871B96CA7000D4689C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD881B96CA7000D4689C /* BaseModel.h */,
+				B161CD891B96CA7000D4689C /* BaseModel.m */,
+				B161CD8F1B96CA7000D4689C /* Home */,
+				B161CD8A1B96CA7000D4689C /* Catagory */,
+				B1E9AA5B1BB902D700CFDFD3 /* Commodity */,
+				B161C4A41BAAB1ED00B23AA5 /* CommodityList */,
+				B161CD981B96CA7000D4689C /* Promotion */,
+				B1D931F21B9EEB0700498D8B /* Cart */,
+				B161CD9B1B96CA7000D4689C /* Search */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B161CD8A1B96CA7000D4689C /* Catagory */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD8B1B96CA7000D4689C /* CollectionModel.h */,
+				B161CD8C1B96CA7000D4689C /* CollectionModel.m */,
+				B161CD8D1B96CA7000D4689C /* MenuModel.h */,
+				B161CD8E1B96CA7000D4689C /* MenuModel.m */,
+			);
+			path = Catagory;
+			sourceTree = "<group>";
+		};
+		B161CD8F1B96CA7000D4689C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD901B96CA7000D4689C /* FloorDataModel.h */,
+				B161CD911B96CA7000D4689C /* FloorDataModel.m */,
+				B161CD921B96CA7000D4689C /* HeadModel.h */,
+				B161CD931B96CA7000D4689C /* HeadModel.m */,
+				B161CD941B96CA7000D4689C /* HomeModel.h */,
+				B161CD951B96CA7000D4689C /* HomeModel.m */,
+				B161CD961B96CA7000D4689C /* HomeMoreModel.h */,
+				B161CD971B96CA7000D4689C /* HomeMoreModel.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B161CD981B96CA7000D4689C /* Promotion */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD991B96CA7000D4689C /* PromotionModel.h */,
+				B161CD9A1B96CA7000D4689C /* PromotionModel.m */,
+			);
+			path = Promotion;
+			sourceTree = "<group>";
+		};
+		B161CD9B1B96CA7000D4689C /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				B161CD9C1B96CA7000D4689C /* HotWordsModel.h */,
+				B161CD9D1B96CA7000D4689C /* HotWordsModel.m */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		B19C25EE1BB4E9E8007F96CC /* CommodityView */ = {
+			isa = PBXGroup;
+			children = (
+				B19C26001BB51E97007F96CC /* View_MoreDetail */,
+				B19C26011BB51E97007F96CC /* View_Recommend */,
+				B19C25F41BB4F6A8007F96CC /* View_Pannel */,
+				B19C25F21BB4EA59007F96CC /* View_Name */,
+				B19C25F01BB4EA59007F96CC /* View_Feedback */,
+			);
+			path = CommodityView;
+			sourceTree = "<group>";
+		};
+		B19C25F01BB4EA59007F96CC /* View_Feedback */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View_Feedback;
+			sourceTree = "<group>";
+		};
+		B19C25F21BB4EA59007F96CC /* View_Name */ = {
+			isa = PBXGroup;
+			children = (
+				B19C25FC1BB51437007F96CC /* XSNameView.h */,
+				B19C25FD1BB51437007F96CC /* XSNameView.m */,
+			);
+			path = View_Name;
+			sourceTree = "<group>";
+		};
+		B19C25F41BB4F6A8007F96CC /* View_Pannel */ = {
+			isa = PBXGroup;
+			children = (
+				B19C25F51BB4F6C2007F96CC /* BuyPannel.xib */,
+			);
+			path = View_Pannel;
+			sourceTree = "<group>";
+		};
+		B19C26001BB51E97007F96CC /* View_MoreDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B19C260A1BB52F8E007F96CC /* MoreDetailView.xib */,
+			);
+			path = View_MoreDetail;
+			sourceTree = "<group>";
+		};
+		B19C26011BB51E97007F96CC /* View_Recommend */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View_Recommend;
+			sourceTree = "<group>";
+		};
+		B1BCF6B61BB39C5B006020E3 /* View_Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				B1BCF6B71BB39C5C006020E3 /* RecommendView.xib */,
+			);
+			path = View_Recommend;
+			sourceTree = "<group>";
+		};
+		B1BCF6B91BB3A0A6006020E3 /* View_More */ = {
+			isa = PBXGroup;
+			children = (
+				B1BCF6BA1BB3A0A6006020E3 /* XSMoreView.h */,
+				B1BCF6BB1BB3A0A6006020E3 /* XSMoreView.m */,
+			);
+			path = View_More;
+			sourceTree = "<group>";
+		};
+		B1BCF6BD1BB3CE96006020E3 /* View_1111_Gary */ = {
+			isa = PBXGroup;
+			children = (
+				B1BCF6C51BB3CF7B006020E3 /* XS1111GrayView.h */,
+				B1BCF6C61BB3CF7B006020E3 /* XS1111GrayView.m */,
+			);
+			path = View_1111_Gary;
+			sourceTree = "<group>";
+		};
+		B1BCF6C01BB3CE96006020E3 /* View_1111_White */ = {
+			isa = PBXGroup;
+			children = (
+				B1BCF6C21BB3CEDF006020E3 /* XS1111WhiteView.h */,
+				B1BCF6C31BB3CEDF006020E3 /* XS1111WhiteView.m */,
+			);
+			path = View_1111_White;
+			sourceTree = "<group>";
+		};
+		B1D931F21B9EEB0700498D8B /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				B1D931F31B9EEB4800498D8B /* CartModel.h */,
+				B1D931F41B9EEB4800498D8B /* CartModel.m */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		B1E9AA5B1BB902D700CFDFD3 /* Commodity */ = {
+			isa = PBXGroup;
+			children = (
+				B1E9AA5C1BB902FA00CFDFD3 /* CommodityModel.h */,
+				B1E9AA5D1BB902FA00CFDFD3 /* CommodityModel.m */,
+			);
+			path = Commodity;
+			sourceTree = "<group>";
+		};
+		B1E9AA5F1BB9042200CFDFD3 /* XSCountDownLabel */ = {
+			isa = PBXGroup;
+			children = (
+				B1FDF5841BB90B55008418E8 /* XSCountDownLabel.h */,
+				B1FDF5851BB90B55008418E8 /* XSCountDownLabel.m */,
+			);
+			path = XSCountDownLabel;
+			sourceTree = "<group>";
+		};
+		B1E9EABB1BAF92FA0008A839 /* XSSegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				B1E9EABC1BAF92FA0008A839 /* XSSegmentControl.h */,
+				B1E9EABD1BAF92FA0008A839 /* XSSegmentControl.m */,
+			);
+			path = XSSegmentControl;
+			sourceTree = "<group>";
+		};
+		B1E9EAC31BAF98A00008A839 /* XSDropView */ = {
+			isa = PBXGroup;
+			children = (
+				B1E9EAC41BAF99550008A839 /* XSDropView.h */,
+				B1E9EAC51BAF99550008A839 /* XSDropView.m */,
+			);
+			path = XSDropView;
+			sourceTree = "<group>";
+		};
+		B1F041E11BB23EDF0045B9A5 /* View_4211 */ = {
+			isa = PBXGroup;
+			children = (
+				B16487731BB256C200778A07 /* XS4211View.h */,
+				B16487741BB256C200778A07 /* XS4211View.m */,
+			);
+			path = View_4211;
+			sourceTree = "<group>";
+		};
+		B1F041E41BB23EDF0045B9A5 /* View_Banner */ = {
+			isa = PBXGroup;
+			children = (
+				B1F041EC1BB2404B0045B9A5 /* XSBannerView */,
+			);
+			path = View_Banner;
+			sourceTree = "<group>";
+		};
+		B1F041E71BB23EDF0045B9A5 /* View_BuyNow */ = {
+			isa = PBXGroup;
+			children = (
+				B1A61C4E1BB3DB0000AF8795 /* XSBuyNowView.h */,
+				B1A61C4F1BB3DB0000AF8795 /* XSBuyNowView.m */,
+			);
+			path = View_BuyNow;
+			sourceTree = "<group>";
+		};
+		B1F041E81BB23EDF0045B9A5 /* View_Scroll */ = {
+			isa = PBXGroup;
+			children = (
+				B1F9EF851BB389060040F9E0 /* XSScrollView.h */,
+				B1F9EF861BB389060040F9E0 /* XSScrollView.m */,
+			);
+			path = View_Scroll;
+			sourceTree = "<group>";
+		};
+		B1F041E91BB23EDF0045B9A5 /* View_Theme */ = {
+			isa = PBXGroup;
+			children = (
+				B19C25A81BB4CAB5007F96CC /* XSThemeView.h */,
+				B19C25A91BB4CAB5007F96CC /* XSThemeView.m */,
+			);
+			path = View_Theme;
+			sourceTree = "<group>";
+		};
+		B1F041EC1BB2404B0045B9A5 /* XSBannerView */ = {
+			isa = PBXGroup;
+			children = (
+				B1F041ED1BB2404B0045B9A5 /* XSBannerView.h */,
+				B1F041EE1BB2404B0045B9A5 /* XSBannerView.m */,
+			);
+			path = XSBannerView;
+			sourceTree = "<group>";
+		};
+		B1F43CF71BC6004F009F19DA /* 我的三江 */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43CF81BC6004F009F19DA /* ForgetPassword */,
+				B1F43CFC1BC6004F009F19DA /* Login */,
+				B1F43D001BC6004F009F19DA /* MemberCard */,
+				B1F43D101BC6004F009F19DA /* Register */,
+				B1F43D141BC6004F009F19DA /* XSAccountCenterView.h */,
+				B1F43D151BC6004F009F19DA /* XSAccountCenterView.m */,
+				B1F43D161BC6004F009F19DA /* XSAccountViewController.h */,
+				B1F43D171BC6004F009F19DA /* XSAccountViewController.m */,
+			);
+			path = "我的三江";
+			sourceTree = "<group>";
+		};
+		B1F43CF81BC6004F009F19DA /* ForgetPassword */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43CF91BC6004F009F19DA /* XSForgetPasswordViewController.h */,
+				B1F43CFA1BC6004F009F19DA /* XSForgetPasswordViewController.m */,
+				B1F43CFB1BC6004F009F19DA /* XSForgetPasswordViewController.xib */,
+			);
+			path = ForgetPassword;
+			sourceTree = "<group>";
+		};
+		B1F43CFC1BC6004F009F19DA /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43CFD1BC6004F009F19DA /* XSLoginViewController.h */,
+				B1F43CFE1BC6004F009F19DA /* XSLoginViewController.m */,
+				B1F43CFF1BC6004F009F19DA /* XSLoginViewController.xib */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B1F43D001BC6004F009F19DA /* MemberCard */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D011BC6004F009F19DA /* BindMemberCard */,
+				B1F43D051BC6004F009F19DA /* MyMemberCard */,
+				B1F43D091BC6004F009F19DA /* RegisterMemberCard */,
+			);
+			path = MemberCard;
+			sourceTree = "<group>";
+		};
+		B1F43D011BC6004F009F19DA /* BindMemberCard */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D021BC6004F009F19DA /* XSBindMemberCardViewController.h */,
+				B1F43D031BC6004F009F19DA /* XSBindMemberCardViewController.m */,
+				B1F43D041BC6004F009F19DA /* XSBindMemberCardViewController.xib */,
+			);
+			path = BindMemberCard;
+			sourceTree = "<group>";
+		};
+		B1F43D051BC6004F009F19DA /* MyMemberCard */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D061BC6004F009F19DA /* XSMyMemberCardViewController.h */,
+				B1F43D071BC6004F009F19DA /* XSMyMemberCardViewController.m */,
+				B1F43D081BC6004F009F19DA /* XSMyMemberCardViewController.xib */,
+			);
+			path = MyMemberCard;
+			sourceTree = "<group>";
+		};
+		B1F43D091BC6004F009F19DA /* RegisterMemberCard */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D0A1BC6004F009F19DA /* XSPhoneNumberVerifyViewController.h */,
+				B1F43D0B1BC6004F009F19DA /* XSPhoneNumberVerifyViewController.m */,
+				B1F43D0C1BC6004F009F19DA /* XSPhoneNumberVerifyViewController.xib */,
+				B1F43D0D1BC6004F009F19DA /* XSWriteMemberNameViewController.h */,
+				B1F43D0E1BC6004F009F19DA /* XSWriteMemberNameViewController.m */,
+				B1F43D0F1BC6004F009F19DA /* XSWriteMemberNameViewController.xib */,
+			);
+			path = RegisterMemberCard;
+			sourceTree = "<group>";
+		};
+		B1F43D101BC6004F009F19DA /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D111BC6004F009F19DA /* XSRegisterViewController.h */,
+				B1F43D121BC6004F009F19DA /* XSRegisterViewController.m */,
+				B1F43D131BC6004F009F19DA /* XSRegisterViewController.xib */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		B1F43D281BC600E1009F19DA /* 促销 */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D291BC600E1009F19DA /* XSPromotionCell.h */,
+				B1F43D2A1BC600E1009F19DA /* XSPromotionCell.m */,
+				B1F43D2B1BC600E1009F19DA /* XSPromotionCell.xib */,
+				B1F43D2C1BC600E1009F19DA /* XSPromotionViewController.h */,
+				B1F43D2D1BC600E1009F19DA /* XSPromotionViewController.m */,
+			);
+			path = "促销";
+			sourceTree = "<group>";
+		};
+		B1F43D2E1BC600E1009F19DA /* 分类页 */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D2F1BC600E1009F19DA /* XSBannerCollectionReusableView.h */,
+				B1F43D301BC600E1009F19DA /* XSBannerCollectionReusableView.m */,
+				B1F43D311BC600E1009F19DA /* XSBannerCollectionReusableView.xib */,
+				B1F43D321BC600E1009F19DA /* XSHeaderCollectionReusableView.h */,
+				B1F43D331BC600E1009F19DA /* XSHeaderCollectionReusableView.m */,
+				B1F43D341BC600E1009F19DA /* XSHeaderCollectionReusableView.xib */,
+				B1F43D351BC600E1009F19DA /* XSMutiCatagoryCollectionViewCell.h */,
+				B1F43D361BC600E1009F19DA /* XSMutiCatagoryCollectionViewCell.m */,
+				B1F43D371BC600E1009F19DA /* XSMutiCatagoryCollectionViewCell.xib */,
+				B1F43D381BC600E1009F19DA /* XSMutiCatagoryTableViewCell.h */,
+				B1F43D391BC600E1009F19DA /* XSMutiCatagoryTableViewCell.m */,
+				B1F43D3A1BC600E1009F19DA /* XSMutiCatagoryTableViewCell.xib */,
+				B1F43D3B1BC600E1009F19DA /* XSMutiCatagoryViewController.h */,
+				B1F43D3C1BC600E1009F19DA /* XSMutiCatagoryViewController.m */,
+				B1F43D3D1BC600E1009F19DA /* XSMutiCatagoryViewController.xib */,
+			);
+			path = "分类页";
+			sourceTree = "<group>";
+		};
+		B1F43D3E1BC600E1009F19DA /* 购物车 */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D3F1BC600E1009F19DA /* Address */,
+				B1F43D431BC600E1009F19DA /* ControlPannel */,
+				B1F43D451BC600E1009F19DA /* XSAddressTableViewCell.h */,
+				B1F43D461BC600E1009F19DA /* XSAddressTableViewCell.m */,
+				B1F43D471BC600E1009F19DA /* XSAddressTableViewCell.xib */,
+				B1F43D481BC600E1009F19DA /* XSShoppingCartTableViewCell.h */,
+				B1F43D491BC600E1009F19DA /* XSShoppingCartTableViewCell.m */,
+				B1F43D4A1BC600E1009F19DA /* XSShoppingCartTableViewCell.xib */,
+				B1F43D4B1BC600E1009F19DA /* XSShoppingCartViewController.h */,
+				B1F43D4C1BC600E1009F19DA /* XSShoppingCartViewController.m */,
+			);
+			path = "购物车";
+			sourceTree = "<group>";
+		};
+		B1F43D3F1BC600E1009F19DA /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D401BC600E1009F19DA /* XSAddressViewController.h */,
+				B1F43D411BC600E1009F19DA /* XSAddressViewController.m */,
+				B1F43D421BC600E1009F19DA /* XSAddressViewController.xib */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		B1F43D431BC600E1009F19DA /* ControlPannel */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D441BC600E1009F19DA /* ControlPannel.xib */,
+			);
+			path = ControlPannel;
+			sourceTree = "<group>";
+		};
+		B1F43D4D1BC600E1009F19DA /* 商品列表 */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D4E1BC600E1009F19DA /* XSCommodityListTableViewCell.h */,
+				B1F43D4F1BC600E1009F19DA /* XSCommodityListTableViewCell.m */,
+				B1F43D501BC600E1009F19DA /* XSCommodityListTableViewCell.xib */,
+				B1F43D511BC600E1009F19DA /* XSCommodityListViewController.h */,
+				B1F43D521BC600E1009F19DA /* XSCommodityListViewController.m */,
+				B1F43D531BC600E1009F19DA /* XSFilterViewController.h */,
+				B1F43D541BC600E1009F19DA /* XSFilterViewController.m */,
+				B1F43D551BC600E1009F19DA /* XSFilterViewController.xib */,
+			);
+			path = "商品列表";
+			sourceTree = "<group>";
+		};
+		B1F43D561BC600E1009F19DA /* 商品详情 */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D571BC600E1009F19DA /* XSCommodityViewController.h */,
+				B1F43D581BC600E1009F19DA /* XSCommodityViewController.m */,
+				B1F43D591BC600E1009F19DA /* XSFeedbackTableViewCell.h */,
+				B1F43D5A1BC600E1009F19DA /* XSFeedbackTableViewCell.m */,
+				B1F43D5B1BC600E1009F19DA /* XSFeedbackTableViewCell.xib */,
+			);
+			path = "商品详情";
+			sourceTree = "<group>";
+		};
+		B1F43D5C1BC600E1009F19DA /* 生鲜超市 */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D5D1BC600E1009F19DA /* XSFreshFoodViewController.h */,
+				B1F43D5E1BC600E1009F19DA /* XSFreshFoodViewController.m */,
+			);
+			path = "生鲜超市";
+			sourceTree = "<group>";
+		};
+		B1F43D5F1BC600E1009F19DA /* 首页 */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D601BC600E1009F19DA /* XSHomeDynamicViewController.h */,
+				B1F43D611BC600E1009F19DA /* XSHomeDynamicViewController.m */,
+				B1F43D621BC600E1009F19DA /* XSHomeStaticViewController.h */,
+				B1F43D631BC600E1009F19DA /* XSHomeStaticViewController.m */,
+				B1F43D641BC600E1009F19DA /* XSHomeViewController.h */,
+				B1F43D651BC600E1009F19DA /* XSHomeViewController.m */,
+			);
+			path = "首页";
+			sourceTree = "<group>";
+		};
+		B1F43D661BC600E1009F19DA /* 搜索 */ = {
+			isa = PBXGroup;
+			children = (
+				B1F43D671BC600E1009F19DA /* XSClearHistoryTableViewCell.h */,
+				B1F43D681BC600E1009F19DA /* XSClearHistoryTableViewCell.m */,
+				B1F43D691BC600E1009F19DA /* XSClearHistoryTableViewCell.xib */,
+				B1F43D6A1BC600E1009F19DA /* XSResultTableViewController.h */,
+				B1F43D6B1BC600E1009F19DA /* XSResultTableViewController.m */,
+				B1F43D6C1BC600E1009F19DA /* XSSearchTableViewController.h */,
+				B1F43D6D1BC600E1009F19DA /* XSSearchTableViewController.m */,
+				B1F43D6E1BC600E1009F19DA /* XSSearchTableViewController.xib */,
+			);
+			path = "搜索";
+			sourceTree = "<group>";
+		};
+		B1F622261BB0DCD80037C70F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				B1F622271BB0DD3B0037C70F /* XSCodeGenerator.h */,
+				B1F622281BB0DD3B0037C70F /* XSCodeGenerator.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		C55B08C3CAD128743CB1FF73 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08795A3937B2DB14EE781AA3 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B161CD011B96C9F300D4689C /* SanjiangShopping */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B161CD251B96C9F400D4689C /* Build configuration list for PBXNativeTarget "SanjiangShopping" */;
+			buildPhases = (
+				25EAD26D8C4C1732A3E309E1 /* Check Pods Manifest.lock */,
+				B161CCFE1B96C9F300D4689C /* Sources */,
+				B161CCFF1B96C9F300D4689C /* Frameworks */,
+				B161CD001B96C9F300D4689C /* Resources */,
+				37EABAEB7542DA153D3F09C7 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SanjiangShopping;
+			productName = SanjiangShopping;
+			productReference = B161CD021B96C9F300D4689C /* SanjiangShopping.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B161CD1A1B96C9F400D4689C /* SanjiangShoppingTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B161CD281B96C9F400D4689C /* Build configuration list for PBXNativeTarget "SanjiangShoppingTests" */;
+			buildPhases = (
+				B161CD171B96C9F400D4689C /* Sources */,
+				B161CD181B96C9F400D4689C /* Frameworks */,
+				B161CD191B96C9F400D4689C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B161CD1D1B96C9F400D4689C /* PBXTargetDependency */,
+			);
+			name = SanjiangShoppingTests;
+			productName = SanjiangShoppingTests;
+			productReference = B161CD1B1B96C9F400D4689C /* SanjiangShoppingTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B161CCFA1B96C9F300D4689C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = XS;
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Sanjiang Shopping Club Co., Ltd.";
+				TargetAttributes = {
+					B161CD011B96C9F300D4689C = {
+						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 7C4J7N67HV;
+					};
+					B161CD1A1B96C9F400D4689C = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = B161CD011B96C9F300D4689C;
+					};
+				};
+			};
+			buildConfigurationList = B161CCFD1B96C9F300D4689C /* Build configuration list for PBXProject "SanjiangShopping" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B161CCF91B96C9F300D4689C;
+			productRefGroup = B161CD031B96C9F300D4689C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B161CD011B96C9F300D4689C /* SanjiangShopping */,
+				B161CD1A1B96C9F400D4689C /* SanjiangShoppingTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B161CD001B96C9F300D4689C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1F43D771BC600E1009F19DA /* XSMutiCatagoryCollectionViewCell.xib in Resources */,
+				B1F43D731BC600E1009F19DA /* XSBannerCollectionReusableView.xib in Resources */,
+				B1F43D791BC600E1009F19DA /* XSMutiCatagoryTableViewCell.xib in Resources */,
+				B19C25F61BB4F6C2007F96CC /* BuyPannel.xib in Resources */,
+				B1F43D801BC600E1009F19DA /* XSAddressTableViewCell.xib in Resources */,
+				B161CD161B96C9F300D4689C /* LaunchScreen.xib in Resources */,
+				B1F43D1B1BC6004F009F19DA /* XSLoginViewController.xib in Resources */,
+				B1F43D7B1BC600E1009F19DA /* XSMutiCatagoryViewController.xib in Resources */,
+				B1F43D701BC600E1009F19DA /* XSPromotionCell.xib in Resources */,
+				B1F43D911BC600E1009F19DA /* XSClearHistoryTableViewCell.xib in Resources */,
+				B1F43D1D1BC6004F009F19DA /* XSBindMemberCardViewController.xib in Resources */,
+				B1F43D851BC600E1009F19DA /* XSCommodityListTableViewCell.xib in Resources */,
+				B1F43D881BC600E1009F19DA /* XSFilterViewController.xib in Resources */,
+				B1F43D191BC6004F009F19DA /* XSForgetPasswordViewController.xib in Resources */,
+				B19C260B1BB52F8E007F96CC /* MoreDetailView.xib in Resources */,
+				B1F43D8B1BC600E1009F19DA /* XSFeedbackTableViewCell.xib in Resources */,
+				B1F43D941BC600E1009F19DA /* XSSearchTableViewController.xib in Resources */,
+				B1F43D751BC600E1009F19DA /* XSHeaderCollectionReusableView.xib in Resources */,
+				B1BCF6B81BB39C5C006020E3 /* RecommendView.xib in Resources */,
+				B1F43D821BC600E1009F19DA /* XSShoppingCartTableViewCell.xib in Resources */,
+				B1F43D231BC6004F009F19DA /* XSWriteMemberNameViewController.xib in Resources */,
+				B1F43D1F1BC6004F009F19DA /* XSMyMemberCardViewController.xib in Resources */,
+				B1F43D211BC6004F009F19DA /* XSPhoneNumberVerifyViewController.xib in Resources */,
+				B1F43D251BC6004F009F19DA /* XSRegisterViewController.xib in Resources */,
+				B1F43D7E1BC600E1009F19DA /* ControlPannel.xib in Resources */,
+				B161CD131B96C9F300D4689C /* Images.xcassets in Resources */,
+				B1F43D7D1BC600E1009F19DA /* XSAddressViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B161CD191B96C9F400D4689C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		25EAD26D8C4C1732A3E309E1 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		37EABAEB7542DA153D3F09C7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B161CCFE1B96C9F300D4689C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B161CD9E1B96CA7000D4689C /* AppDelegate.m in Sources */,
+				B1F622291BB0DD3B0037C70F /* XSCodeGenerator.m in Sources */,
+				B1FDF5861BB90B55008418E8 /* XSCountDownLabel.m in Sources */,
+				B1F43D181BC6004F009F19DA /* XSForgetPasswordViewController.m in Sources */,
+				B1F43D841BC600E1009F19DA /* XSCommodityListTableViewCell.m in Sources */,
+				B1E9EAC61BAF99550008A839 /* XSDropView.m in Sources */,
+				B1BCF6C71BB3CF7B006020E3 /* XS1111GrayView.m in Sources */,
+				B1F43D8A1BC600E1009F19DA /* XSFeedbackTableViewCell.m in Sources */,
+				B161C4A71BAAB21500B23AA5 /* CommodityListModel.m in Sources */,
+				B1F43D271BC6004F009F19DA /* XSAccountViewController.m in Sources */,
+				B1F43D891BC600E1009F19DA /* XSCommodityViewController.m in Sources */,
+				B161CDC01B96CA7000D4689C /* XSNavigationBarHelper.m in Sources */,
+				B1F9EF871BB389060040F9E0 /* XSScrollView.m in Sources */,
+				B1F43D721BC600E1009F19DA /* XSBannerCollectionReusableView.m in Sources */,
+				B1F43D781BC600E1009F19DA /* XSMutiCatagoryTableViewCell.m in Sources */,
+				B1F43D861BC600E1009F19DA /* XSCommodityListViewController.m in Sources */,
+				B161CDC51B96CA7000D4689C /* FloorDataModel.m in Sources */,
+				B161CDC91B96CA7000D4689C /* PromotionModel.m in Sources */,
+				B161CDC11B96CA7000D4689C /* XSSearchBarHelper.m in Sources */,
+				B19C25FE1BB51437007F96CC /* XSNameView.m in Sources */,
+				B161CDC41B96CA7000D4689C /* MenuModel.m in Sources */,
+				B1F43D741BC600E1009F19DA /* XSHeaderCollectionReusableView.m in Sources */,
+				B1F43D811BC600E1009F19DA /* XSShoppingCartTableViewCell.m in Sources */,
+				B161CDC21B96CA7000D4689C /* BaseModel.m in Sources */,
+				B1BCF6BC1BB3A0A6006020E3 /* XSMoreView.m in Sources */,
+				B161CDBE1B96CA7000D4689C /* HotWordsView.m in Sources */,
+				B1A61C501BB3DB0000AF8795 /* XSBuyNowView.m in Sources */,
+				B1D931F51B9EEB4800498D8B /* CartModel.m in Sources */,
+				B1F43D8C1BC600E1009F19DA /* XSFreshFoodViewController.m in Sources */,
+				B1F43D221BC6004F009F19DA /* XSWriteMemberNameViewController.m in Sources */,
+				B1F43D241BC6004F009F19DA /* XSRegisterViewController.m in Sources */,
+				B1F43D1E1BC6004F009F19DA /* XSMyMemberCardViewController.m in Sources */,
+				B1F43D261BC6004F009F19DA /* XSAccountCenterView.m in Sources */,
+				B161CD081B96C9F300D4689C /* main.m in Sources */,
+				B1BCF6C41BB3CEDF006020E3 /* XS1111WhiteView.m in Sources */,
+				B19C25AA1BB4CAB5007F96CC /* XSThemeView.m in Sources */,
+				B16487751BB256C200778A07 /* XS4211View.m in Sources */,
+				B1F041EF1BB2404B0045B9A5 /* XSBannerView.m in Sources */,
+				B1F43D831BC600E1009F19DA /* XSShoppingCartViewController.m in Sources */,
+				B1E9EABE1BAF92FA0008A839 /* XSSegmentControl.m in Sources */,
+				B1F43D8E1BC600E1009F19DA /* XSHomeStaticViewController.m in Sources */,
+				B1F43D201BC6004F009F19DA /* XSPhoneNumberVerifyViewController.m in Sources */,
+				B161CDC81B96CA7000D4689C /* HomeMoreModel.m in Sources */,
+				B1F43D1C1BC6004F009F19DA /* XSBindMemberCardViewController.m in Sources */,
+				B161CDC71B96CA7000D4689C /* HomeModel.m in Sources */,
+				B1F43D6F1BC600E1009F19DA /* XSPromotionCell.m in Sources */,
+				B161CDB51B96CA7000D4689C /* XSTabBarConteroller.m in Sources */,
+				B161CD9F1B96CA7000D4689C /* NetworkConstant.m in Sources */,
+				B1F43D921BC600E1009F19DA /* XSResultTableViewController.m in Sources */,
+				B161CDA01B96CA7000D4689C /* NotificationNameConstant.m in Sources */,
+				B1F43D761BC600E1009F19DA /* XSMutiCatagoryCollectionViewCell.m in Sources */,
+				B1F43D7C1BC600E1009F19DA /* XSAddressViewController.m in Sources */,
+				B161CDC61B96CA7000D4689C /* HeadModel.m in Sources */,
+				B161CDCA1B96CA7000D4689C /* HotWordsModel.m in Sources */,
+				B161CDC31B96CA7000D4689C /* CollectionModel.m in Sources */,
+				B1F43D711BC600E1009F19DA /* XSPromotionViewController.m in Sources */,
+				B1F43D871BC600E1009F19DA /* XSFilterViewController.m in Sources */,
+				B1F43D8D1BC600E1009F19DA /* XSHomeDynamicViewController.m in Sources */,
+				B1F43D931BC600E1009F19DA /* XSSearchTableViewController.m in Sources */,
+				B1F43D7F1BC600E1009F19DA /* XSAddressTableViewCell.m in Sources */,
+				B1F43D7A1BC600E1009F19DA /* XSMutiCatagoryViewController.m in Sources */,
+				B1F43D8F1BC600E1009F19DA /* XSHomeViewController.m in Sources */,
+				B1E9AA5E1BB902FA00CFDFD3 /* CommodityModel.m in Sources */,
+				B161CDBD1B96CA7000D4689C /* XSButtonGridView.m in Sources */,
+				B1F43D1A1BC6004F009F19DA /* XSLoginViewController.m in Sources */,
+				B1F43D901BC600E1009F19DA /* XSClearHistoryTableViewCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B161CD171B96C9F400D4689C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B161CD221B96C9F400D4689C /* SanjiangShoppingTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B161CD1D1B96C9F400D4689C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B161CD011B96C9F300D4689C /* SanjiangShopping */;
+			targetProxy = B161CD1C1B96C9F400D4689C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B161CD141B96C9F300D4689C /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B161CD151B96C9F300D4689C /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B161CD231B96C9F400D4689C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B161CD241B96C9F400D4689C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B161CD261B96C9F400D4689C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4ED5DFA06B54F3B809C18E92 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = SanjiangShopping/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sanjiang.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B161CD271B96C9F400D4689C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FA4290FEC567EB3EE84BD68 /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = SanjiangShopping/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sanjiang.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B161CD291B96C9F400D4689C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SanjiangShoppingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sanjiang.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SanjiangShopping.app/SanjiangShopping";
+			};
+			name = Debug;
+		};
+		B161CD2A1B96C9F400D4689C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SanjiangShoppingTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.sanjiang.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SanjiangShopping.app/SanjiangShopping";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B161CCFD1B96C9F300D4689C /* Build configuration list for PBXProject "SanjiangShopping" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B161CD231B96C9F400D4689C /* Debug */,
+				B161CD241B96C9F400D4689C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B161CD251B96C9F400D4689C /* Build configuration list for PBXNativeTarget "SanjiangShopping" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B161CD261B96C9F400D4689C /* Debug */,
+				B161CD271B96C9F400D4689C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B161CD281B96C9F400D4689C /* Build configuration list for PBXNativeTarget "SanjiangShoppingTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B161CD291B96C9F400D4689C /* Debug */,
+				B161CD2A1B96C9F400D4689C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B161CCFA1B96C9F300D4689C /* Project object */;
+}

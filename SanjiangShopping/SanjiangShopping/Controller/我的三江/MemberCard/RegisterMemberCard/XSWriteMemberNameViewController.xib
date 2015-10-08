@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XSWriteMemberNameViewController">
+            <connections>
+                <outlet property="nameTextField" destination="ig6-eT-ApG" id="lCy-Yg-AfZ"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ime-jM-V6L">
+                    <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ig6-eT-ApG" userLabel="nameTextField">
+                            <rect key="frame" x="8" y="7" width="584" height="30"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="ig6-eT-ApG" firstAttribute="leading" secondItem="Ime-jM-V6L" secondAttribute="leading" constant="8" id="9zV-0J-Lqr"/>
+                        <constraint firstAttribute="height" constant="44" id="Mvr-bA-11d"/>
+                        <constraint firstAttribute="trailing" secondItem="ig6-eT-ApG" secondAttribute="trailing" constant="8" id="NYH-gB-vkB"/>
+                        <constraint firstAttribute="bottom" secondItem="ig6-eT-ApG" secondAttribute="bottom" constant="7" id="Xrh-w0-sva"/>
+                        <constraint firstItem="ig6-eT-ApG" firstAttribute="top" secondItem="Ime-jM-V6L" secondAttribute="top" constant="7" id="s7M-LA-oFq"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请填写真实姓名，以便我们送货时与您联系" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YWW-Vn-SkW">
+                    <rect key="frame" x="8" y="124" width="266" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="k7H-RF-dnA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.59607843140000005" green="0.59607843140000005" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Ime-jM-V6L" secondAttribute="trailing" id="0aL-HQ-rCs"/>
+                <constraint firstItem="Ime-jM-V6L" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="72" id="54b-09-ahx"/>
+                <constraint firstItem="YWW-Vn-SkW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Ooy-gZ-RpE"/>
+                <constraint firstItem="Ime-jM-V6L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="UlV-GM-19h"/>
+                <constraint firstItem="YWW-Vn-SkW" firstAttribute="top" secondItem="Ime-jM-V6L" secondAttribute="bottom" constant="8" id="qQa-Vq-6VK"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+</document>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XSCommodityViewController">
+            <connections>
+                <outlet property="addToShopCartButton" destination="vee-6h-JSX" id="xfK-Ot-K6n"/>
+                <outlet property="buyNowButton" destination="aCA-ck-Ouo" id="NHW-rz-k1D"/>
+                <outlet property="favoriteButton" destination="p82-Vu-1V9" id="I7m-Eu-LUt"/>
+                <outlet property="favoriteView" destination="6yI-q3-Dr9" id="DHs-iI-x2W"/>
+                <outlet property="pannelView" destination="iN0-l3-epB" id="RPc-m3-YF0"/>
+                <outlet property="shopCartButton" destination="LYJ-dn-hCd" id="GRR-Nm-97q"/>
+                <outlet property="shopCartView" destination="DHM-M8-HGQ" id="6Q5-aA-Dpz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yI-q3-Dr9" userLabel="收藏">
+                    <rect key="frame" x="0.0" y="275" width="65" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p82-Vu-1V9">
+                            <rect key="frame" x="10" y="0.0" width="45" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="tmt-uj-jpN"/>
+                            </constraints>
+                            <connections>
+                                <action selector="addToFavorite:" destination="-1" eventType="touchUpInside" id="6jm-Rr-mNf"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收藏" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1h-Mp-OOX">
+                            <rect key="frame" x="10" y="35" width="45" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="U1h-Mp-OOX" firstAttribute="top" secondItem="p82-Vu-1V9" secondAttribute="bottom" id="9hp-QM-0uR"/>
+                        <constraint firstAttribute="height" constant="50" id="A5u-2j-XxV"/>
+                        <constraint firstItem="p82-Vu-1V9" firstAttribute="leading" secondItem="6yI-q3-Dr9" secondAttribute="leading" constant="10" id="C81-cw-EJH"/>
+                        <constraint firstAttribute="trailing" secondItem="p82-Vu-1V9" secondAttribute="trailing" constant="10" id="F1K-Wg-E1V"/>
+                        <constraint firstAttribute="bottom" secondItem="U1h-Mp-OOX" secondAttribute="bottom" id="PB6-16-30m"/>
+                        <constraint firstAttribute="width" constant="65" id="mbP-bL-Jel"/>
+                        <constraint firstItem="U1h-Mp-OOX" firstAttribute="leading" secondItem="6yI-q3-Dr9" secondAttribute="leading" constant="10" id="r3i-bt-eOT"/>
+                        <constraint firstAttribute="trailing" secondItem="U1h-Mp-OOX" secondAttribute="trailing" constant="10" id="sWO-gf-avC"/>
+                        <constraint firstItem="p82-Vu-1V9" firstAttribute="top" secondItem="6yI-q3-Dr9" secondAttribute="top" id="zdT-HY-hXK"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DHM-M8-HGQ" userLabel="购物车">
+                    <rect key="frame" x="65" y="275" width="65" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYJ-dn-hCd">
+                            <rect key="frame" x="10" y="0.0" width="45" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="cHP-uW-oNv"/>
+                            </constraints>
+                            <connections>
+                                <action selector="enterShoppingCart:" destination="-1" eventType="touchUpInside" id="W1x-5M-W0i"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购物车" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7SD-lj-epX">
+                            <rect key="frame" x="10" y="35" width="45" height="15"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="7SD-lj-epX" secondAttribute="bottom" id="14p-8W-Jhm"/>
+                        <constraint firstItem="LYJ-dn-hCd" firstAttribute="top" secondItem="DHM-M8-HGQ" secondAttribute="top" id="1yJ-80-5Dj"/>
+                        <constraint firstItem="LYJ-dn-hCd" firstAttribute="leading" secondItem="DHM-M8-HGQ" secondAttribute="leading" constant="10" id="2fA-wf-k5l"/>
+                        <constraint firstAttribute="trailing" secondItem="LYJ-dn-hCd" secondAttribute="trailing" constant="10" id="7wh-Rv-87k"/>
+                        <constraint firstAttribute="width" constant="65" id="EYg-Y9-sMD"/>
+                        <constraint firstAttribute="trailing" secondItem="7SD-lj-epX" secondAttribute="trailing" constant="10" id="bS9-Fz-oBD"/>
+                        <constraint firstItem="7SD-lj-epX" firstAttribute="top" secondItem="LYJ-dn-hCd" secondAttribute="bottom" id="lVD-ag-iz2"/>
+                        <constraint firstAttribute="height" constant="50" id="qra-Oa-8tK"/>
+                        <constraint firstItem="7SD-lj-epX" firstAttribute="leading" secondItem="DHM-M8-HGQ" secondAttribute="leading" constant="10" id="vAi-cx-9IJ"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCA-ck-Ouo">
+                    <rect key="frame" x="130" y="275" width="235" height="50"/>
+                    <color key="backgroundColor" red="0.92156862745098034" green="0.66274509803921566" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="dc7-W4-CF0"/>
+                    </constraints>
+                    <state key="normal" title="立即购买">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="buyNow:" destination="-1" eventType="touchUpInside" id="xs9-Jg-HIE"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vee-6h-JSX">
+                    <rect key="frame" x="365" y="275" width="235" height="50"/>
+                    <color key="backgroundColor" red="0.94117647058823528" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Wdd-XM-LDw"/>
+                    </constraints>
+                    <state key="normal" title="加入购物车">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="addToShoppingCart:" destination="-1" eventType="touchUpInside" id="ORf-Xt-J0E"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="DHM-M8-HGQ" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Aff-FR-EKy"/>
+                <constraint firstItem="aCA-ck-Ouo" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="Bte-4l-SRF"/>
+                <constraint firstItem="6yI-q3-Dr9" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="DeY-4b-O6V"/>
+                <constraint firstItem="aCA-ck-Ouo" firstAttribute="width" secondItem="vee-6h-JSX" secondAttribute="width" id="Pj2-Gy-3he"/>
+                <constraint firstItem="aCA-ck-Ouo" firstAttribute="leading" secondItem="DHM-M8-HGQ" secondAttribute="trailing" id="ZMl-t4-MSA"/>
+                <constraint firstItem="6yI-q3-Dr9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="ZWK-SM-Tfu"/>
+                <constraint firstItem="DHM-M8-HGQ" firstAttribute="leading" secondItem="6yI-q3-Dr9" secondAttribute="trailing" id="dvd-MA-OXA"/>
+                <constraint firstItem="vee-6h-JSX" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="g1y-DG-KTP"/>
+                <constraint firstItem="vee-6h-JSX" firstAttribute="leading" secondItem="aCA-ck-Ouo" secondAttribute="trailing" id="h6V-Ra-xZh"/>
+                <constraint firstAttribute="trailing" secondItem="vee-6h-JSX" secondAttribute="trailing" id="kbh-Qa-4OI"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+        </view>
+    </objects>
+</document>
