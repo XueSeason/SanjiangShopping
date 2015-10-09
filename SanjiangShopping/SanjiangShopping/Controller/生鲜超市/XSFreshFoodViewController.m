@@ -90,7 +90,7 @@
     [_scrollView addSubview:_freshFoodView];
     contentHight += freshFoodViewFrame.size.height;
     
-    NSArray *segmentTitles = @[@"优选水果", @"新鲜蔬菜", @"海鲜鱼肉", @"禽蛋干货", @"超级好吃", @"山珍海味", @"泪流满面"];
+    NSArray *segmentTitles = @[@"优选水果", @"新鲜蔬菜", @"海鲜鱼肉", @"禽蛋干货", @"超级好吃", @"山珍海味", @"泪流满面", @"再来一桶", @"无与伦比"];
     if (segmentTitles.count > 4) {
         CGFloat width = [UIScreen mainScreen].bounds.size.width / 4.0 * segmentTitles.count;
         _segmentControl = [[XSSegmentControl alloc] initWithFrame:CGRectMake(0, 0, width, 50)];
@@ -153,8 +153,14 @@
 
 #pragma mark - SegmentControl Delegate
 - (void)segmentItemSelected:(XSSegmentControlItem *)item {
-    if (item.frame.origin.x < _segmentControl.frame.size.width - _segmentScrollView.frame.size.width) {
-        [_segmentScrollView setContentOffset:item.frame.origin animated:YES];
+    if (item.frame.origin.x < _segmentControl.frame.size.width -  3 * item.frame.size.width && item.frame.origin.x >= 3 * item.frame.size.width) {
+        CGPoint point = CGPointMake(item.frame.origin.x - 2 * item.frame.size.width, item.frame.origin.y);
+        [_segmentScrollView setContentOffset:point animated:YES];
+    } else if (item.frame.origin.x == _segmentControl.frame.size.width -  3 * item.frame.size.width) {
+        CGPoint point = CGPointMake(item.frame.origin.x - item.frame.size.width, item.frame.origin.y);
+        [_segmentScrollView setContentOffset:point animated:YES];
+    } else if (item.frame.origin.x < 3 * item.frame.size.width) {
+        [_segmentScrollView setContentOffset:_segmentScrollView.frame.origin animated:YES];
     }
 }
 
