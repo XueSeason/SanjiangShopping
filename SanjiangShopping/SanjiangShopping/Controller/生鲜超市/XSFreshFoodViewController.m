@@ -12,8 +12,11 @@
 
 #import "XSRecomendScrollView.h"
 #import "XSSegmentControl.h"
+#import "XSCommodityListTableViewCell.h"
 
-@interface XSFreshFoodViewController () <UIScrollViewDelegate, XSSegmentControlDelegate>
+static NSString * const cellID = @"freshFoodList";
+
+@interface XSFreshFoodViewController () <UIScrollViewDelegate, XSSegmentControlDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *scrollView;
 @property (nonatomic, strong) UIImageView  *headerImageView;
@@ -23,6 +26,9 @@
 
 @property (strong, nonatomic) UIScrollView     *segmentScrollView;
 @property (strong, nonatomic) XSSegmentControl *segmentControl;
+@property (strong, nonatomic) UITableView      *freshFoodTableView;
+
+@property (strong, nonatomic) XSNavigationBarHelper *navHelper;
 
 @end
 
@@ -36,16 +42,15 @@
     UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:self action:@selector(comeBack)];
     leftButtonItem.tintColor = MAIN_TITLE_COLOR;
     self.navigationItem.leftBarButtonItem = leftButtonItem;
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
     
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"share"] style:UIBarButtonItemStylePlain target:self action:@selector(share)];
     rightButtonItem.tintColor = MAIN_TITLE_COLOR;
     self.navigationItem.rightBarButtonItem = rightButtonItem;
     
-    XSNavigationBarHelper *navHelper = [[XSNavigationBarHelper alloc] initWithNavigationBar:self.navigationController.navigationBar];
-    [navHelper peek];
-    navHelper._UINavigationBarBackground.backgroundColor = THEME_RED_TRANSPARENT;
-    navHelper._UIBackdropEffectView.hidden = YES;
-    navHelper.UIImageView.hidden = YES; // 去除UIImageView带来的线框
+    self.navHelper._UINavigationBarBackground.backgroundColor = THEME_WHITE_TRANSPARENT;
+    self.navHelper._UIBackdropEffectView.hidden = YES;
+    self.navHelper.UIImageView.hidden = YES; // 去除UIImageView带来的线框
     
     _scrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _scrollView.delegate                       = self;
@@ -84,7 +89,7 @@
     [_scrollView addSubview:goodTemp];
     contentHight += goodFrame.size.height;
     
-    CGRect freshFoodViewFrame = CGRectMake(0, goodFrame.size.height + goodFrame.origin.y, scrollWidth, 800);
+    CGRect freshFoodViewFrame = CGRectMake(0, goodFrame.size.height + goodFrame.origin.y, scrollWidth, [UIScreen mainScreen].bounds.size.height - 64);
     _freshFoodView = [[UIView alloc] initWithFrame:freshFoodViewFrame];
     _freshFoodView.backgroundColor = [UIColor whiteColor];
     [_scrollView addSubview:_freshFoodView];
@@ -114,6 +119,19 @@
     [_freshFoodView addSubview:_segmentScrollView];
     [_segmentScrollView addSubview:_segmentControl];
     
+    // 生鲜列表
+    CGRect tableViewFrame = CGRectMake(0, _segmentScrollView.frame.origin.y + _segmentScrollView.frame.size.height, _freshFoodView.frame.size.width, _freshFoodView.frame.size.height - _segmentScrollView.frame.origin.y - _segmentScrollView.frame.size.height);
+    _freshFoodTableView = [[UITableView alloc] initWithFrame:tableViewFrame];
+    _freshFoodTableView.bounces       = NO;
+    _freshFoodTableView.delegate      = self;
+    _freshFoodTableView.dataSource    = self;
+    _freshFoodTableView.scrollEnabled = NO;
+    _freshFoodTableView.showsHorizontalScrollIndicator = NO;
+    _freshFoodTableView.showsVerticalScrollIndicator   = NO;
+    [_freshFoodTableView registerClass:[XSCommodityListTableViewCell class] forCellReuseIdentifier:cellID];
+    [_freshFoodTableView registerNib:[UINib nibWithNibName:@"XSCommodityListTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
+    [_freshFoodView addSubview:_freshFoodTableView];
+    
     _scrollView.contentSize = CGSizeMake(scrollWidth, contentHight);
     [self.view addSubview:_scrollView];
 }
@@ -131,6 +149,14 @@
     [super didReceiveMemoryWarning];
 }
 
+- (XSNavigationBarHelper *)navHelper {
+    if (_navHelper == nil) {
+        _navHelper = [[XSNavigationBarHelper alloc] initWithNavigationBar:self.navigationController.navigationBar];
+        [_navHelper peek];
+    }
+    return _navHelper;
+}
+
 #pragma mark - Button Click
 - (void)share {
     NSLog(@"share");
@@ -140,14 +166,39 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - Table View DataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return 10;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    XSCommodityListTableViewCell *cell = (XSCommodityListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = BACKGROUND_COLOR;
+    return cell;
+}
+
+#pragma mark - Table View Delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 120;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+//    XSCommodityViewController *viewController = [[XSCommodityViewController alloc] init];
+//    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 #pragma mark - UIScrollView Delegate
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
     CGFloat offset = _scrollView.contentOffset.y;
-    
-    if (offset < 255.0) {
-        XSNavigationBarHelper *navHelper = [[XSNavigationBarHelper alloc] initWithNavigationBar:self.navigationController.navigationBar];
-        [navHelper peek];
-        navHelper._UINavigationBarBackground.backgroundColor = THEME_WHITE_FADE(offset / 255.0);
+    CGFloat tail = _scrollView.contentSize.height - _freshFoodView.frame.size.height - 64;
+    if (offset < tail) {
+        self.navHelper._UINavigationBarBackground.backgroundColor = THEME_WHITE_FADE(offset / tail);
+        _freshFoodTableView.scrollEnabled = NO;
+    } else {
+        self.navHelper._UINavigationBarBackground.backgroundColor = THEME_WHITE_FADE(1.0);
+        _freshFoodTableView.scrollEnabled = YES;
     }
 }
 

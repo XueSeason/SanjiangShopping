@@ -20,6 +20,8 @@
 #import "CartModel.h"
 #import <MJExtension.h>
 
+#import "XSConfirmOrderViewController.h"
+
 static NSString * const cellID    = @"ShopCart";
 static NSString * const addressID = @"Address";
 
@@ -50,6 +52,10 @@ static NSString * const addressID = @"Address";
     // 状态栏样式
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     [self downLoadJSONData];
+    NSLog(@"%@", self.navigationController.tabBarItem.title);
+    if ([self.navigationController.tabBarItem.title isEqualToString:@"购物车"]) {
+        self.tabBarController.tabBar.hidden = NO;
+    }
 }
 
 - (void)viewDidLoad {
@@ -220,7 +226,8 @@ static NSString * const addressID = @"Address";
     NSLog(@"全选");
 }
 - (IBAction)settlementButtonClick:(UIButton *)sender {
-    NSLog(@"结算");
+    XSConfirmOrderViewController *confirmViewController = [[XSConfirmOrderViewController alloc] init];
+    [self.navigationController pushViewController:confirmViewController animated:YES];
 }
 
 - (IBAction)addToFavorites:(UIButton *)sender {

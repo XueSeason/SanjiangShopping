@@ -21,12 +21,12 @@
                             <constraint firstAttribute="width" constant="100" id="cMR-ub-cW2"/>
                         </constraints>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdB-PA-6wa">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdB-PA-6wa">
                         <rect key="frame" x="278" y="75" width="34" height="34"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="35" id="Hjj-mI-LRn"/>
-                            <constraint firstAttribute="width" constant="35" id="WDg-Ui-Iz7"/>
+                            <constraint firstAttribute="height" constant="34" id="Hjj-mI-LRn"/>
+                            <constraint firstAttribute="width" constant="34" id="WDg-Ui-Iz7"/>
                         </constraints>
                         <state key="normal" image="ShoppingCart"/>
                     </button>
@@ -62,14 +62,14 @@
                     <constraint firstItem="gbA-Vt-ShA" firstAttribute="bottom" secondItem="36o-gp-PfZ" secondAttribute="bottom" id="6XW-GQ-yyS"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ZdB-PA-6wa" secondAttribute="trailing" id="B9H-3K-bSo"/>
                     <constraint firstItem="cvg-Ar-q6h" firstAttribute="leading" secondItem="36o-gp-PfZ" secondAttribute="trailing" constant="8" id="EXv-HQ-nYP"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="ZdB-PA-6wa" secondAttribute="bottom" constant="1" id="IdU-Tf-lbF"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="ZdB-PA-6wa" secondAttribute="bottom" constant="2" id="IdU-Tf-lbF"/>
                     <constraint firstItem="cvg-Ar-q6h" firstAttribute="top" secondItem="CkQ-7V-zBA" secondAttribute="bottom" constant="8" id="KMF-ei-n7c"/>
-                    <constraint firstItem="ZdB-PA-6wa" firstAttribute="leading" secondItem="cvg-Ar-q6h" secondAttribute="trailing" constant="8" id="ejo-EU-2N3"/>
+                    <constraint firstItem="ZdB-PA-6wa" firstAttribute="leading" secondItem="cvg-Ar-q6h" secondAttribute="trailing" constant="9" id="ejo-EU-2N3"/>
                     <constraint firstItem="gbA-Vt-ShA" firstAttribute="leading" secondItem="36o-gp-PfZ" secondAttribute="trailing" constant="8" id="fJb-qp-hE7"/>
                     <constraint firstAttribute="leadingMargin" secondItem="36o-gp-PfZ" secondAttribute="leading" id="fbk-br-BPG"/>
                     <constraint firstItem="36o-gp-PfZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="m7N-X0-Vkm"/>
                     <constraint firstAttribute="trailingMargin" secondItem="CkQ-7V-zBA" secondAttribute="trailing" id="oNR-9x-CFX"/>
-                    <constraint firstItem="ZdB-PA-6wa" firstAttribute="leading" secondItem="gbA-Vt-ShA" secondAttribute="trailing" constant="8" id="t2s-Vk-7mG"/>
+                    <constraint firstItem="ZdB-PA-6wa" firstAttribute="leading" secondItem="gbA-Vt-ShA" secondAttribute="trailing" constant="9" id="t2s-Vk-7mG"/>
                     <constraint firstItem="CkQ-7V-zBA" firstAttribute="leading" secondItem="36o-gp-PfZ" secondAttribute="trailing" constant="8" id="vig-jh-gHw"/>
                     <constraint firstAttribute="bottomMargin" secondItem="36o-gp-PfZ" secondAttribute="bottom" constant="1" id="w0E-SS-oCV"/>
                 </constraints>

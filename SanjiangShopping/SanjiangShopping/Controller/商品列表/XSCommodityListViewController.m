@@ -70,6 +70,10 @@ static NSString * const cellID = @"commodityList";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:self action:@selector(comeBack)];
+    leftButtonItem.tintColor = MAIN_TITLE_COLOR;
+    self.navigationItem.leftBarButtonItem = leftButtonItem;
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
     
     // 加载搜索框
     [self loadSearchBar];
@@ -106,6 +110,10 @@ static NSString * const cellID = @"commodityList";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)comeBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)segmentItemSelected:(XSSegmentControlItem *)item {
@@ -251,6 +259,7 @@ static NSString * const cellID = @"commodityList";
     NSLog(@"将要进入搜索");
     
     self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.leftBarButtonItem = nil;
     
     _searchTableViewController = [[XSSearchTableViewController alloc] init];
     _searchTableViewController.searchBar = _searchController.searchBar;
@@ -280,7 +289,10 @@ static NSString * const cellID = @"commodityList";
     }
     
     [UIView animateWithDuration:0.4 animations:^{
-        self.navigationItem.hidesBackButton = NO;
+        UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:self action:@selector(comeBack)];
+        leftButtonItem.tintColor = MAIN_TITLE_COLOR;
+        self.navigationItem.leftBarButtonItem = leftButtonItem;
+        self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
     }];
 }
 

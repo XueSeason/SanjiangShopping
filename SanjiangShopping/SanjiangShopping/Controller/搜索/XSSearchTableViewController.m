@@ -66,9 +66,9 @@ static NSString * const clearID  = @"clear";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:clearID];
     [self.tableView registerNib:[UINib nibWithNibName:@"XSClearHistoryTableViewCell" bundle:nil] forCellReuseIdentifier:clearID];
 
-    self.tableView.contentInset = UIEdgeInsetsMake(64, 0.0f, 49, 0.0f);
+    self.tableView.contentInset    = UIEdgeInsetsMake(64, 0.0f, 49, 0.0f);
     self.tableView.backgroundColor = BACKGROUND_COLOR;
-    self.tableView.separatorStyle = UITableViewCellSelectionStyleNone;
+    self.tableView.separatorStyle  = UITableViewCellSelectionStyleNone;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -112,13 +112,13 @@ static NSString * const clearID  = @"clear";
     }
     UIScrollView *scrollView = [[UIScrollView alloc] init];
     scrollView.frame = CGRectMake(_hotWordsView.frame.origin.x, _hotWordsView.frame.origin.y, _hotWordsView.frame.size.width, _hotWordsView.frame.size.height - 8);
-    scrollView.backgroundColor = OTHER_SEPARATOR_COLOR;
+    scrollView.backgroundColor                = OTHER_SEPARATOR_COLOR;
     scrollView.showsHorizontalScrollIndicator = NO;
     scrollView.showsVerticalScrollIndicator   = NO;
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 44, 28)];
-    label.text = @"热搜";
-    label.textColor = THEME_RED;
+    UILabel *label      = [[UILabel alloc] initWithFrame:CGRectMake(8, 8, 44, 28)];
+    label.text          = @"热搜";
+    label.textColor     = THEME_RED;
     label.textAlignment = NSTextAlignmentCenter;
     [scrollView addSubview:label];
     
@@ -132,7 +132,7 @@ static NSString * const clearID  = @"clear";
         hotButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         
         CGSize buttonSize = [hotButton sizeThatFits:_hotWordsView.frame.size];
-        hotButton.frame = CGRectMake(x, 8, buttonSize.width + 8, 28);
+        hotButton.frame   = CGRectMake(x, 8, buttonSize.width + 8, 28);
 
         hotButton.layer.cornerRadius = 5.0;
         hotButton.clipsToBounds = YES;
@@ -192,21 +192,21 @@ static NSString * const clearID  = @"clear";
     if (indexPath.row == _recentSearchData.count) {
         // 清除历史
         XSClearHistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:clearID forIndexPath:indexPath];
-        cell.backgroundColor = [UIColor clearColor];
-        cell.selectionStyle  = UITableViewCellSelectionStyleNone;
-        cell.selected = NO;
+        cell.backgroundColor              = [UIColor clearColor];
+        cell.selectionStyle               = UITableViewCellSelectionStyleNone;
+        cell.selected                     = NO;
         [cell.clearButton addTarget:self action:@selector(clearHistory) forControlEvents:UIControlEventTouchUpInside];
         return cell;
     }
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:recentID forIndexPath:indexPath];
-    cell.textLabel.text  = _recentSearchData[indexPath.row];
-    cell.backgroundColor = [UIColor clearColor];
-    cell.selectionStyle  = UITableViewCellSelectionStyleNone;
-    cell.textLabel.font  = [cell.textLabel.font fontWithSize:14.0];
+    UITableViewCell *cell    = [tableView dequeueReusableCellWithIdentifier:recentID forIndexPath:indexPath];
+    cell.textLabel.text      = _recentSearchData[indexPath.row];
+    cell.backgroundColor     = [UIColor clearColor];
+    cell.selectionStyle      = UITableViewCellSelectionStyleNone;
+    cell.textLabel.font      = [cell.textLabel.font fontWithSize:14.0];
     cell.textLabel.textColor = [UIColor darkGrayColor];
     
-    CALayer *layer = [cell layer];
+    CALayer *layer    = [cell layer];
     layer.borderWidth = 0.5f;
     layer.borderColor = [[UIColor colorWithRed:226 / 255.0 green:226 / 255.0 blue:226 / 255.0 alpha:1.0] CGColor];
     

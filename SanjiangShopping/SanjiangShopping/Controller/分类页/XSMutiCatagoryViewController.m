@@ -27,11 +27,11 @@
 
 #import "XSCommodityListViewController.h"
 
-NSString * const tableCellId        = @"menu";
-NSString * const collectionCellId   = @"item";
-NSString * const collectionFooterId = @"footer";
-NSString * const collectionHeaderId = @"header";
-NSString * const collectionBannerID = @"banner";
+static NSString * const tableCellId        = @"menu";
+static NSString * const collectionCellId   = @"item";
+static NSString * const collectionFooterId = @"footer";
+static NSString * const collectionHeaderId = @"header";
+static NSString * const collectionBannerID = @"banner";
 
 #define MENU_COLOR [UIColor colorWithRed:244 / 255.0 green:244 / 255.0 blue:244 / 255.0 alpha:1.0]
 
