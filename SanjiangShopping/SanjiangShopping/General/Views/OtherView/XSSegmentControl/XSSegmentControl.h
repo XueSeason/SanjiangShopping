@@ -11,6 +11,7 @@
 @class XSSegmentControlItem;
 
 @protocol XSSegmentControlDelegate <NSObject>
+@required
 - (void)segmentItemSelected:(XSSegmentControlItem *)item;
 @end
 

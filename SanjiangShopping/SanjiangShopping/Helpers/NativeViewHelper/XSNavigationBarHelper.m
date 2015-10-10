@@ -15,6 +15,7 @@
     [navHelper peek];
     navHelper._UINavigationBarBackground.backgroundColor = [UIColor whiteColor];
     navHelper._UIBackdropEffectView.hidden = YES;
+    navHelper.UIImageView.hidden = NO;
 }
 
 + (void)hackPlainNavigationBar:(UINavigationBar *)navigationBar {

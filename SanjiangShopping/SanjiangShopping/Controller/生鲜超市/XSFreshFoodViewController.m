@@ -57,7 +57,7 @@ static NSString * const cellID = @"freshFoodList";
     _scrollView.showsHorizontalScrollIndicator = NO;
     _scrollView.showsVerticalScrollIndicator   = NO;
     _scrollView.backgroundColor                = BACKGROUND_COLOR;
-    _scrollView.bounces                        = NO;
+    _scrollView.bounces                        = YES;
     
     CGFloat scrollWidth  = _scrollView.frame.size.width;
     CGFloat contentHight = 0.0f;
@@ -143,6 +143,8 @@ static NSString * const cellID = @"freshFoodList";
     self.automaticallyAdjustsScrollViewInsets = NO;
     // 隐藏TabBar
     self.tabBarController.tabBar.hidden = YES;
+    
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName: [UIColor darkGrayColor]};
 }
 
 - (void)didReceiveMemoryWarning {
@@ -196,9 +198,11 @@ static NSString * const cellID = @"freshFoodList";
     if (offset < tail) {
         self.navHelper._UINavigationBarBackground.backgroundColor = THEME_WHITE_FADE(offset / tail);
         _freshFoodTableView.scrollEnabled = NO;
+        _scrollView.bounces = YES;
     } else {
         self.navHelper._UINavigationBarBackground.backgroundColor = THEME_WHITE_FADE(1.0);
         _freshFoodTableView.scrollEnabled = YES;
+        _scrollView.bounces = NO;
     }
 }
 

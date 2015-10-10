@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B101BD781BC8AEC1002FF77E /* XSNearByViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B101BD771BC8AEC1002FF77E /* XSNearByViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B101BD801BC8BBEE002FF77E /* NearbyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B101BD7F1BC8BBEE002FF77E /* NearbyView.xib */; settings = {ASSET_TAGS = (); }; };
+		B101BD871BC8C2DE002FF77E /* XSNearbyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B101BD851BC8C2DE002FF77E /* XSNearbyTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B101BD881BC8C2DE002FF77E /* XSNearbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B101BD861BC8C2DE002FF77E /* XSNearbyTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		B101BD8C1BC8DB88002FF77E /* XSMarketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B101BD8A1BC8DB88002FF77E /* XSMarketViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B161C4A71BAAB21500B23AA5 /* CommodityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161C4A61BAAB21500B23AA5 /* CommodityListModel.m */; settings = {ASSET_TAGS = (); }; };
 		B161CD081B96C9F300D4689C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD071B96C9F300D4689C /* main.m */; };
 		B161CD131B96C9F300D4689C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B161CD121B96C9F300D4689C /* Images.xcassets */; };
@@ -131,6 +136,14 @@
 		08795A3937B2DB14EE781AA3 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		4ED5DFA06B54F3B809C18E92 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		5FA4290FEC567EB3EE84BD68 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "../Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B101BD761BC8AEC1002FF77E /* XSNearByViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSNearByViewController.h; sourceTree = "<group>"; };
+		B101BD771BC8AEC1002FF77E /* XSNearByViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSNearByViewController.m; sourceTree = "<group>"; };
+		B101BD7F1BC8BBEE002FF77E /* NearbyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NearbyView.xib; sourceTree = "<group>"; };
+		B101BD841BC8C2DE002FF77E /* XSNearbyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSNearbyTableViewCell.h; sourceTree = "<group>"; };
+		B101BD851BC8C2DE002FF77E /* XSNearbyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSNearbyTableViewCell.m; sourceTree = "<group>"; };
+		B101BD861BC8C2DE002FF77E /* XSNearbyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSNearbyTableViewCell.xib; sourceTree = "<group>"; };
+		B101BD891BC8DB88002FF77E /* XSMarketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMarketViewController.h; sourceTree = "<group>"; };
+		B101BD8A1BC8DB88002FF77E /* XSMarketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMarketViewController.m; sourceTree = "<group>"; };
 		B12D0F051BB13CF3003FFC5F /* ThemeColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeColor.h; sourceTree = "<group>"; };
 		B161C4A51BAAB21500B23AA5 /* CommodityListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommodityListModel.h; sourceTree = "<group>"; };
 		B161C4A61BAAB21500B23AA5 /* CommodityListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommodityListModel.m; sourceTree = "<group>"; };
@@ -346,6 +359,21 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		B101BD751BC8AEA3002FF77E /* 身边三江 */ = {
+			isa = PBXGroup;
+			children = (
+				B101BD761BC8AEC1002FF77E /* XSNearByViewController.h */,
+				B101BD771BC8AEC1002FF77E /* XSNearByViewController.m */,
+				B101BD7F1BC8BBEE002FF77E /* NearbyView.xib */,
+				B101BD841BC8C2DE002FF77E /* XSNearbyTableViewCell.h */,
+				B101BD851BC8C2DE002FF77E /* XSNearbyTableViewCell.m */,
+				B101BD861BC8C2DE002FF77E /* XSNearbyTableViewCell.xib */,
+				B101BD891BC8DB88002FF77E /* XSMarketViewController.h */,
+				B101BD8A1BC8DB88002FF77E /* XSMarketViewController.m */,
+			);
+			path = "身边三江";
+			sourceTree = "<group>";
+		};
 		B13FDBBC1BAA56AC00DB3381 /* OtherView */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +487,7 @@
 				B1F43D4D1BC600E1009F19DA /* 商品列表 */,
 				B1F43D561BC600E1009F19DA /* 商品详情 */,
 				B1F43D5C1BC600E1009F19DA /* 生鲜超市 */,
+				B101BD751BC8AEA3002FF77E /* 身边三江 */,
 				B1F43D9D1BC620C6009F19DA /* 秒杀专区 */,
 				B1F43D661BC600E1009F19DA /* 搜索 */,
 				B1EE6F8C1BC75BF300EA90B1 /* 订单 */,
@@ -1207,6 +1236,7 @@
 				B161CD161B96C9F300D4689C /* LaunchScreen.xib in Resources */,
 				B1F43D1B1BC6004F009F19DA /* XSLoginViewController.xib in Resources */,
 				B1EE6FA51BC76A3D00EA90B1 /* XSSummaryTableViewCell.xib in Resources */,
+				B101BD801BC8BBEE002FF77E /* NearbyView.xib in Resources */,
 				B1F43D7B1BC600E1009F19DA /* XSMutiCatagoryViewController.xib in Resources */,
 				B1F43D701BC600E1009F19DA /* XSPromotionCell.xib in Resources */,
 				B1EE6FAA1BC76A5800EA90B1 /* XSItemListTableViewCell.xib in Resources */,
@@ -1219,6 +1249,7 @@
 				B19C260B1BB52F8E007F96CC /* MoreDetailView.xib in Resources */,
 				B1F43D8B1BC600E1009F19DA /* XSFeedbackTableViewCell.xib in Resources */,
 				B1F43D971BC610B3009F19DA /* FreshFoodRecommendView.xib in Resources */,
+				B101BD881BC8C2DE002FF77E /* XSNearbyTableViewCell.xib in Resources */,
 				B1F43D941BC600E1009F19DA /* XSSearchTableViewController.xib in Resources */,
 				B1EE6FA01BC76A2300EA90B1 /* XSPayOptionTableViewCell.xib in Resources */,
 				B1F43D751BC600E1009F19DA /* XSHeaderCollectionReusableView.xib in Resources */,
@@ -1292,6 +1323,7 @@
 				B1E9EAC61BAF99550008A839 /* XSDropView.m in Sources */,
 				B1BCF6C71BB3CF7B006020E3 /* XS1111GrayView.m in Sources */,
 				B1F43D8A1BC600E1009F19DA /* XSFeedbackTableViewCell.m in Sources */,
+				B101BD781BC8AEC1002FF77E /* XSNearByViewController.m in Sources */,
 				B161C4A71BAAB21500B23AA5 /* CommodityListModel.m in Sources */,
 				B1F43D271BC6004F009F19DA /* XSAccountViewController.m in Sources */,
 				B1F43D891BC600E1009F19DA /* XSCommodityViewController.m in Sources */,
@@ -1321,6 +1353,7 @@
 				B1BCF6C41BB3CEDF006020E3 /* XS1111WhiteView.m in Sources */,
 				B1EE6F9F1BC76A2300EA90B1 /* XSPayOptionTableViewCell.m in Sources */,
 				B19C25AA1BB4CAB5007F96CC /* XSThemeView.m in Sources */,
+				B101BD8C1BC8DB88002FF77E /* XSMarketViewController.m in Sources */,
 				B16487751BB256C200778A07 /* XS4211View.m in Sources */,
 				B1F041EF1BB2404B0045B9A5 /* XSBannerView.m in Sources */,
 				B1F43D831BC600E1009F19DA /* XSShoppingCartViewController.m in Sources */,
@@ -1333,6 +1366,7 @@
 				B1F43D6F1BC600E1009F19DA /* XSPromotionCell.m in Sources */,
 				B161CDB51B96CA7000D4689C /* XSTabBarConteroller.m in Sources */,
 				B161CD9F1B96CA7000D4689C /* NetworkConstant.m in Sources */,
+				B101BD871BC8C2DE002FF77E /* XSNearbyTableViewCell.m in Sources */,
 				B1F43D921BC600E1009F19DA /* XSResultTableViewController.m in Sources */,
 				B161CDA01B96CA7000D4689C /* NotificationNameConstant.m in Sources */,
 				B1F43D761BC600E1009F19DA /* XSMutiCatagoryCollectionViewCell.m in Sources */,
@@ -1475,9 +1509,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SanjiangShopping/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sanjiang.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -1489,9 +1528,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = SanjiangShopping/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.sanjiang.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};

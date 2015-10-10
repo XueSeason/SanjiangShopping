@@ -12,6 +12,7 @@
 #import "XSButtonGridView.h"
 
 #import "XSFreshFoodViewController.h"
+#import "XSNearByViewController.h"
 
 @interface XSHomeStaticViewController ()
 
@@ -36,6 +37,7 @@
     self.view.layer.borderWidth = 0.5f;
     
     [_buttonGridView.button1 addTarget:self action:@selector(freshFood) forControlEvents:UIControlEventTouchUpInside];
+    [_buttonGridView.button7 addTarget:self action:@selector(nearBy) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -45,5 +47,10 @@
 - (void)freshFood {
     XSFreshFoodViewController *fvc = [[XSFreshFoodViewController alloc] init];
     [_contextViewController.navigationController pushViewController:fvc animated:YES];
+}
+
+- (void)nearBy {
+    XSNearByViewController *nvc = [[XSNearByViewController alloc] init];
+    [_contextViewController.navigationController pushViewController:nvc animated:YES];
 }
 @end
