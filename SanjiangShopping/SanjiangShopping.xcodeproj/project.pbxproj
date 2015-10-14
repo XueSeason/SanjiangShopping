@@ -48,6 +48,7 @@
 		B1E9AA5E1BB902FA00CFDFD3 /* CommodityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9AA5D1BB902FA00CFDFD3 /* CommodityModel.m */; settings = {ASSET_TAGS = (); }; };
 		B1E9EABE1BAF92FA0008A839 /* XSSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9EABD1BAF92FA0008A839 /* XSSegmentControl.m */; settings = {ASSET_TAGS = (); }; };
 		B1E9EAC61BAF99550008A839 /* XSDropView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1E9EAC51BAF99550008A839 /* XSDropView.m */; settings = {ASSET_TAGS = (); }; };
+		B1ED06311BCB454F0002F49D /* Market.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1ED06301BCB454F0002F49D /* Market.xib */; settings = {ASSET_TAGS = (); }; };
 		B1EE6F921BC75E6C00EA90B1 /* XSConfirmOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE6F911BC75E6C00EA90B1 /* XSConfirmOrderViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B1EE6F9A1BC76A0000EA90B1 /* XSAddressSelectedTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1EE6F981BC76A0000EA90B1 /* XSAddressSelectedTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		B1EE6F9B1BC76A0000EA90B1 /* XSAddressSelectedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1EE6F991BC76A0000EA90B1 /* XSAddressSelectedTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
@@ -216,6 +217,7 @@
 		B1E9EABD1BAF92FA0008A839 /* XSSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSSegmentControl.m; sourceTree = "<group>"; };
 		B1E9EAC41BAF99550008A839 /* XSDropView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSDropView.h; sourceTree = "<group>"; };
 		B1E9EAC51BAF99550008A839 /* XSDropView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSDropView.m; sourceTree = "<group>"; };
+		B1ED06301BCB454F0002F49D /* Market.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Market.xib; sourceTree = "<group>"; };
 		B1EE6F901BC75E6C00EA90B1 /* XSConfirmOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSConfirmOrderViewController.h; sourceTree = "<group>"; };
 		B1EE6F911BC75E6C00EA90B1 /* XSConfirmOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSConfirmOrderViewController.m; sourceTree = "<group>"; };
 		B1EE6F971BC76A0000EA90B1 /* XSAddressSelectedTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAddressSelectedTableViewCell.h; sourceTree = "<group>"; };
@@ -370,6 +372,7 @@
 				B101BD861BC8C2DE002FF77E /* XSNearbyTableViewCell.xib */,
 				B101BD891BC8DB88002FF77E /* XSMarketViewController.h */,
 				B101BD8A1BC8DB88002FF77E /* XSMarketViewController.m */,
+				B1ED06301BCB454F0002F49D /* Market.xib */,
 			);
 			path = "身边三江";
 			sourceTree = "<group>";
@@ -1238,6 +1241,7 @@
 				B1EE6FA51BC76A3D00EA90B1 /* XSSummaryTableViewCell.xib in Resources */,
 				B101BD801BC8BBEE002FF77E /* NearbyView.xib in Resources */,
 				B1F43D7B1BC600E1009F19DA /* XSMutiCatagoryViewController.xib in Resources */,
+				B1ED06311BCB454F0002F49D /* Market.xib in Resources */,
 				B1F43D701BC600E1009F19DA /* XSPromotionCell.xib in Resources */,
 				B1EE6FAA1BC76A5800EA90B1 /* XSItemListTableViewCell.xib in Resources */,
 				B1F43D911BC600E1009F19DA /* XSClearHistoryTableViewCell.xib in Resources */,

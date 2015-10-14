@@ -61,6 +61,8 @@
 }
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
+    _selectedIndex = selectedIndex;
+    
     if (_scrolLine == nil && _hasLine) {
         XSSegmentControlItem *item = _items[selectedIndex];
         

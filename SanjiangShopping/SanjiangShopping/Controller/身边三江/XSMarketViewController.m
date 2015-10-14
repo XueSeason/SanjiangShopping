@@ -14,7 +14,13 @@
 
 @interface XSMarketViewController () <UIScrollViewDelegate, XSSegmentControlDelegate>
 @property (strong, nonatomic) UIScrollView *scrollView;
+
+@property (strong, nonatomic) UIView *titleView;
 @property (strong, nonatomic) XSSegmentControl *segmentControl;
+
+@property (strong, nonatomic) UIView *popular;
+@property (strong, nonatomic) UIView *service;
+
 @end
 
 @implementation XSMarketViewController
@@ -47,12 +53,14 @@
     
     // title View
     CGFloat height = 0.0f;
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 125.0)];
-    titleView.backgroundColor = [UIColor whiteColor];
-    [_scrollView addSubview:titleView];
-    height += titleView.frame.size.height;
+    _titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 125.0 + 50)];
+    _titleView.backgroundColor   = [UIColor whiteColor];
+    _titleView.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
+    _titleView.layer.borderWidth = 0.5f;
+    [_scrollView addSubview:_titleView];
+    height += _titleView.frame.size.height;
     
-    UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:titleView.bounds];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth([UIScreen mainScreen].bounds), 125.0)];
     NSURL *imageURL = [NSURL URLWithString:@"http://img.sanjiang.com/act/20150817/176.slide.jpg"];
     
     __weak UIImageView *weakBgImageView = bgImageView;
@@ -64,11 +72,11 @@
              weakBgImageView.image = [self blurryImage:image withBlurLevel:5.0];
          }
      }];
-    [titleView addSubview:bgImageView];
+    [_titleView addSubview:bgImageView];
     
     // segmentControl
     NSArray *segTitles = @[@"热门活动", @"服务信息"];
-    _segmentControl = [[XSSegmentControl alloc] initWithFrame:CGRectMake(0, height, [UIScreen mainScreen].bounds.size.width, 50)];
+    _segmentControl = [[XSSegmentControl alloc] initWithFrame:CGRectMake(0, CGRectGetHeight(bgImageView.bounds), [UIScreen mainScreen].bounds.size.width, 50)];
     _segmentControl.titles   = segTitles;
     _segmentControl.delegate = self;
     _segmentControl.hasLine  = YES;
@@ -76,10 +84,14 @@
     _segmentControl.backgroundColor   = [UIColor whiteColor];
     _segmentControl.layer.borderColor = [BACKGROUND_COLOR CGColor];
     _segmentControl.layer.borderWidth = 1.0f;
-    [_scrollView addSubview:_segmentControl];
-    height += _segmentControl.frame.size.height;
+    [_titleView addSubview:_segmentControl];
     
     _scrollView.contentSize = CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds), height);
+    
+    _popular = [[[NSBundle mainBundle] loadNibNamed:@"Market" owner:self options:nil] objectAtIndex:0];
+    _popular.frame = CGRectMake(0, CGRectGetHeight(_titleView.frame), CGRectGetWidth([UIScreen mainScreen].bounds), 200);
+    [_scrollView addSubview:_popular];
+    _scrollView.contentSize = CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight(_titleView.frame) + 200);
 }
 
 - (void)comeBack {
@@ -88,7 +100,25 @@
 
 #pragma mark - SegementControl Delegate 
 - (void)segmentItemSelected:(XSSegmentControlItem *)item {
-    
+    if (_segmentControl.selectedIndex == 0) {
+        NSLog(@"热门活动");
+        [_service removeFromSuperview];
+        
+        [_scrollView addSubview:_popular];
+        _scrollView.contentSize = CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight(_titleView.frame) + 200);
+    } else {
+        NSLog(@"服务信息");
+        [_popular removeFromSuperview];
+        
+        if (_service == nil) {
+            _service = [[[NSBundle mainBundle] loadNibNamed:@"Market" owner:self options:nil] objectAtIndex:1];
+            _service.frame = CGRectMake(0, CGRectGetHeight(_titleView.frame), CGRectGetWidth([UIScreen mainScreen].bounds), 200);
+        }
+        
+        [_scrollView addSubview:_service];
+        
+        _scrollView.contentSize = CGSizeMake(CGRectGetWidth([UIScreen mainScreen].bounds), CGRectGetHeight(_titleView.frame) + 200);
+    }
 }
 
 // 高斯模糊处理

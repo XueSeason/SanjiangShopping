@@ -39,30 +39,30 @@
     [self recursion:_navigationBar];
 }
 
-- (void)recursion:(UIView *)superView
+- (void)recursion:(UIView *)currentView
 {
     if (__UINavigationBarBackground && __UIBackdropEffectView && __UIBackdropView) {
         return;
     }
     
-    if([superView isKindOfClass:NSClassFromString(@"_UINavigationBarBackground")]) {
-        __UINavigationBarBackground = superView;
-        for (UIImageView *imageView in superView.subviews) {
+    if([currentView isKindOfClass:NSClassFromString(@"_UINavigationBarBackground")]) {
+        __UINavigationBarBackground = currentView;
+        for (UIImageView *imageView in currentView.subviews) {
             if ([imageView isKindOfClass:[UIImageView class]]) {
                 _UIImageView = imageView;
             }
         }
-    } else if ([superView isKindOfClass:NSClassFromString(@"_UIBackdropView")]) {
-        __UIBackdropEffectView = superView;
-    } else if ([superView isKindOfClass:NSClassFromString(@"_UIBackdropEffectView")]) {
-        __UIBackdropEffectView = superView;
-    } else if ([superView isKindOfClass:NSClassFromString(@"UINavigationItemButtonView")]) {
-        _UINavigationItemButtonView = superView;
-    } else if ([superView isKindOfClass:NSClassFromString(@"_UINavigationBarBackIndicatorView")]) {
-        __UINavigationBarBackIndicatorView = (UIImageView *)superView;
+    } else if ([currentView isKindOfClass:NSClassFromString(@"_UIBackdropView")]) {
+        __UIBackdropView = currentView;
+    } else if ([currentView isKindOfClass:NSClassFromString(@"_UIBackdropEffectView")]) {
+        __UIBackdropEffectView = currentView;
+    } else if ([currentView isKindOfClass:NSClassFromString(@"UINavigationItemButtonView")]) {
+        _UINavigationItemButtonView = currentView;
+    } else if ([currentView isKindOfClass:NSClassFromString(@"_UINavigationBarBackIndicatorView")]) {
+        __UINavigationBarBackIndicatorView = (UIImageView *)currentView;
     }
     
-    for (UIView *view in superView.subviews) {
+    for (UIView *view in currentView.subviews) {
         [self recursion:view];
     }
 }
