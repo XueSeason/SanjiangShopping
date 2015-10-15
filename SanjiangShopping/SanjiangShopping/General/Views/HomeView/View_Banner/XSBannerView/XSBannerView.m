@@ -20,50 +20,39 @@ static const CGFloat kAnimationTime = 2.0;
 @interface XSBannerView () <UIScrollViewDelegate>
 {
     NSTimer *timer;
-    // 连续滚动的3个视图
-    UIImageView *leftImageView;
-    UIImageView *centerImageView;
-    UIImageView *rightImageView;
     // 连续滚动的索引
     NSUInteger leftIndex;
     NSUInteger centerIndex;
     NSUInteger rightIndex;
 }
+@property (nonatomic, strong) UIImageView *leftImageView;
+@property (nonatomic, strong) UIImageView *centerImageView;
+@property (nonatomic, strong) UIImageView *rightImageView;
 @end
 
 @implementation XSBannerView
 
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self addSubview:self.scrollView];
+        [self addSubview:self.pageControl];
+    }
+    return self;
+}
+
 - (void)layoutSubviews {
-    _scrollView = [[UIScrollView alloc] initWithFrame:self.bounds];
-    _scrollView.delegate        = self;
-    _scrollView.bounces         = NO;
-    _scrollView.backgroundColor = [UIColor whiteColor];
-    _scrollView.pagingEnabled   = YES;
+    self.scrollView.frame         = self.bounds;
+    self.scrollView.contentOffset = CGPointMake(SCROLL_VIEW_WIDTH, 0);
+    self.scrollView.contentSize   = CGSizeMake(SCROLL_VIEW_WIDTH * 3, SCROLL_VIEW_HEIGHT);
     
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.showsVerticalScrollIndicator   = NO;
+    self.leftImageView.frame   = CGRectMake(0, 0, SCROLL_VIEW_WIDTH, SCROLL_VIEW_HEIGHT);
+    self.centerImageView.frame = CGRectMake(SCROLL_VIEW_WIDTH, 0, SCROLL_VIEW_WIDTH, SCROLL_VIEW_HEIGHT);
+    self.rightImageView.frame  = CGRectMake(SCROLL_VIEW_WIDTH * 2, 0, SCROLL_VIEW_WIDTH, SCROLL_VIEW_HEIGHT);
     
-    _scrollView.contentOffset = CGPointMake(SCROLL_VIEW_WIDTH, 0);
-    _scrollView.contentSize   = CGSizeMake(SCROLL_VIEW_WIDTH * 3, SCROLL_VIEW_HEIGHT);
-    
-    leftImageView   = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, SCROLL_VIEW_WIDTH, SCROLL_VIEW_HEIGHT)];
-    centerImageView = [[UIImageView alloc] initWithFrame:CGRectMake(SCROLL_VIEW_WIDTH, 0, SCROLL_VIEW_WIDTH, SCROLL_VIEW_HEIGHT)];
-    rightImageView  = [[UIImageView alloc] initWithFrame:CGRectMake(SCROLL_VIEW_WIDTH * 2, 0, SCROLL_VIEW_WIDTH, SCROLL_VIEW_HEIGHT)];
-    
-    [_scrollView addSubview:leftImageView];
-    [_scrollView addSubview:centerImageView];
-    [_scrollView addSubview:rightImageView];
-    
-    _pageControl        = [[UIPageControl alloc] init];
-    _pageControl.frame  = CGRectMake(0, 0, 10 * _pageControl.numberOfPages, 10);
-    _pageControl.center = CGPointMake(SCROLL_VIEW_WIDTH / 2.0, SCROLL_VIEW_HEIGHT - 10);
-    _pageControl.pageIndicatorTintColor = UIColorFromRGB(0xAAAAAA, 0.5);
-    
-    [self addSubview:_scrollView];
-    [self addSubview:_pageControl];
-    
-    centerImageView.userInteractionEnabled = YES;
-    [centerImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(click)]];
+    self.pageControl.frame  = CGRectMake(0, 0, 10 * self.pageControl.numberOfPages, 10);
+    self.pageControl.center = CGPointMake(SCROLL_VIEW_WIDTH / 2.0, SCROLL_VIEW_HEIGHT - 10);
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -110,9 +99,9 @@ static const CGFloat kAnimationTime = 2.0;
     leftIndex      = (leftIndex   + sum - 1) % sum;
     rightIndex     = (rightIndex  + sum - 1) % sum;
     
-    [leftImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[leftIndex] img]] placeholderImage:nil];
-    [centerImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[centerIndex] img]] placeholderImage:nil];
-    [rightImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[rightIndex] img]] placeholderImage:nil];
+    [self.leftImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[leftIndex] img]] placeholderImage:nil];
+    [self.centerImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[centerIndex] img]] placeholderImage:nil];
+    [self.rightImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[rightIndex] img]] placeholderImage:nil];
     
     _scrollView.contentOffset = CGPointMake(SCROLL_VIEW_WIDTH, 0);
     _pageControl.currentPage  = centerIndex;
@@ -128,9 +117,9 @@ static const CGFloat kAnimationTime = 2.0;
     leftIndex      = (leftIndex   + sum + 1) % sum;
     rightIndex     = (rightIndex  + sum + 1) % sum;
     
-    [leftImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[leftIndex] img]] placeholderImage:nil];
-    [centerImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[centerIndex] img]] placeholderImage:nil];
-    [rightImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[rightIndex] img]] placeholderImage:nil];
+    [self.leftImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[leftIndex] img]] placeholderImage:nil];
+    [self.centerImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[centerIndex] img]] placeholderImage:nil];
+    [self.rightImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[rightIndex] img]] placeholderImage:nil];
     
     _scrollView.contentOffset = CGPointMake(SCROLL_VIEW_WIDTH, 0);
     _pageControl.currentPage  = centerIndex;
@@ -183,10 +172,58 @@ static const CGFloat kAnimationTime = 2.0;
     _pageControl.numberOfPages = _dataModels.count;
     _pageControl.currentPage   = centerIndex;
     
-    [leftImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[leftIndex] img]] placeholderImage:nil];
-    [centerImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[centerIndex] img]] placeholderImage:nil];
-    [rightImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[rightIndex] img]] placeholderImage:nil];
-    
+    [self.leftImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[leftIndex] img]] placeholderImage:nil];
+    [self.centerImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[centerIndex] img]] placeholderImage:nil];
+    [self.rightImageView sd_setImageWithURL:[NSURL URLWithString:[_dataModels[rightIndex] img]] placeholderImage:nil];
+}
+
+- (UIScrollView *)scrollView {
+    if (_scrollView == nil) {
+        _scrollView = [[UIScrollView alloc] init];
+        _scrollView.delegate        = self;
+        _scrollView.bounces         = NO;
+        _scrollView.backgroundColor = [UIColor whiteColor];
+        _scrollView.pagingEnabled   = YES;
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator   = NO;
+        
+        [_scrollView addSubview:self.leftImageView];
+        [_scrollView addSubview:self.centerImageView];
+        [_scrollView addSubview:self.rightImageView];
+    }
+    return _scrollView;
+}
+
+- (UIPageControl *)pageControl {
+    if (_pageControl == nil) {
+        _pageControl = [[UIPageControl alloc] init];
+        _pageControl.pageIndicatorTintColor = UIColorFromRGB(0xAAAAAA, 0.5);
+    }
+    return _pageControl;
+}
+
+- (UIImageView *)leftImageView {
+    if (_leftImageView == nil) {
+        _leftImageView   = [[UIImageView alloc] init];
+    }
+    return _leftImageView;
+}
+
+- (UIImageView *)centerImageView {
+    if (_centerImageView == nil) {
+        _centerImageView = [[UIImageView alloc] init];
+        _centerImageView.userInteractionEnabled = YES;
+        [_centerImageView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(click)]];
+
+    }
+    return _centerImageView;
+}
+
+- (UIImageView *)rightImageView {
+    if (_rightImageView == nil) {
+        _rightImageView  = [[UIImageView alloc] init];
+    }
+    return _rightImageView;
 }
 
 @end

@@ -49,7 +49,6 @@ static const CGFloat step = 9.0f;
 @property (strong, nonatomic) XSBannerView     *bannerView;
 @property (strong, nonatomic) XSButtonGridView *buttonGridView;
 @property (strong, nonatomic) UIView           *dynamicView;
-@property (strong, nonatomic) UIView           *moreView;
 
 // widget view
 @property (strong, nonatomic) UIButton        *toTopButton;
@@ -287,7 +286,7 @@ static const CGFloat step = 9.0f;
 }
 
 - (void)generateDynamicSubview {
-    NSArray *floors = _homeDataModel.floors;
+    NSArray *floors = self.homeDataModel.floors;
     CGFloat height = 0.0f;
     CGFloat width  = [UIScreen mainScreen].bounds.size.width;
     
@@ -360,7 +359,7 @@ static const CGFloat step = 9.0f;
 }
 
 - (void)generateMoreView:(NSArray *)list {
-    _moreView = [[UIView alloc] init];
+    UIView *moreView = [[UIView alloc] init];
     
     CGFloat width = (self.view.frame.size.width - 30) / 2.0;
     CGFloat height = width * 100 / 69.0;
@@ -371,20 +370,20 @@ static const CGFloat step = 9.0f;
         
         XSMoreView *tempView = [[XSMoreView alloc] initWithFrame:frame];
         tempView.item        = list[i];
-        [_moreView addSubview:tempView];
+        [moreView addSubview:tempView];
         [_moreViewArr addObject:tempView];
         if (i % 2 == 1) {
             dynamicHeight += frame.size.height + 10;
         }
     }
     
-    [self.dynamicView addSubview:_moreView];
+    [self.dynamicView addSubview:moreView];
     
     CGFloat tempWidth = dynamicSize.width;
     CGFloat tempHeight = dynamicSize.height;
     
-    _moreView.frame = CGRectMake(0, tempHeight, self.view.frame.size.width, dynamicHeight);
-    dynamicSize = CGSizeMake(tempWidth, tempHeight + _moreView.frame.size.height);
+    moreView.frame = CGRectMake(0, tempHeight, self.view.frame.size.width, dynamicHeight);
+    dynamicSize = CGSizeMake(tempWidth, tempHeight + moreView.frame.size.height);
 }
 
 - (void)firstDownload {
