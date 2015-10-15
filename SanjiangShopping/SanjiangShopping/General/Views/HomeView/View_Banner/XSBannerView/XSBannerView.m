@@ -43,6 +43,7 @@ static const CGFloat kAnimationTime = 2.0;
 }
 
 - (void)layoutSubviews {
+    [super layoutSubviews];
     self.scrollView.frame         = self.bounds;
     self.scrollView.contentOffset = CGPointMake(SCROLL_VIEW_WIDTH, 0);
     self.scrollView.contentSize   = CGSizeMake(SCROLL_VIEW_WIDTH * 3, SCROLL_VIEW_HEIGHT);

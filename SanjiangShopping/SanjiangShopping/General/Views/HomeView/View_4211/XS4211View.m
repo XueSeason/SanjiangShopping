@@ -28,32 +28,15 @@
     if (self) {
         self.backgroundColor = [UIColor whiteColor];
         
-        CGFloat scale = frame.size.width / 75;
+        [self addSubview:self.control0];
+        [self addSubview:self.control1];
+        [self addSubview:self.control2];
+        [self addSubview:self.control3];
         
-        CGRect frame0 = CGRectMake(0, 0, 31 * scale, 38 * scale);
-        CGRect frame1 = CGRectMake(31 * scale, 0, 44 * scale, 16 * scale);
-        CGRect frame2 = CGRectMake(31 * scale, 16 * scale, 22 * scale, 22 * scale);
-        CGRect frame3 = CGRectMake(53 * scale, 16 * scale, 22 * scale, 22 * scale);
-        
-        _control0 = [[UIControl alloc] initWithFrame:frame0];
-        _control1 = [[UIControl alloc] initWithFrame:frame1];
-        _control2 = [[UIControl alloc] initWithFrame:frame2];
-        _control3 = [[UIControl alloc] initWithFrame:frame3];
-
-        [self addSubview:_control0];
-        [self addSubview:_control1];
-        [self addSubview:_control2];
-        [self addSubview:_control3];
-        
-        _imageView0 = [[UIImageView alloc] initWithFrame:_control0.bounds];
-        _imageView1 = [[UIImageView alloc] initWithFrame:_control1.bounds];
-        _imageView2 = [[UIImageView alloc] initWithFrame:_control2.bounds];
-        _imageView3 = [[UIImageView alloc] initWithFrame:_control3.bounds];
-        
-        [_control0 addSubview:_imageView0];
-        [_control1 addSubview:_imageView1];
-        [_control2 addSubview:_imageView2];
-        [_control3 addSubview:_imageView3];
+        [self.control0 addSubview:self.imageView0];
+        [self.control1 addSubview:self.imageView1];
+        [self.control2 addSubview:self.imageView2];
+        [self.control3 addSubview:self.imageView3];
         
         self.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
         self.layer.borderWidth = 0.5f;
@@ -63,23 +46,92 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
+    
+    CGFloat scale = self.frame.size.width / 75;
+    
+    self.control0.frame = CGRectMake(0, 0, 31 * scale, 38 * scale);
+    self.control1.frame = CGRectMake(31 * scale, 0, 44 * scale, 16 * scale);
+    self.control2.frame = CGRectMake(31 * scale, 16 * scale, 22 * scale, 22 * scale);
+    self.control3.frame = CGRectMake(53 * scale, 16 * scale, 22 * scale, 22 * scale);
+    
+    self.imageView0.frame = self.control0.bounds;
+    self.imageView1.frame = self.control1.bounds;
+    self.imageView2.frame = self.control2.bounds;
+    self.imageView3.frame = self.control3.bounds;
 }
 
-
+#pragma mark - getters and setters
 - (void)setFloorModel:(FloorModel *)floorModel {
     _floorModel = floorModel;
     
-    [_imageView0 sd_setImageWithURL:[NSURL URLWithString:[_floorModel.data[0] img]]];
-    [_imageView1 sd_setImageWithURL:[NSURL URLWithString:[_floorModel.data[1] img]]];
-    [_imageView2 sd_setImageWithURL:[NSURL URLWithString:[_floorModel.data[2] img]]];
-    [_imageView3 sd_setImageWithURL:[NSURL URLWithString:[_floorModel.data[3] img]]];
-    
-    NSArray *arr = @[_imageView0, _imageView1, _imageView2, _imageView3];
-    for (UIImageView *imageView in arr) {
-        CALayer *layer = [imageView layer];
-        layer.borderColor = [BACKGROUND_COLOR CGColor];
-        layer.borderWidth = 0.5;
+    [self.imageView0 sd_setImageWithURL:[NSURL URLWithString:[_floorModel.data[0] img]]];
+    [self.imageView1 sd_setImageWithURL:[NSURL URLWithString:[_floorModel.data[1] img]]];
+    [self.imageView2 sd_setImageWithURL:[NSURL URLWithString:[_floorModel.data[2] img]]];
+    [self.imageView3 sd_setImageWithURL:[NSURL URLWithString:[_floorModel.data[3] img]]];
+}
+
+- (UIControl *)control0 {
+    if (_control0 == nil) {
+        _control0 = [[UIControl alloc] init];
     }
+    return _control0;
+}
+
+- (UIControl *)control1 {
+    if (_control1 == nil) {
+        _control1 = [[UIControl alloc] init];
+    }
+    return _control1;
+}
+
+- (UIControl *)control2 {
+    if (_control2 == nil) {
+        _control2 = [[UIControl alloc] init];
+    }
+    return _control2;
+}
+
+- (UIControl *)control3 {
+    if (_control3 == nil) {
+        _control3 = [[UIControl alloc] init];
+    }
+    return _control3;
+}
+
+- (UIImageView *)imageView0 {
+    if (_imageView0 == nil) {
+        _imageView0 = [[UIImageView alloc] init];
+        _imageView0.layer.borderColor = [BACKGROUND_COLOR CGColor];
+        _imageView0.layer.borderWidth = 0.5;
+    }
+    return _imageView0;
+}
+
+- (UIImageView *)imageView1 {
+    if (_imageView1 == nil) {
+        _imageView1 = [[UIImageView alloc] init];
+        _imageView1.layer.borderColor = [BACKGROUND_COLOR CGColor];
+        _imageView1.layer.borderWidth = 0.5;
+    }
+    return _imageView1;
+}
+
+- (UIImageView *)imageView2 {
+    if (_imageView2 == nil) {
+        _imageView2 = [[UIImageView alloc] init];
+        _imageView2.layer.borderColor = [BACKGROUND_COLOR CGColor];
+        _imageView2.layer.borderWidth = 0.5;
+    }
+    return _imageView2;
+}
+
+- (UIImageView *)imageView3 {
+    if (_imageView3 == nil) {
+        _imageView3 = [[UIImageView alloc] init];
+        _imageView3.layer.borderColor = [BACKGROUND_COLOR CGColor];
+        _imageView3.layer.borderWidth = 0.5;
+    }
+    return _imageView3;
 }
 
 @end
