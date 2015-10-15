@@ -22,6 +22,4 @@
 @property (copy, nonatomic)   NSArray       *dataModels;
 @property (assign, nonatomic) BOOL          animationSwitch;
 
-- (instancetype)initWithFrame:(CGRect)frame;
-
 @end

@@ -21,4 +21,6 @@
 
 @property (copy, nonatomic) NSArray  *imageURLStrings;
 
+- (instancetype)init;
+
 @end

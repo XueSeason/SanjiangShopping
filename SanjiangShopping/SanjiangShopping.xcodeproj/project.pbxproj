@@ -106,8 +106,6 @@
 		B1F43D8A1BC600E1009F19DA /* XSFeedbackTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D5A1BC600E1009F19DA /* XSFeedbackTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		B1F43D8B1BC600E1009F19DA /* XSFeedbackTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D5B1BC600E1009F19DA /* XSFeedbackTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		B1F43D8C1BC600E1009F19DA /* XSFreshFoodViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D5E1BC600E1009F19DA /* XSFreshFoodViewController.m */; settings = {ASSET_TAGS = (); }; };
-		B1F43D8D1BC600E1009F19DA /* XSHomeDynamicViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D611BC600E1009F19DA /* XSHomeDynamicViewController.m */; settings = {ASSET_TAGS = (); }; };
-		B1F43D8E1BC600E1009F19DA /* XSHomeStaticViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D631BC600E1009F19DA /* XSHomeStaticViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B1F43D8F1BC600E1009F19DA /* XSHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D651BC600E1009F19DA /* XSHomeViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B1F43D901BC600E1009F19DA /* XSClearHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D681BC600E1009F19DA /* XSClearHistoryTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		B1F43D911BC600E1009F19DA /* XSClearHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D691BC600E1009F19DA /* XSClearHistoryTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
@@ -307,10 +305,6 @@
 		B1F43D5B1BC600E1009F19DA /* XSFeedbackTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSFeedbackTableViewCell.xib; sourceTree = "<group>"; };
 		B1F43D5D1BC600E1009F19DA /* XSFreshFoodViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSFreshFoodViewController.h; sourceTree = "<group>"; };
 		B1F43D5E1BC600E1009F19DA /* XSFreshFoodViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSFreshFoodViewController.m; sourceTree = "<group>"; };
-		B1F43D601BC600E1009F19DA /* XSHomeDynamicViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSHomeDynamicViewController.h; sourceTree = "<group>"; };
-		B1F43D611BC600E1009F19DA /* XSHomeDynamicViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSHomeDynamicViewController.m; sourceTree = "<group>"; };
-		B1F43D621BC600E1009F19DA /* XSHomeStaticViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSHomeStaticViewController.h; sourceTree = "<group>"; };
-		B1F43D631BC600E1009F19DA /* XSHomeStaticViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSHomeStaticViewController.m; sourceTree = "<group>"; };
 		B1F43D641BC600E1009F19DA /* XSHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSHomeViewController.h; sourceTree = "<group>"; };
 		B1F43D651BC600E1009F19DA /* XSHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSHomeViewController.m; sourceTree = "<group>"; };
 		B1F43D671BC600E1009F19DA /* XSClearHistoryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSClearHistoryTableViewCell.h; sourceTree = "<group>"; };
@@ -1087,10 +1081,6 @@
 		B1F43D5F1BC600E1009F19DA /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
-				B1F43D601BC600E1009F19DA /* XSHomeDynamicViewController.h */,
-				B1F43D611BC600E1009F19DA /* XSHomeDynamicViewController.m */,
-				B1F43D621BC600E1009F19DA /* XSHomeStaticViewController.h */,
-				B1F43D631BC600E1009F19DA /* XSHomeStaticViewController.m */,
 				B1F43D641BC600E1009F19DA /* XSHomeViewController.h */,
 				B1F43D651BC600E1009F19DA /* XSHomeViewController.m */,
 			);
@@ -1362,7 +1352,6 @@
 				B1F041EF1BB2404B0045B9A5 /* XSBannerView.m in Sources */,
 				B1F43D831BC600E1009F19DA /* XSShoppingCartViewController.m in Sources */,
 				B1E9EABE1BAF92FA0008A839 /* XSSegmentControl.m in Sources */,
-				B1F43D8E1BC600E1009F19DA /* XSHomeStaticViewController.m in Sources */,
 				B1F43D201BC6004F009F19DA /* XSPhoneNumberVerifyViewController.m in Sources */,
 				B161CDC81B96CA7000D4689C /* HomeMoreModel.m in Sources */,
 				B1F43D1C1BC6004F009F19DA /* XSBindMemberCardViewController.m in Sources */,
@@ -1382,7 +1371,6 @@
 				B1F43D871BC600E1009F19DA /* XSFilterViewController.m in Sources */,
 				B1F43D9C1BC61E6E009F19DA /* XSRecomendScrollView.m in Sources */,
 				B1EE6FA41BC76A3D00EA90B1 /* XSSummaryTableViewCell.m in Sources */,
-				B1F43D8D1BC600E1009F19DA /* XSHomeDynamicViewController.m in Sources */,
 				B1F43D931BC600E1009F19DA /* XSSearchTableViewController.m in Sources */,
 				B1F43D7F1BC600E1009F19DA /* XSAddressTableViewCell.m in Sources */,
 				B1F43D7A1BC600E1009F19DA /* XSMutiCatagoryViewController.m in Sources */,

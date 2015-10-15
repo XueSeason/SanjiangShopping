@@ -15,8 +15,18 @@
 #import "XSSearchTableViewController.h"
 #import "XSResultTableViewController.h"
 
-#import "XSHomeStaticViewController.h"
-#import "XSHomeDynamicViewController.h"
+#import "XSBannerView.h"
+#import "XSButtonGridView.h"
+#import "XSFreshFoodViewController.h"
+#import "XSNearByViewController.h"
+
+#import "XS4211View.h"
+#import "XS1111GrayView.h"
+#import "XS1111WhiteView.h"
+#import "XSScrollView.h"
+#import "XSBuyNowView.h"
+#import "XSThemeView.h"
+#import "XSMoreView.h"
 
 #import <AFNetworking.h>
 #import <MJRefresh.h>
@@ -25,25 +35,35 @@
 #import "NetworkConstant.h"
 #import "NotificationNameConstant.h"
 
+static const CGFloat step = 9.0f;
+
 @interface XSHomeViewController () <UIScrollViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
+{
+    CGSize dynamicSize;
+}
 
 // main view
-@property (strong, nonatomic) UIScrollView    *scrollView;
+@property (strong, nonatomic) UIScrollView     *scrollView;
+
+@property (strong, nonatomic) UIView           *staticView;
+@property (strong, nonatomic) XSBannerView     *bannerView;
+@property (strong, nonatomic) XSButtonGridView *buttonGridView;
+@property (strong, nonatomic) UIView           *dynamicView;
+@property (strong, nonatomic) UIView           *moreView;
 
 // widget view
 @property (strong, nonatomic) UIButton        *toTopButton;
 @property (strong, nonatomic) UIBarButtonItem *scanButton;
 
 // other property
+@property (strong, nonatomic) XSNavigationBarHelper *navHelper;
 @property (strong, nonatomic) UISearchController *searchController;
 @property (strong, nonatomic) XSSearchTableViewController *searchTableViewController;
 @property (strong, nonatomic) XSResultTableViewController *resultTableViewController;
 @property (assign, nonatomic) BOOL active;
 
-@property (strong, nonatomic) XSHomeStaticViewController  *staticViewController;
-@property (strong, nonatomic) XSHomeDynamicViewController *dynamicViewController;
+@property (strong, nonatomic) NSMutableArray *moreViewArr;
 
-@property (strong, nonatomic) XSNavigationBarHelper *navHelper;
 @end
 
 @implementation XSHomeViewController
@@ -76,10 +96,14 @@
     
     self.definesPresentationContext = YES;
     
-    self.scrollView.frame                = self.view.bounds;
-    self.scrollView.contentInset         = UIEdgeInsetsMake(0.0f, 0.0f, self.tabBarController.tabBar.frame.size.height, 0.0f);
-    self.staticViewController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width / 375.0 * 379.0);
-    self.scrollView.contentSize          = CGSizeMake(self.view.frame.size.width, self.staticViewController.view.frame.origin.y + self.staticViewController.view.frame.size.height);
+    self.scrollView.frame         = self.view.bounds;
+    self.scrollView.contentInset  = UIEdgeInsetsMake(0.0f, 0.0f, self.tabBarController.tabBar.frame.size.height, 0.0f);
+    self.staticView.frame         = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width / 375.0 * 379.0);
+    self.bannerView.frame         = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width / 25 * 14);
+    self.buttonGridView.frame     = CGRectMake(0, self.bannerView.frame.size.height + self.bannerView.frame.origin.y, self.view.frame.size.width, self.view.frame.size.width / 750 * 338);
+    self.staticView.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
+    self.staticView.layer.borderWidth = 0.5f;
+    self.scrollView.contentSize   = CGSizeMake(self.view.frame.size.width, self.staticView.frame.origin.y + self.staticView.frame.size.height);
     
     self.toTopButton.hidden = YES;
     self.toTopButton.translatesAutoresizingMaskIntoConstraints = NO;
@@ -220,6 +244,16 @@
     }];
 }
 
+- (void)freshFood {
+    XSFreshFoodViewController *fvc = [[XSFreshFoodViewController alloc] init];
+    [self.navigationController pushViewController:fvc animated:YES];
+}
+
+- (void)nearBy {
+    XSNearByViewController *nvc = [[XSNearByViewController alloc] init];
+    [self.navigationController pushViewController:nvc animated:YES];
+}
+
 #pragma mark - private methods
 - (void)adjustView {
     // 状态栏样式
@@ -250,6 +284,107 @@
     self.navHelper._UINavigationBarBackground.backgroundColor = THEME_TRANSPARENT;
     self.navHelper._UIBackdropEffectView.hidden = YES;
     self.navHelper.UIImageView.hidden = YES; // 去除UIImageView带来的线框
+}
+
+- (void)generateDynamicSubview {
+    NSArray *floors = _homeDataModel.floors;
+    CGFloat height = 0.0f;
+    CGFloat width  = [UIScreen mainScreen].bounds.size.width;
+    
+    for (FloorModel *floor in floors) {
+        if (floor.vt == 1) {
+            height += step;
+            CGRect frame         = CGRectMake(0, height, width, width / 75 * 38 );
+            XS4211View *tempView = [[XS4211View alloc] initWithFrame:frame];
+            tempView.floorModel  = floor;
+            [self.dynamicView addSubview:tempView];
+            height += frame.size.height;
+        } else if (floor.vt == 2) {
+            height += step;
+            CGRect frame = CGRectMake(0, height, width, (width - 2) / 2 + 2 + 40 );
+            XS1111GrayView *tempView = [[XS1111GrayView alloc] initWithFrame:frame];
+            tempView.floorModel = floor;
+            [self.dynamicView addSubview:tempView];
+            height += frame.size.height;
+        } else if (floor.vt == 3) {
+            height += step;
+            CGRect frame = CGRectMake(0, height, width, (width - 2) / 2 + 2 + 40 );
+            XS1111WhiteView *tempView = [[XS1111WhiteView alloc] initWithFrame:frame];
+            tempView.floorModel = floor;
+            [self.dynamicView addSubview:tempView];
+            height += frame.size.height;
+        } else if (floor.vt == 4) {
+            height += step;
+            CGRect frame = CGRectMake(0, height, width, 160 + 40 );
+            XSScrollView *tempView = [[XSScrollView alloc] initWithFrame:frame];
+            tempView.floorModel = floor;
+            [self.dynamicView addSubview:tempView];
+            height += frame.size.height;
+        } else if (floor.vt == 5) {
+            height += step;
+            CGRect frame = CGRectMake(0, height, width, width / 75.0 * 24.0 + 40);
+            XSBuyNowView *tempView = [[XSBuyNowView alloc] initWithFrame:frame];
+            tempView.floorModel = floor;
+            [self.dynamicView addSubview:tempView];
+            height += frame.size.height;
+        } else if (floor.vt == 6) {
+            height += step;
+            CGRect frame = CGRectMake(0, height, width, width / 15.0 * 4.0 );
+            XSBannerView *tempView = [[XSBannerView alloc] initWithFrame:frame];
+            tempView.dataModels = floor.data;
+            [self.dynamicView addSubview:tempView];
+            height += frame.size.height;
+        }
+    }
+    
+    height += step;
+    
+    // 加载主题区
+    CGRect themeFrame = CGRectMake(0, height, width, width / 75.0 * 84.0 + 40);
+    XSThemeView *themeView = [[XSThemeView alloc] initWithFrame:themeFrame];
+    themeView.subject      = _homeDataModel.subject;
+    [self.dynamicView addSubview:themeView];
+    height += themeView.frame.size.height;
+    
+    // 加载推荐视图
+    CGRect recommendFrame = CGRectMake(0, themeFrame.size.height + themeFrame.origin.y, width, 44);
+    UIView *recommend = [[UIView alloc] initWithFrame:recommendFrame];
+    [self.dynamicView addSubview:recommend];
+    height += recommendFrame.size.height;
+    recommend.backgroundColor = [UIColor clearColor];
+    UIView *temp = [[[NSBundle mainBundle] loadNibNamed:@"RecommendView" owner:self options:nil] objectAtIndex:0];
+    temp.frame = recommend.bounds;
+    [recommend addSubview:temp];
+    
+    dynamicSize = CGSizeMake(width, height);
+}
+
+- (void)generateMoreView:(NSArray *)list {
+    _moreView = [[UIView alloc] init];
+    
+    CGFloat width = (self.view.frame.size.width - 30) / 2.0;
+    CGFloat height = width * 100 / 69.0;
+    CGFloat dynamicHeight = 0.0f;
+    
+    for (int i = 0; i < list.count; i++) {
+        CGRect frame = CGRectMake((i % 2) * (width + 10) + 10, dynamicHeight, width, height);
+        
+        XSMoreView *tempView = [[XSMoreView alloc] initWithFrame:frame];
+        tempView.item        = list[i];
+        [_moreView addSubview:tempView];
+        [_moreViewArr addObject:tempView];
+        if (i % 2 == 1) {
+            dynamicHeight += frame.size.height + 10;
+        }
+    }
+    
+    [self.dynamicView addSubview:_moreView];
+    
+    CGFloat tempWidth = dynamicSize.width;
+    CGFloat tempHeight = dynamicSize.height;
+    
+    _moreView.frame = CGRectMake(0, tempHeight, self.view.frame.size.width, dynamicHeight);
+    dynamicSize = CGSizeMake(tempWidth, tempHeight + _moreView.frame.size.height);
 }
 
 - (void)firstDownload {
@@ -292,30 +427,6 @@
     }];
 }
 
-- (void)refreshView {
-    [self refreshStaticView];
-    [self refreshDynamicView];
-}
-
-- (void)refreshStaticView {
-    self.staticViewController.bannerView.dataModels          = self.homeModel.data.head;
-    self.staticViewController.buttonGridView.imageURLStrings = self.homeModel.data.group;
-    self.dynamicViewController.data                          = self.homeModel.data;
-}
-
-- (void)refreshDynamicView {
-    
-    // 设置 dynamicView 的 frame
-    self.dynamicViewController.view.frame = CGRectMake(0, self.staticViewController.view.frame.size.height + self.staticViewController.view.frame.origin.y, self.dynamicViewController.dynamicSize.width, self.dynamicViewController.dynamicSize.height);
-    
-    // 设置 ScrollView 的 contentSize
-    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.dynamicViewController.view.frame.origin.y + self.dynamicViewController.view.frame.size.height);
-
-    if (!self.scrollView.footer) {
-        self.scrollView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(downloadMoreData)];
-    }
-}
-
 - (void)downloadMoreData {
     NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_HOME_MORE];
     
@@ -331,7 +442,7 @@
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         weakSelf.homeMoreMedel = [HomeMoreModel objectWithKeyValues:responseObject];
         
-        [weakSelf.dynamicViewController generateMoreView:weakSelf.homeMoreMedel.data.list];
+        [weakSelf generateMoreView:weakSelf.homeMoreMedel.data.list];
         
         [weakSelf refreshDynamicView];
         
@@ -342,6 +453,30 @@
         [alert show];
         [weakSelf.scrollView.footer noticeNoMoreData];
     }];
+}
+
+- (void)refreshView {
+    [self refreshStaticView];
+    [self refreshDynamicView];
+}
+
+- (void)refreshStaticView {
+    self.bannerView.dataModels          = self.homeModel.data.head;
+    self.buttonGridView.imageURLStrings = self.homeModel.data.group;
+    self.homeDataModel                  = self.homeModel.data;
+}
+
+- (void)refreshDynamicView {
+    
+    // 设置 dynamicView 的 frame
+    self.dynamicView.frame = CGRectMake(0, self.staticView.frame.size.height + self.staticView.frame.origin.y, dynamicSize.width, dynamicSize.height);
+    
+    // 设置 ScrollView 的 contentSize
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.dynamicView.frame.origin.y + self.dynamicView.frame.size.height);
+
+    if (!self.scrollView.footer) {
+        self.scrollView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(downloadMoreData)];
+    }
 }
 
 #pragma mark - getters and setters
@@ -357,13 +492,10 @@
         _scrollView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downloadData)];
         
         // 加载静态视图
-        _staticViewController  = [[XSHomeStaticViewController alloc] init];
-        _staticViewController.contextViewController = self;
-        [_scrollView addSubview:_staticViewController.view];
+        [_scrollView addSubview:self.staticView];
         
         // 加载动态视图
-        _dynamicViewController = [[XSHomeDynamicViewController alloc] init];
-        [_scrollView addSubview:_dynamicViewController.view];
+        [_scrollView addSubview:self.dynamicView];
         
         _active = YES;
     }
@@ -435,6 +567,51 @@
         }
     }
     return _searchTableViewController;
+}
+
+- (UIView *)staticView {
+    if (_staticView == nil) {
+        _staticView = [[UIView alloc] init];
+        [_staticView addSubview:self.bannerView];
+        [_staticView addSubview:self.buttonGridView];
+    }
+    return _staticView;
+}
+
+- (XSBannerView *)bannerView {
+    if (_bannerView == nil) {
+        _bannerView = [[XSBannerView alloc] init];
+        _bannerView.animationSwitch = YES;
+    }
+    
+    return _bannerView;
+}
+
+- (XSButtonGridView *)buttonGridView {
+    if (_buttonGridView == nil) {
+        _buttonGridView = [[XSButtonGridView alloc] init];
+        _buttonGridView.backgroundColor = [UIColor whiteColor];
+        
+        [_buttonGridView.button1 addTarget:self action:@selector(freshFood) forControlEvents:UIControlEventTouchUpInside];
+        [_buttonGridView.button7 addTarget:self action:@selector(nearBy) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _buttonGridView;
+}
+
+- (UIView *)dynamicView {
+    if (_dynamicView == nil) {
+        _dynamicView = [[UIView alloc] init];
+    }
+    return _dynamicView;
+}
+
+- (void)setHomeDataModel:(HomeDataModel *)homeDataModel {
+    // 清空所有子视图
+    [self.dynamicView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+
+    _homeDataModel = homeDataModel;
+    
+    [self generateDynamicSubview];
 }
 
 @end

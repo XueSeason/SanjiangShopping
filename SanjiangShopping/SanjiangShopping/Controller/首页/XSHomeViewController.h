@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+
 @class HomeModel;
+@class HomeDataModel;
 @class HomeMoreModel;
 
 @interface XSHomeViewController : UIViewController
 @property (strong, nonatomic) HomeModel     *homeModel;
+@property (strong, nonatomic) HomeDataModel *homeDataModel;
 @property (strong, nonatomic) HomeMoreModel *homeMoreMedel;
 @end
