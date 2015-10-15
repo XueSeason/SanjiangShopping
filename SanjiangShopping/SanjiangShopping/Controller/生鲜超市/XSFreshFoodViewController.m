@@ -48,7 +48,7 @@ static NSString * const cellID = @"freshFoodList";
     rightButtonItem.tintColor = MAIN_TITLE_COLOR;
     self.navigationItem.rightBarButtonItem = rightButtonItem;
     
-    self.navHelper._UINavigationBarBackground.backgroundColor = THEME_WHITE_TRANSPARENT;
+    self.navHelper._UINavigationBarBackground.backgroundColor = THEME_TRANSPARENT;
     self.navHelper._UIBackdropEffectView.hidden = YES;
     self.navHelper.UIImageView.hidden = YES; // 去除UIImageView带来的线框
     

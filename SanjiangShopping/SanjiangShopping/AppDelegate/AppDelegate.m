@@ -25,12 +25,11 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:0
-                                                            diskCapacity:0
-                                                                diskPath:nil];
+    NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:0 diskPath:nil];
     [NSURLCache setSharedURLCache:sharedCache];
     
     [self loadJSONData];
+    
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _tabBarController = [[XSTabBarConteroller alloc] init];
     self.window.backgroundColor    = [UIColor whiteColor];
@@ -62,7 +61,7 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-#pragma mark - 加载 JSON 数据
+#pragma mark - private methods
 - (void)loadJSONData {
     NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_HOME];
     
@@ -72,17 +71,14 @@
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
     
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-//    __weak typeof(self) weakSelf = self;
+
     [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-//        weakSelf.homeModel = [HomeModel objectWithKeyValues:responseObject];
         
-        // JSON数据存储到本地
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         [defaults setObject:responseObject forKey:@"HomeModel"];
         [defaults synchronize];
         
-        // 发送通知
         [[NSNotificationCenter defaultCenter] postNotificationName:HomeModelNotificationName object:nil];
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

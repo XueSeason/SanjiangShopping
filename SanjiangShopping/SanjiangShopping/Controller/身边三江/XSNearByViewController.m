@@ -47,7 +47,7 @@ static NSString * const nearbyID = @"nearby";
     self.navigationItem.leftBarButtonItem = leftButtonItem;
     self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
     
-    self.navHelper._UINavigationBarBackground.backgroundColor = THEME_RED_TRANSPARENT;
+    self.navHelper._UINavigationBarBackground.backgroundColor = THEME_TRANSPARENT;
     self.navHelper._UIBackdropEffectView.hidden = YES;
     self.navHelper.UIImageView.hidden = YES; // 去除UIImageView带来的线框
     
