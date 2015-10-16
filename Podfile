@@ -1,6 +1,7 @@
 source 'https://gitcafe.com/akuandev/Specs.git'
 xcodeproj 'SanjiangShopping/SanjiangShopping.xcodeproj'  
 platform :ios, '7.0'
+pod 'ReactiveCocoa'
 pod 'DZNEmptyDataSet'
 pod 'MBProgressHUD'
 pod 'FMDB'

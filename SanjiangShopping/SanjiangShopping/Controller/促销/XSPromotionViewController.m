@@ -34,6 +34,7 @@ static NSString * const promotionCellID = @"promotion";
 
 @implementation XSPromotionViewController
 
+#pragma mark - life cycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     // 状态栏样式
@@ -65,6 +66,7 @@ static NSString * const promotionCellID = @"promotion";
     }
 }
 
+#pragma mark - private methods
 - (void)loadPromotionData {
     NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_PROMOTION];
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
@@ -92,12 +94,12 @@ static NSString * const promotionCellID = @"promotion";
 #pragma mark - Table view data source
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_data.list count];
+    return [self.data.list count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     XSPromotionCell *cell = (XSPromotionCell *)[tableView dequeueReusableCellWithIdentifier:promotionCellID forIndexPath:indexPath];
-    [cell.picture sd_setImageWithURL:[NSURL URLWithString:[_data.list[indexPath.row] img]]];
+    [cell.picture sd_setImageWithURL:[NSURL URLWithString:[self.data.list[indexPath.row] img]]];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     cell.picture.layer.cornerRadius = 10;
