@@ -45,7 +45,6 @@ static const CGFloat step = 8.0f;
         [self addSubview:_orderView];
         _contentHeight  += _orderView.frame.size.height;
 
-//        _tradeView      = [self tradeView];
         _tradeView = [self generateTradeView];
         [self addSubview:_tradeView];
         _contentHeight  += _tradeView.frame.size.height + step;

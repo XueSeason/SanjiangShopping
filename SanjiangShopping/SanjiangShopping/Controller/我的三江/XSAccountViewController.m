@@ -51,13 +51,6 @@
     [self.view addSubview:mainView];
 }
 
-//- (void)didReceiveMemoryWarning {
-//    [super didReceiveMemoryWarning];
-//    if ([self.view window] == nil) {
-//        self.view = nil;
-//    }
-//}
-
 #pragma mark 按钮点击事件
 - (void)login {
     XSLoginViewController *loginViewController = [[XSLoginViewController alloc] init];
@@ -113,15 +106,5 @@
 - (void)help {
     NSLog(@"help");
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
