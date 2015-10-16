@@ -104,8 +104,6 @@ static const CGFloat step = 9.0f;
     self.staticView.layer.borderWidth = 0.5f;
     self.scrollView.contentSize   = CGSizeMake(self.view.frame.size.width, self.staticView.frame.origin.y + self.staticView.frame.size.height);
     
-    self.toTopButton.hidden = YES;
-    self.toTopButton.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[button(==44)]-8-|" options:0 metrics:nil views:@{@"button": self.toTopButton}]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[button(==44)]-57-|" options:0 metrics:nil views:@{@"button": self.toTopButton}]];
     [self.toTopButton layoutIfNeeded];
@@ -131,9 +129,9 @@ static const CGFloat step = 9.0f;
 
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)sender {
-    CGFloat offset = _scrollView.contentOffset.y;
+    CGFloat offset = self.scrollView.contentOffset.y;
     
-    if (offset < 216.75 && _active) {
+    if (offset < 216.75 && self.active) {
         self.navHelper._UINavigationBarBackground.backgroundColor = THEME_RED_FADE(offset / 255.0);
     }
     
@@ -506,6 +504,8 @@ static const CGFloat step = 9.0f;
         _toTopButton = [[UIButton alloc] init];
         [_toTopButton addTarget:self action:@selector(toTop) forControlEvents:UIControlEventTouchUpInside];
         [_toTopButton setImage:[UIImage imageNamed:@"ToTop"] forState:UIControlStateNormal];
+        _toTopButton.hidden = YES;
+        _toTopButton.translatesAutoresizingMaskIntoConstraints = NO;
     }
     return _toTopButton;
 }

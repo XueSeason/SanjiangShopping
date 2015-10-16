@@ -36,7 +36,8 @@ static NSString * const collectionBannerID = @"banner";
 #define MENU_COLOR [UIColor colorWithRed:244 / 255.0 green:244 / 255.0 blue:244 / 255.0 alpha:1.0]
 
 @interface XSMutiCatagoryViewController ()
-<UITableViewDataSource, UITableViewDelegate, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,
+<UITableViewDataSource, UITableViewDelegate,
+UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,
 UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 @property (strong, nonatomic) MenuDataModel       *menuData;
@@ -55,8 +56,11 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 @implementation XSMutiCatagoryViewController
 
+#pragma mark - life cycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
+    
+    [self loadMenuData];
     // 状态栏样式
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.automaticallyAdjustsScrollViewInsets = YES;
@@ -72,9 +76,8 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    // 加载搜索框
-    [self loadSearchBar];
-    
+    [self customNavigationBar];
+
     /**
      *  设置 Table View
      */
@@ -102,47 +105,17 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
     
 }
 
-#pragma mark - 加载搜索框
-- (void)loadSearchBar {
-    _resultTableViewController = [[XSResultTableViewController alloc] init];
-    
-    _searchController = [[UISearchController alloc] initWithSearchResultsController:_resultTableViewController];
-    _searchController.searchBar.searchBarStyle             = UISearchBarStyleMinimal;
-    _searchController.hidesNavigationBarDuringPresentation = NO;
-    _searchController.dimsBackgroundDuringPresentation     = NO;
-    
-    _searchController.delegate             = self;
-    _searchController.searchResultsUpdater = self;
-    _searchController.searchBar.delegate   = self;
-    
-    // 设置搜索框样式
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *data = [defaults dictionaryForKey:@"HomeModel"];
-    NSString *keyword = [data[@"data"] objectForKey:@"keyword"];
-    if (keyword == nil) {
-        keyword = @"搜索商品名称/商品编号";
-    }
-    [XSSearchBarHelper hackStandardSearchBar:_searchController.searchBar keyword:keyword];
-    
-    [XSNavigationBarHelper hackStandardNavigationBar:self.navigationController.navigationBar];
-    self.navigationItem.titleView = _searchController.searchBar;
-    
-    // 添加扫描二维码按钮
-    _scanButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ScanQRCode"] style:UIBarButtonItemStylePlain target:self action:@selector(scanQRCode)];
-    _scanButton.tintColor = [UIColor lightGrayColor];
-    self.navigationItem.leftBarButtonItem = _scanButton;
-    
-    /**
-     *  获取JSON数据
-     */
-    [self loadMenuData];
-}
-
+#pragma mark - event response
 - (void)scanQRCode {
     NSLog(@"Scan QRCode");
 }
 
-#pragma mark - 加载网络数据
+#pragma mark - private methods
+- (void)customNavigationBar {
+    [XSNavigationBarHelper hackStandardNavigationBar:self.navigationController.navigationBar];
+    self.navigationItem.titleView = self.searchController.searchBar;
+    self.navigationItem.leftBarButtonItem = self.scanButton;
+}
 
 - (void)loadMenuData {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
@@ -192,7 +165,45 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
     }];
 }
 
-#pragma mark - Table View Data Source
+#pragma mark - getters and setters
+- (XSResultTableViewController *)resultTableViewController {
+    if (_resultTableViewController == nil) {
+        _resultTableViewController = [[XSResultTableViewController alloc] init];
+    }
+    return _resultTableViewController;
+}
+
+- (UISearchController *)searchController {
+    if (_searchController == nil) {
+        _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultTableViewController];
+        _searchController.searchBar.searchBarStyle             = UISearchBarStyleMinimal;
+        _searchController.hidesNavigationBarDuringPresentation = NO;
+        _searchController.dimsBackgroundDuringPresentation     = NO;
+        
+        _searchController.delegate             = self;
+        _searchController.searchResultsUpdater = self;
+        _searchController.searchBar.delegate   = self;
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSDictionary *data = [defaults dictionaryForKey:@"HomeModel"];
+        NSString *keyword = [data[@"data"] objectForKey:@"keyword"];
+        if (keyword == nil) {
+            keyword = @"搜索商品名称/商品编号";
+        }
+        [XSSearchBarHelper hackStandardSearchBar:_searchController.searchBar keyword:keyword];
+    }
+    return _searchController;
+}
+
+- (UIBarButtonItem *)scanButton {
+    if (_scanButton == nil) {
+        _scanButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ScanQRCode"] style:UIBarButtonItemStylePlain target:self action:@selector(scanQRCode)];
+        _scanButton.tintColor = [UIColor lightGrayColor];
+    }
+    return _scanButton;
+}
+
+#pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return _menuData.list.count;
 }
@@ -212,7 +223,7 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
     return cell;
 }
 
-#pragma mark - Table View Delegate
+#pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     XSMutiCatagoryTableViewCell *cell = (XSMutiCatagoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
     cell.contentView.backgroundColor  = [UIColor whiteColor];
@@ -236,7 +247,7 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
     cell.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
 }
 
-#pragma mark - Collection View Data Source
+#pragma mark - UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return _collectionData.list.count + 1;
 }
@@ -265,7 +276,7 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
     return cell;
 }
 
-#pragma mark - Collection Flow Layout
+#pragma mark - UICollectionViewDelegateFlowLayout
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return CGSizeZero;
@@ -290,7 +301,7 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
     return CGSizeMake(_collectionView.frame.size.width, 30);
 }
 
-#pragma mark - Collection View Delegate
+#pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     XSCommodityListViewController *listViewController = [[XSCommodityListViewController alloc] init];
     self.definesPresentationContext = NO;
@@ -318,7 +329,7 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
     }
 }
 
-#pragma mark - Search Bar Delegate
+#pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
     NSLog(@"开始搜索");
     if ([searchBar.text isEqualToString:@""]) {
@@ -337,12 +348,12 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
     [searchBar resignFirstResponder];
 }
 
-#pragma mark - Search Result Updater
+#pragma mark - UISearchResultsUpdating
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
     NSLog(@"%@", searchController.searchBar.text);
 }
 
-#pragma mark - Search Controller Delegate
+#pragma mark - UISearchControllerDelegate
 - (void)presentSearchController:(UISearchController *)searchController {
     NSLog(@"开始进入搜索");
 }

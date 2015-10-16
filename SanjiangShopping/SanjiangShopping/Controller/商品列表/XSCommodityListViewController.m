@@ -103,8 +103,8 @@ static NSString * const cellID = @"commodityList";
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    [_searchTableViewController.tableView removeFromSuperview];
-    _searchTableViewController = nil;
+//    [_searchTableViewController.tableView removeFromSuperview];
+//    _searchTableViewController = nil;
 }
 
 - (void)didReceiveMemoryWarning {
