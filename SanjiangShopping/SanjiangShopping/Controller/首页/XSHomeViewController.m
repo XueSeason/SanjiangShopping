@@ -82,7 +82,7 @@ static const CGFloat step = 9.0f;
     [self.view addSubview:self.toTopButton];
     
     // 添加观察者
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(firstDownload) name:HomeModelNotificationName object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(firstDownload) name:HomeModelNotificationName object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {

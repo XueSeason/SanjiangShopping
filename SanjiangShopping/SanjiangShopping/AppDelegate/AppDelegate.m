@@ -28,7 +28,7 @@
     NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:0 diskCapacity:0 diskPath:nil];
     [NSURLCache setSharedURLCache:sharedCache];
     
-    [self loadJSONData];
+//    [self loadJSONData];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     _tabBarController = [[XSTabBarConteroller alloc] init];

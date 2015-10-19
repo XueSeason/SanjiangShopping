@@ -9,7 +9,7 @@
 #import "XSShoppingCartViewController.h"
 #import "XSAddressTableViewCell.h"
 #import "XSShoppingCartTableViewCell.h"
-#import "XSAddressViewController.h"
+#import "XSDeliveredInformationViewController.h"
 
 #import "XSNavigationBarHelper.h"
 
@@ -66,6 +66,10 @@ static NSString * const addressID = @"Address";
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     
+    if ([self.navigationController.tabBarItem.title isEqualToString:@"购物车"]) {
+        self.tabBarController.tabBar.hidden = NO;
+    }
+    
     CGRect pannelFrame;
     if (!self.tabBarController.tabBar.hidden) {
         pannelFrame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height - self.tabBarController.tabBar.frame.size.height - 49, [UIScreen mainScreen].bounds.size.width, 49);
@@ -78,10 +82,6 @@ static NSString * const addressID = @"Address";
     self.tableView.frame = CGRectMake(0, 0, pannelFrame.size.width, pannelFrame.origin.y);
     
     [self downLoadJSONData];
-
-    if ([self.navigationController.tabBarItem.title isEqualToString:@"购物车"]) {
-        self.tabBarController.tabBar.hidden = NO;
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -184,8 +184,8 @@ static NSString * const addressID = @"Address";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
-        XSAddressViewController *avc = [[XSAddressViewController alloc] init];
-        [self.navigationController pushViewController:avc animated:YES];
+        XSDeliveredInformationViewController *vc = [[XSDeliveredInformationViewController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
     } else {
         NSLog(@"click");
     }

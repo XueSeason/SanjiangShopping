@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="65" id="KGk-i7-Jjw" customClass="XSDeliveredAddressTableViewCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="65"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected" translatesAutoresizingMaskIntoConstraints="NO" id="QSL-B5-bal">
+                        <rect key="frame" x="0.0" y="0.0" width="30" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="DfT-Yt-9pH"/>
+                        </constraints>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KL2-nN-siE">
+                        <rect key="frame" x="270" y="0.0" width="50" height="64"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="50" id="G7n-9u-bRv"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="编辑" image="edit">
+                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rHl-WQ-wTs">
+                        <rect key="frame" x="30" y="0.0" width="241" height="64"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="QSL-B5-bal" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="2KP-QQ-ryN"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="KL2-nN-siE" secondAttribute="trailing" constant="-8" id="2R8-T2-tHV"/>
+                    <constraint firstItem="KL2-nN-siE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="5tE-kj-x7W"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="KL2-nN-siE" secondAttribute="bottom" constant="-8" id="Ipl-2Y-sj6"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="rHl-WQ-wTs" secondAttribute="bottom" constant="-8" id="Lrp-EF-BA5"/>
+                    <constraint firstItem="KL2-nN-siE" firstAttribute="leading" secondItem="rHl-WQ-wTs" secondAttribute="trailing" constant="-1" id="N9h-cN-ldb"/>
+                    <constraint firstItem="rHl-WQ-wTs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="fhK-dt-jyo"/>
+                    <constraint firstItem="QSL-B5-bal" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="kPJ-Ru-bwm"/>
+                    <constraint firstItem="rHl-WQ-wTs" firstAttribute="leading" secondItem="QSL-B5-bal" secondAttribute="trailing" id="kSC-6C-WrD"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="QSL-B5-bal" secondAttribute="bottom" constant="-8" id="mYX-vZ-9oY"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="558" y="389.5"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="edit" width="14" height="14"/>
+        <image name="selected" width="18" height="18"/>
+    </resources>
+</document>
