@@ -11,7 +11,6 @@
                 <outlet property="addToFavoritesButton" destination="Ajj-3c-7vb" id="Ecy-oo-egm"/>
                 <outlet property="deleteButton" destination="6pZ-7H-8uK" id="GRD-BQ-ivy"/>
                 <outlet property="discountLabel" destination="4p0-6u-TYM" id="spd-GZ-QAS"/>
-                <outlet property="editPanelView" destination="yAD-NV-oES" id="eHE-hp-9Vh"/>
                 <outlet property="priceNowLabel" destination="9Kq-6Z-J7K" id="Gpr-a4-dwT"/>
                 <outlet property="selectAllButton" destination="k07-KX-AqK" id="ufc-1J-UzB"/>
                 <outlet property="settlementButton" destination="oof-ak-CRg" id="RUI-Ao-mBW"/>
