@@ -14,6 +14,7 @@
 
 #import "XSMyOrderViewController.h"
 #import "XSMyCouponViewController.h"
+#import "XSMyFavoriteViewController.h"
 
 #import "XSWriteMemberNameViewController.h"
 #import "XSBindMemberCardViewController.h"
@@ -95,7 +96,7 @@
 }
 
 - (void)favorite {
-    NSLog(@"favorite");
+    [self.navigationController pushViewController:[[XSMyFavoriteViewController alloc] init] animated:YES];
 }
 
 - (void)coupon {

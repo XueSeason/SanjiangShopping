@@ -57,6 +57,9 @@
 		B1C45AE41BD5E23600D2466E /* XSMyCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C45AE21BD5E23600D2466E /* XSMyCouponTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		B1C45AE81BD5EBC300D2466E /* XSCouponInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C45AE61BD5EBC300D2466E /* XSCouponInfoViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B1C45AE91BD5EBC300D2466E /* XSCouponInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C45AE71BD5EBC300D2466E /* XSCouponInfoViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		B1C45AED1BD60C7E00D2466E /* XSMyFavoriteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C45AEC1BD60C7E00D2466E /* XSMyFavoriteViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1C45AF11BD60D5D00D2466E /* XSMyFavoriteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C45AEF1BD60D5D00D2466E /* XSMyFavoriteTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B1C45AF21BD60D5D00D2466E /* XSMyFavoriteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C45AF01BD60D5D00D2466E /* XSMyFavoriteTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		B1D3D8CE1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D3D8CC1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		B1D3D8CF1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D3D8CD1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		B1D3D8D11BD492870060D340 /* FillSelfHelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D3D8D01BD492870060D340 /* FillSelfHelpView.xib */; settings = {ASSET_TAGS = (); }; };
@@ -244,6 +247,11 @@
 		B1C45AE51BD5EBC300D2466E /* XSCouponInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCouponInfoViewController.h; sourceTree = "<group>"; };
 		B1C45AE61BD5EBC300D2466E /* XSCouponInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCouponInfoViewController.m; sourceTree = "<group>"; };
 		B1C45AE71BD5EBC300D2466E /* XSCouponInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCouponInfoViewController.xib; sourceTree = "<group>"; };
+		B1C45AEB1BD60C7E00D2466E /* XSMyFavoriteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMyFavoriteViewController.h; sourceTree = "<group>"; };
+		B1C45AEC1BD60C7E00D2466E /* XSMyFavoriteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMyFavoriteViewController.m; sourceTree = "<group>"; };
+		B1C45AEE1BD60D5D00D2466E /* XSMyFavoriteTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMyFavoriteTableViewCell.h; sourceTree = "<group>"; };
+		B1C45AEF1BD60D5D00D2466E /* XSMyFavoriteTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMyFavoriteTableViewCell.m; sourceTree = "<group>"; };
+		B1C45AF01BD60D5D00D2466E /* XSMyFavoriteTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSMyFavoriteTableViewCell.xib; sourceTree = "<group>"; };
 		B1D3D8CB1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSDeliveredAddressTableViewCell.h; sourceTree = "<group>"; };
 		B1D3D8CC1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSDeliveredAddressTableViewCell.m; sourceTree = "<group>"; };
 		B1D3D8CD1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSDeliveredAddressTableViewCell.xib; sourceTree = "<group>"; };
@@ -830,6 +838,18 @@
 			path = "我的优惠券";
 			sourceTree = "<group>";
 		};
+		B1C45AEA1BD60C6E00D2466E /* 我的收藏 */ = {
+			isa = PBXGroup;
+			children = (
+				B1C45AEB1BD60C7E00D2466E /* XSMyFavoriteViewController.h */,
+				B1C45AEC1BD60C7E00D2466E /* XSMyFavoriteViewController.m */,
+				B1C45AEE1BD60D5D00D2466E /* XSMyFavoriteTableViewCell.h */,
+				B1C45AEF1BD60D5D00D2466E /* XSMyFavoriteTableViewCell.m */,
+				B1C45AF01BD60D5D00D2466E /* XSMyFavoriteTableViewCell.xib */,
+			);
+			path = "我的收藏";
+			sourceTree = "<group>";
+		};
 		B1D3D8D21BD4BAB20060D340 /* 地址编辑 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1036,6 +1056,7 @@
 			isa = PBXGroup;
 			children = (
 				B1C45AC31BD5CB4800D2466E /* 我的订单 */,
+				B1C45AEA1BD60C6E00D2466E /* 我的收藏 */,
 				B1C45ADC1BD5E14100D2466E /* 我的优惠券 */,
 				B1F43CF81BC6004F009F19DA /* ForgetPassword */,
 				B1F43CFC1BC6004F009F19DA /* Login */,
@@ -1371,6 +1392,7 @@
 				B1F43D191BC6004F009F19DA /* XSForgetPasswordViewController.xib in Resources */,
 				B1C45AE41BD5E23600D2466E /* XSMyCouponTableViewCell.xib in Resources */,
 				B19C260B1BB52F8E007F96CC /* MoreDetailView.xib in Resources */,
+				B1C45AF21BD60D5D00D2466E /* XSMyFavoriteTableViewCell.xib in Resources */,
 				B1D3D8D11BD492870060D340 /* FillSelfHelpView.xib in Resources */,
 				B1C45AD11BD5D83700D2466E /* XSOrderTableViewCell.xib in Resources */,
 				B1F43D8B1BC600E1009F19DA /* XSFeedbackTableViewCell.xib in Resources */,
@@ -1459,6 +1481,7 @@
 				B101BD781BC8AEC1002FF77E /* XSNearByViewController.m in Sources */,
 				B161C4A71BAAB21500B23AA5 /* CommodityListModel.m in Sources */,
 				B1C45AC61BD5CB7B00D2466E /* XSMyOrderViewController.m in Sources */,
+				B1C45AED1BD60C7E00D2466E /* XSMyFavoriteViewController.m in Sources */,
 				B1D3D8CE1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.m in Sources */,
 				B1F43D271BC6004F009F19DA /* XSAccountViewController.m in Sources */,
 				B1F43D891BC600E1009F19DA /* XSCommodityViewController.m in Sources */,
@@ -1474,6 +1497,7 @@
 				B161CDC41B96CA7000D4689C /* MenuModel.m in Sources */,
 				B1F43D811BC600E1009F19DA /* XSShoppingCartTableViewCell.m in Sources */,
 				B161CDC21B96CA7000D4689C /* BaseModel.m in Sources */,
+				B1C45AF11BD60D5D00D2466E /* XSMyFavoriteTableViewCell.m in Sources */,
 				B1BCF6BC1BB3A0A6006020E3 /* XSMoreView.m in Sources */,
 				B161CDBE1B96CA7000D4689C /* HotWordsView.m in Sources */,
 				B1A61C501BB3DB0000AF8795 /* XSBuyNowView.m in Sources */,
