@@ -45,7 +45,7 @@ static NSString * const footerID = @"footer";
     self.navigationController.navigationBarHidden = NO;
     self.tabBarController.tabBar.hidden           = YES;
     
-    CGFloat y = self.segmentControl.frame.origin.y + self.segmentControl.frame.size.height + 10;
+    CGFloat y = self.segmentControl.frame.origin.y + self.segmentControl.frame.size.height;
     self.tableView.frame = CGRectMake(0, y, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - y);
 }
 
@@ -64,38 +64,33 @@ static NSString * const footerID = @"footer";
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    XSOrderTableViewCell *cell;
     if (indexPath.row == 0) {
-        XSOrderTableViewCell *cell = (XSOrderTableViewCell *)[tableView dequeueReusableCellWithIdentifier:headerID forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
+        cell = (XSOrderTableViewCell *)[tableView dequeueReusableCellWithIdentifier:headerID forIndexPath:indexPath];
+        cell.backgroundColor = BACKGROUND_COLOR;
     } else if (indexPath.row == 3 - 1) {
-        XSOrderTableViewCell *cell = (XSOrderTableViewCell *)[tableView dequeueReusableCellWithIdentifier:footerID forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
+        cell = (XSOrderTableViewCell *)[tableView dequeueReusableCellWithIdentifier:footerID forIndexPath:indexPath];
+        cell.layer.borderWidth = 0.5f;
+        cell.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
     } else {
-        XSOrderTableViewCell *cell = (XSOrderTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
+        cell = (XSOrderTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+        cell.layer.borderWidth = 0.5f;
+        cell.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
     }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    return cell;
 }
 
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return 40.0;
+        return 51.0;
     } else if (indexPath.row == 3 - 1) {
-        return 40.0;
+        return 41.0;
     } else {
-        return 85.0;
+        return 86.0;
     }
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 0.1;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 10.0;
 }
 
 #pragma mark - private methods
@@ -133,6 +128,8 @@ static NSString * const footerID = @"footer";
         _tableView = [[UITableView alloc] init];
         _tableView.delegate   = self;
         _tableView.dataSource = self;
+        _tableView.backgroundColor = BACKGROUND_COLOR;
+        _tableView.separatorColor = [UIColor clearColor];
         _tableView.showsHorizontalScrollIndicator = NO;
         _tableView.showsVerticalScrollIndicator   = NO;
         
