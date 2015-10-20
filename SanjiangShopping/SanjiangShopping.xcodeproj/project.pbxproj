@@ -52,6 +52,11 @@
 		B1C45AD61BD5DB0F00D2466E /* XSOrderHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C45AD41BD5DB0F00D2466E /* XSOrderHeaderTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		B1C45ADA1BD5DB1C00D2466E /* XSOrderFooterTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C45AD81BD5DB1C00D2466E /* XSOrderFooterTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		B1C45ADB1BD5DB1C00D2466E /* XSOrderFooterTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C45AD91BD5DB1C00D2466E /* XSOrderFooterTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		B1C45ADF1BD5E16B00D2466E /* XSMyCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C45ADE1BD5E16B00D2466E /* XSMyCouponViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1C45AE31BD5E23600D2466E /* XSMyCouponTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C45AE11BD5E23600D2466E /* XSMyCouponTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B1C45AE41BD5E23600D2466E /* XSMyCouponTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C45AE21BD5E23600D2466E /* XSMyCouponTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
+		B1C45AE81BD5EBC300D2466E /* XSCouponInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C45AE61BD5EBC300D2466E /* XSCouponInfoViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B1C45AE91BD5EBC300D2466E /* XSCouponInfoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C45AE71BD5EBC300D2466E /* XSCouponInfoViewController.xib */; settings = {ASSET_TAGS = (); }; };
 		B1D3D8CE1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D3D8CC1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		B1D3D8CF1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D3D8CD1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		B1D3D8D11BD492870060D340 /* FillSelfHelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D3D8D01BD492870060D340 /* FillSelfHelpView.xib */; settings = {ASSET_TAGS = (); }; };
@@ -231,6 +236,14 @@
 		B1C45AD71BD5DB1C00D2466E /* XSOrderFooterTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSOrderFooterTableViewCell.h; sourceTree = "<group>"; };
 		B1C45AD81BD5DB1C00D2466E /* XSOrderFooterTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSOrderFooterTableViewCell.m; sourceTree = "<group>"; };
 		B1C45AD91BD5DB1C00D2466E /* XSOrderFooterTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSOrderFooterTableViewCell.xib; sourceTree = "<group>"; };
+		B1C45ADD1BD5E16B00D2466E /* XSMyCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMyCouponViewController.h; sourceTree = "<group>"; };
+		B1C45ADE1BD5E16B00D2466E /* XSMyCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMyCouponViewController.m; sourceTree = "<group>"; };
+		B1C45AE01BD5E23600D2466E /* XSMyCouponTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMyCouponTableViewCell.h; sourceTree = "<group>"; };
+		B1C45AE11BD5E23600D2466E /* XSMyCouponTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMyCouponTableViewCell.m; sourceTree = "<group>"; };
+		B1C45AE21BD5E23600D2466E /* XSMyCouponTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSMyCouponTableViewCell.xib; sourceTree = "<group>"; };
+		B1C45AE51BD5EBC300D2466E /* XSCouponInfoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCouponInfoViewController.h; sourceTree = "<group>"; };
+		B1C45AE61BD5EBC300D2466E /* XSCouponInfoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCouponInfoViewController.m; sourceTree = "<group>"; };
+		B1C45AE71BD5EBC300D2466E /* XSCouponInfoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCouponInfoViewController.xib; sourceTree = "<group>"; };
 		B1D3D8CB1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSDeliveredAddressTableViewCell.h; sourceTree = "<group>"; };
 		B1D3D8CC1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSDeliveredAddressTableViewCell.m; sourceTree = "<group>"; };
 		B1D3D8CD1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSDeliveredAddressTableViewCell.xib; sourceTree = "<group>"; };
@@ -802,6 +815,21 @@
 			path = "订单列表";
 			sourceTree = "<group>";
 		};
+		B1C45ADC1BD5E14100D2466E /* 我的优惠券 */ = {
+			isa = PBXGroup;
+			children = (
+				B1C45ADD1BD5E16B00D2466E /* XSMyCouponViewController.h */,
+				B1C45ADE1BD5E16B00D2466E /* XSMyCouponViewController.m */,
+				B1C45AE01BD5E23600D2466E /* XSMyCouponTableViewCell.h */,
+				B1C45AE11BD5E23600D2466E /* XSMyCouponTableViewCell.m */,
+				B1C45AE21BD5E23600D2466E /* XSMyCouponTableViewCell.xib */,
+				B1C45AE51BD5EBC300D2466E /* XSCouponInfoViewController.h */,
+				B1C45AE61BD5EBC300D2466E /* XSCouponInfoViewController.m */,
+				B1C45AE71BD5EBC300D2466E /* XSCouponInfoViewController.xib */,
+			);
+			path = "我的优惠券";
+			sourceTree = "<group>";
+		};
 		B1D3D8D21BD4BAB20060D340 /* 地址编辑 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1008,6 +1036,7 @@
 			isa = PBXGroup;
 			children = (
 				B1C45AC31BD5CB4800D2466E /* 我的订单 */,
+				B1C45ADC1BD5E14100D2466E /* 我的优惠券 */,
 				B1F43CF81BC6004F009F19DA /* ForgetPassword */,
 				B1F43CFC1BC6004F009F19DA /* Login */,
 				B1F43D001BC6004F009F19DA /* MemberCard */,
@@ -1327,6 +1356,7 @@
 				B161CD161B96C9F300D4689C /* LaunchScreen.xib in Resources */,
 				B1F43D1B1BC6004F009F19DA /* XSLoginViewController.xib in Resources */,
 				B1DC5C781BD086B6002B35DB /* XSMutiCatagoryTableViewCell.xib in Resources */,
+				B1C45AE91BD5EBC300D2466E /* XSCouponInfoViewController.xib in Resources */,
 				B1EE6FA51BC76A3D00EA90B1 /* XSSummaryTableViewCell.xib in Resources */,
 				B101BD801BC8BBEE002FF77E /* NearbyView.xib in Resources */,
 				B1F43D7B1BC600E1009F19DA /* XSMutiCatagoryViewController.xib in Resources */,
@@ -1339,6 +1369,7 @@
 				B1EE6F9B1BC76A0000EA90B1 /* XSAddressSelectedTableViewCell.xib in Resources */,
 				B1F43D881BC600E1009F19DA /* XSFilterViewController.xib in Resources */,
 				B1F43D191BC6004F009F19DA /* XSForgetPasswordViewController.xib in Resources */,
+				B1C45AE41BD5E23600D2466E /* XSMyCouponTableViewCell.xib in Resources */,
 				B19C260B1BB52F8E007F96CC /* MoreDetailView.xib in Resources */,
 				B1D3D8D11BD492870060D340 /* FillSelfHelpView.xib in Resources */,
 				B1C45AD11BD5D83700D2466E /* XSOrderTableViewCell.xib in Resources */,
@@ -1423,6 +1454,7 @@
 				B1EE6F9A1BC76A0000EA90B1 /* XSAddressSelectedTableViewCell.m in Sources */,
 				B1E9EAC61BAF99550008A839 /* XSDropView.m in Sources */,
 				B1BCF6C71BB3CF7B006020E3 /* XS1111GrayView.m in Sources */,
+				B1C45AE31BD5E23600D2466E /* XSMyCouponTableViewCell.m in Sources */,
 				B1F43D8A1BC600E1009F19DA /* XSFeedbackTableViewCell.m in Sources */,
 				B101BD781BC8AEC1002FF77E /* XSNearByViewController.m in Sources */,
 				B161C4A71BAAB21500B23AA5 /* CommodityListModel.m in Sources */,
@@ -1455,6 +1487,7 @@
 				B1BCF6C41BB3CEDF006020E3 /* XS1111WhiteView.m in Sources */,
 				B1DC5C711BD086B6002B35DB /* XSBannerCollectionReusableView.m in Sources */,
 				B1D3D8D91BD4BFAB0060D340 /* XSEditAddressViewController.m in Sources */,
+				B1C45ADF1BD5E16B00D2466E /* XSMyCouponViewController.m in Sources */,
 				B1EE6F9F1BC76A2300EA90B1 /* XSPayOptionTableViewCell.m in Sources */,
 				B19C25AA1BB4CAB5007F96CC /* XSThemeView.m in Sources */,
 				B101BD8C1BC8DB88002FF77E /* XSMarketViewController.m in Sources */,
@@ -1479,6 +1512,7 @@
 				B1F43D711BC600E1009F19DA /* XSPromotionViewController.m in Sources */,
 				B1F43D871BC600E1009F19DA /* XSFilterViewController.m in Sources */,
 				B1F43D9C1BC61E6E009F19DA /* XSRecomendScrollView.m in Sources */,
+				B1C45AE81BD5EBC300D2466E /* XSCouponInfoViewController.m in Sources */,
 				B1EE6FA41BC76A3D00EA90B1 /* XSSummaryTableViewCell.m in Sources */,
 				B1F43D931BC600E1009F19DA /* XSSearchTableViewController.m in Sources */,
 				B1F43D7F1BC600E1009F19DA /* XSAddressTableViewCell.m in Sources */,

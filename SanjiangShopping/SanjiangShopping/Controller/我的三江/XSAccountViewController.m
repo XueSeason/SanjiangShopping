@@ -13,6 +13,7 @@
 #import "XSLoginViewController.h"
 
 #import "XSMyOrderViewController.h"
+#import "XSMyCouponViewController.h"
 
 #import "XSWriteMemberNameViewController.h"
 #import "XSBindMemberCardViewController.h"
@@ -98,7 +99,7 @@
 }
 
 - (void)coupon {
-    NSLog(@"coupon");
+    [self.navigationController pushViewController:[[XSMyCouponViewController alloc] init] animated:YES];
 }
 
 - (void)score {
