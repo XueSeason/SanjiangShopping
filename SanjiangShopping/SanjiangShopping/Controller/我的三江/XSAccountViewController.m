@@ -12,6 +12,8 @@
 
 #import "XSLoginViewController.h"
 
+#import "XSMyOrderViewController.h"
+
 #import "XSWriteMemberNameViewController.h"
 #import "XSBindMemberCardViewController.h"
 
@@ -63,7 +65,7 @@
 }
 
 - (void)order {
-    NSLog(@"order");
+    [self.navigationController pushViewController:[[XSMyOrderViewController alloc] init] animated:YES];
 }
 
 - (void)waitPay {
