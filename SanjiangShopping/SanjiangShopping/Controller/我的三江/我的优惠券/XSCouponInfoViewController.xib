@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XSCouponInfoViewController">
             <connections>
+                <outlet property="contentView" destination="s6K-zk-Gye" id="rUo-FA-gap"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,17 +19,25 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s6K-zk-Gye">
                     <rect key="frame" x="8" y="72" width="584" height="200"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="me5-D2-e7H">
-                            <rect key="frame" x="0.0" y="0.0" width="576" height="200"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueDetailCoupon" translatesAutoresizingMaskIntoConstraints="NO" id="me5-D2-e7H">
+                            <rect key="frame" x="0.0" y="0.0" width="584" height="14"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="14" id="f7l-x8-ONu"/>
+                            </constraints>
                         </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1、使用规则：单张订单只能使用一张满减券，能与现金券叠加使用；" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F30-fr-fiM">
+                            <rect key="frame" x="8" y="22" width="568" height="170"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="me5-D2-e7H" secondAttribute="trailing" constant="8" id="7nR-1K-Nbn"/>
-                        <constraint firstItem="me5-D2-e7H" firstAttribute="top" secondItem="s6K-zk-Gye" secondAttribute="top" id="I61-0M-gsh"/>
-                        <constraint firstAttribute="bottom" secondItem="me5-D2-e7H" secondAttribute="bottom" id="WFC-RB-esg"/>
+                        <constraint firstAttribute="trailing" secondItem="me5-D2-e7H" secondAttribute="trailing" id="EKf-kV-Bu2"/>
+                        <constraint firstItem="me5-D2-e7H" firstAttribute="leading" secondItem="s6K-zk-Gye" secondAttribute="leading" id="WsV-eH-QXk"/>
+                        <constraint firstItem="me5-D2-e7H" firstAttribute="top" secondItem="s6K-zk-Gye" secondAttribute="top" id="j63-ga-qAp"/>
                         <constraint firstAttribute="height" constant="200" id="q6Y-RB-YMZ"/>
-                        <constraint firstItem="me5-D2-e7H" firstAttribute="leading" secondItem="s6K-zk-Gye" secondAttribute="leading" id="zYh-9C-hOM"/>
                     </constraints>
                 </view>
             </subviews>
@@ -41,4 +50,7 @@
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
         </view>
     </objects>
+    <resources>
+        <image name="blueDetailCoupon" width="350" height="14"/>
+    </resources>
 </document>

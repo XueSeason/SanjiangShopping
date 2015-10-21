@@ -27,6 +27,8 @@ static NSString * const cellID = @"cell";
     [super viewDidLoad];
     [self customNavigationBar];
     [self.view addSubview:self.tableView];
+    
+    self.view.backgroundColor = [UIColor whiteColor];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -35,17 +37,27 @@ static NSString * const cellID = @"cell";
     self.navigationController.navigationBarHidden = NO;
     self.tabBarController.tabBar.hidden           = YES;
     
-    self.tableView.frame = self.view.bounds;
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    self.tableView.frame = CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - 64);
 }
 
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 8;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     XSMyCouponTableViewCell *cell = (XSMyCouponTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    if ([cell.typeLabel.text isEqualToString:@"满减券"]) {
+        cell.typeLabel.textColor = [UIColor colorWithRed:86.0 / 255.0 green:176.0 / 255.0 blue:245.0 / 255.0 alpha:1.0];
+        cell.bgImageView.image = [UIImage imageNamed:@"blueCoupon"];
+    } else if([cell.typeLabel.text isEqualToString:@"现金券"]) {
+        cell.typeLabel.textColor = [UIColor colorWithRed:242.0 / 255.0 green:167.0 / 255.0 blue:48.0 / 255.0 alpha:1.0];
+        cell.bgImageView.image = [UIImage imageNamed:@"orangeCoupon"];
+    }
+    
     return cell;
 }
 

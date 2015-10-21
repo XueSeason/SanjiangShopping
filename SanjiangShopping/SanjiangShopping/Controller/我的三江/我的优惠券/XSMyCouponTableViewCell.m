@@ -11,7 +11,9 @@
 @implementation XSMyCouponTableViewCell
 
 - (void)awakeFromNib {
-//    self.bgView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"blueCoupon"]];
+    
+    self.typeLabel.layer.cornerRadius = 10.5f;
+    self.typeLabel.clipsToBounds = YES;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

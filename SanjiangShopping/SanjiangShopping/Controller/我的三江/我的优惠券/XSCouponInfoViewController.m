@@ -8,7 +8,11 @@
 
 #import "XSCouponInfoViewController.h"
 
+#import "XSNavigationBarHelper.h"
+#import "ThemeColor.h"
+
 @interface XSCouponInfoViewController ()
+@property (weak, nonatomic) IBOutlet UIView *contentView;
 
 @end
 
@@ -16,7 +20,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+     [self customNavigationBar];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.contentView.layer.borderWidth = 0.5;
+    self.contentView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +35,18 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - private methods
+- (void)customNavigationBar {
+    self.navigationItem.title = @"优惠券使用说明";
+    [XSNavigationBarHelper hackStandardNavigationBar:self.navigationController.navigationBar];
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:self action:@selector(comeBack)];
+    leftButtonItem.tintColor = MAIN_TITLE_COLOR;
+    self.navigationItem.leftBarButtonItem = leftButtonItem;
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
 }
-*/
+
+- (void)comeBack {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 
 @end
