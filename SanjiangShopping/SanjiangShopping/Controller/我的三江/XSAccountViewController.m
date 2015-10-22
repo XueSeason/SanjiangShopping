@@ -10,6 +10,8 @@
 #import "XSAccountCenterView.h"
 #import "AppMacro.h"
 
+#import "XSSettingViewController.h"
+
 #import "XSLoginViewController.h"
 
 #import "XSMyOrderViewController.h"
@@ -63,7 +65,7 @@
 }
 
 - (void)setting {
-    NSLog(@"setting");
+    [self.navigationController pushViewController:[[XSSettingViewController alloc] init] animated:YES];
 }
 
 - (void)order {
