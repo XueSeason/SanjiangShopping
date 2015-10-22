@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XSLogisticsViewController">
+            <connections>
+                <outlet property="infoView" destination="Pl0-hy-1mt" id="ks1-iv-YAq"/>
+                <outlet property="numberLabel" destination="20C-ZJ-cGd" id="g61-DH-lph"/>
+                <outlet property="typeLabel" destination="H5V-MO-rAd" id="LmP-4a-YJW"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pl0-hy-1mt">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="订单号：37686782827722" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="20C-ZJ-cGd">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货方式：三江配送" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H5V-MO-rAd">
+                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="H5V-MO-rAd" secondAttribute="trailing" constant="8" id="3Mc-HB-UBC"/>
+                        <constraint firstItem="20C-ZJ-cGd" firstAttribute="top" secondItem="Pl0-hy-1mt" secondAttribute="top" constant="12" id="3Vl-N0-PXs"/>
+                        <constraint firstItem="20C-ZJ-cGd" firstAttribute="leading" secondItem="Pl0-hy-1mt" secondAttribute="leading" constant="8" id="81Q-uD-O4m"/>
+                        <constraint firstItem="H5V-MO-rAd" firstAttribute="top" secondItem="20C-ZJ-cGd" secondAttribute="bottom" id="92I-WA-89S"/>
+                        <constraint firstItem="H5V-MO-rAd" firstAttribute="leading" secondItem="Pl0-hy-1mt" secondAttribute="leading" constant="8" id="LVh-o4-mEZ"/>
+                        <constraint firstAttribute="trailing" secondItem="20C-ZJ-cGd" secondAttribute="trailing" constant="8" id="XOn-Xt-Bpf"/>
+                        <constraint firstItem="20C-ZJ-cGd" firstAttribute="height" secondItem="H5V-MO-rAd" secondAttribute="height" id="csz-X3-TdO"/>
+                        <constraint firstAttribute="height" constant="65" id="wBi-Va-ctp"/>
+                        <constraint firstAttribute="bottom" secondItem="H5V-MO-rAd" secondAttribute="bottom" constant="11" id="ycV-Zn-fHY"/>
+                    </constraints>
+                    <variation key="default">
+                        <mask key="subviews">
+                            <exclude reference="20C-ZJ-cGd"/>
+                            <exclude reference="H5V-MO-rAd"/>
+                        </mask>
+                        <mask key="constraints">
+                            <exclude reference="wBi-Va-ctp"/>
+                            <exclude reference="3Vl-N0-PXs"/>
+                            <exclude reference="81Q-uD-O4m"/>
+                            <exclude reference="XOn-Xt-Bpf"/>
+                            <exclude reference="csz-X3-TdO"/>
+                            <exclude reference="3Mc-HB-UBC"/>
+                            <exclude reference="92I-WA-89S"/>
+                            <exclude reference="LVh-o4-mEZ"/>
+                            <exclude reference="ycV-Zn-fHY"/>
+                        </mask>
+                    </variation>
+                    <variation key="heightClass=regular-widthClass=compact">
+                        <mask key="subviews">
+                            <include reference="20C-ZJ-cGd"/>
+                            <include reference="H5V-MO-rAd"/>
+                        </mask>
+                        <mask key="constraints">
+                            <include reference="wBi-Va-ctp"/>
+                            <include reference="3Vl-N0-PXs"/>
+                            <include reference="81Q-uD-O4m"/>
+                            <include reference="XOn-Xt-Bpf"/>
+                            <include reference="csz-X3-TdO"/>
+                            <include reference="3Mc-HB-UBC"/>
+                            <include reference="92I-WA-89S"/>
+                            <include reference="LVh-o4-mEZ"/>
+                            <include reference="ycV-Zn-fHY"/>
+                        </mask>
+                    </variation>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Pl0-hy-1mt" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Eto-hl-Ohx"/>
+                <constraint firstAttribute="trailing" secondItem="Pl0-hy-1mt" secondAttribute="trailing" id="UoY-9M-B8N"/>
+                <constraint firstItem="Pl0-hy-1mt" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="65" id="ogk-o2-yil"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="Pl0-hy-1mt"/>
+                </mask>
+                <mask key="constraints">
+                    <exclude reference="Eto-hl-Ohx"/>
+                    <exclude reference="UoY-9M-B8N"/>
+                    <exclude reference="ogk-o2-yil"/>
+                </mask>
+            </variation>
+            <variation key="heightClass=regular-widthClass=compact">
+                <mask key="subviews">
+                    <include reference="Pl0-hy-1mt"/>
+                </mask>
+                <mask key="constraints">
+                    <include reference="Eto-hl-Ohx"/>
+                    <include reference="UoY-9M-B8N"/>
+                    <include reference="ogk-o2-yil"/>
+                </mask>
+            </variation>
+        </view>
+    </objects>
+</document>

@@ -13,6 +13,10 @@
 		B101BD881BC8C2DE002FF77E /* XSNearbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B101BD861BC8C2DE002FF77E /* XSNearbyTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		B101BD8C1BC8DB88002FF77E /* XSMarketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B101BD8A1BC8DB88002FF77E /* XSMarketViewController.m */; settings = {ASSET_TAGS = (); }; };
 		B14FB19E1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FB19D1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B15AF7DA1BD88343002B20D0 /* XSLogisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B15AF7D81BD88343002B20D0 /* XSLogisticsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		B15AF7DB1BD88343002B20D0 /* XSLogisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15AF7D91BD88343002B20D0 /* XSLogisticsViewController.xib */; settings = {ASSET_TAGS = (); }; };
+		B15AF7DF1BD890C9002B20D0 /* XSLogisticsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B15AF7DD1BD890C9002B20D0 /* XSLogisticsTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		B15AF7E01BD890C9002B20D0 /* XSLogisticsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15AF7DE1BD890C9002B20D0 /* XSLogisticsTableViewCell.xib */; settings = {ASSET_TAGS = (); }; };
 		B161C4A71BAAB21500B23AA5 /* CommodityListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161C4A61BAAB21500B23AA5 /* CommodityListModel.m */; settings = {ASSET_TAGS = (); }; };
 		B161CD081B96C9F300D4689C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD071B96C9F300D4689C /* main.m */; };
 		B161CD131B96C9F300D4689C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B161CD121B96C9F300D4689C /* Images.xcassets */; };
@@ -175,6 +179,12 @@
 		B12D0F051BB13CF3003FFC5F /* ThemeColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeColor.h; sourceTree = "<group>"; };
 		B14FB19C1BD47BE500FF7D40 /* XSDeliveredInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSDeliveredInformationViewController.h; sourceTree = "<group>"; };
 		B14FB19D1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSDeliveredInformationViewController.m; sourceTree = "<group>"; };
+		B15AF7D71BD88343002B20D0 /* XSLogisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSLogisticsViewController.h; sourceTree = "<group>"; };
+		B15AF7D81BD88343002B20D0 /* XSLogisticsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSLogisticsViewController.m; sourceTree = "<group>"; };
+		B15AF7D91BD88343002B20D0 /* XSLogisticsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSLogisticsViewController.xib; sourceTree = "<group>"; };
+		B15AF7DC1BD890C9002B20D0 /* XSLogisticsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSLogisticsTableViewCell.h; sourceTree = "<group>"; };
+		B15AF7DD1BD890C9002B20D0 /* XSLogisticsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSLogisticsTableViewCell.m; sourceTree = "<group>"; };
+		B15AF7DE1BD890C9002B20D0 /* XSLogisticsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSLogisticsTableViewCell.xib; sourceTree = "<group>"; };
 		B161C4A51BAAB21500B23AA5 /* CommodityListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommodityListModel.h; sourceTree = "<group>"; };
 		B161C4A61BAAB21500B23AA5 /* CommodityListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommodityListModel.m; sourceTree = "<group>"; };
 		B161CD021B96C9F300D4689C /* SanjiangShopping.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SanjiangShopping.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -467,6 +477,19 @@
 				B1D3D8D01BD492870060D340 /* FillSelfHelpView.xib */,
 			);
 			path = "收货信息";
+			sourceTree = "<group>";
+		};
+		B15AF7D31BD880DC002B20D0 /* 物流跟踪 */ = {
+			isa = PBXGroup;
+			children = (
+				B15AF7D71BD88343002B20D0 /* XSLogisticsViewController.h */,
+				B15AF7D81BD88343002B20D0 /* XSLogisticsViewController.m */,
+				B15AF7D91BD88343002B20D0 /* XSLogisticsViewController.xib */,
+				B15AF7DC1BD890C9002B20D0 /* XSLogisticsTableViewCell.h */,
+				B15AF7DD1BD890C9002B20D0 /* XSLogisticsTableViewCell.m */,
+				B15AF7DE1BD890C9002B20D0 /* XSLogisticsTableViewCell.xib */,
+			);
+			path = "物流跟踪";
 			sourceTree = "<group>";
 		};
 		B161C4A41BAAB1ED00B23AA5 /* CommodityList */ = {
@@ -1126,6 +1149,7 @@
 		B1F43CF71BC6004F009F19DA /* 我的三江 */ = {
 			isa = PBXGroup;
 			children = (
+				B15AF7D31BD880DC002B20D0 /* 物流跟踪 */,
 				B1AA22EA1BD7707200AEAA36 /* 设置 */,
 				B1C45AC31BD5CB4800D2466E /* 我的订单 */,
 				B1C45AEA1BD60C6E00D2466E /* 我的收藏 */,
@@ -1444,6 +1468,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B15AF7E01BD890C9002B20D0 /* XSLogisticsTableViewCell.xib in Resources */,
 				B19C25F61BB4F6C2007F96CC /* BuyPannel.xib in Resources */,
 				B1F43D801BC600E1009F19DA /* XSAddressTableViewCell.xib in Resources */,
 				B161CD161B96C9F300D4689C /* LaunchScreen.xib in Resources */,
@@ -1461,6 +1486,7 @@
 				B1F43D851BC600E1009F19DA /* XSCommodityListTableViewCell.xib in Resources */,
 				B1EE6F9B1BC76A0000EA90B1 /* XSAddressSelectedTableViewCell.xib in Resources */,
 				B1F43D881BC600E1009F19DA /* XSFilterViewController.xib in Resources */,
+				B15AF7DB1BD88343002B20D0 /* XSLogisticsViewController.xib in Resources */,
 				B1F43D191BC6004F009F19DA /* XSForgetPasswordViewController.xib in Resources */,
 				B1C45AE41BD5E23600D2466E /* XSMyCouponTableViewCell.xib in Resources */,
 				B19C260B1BB52F8E007F96CC /* MoreDetailView.xib in Resources */,
@@ -1611,6 +1637,7 @@
 				B1DC5C751BD086B6002B35DB /* XSHeaderCollectionReusableView.m in Sources */,
 				B1F43D921BC600E1009F19DA /* XSResultTableViewController.m in Sources */,
 				B161CDA01B96CA7000D4689C /* NotificationNameConstant.m in Sources */,
+				B15AF7DF1BD890C9002B20D0 /* XSLogisticsTableViewCell.m in Sources */,
 				B161CDC61B96CA7000D4689C /* HeadModel.m in Sources */,
 				B161CDCA1B96CA7000D4689C /* HotWordsModel.m in Sources */,
 				B161CDC31B96CA7000D4689C /* CollectionModel.m in Sources */,
@@ -1633,6 +1660,7 @@
 				B1F43D1A1BC6004F009F19DA /* XSLoginViewController.m in Sources */,
 				B1DC5C731BD086B6002B35DB /* XSMutiCatagoryCollectionViewCell.m in Sources */,
 				B1F43D901BC600E1009F19DA /* XSClearHistoryTableViewCell.m in Sources */,
+				B15AF7DA1BD88343002B20D0 /* XSLogisticsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

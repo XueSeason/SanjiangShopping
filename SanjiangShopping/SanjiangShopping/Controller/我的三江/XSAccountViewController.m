@@ -14,6 +14,8 @@
 
 #import "XSLoginViewController.h"
 
+#import "XSLogisticsViewController.h"
+
 #import "XSMyOrderViewController.h"
 #import "XSMyCouponViewController.h"
 #import "XSMyFavoriteViewController.h"
@@ -77,7 +79,7 @@
 }
 
 - (void)waitReceipt {
-    NSLog(@"wait receipt");
+    [self.navigationController pushViewController:[[XSLogisticsViewController alloc] init] animated:YES];
 }
 
 - (void)waitFeedback {
