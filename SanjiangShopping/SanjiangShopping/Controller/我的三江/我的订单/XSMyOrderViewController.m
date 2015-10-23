@@ -11,6 +11,7 @@
 #import "XSOrderTableViewCell.h"
 #import "XSOrderHeaderTableViewCell.h"
 #import "XSOrderFooterTableViewCell.h"
+#import "XSMyOrderDetailViewController.h"
 
 #import "XSNavigationBarHelper.h"
 #import "ThemeColor.h"
@@ -83,6 +84,13 @@ static NSString * const footerID = @"footer";
 }
 
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row != 0 && indexPath.row != 3 - 1) {
+//        XSOrderTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        [self.navigationController pushViewController:[[XSMyOrderDetailViewController alloc] init] animated:YES];
+    }
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         return 51.0;
