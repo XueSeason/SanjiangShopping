@@ -9,6 +9,7 @@
 #import "XSMyCouponViewController.h"
 #import "XSMyCouponTableViewCell.h"
 #import "XSCouponInfoViewController.h"
+#import "XSExchangeCouponViewController.h"
 #import "XSNavigationBarHelper.h"
 #import "ThemeColor.h"
 
@@ -18,6 +19,8 @@ static NSString * const cellID = @"cell";
 
 @property (strong, nonatomic) UITableView *tableView;
 
+@property (strong, nonatomic) UIButton *codeButton;
+
 @end
 
 @implementation XSMyCouponViewController
@@ -26,6 +29,8 @@ static NSString * const cellID = @"cell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self customNavigationBar];
+    
+    [self.view addSubview:self.codeButton];
     [self.view addSubview:self.tableView];
     
     self.view.backgroundColor = [UIColor whiteColor];
@@ -38,7 +43,9 @@ static NSString * const cellID = @"cell";
     self.tabBarController.tabBar.hidden           = YES;
     
     self.automaticallyAdjustsScrollViewInsets = NO;
-    self.tableView.frame = CGRectMake(0, 64, CGRectGetWidth(self.view.bounds), CGRectGetHeight(self.view.bounds) - 64);
+    self.codeButton.frame = CGRectMake(8, 64 + 8, CGRectGetWidth(self.view.bounds) - 16, 44);
+    CGFloat y = self.codeButton.frame.origin.y + self.codeButton.frame.size.height;
+    self.tableView.frame  = CGRectMake(8, y + 8, CGRectGetWidth(self.view.bounds) - 16, CGRectGetHeight(self.view.bounds) - y - 8);
 }
 
 #pragma mark - UITableViewDataSource
@@ -61,14 +68,9 @@ static NSString * const cellID = @"cell";
     return cell;
 }
 
-
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 110.0;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.navigationController pushViewController:[[XSCouponInfoViewController alloc] init] animated:YES];
 }
 
 #pragma mark - private methods
@@ -79,10 +81,22 @@ static NSString * const cellID = @"cell";
     leftButtonItem.tintColor = MAIN_TITLE_COLOR;
     self.navigationItem.leftBarButtonItem = leftButtonItem;
     self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+    
+    UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"使用说明" style:UIBarButtonItemStylePlain target:self action:@selector(useDetail)];
+    rightButtonItem.tintColor = MAIN_TITLE_COLOR;
+    self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 
 - (void)comeBack {
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)useDetail {
+    [self.navigationController pushViewController:[[XSCouponInfoViewController alloc] init] animated:YES];
+}
+
+- (void)exchangeCoupon {
+    [self.navigationController pushViewController:[[XSExchangeCouponViewController alloc] init] animated:YES];
 }
 
 #pragma mark - getters and setters
@@ -100,6 +114,22 @@ static NSString * const cellID = @"cell";
         [_tableView registerNib:[UINib nibWithNibName:@"XSMyCouponTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     }
     return _tableView;
+}
+
+- (UIButton *)codeButton {
+    if (_codeButton == nil) {
+        _codeButton = [[UIButton alloc] init];
+        [_codeButton setTitle:@"优惠码兑换" forState:UIControlStateNormal];
+        [_codeButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        _codeButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
+        _codeButton.layer.borderWidth = 0.5f;
+        _codeButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+        _codeButton.layer.cornerRadius = 5.0;
+        _codeButton.clipsToBounds = YES;
+        
+        [_codeButton addTarget:self action:@selector(exchangeCoupon) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _codeButton;
 }
 
 @end
