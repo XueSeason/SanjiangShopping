@@ -116,7 +116,7 @@ static const CGFloat step = 9.0f;
     [super viewWillDisappear:animated];
     // 移除观察者
     [[NSNotificationCenter defaultCenter] removeObserver:self name:HomeModelNotificationName object:nil];
-    
+    self.navHelper._UINavigationBarBackground.opaque = YES;
     self.scrollView.footer = nil;
 }
 
@@ -279,6 +279,7 @@ static const CGFloat step = 9.0f;
 
 - (void)transparentizeNavigationBar {
     self.navHelper._UINavigationBarBackground.backgroundColor = THEME_TRANSPARENT;
+    self.navHelper._UINavigationBarBackground.opaque = NO;
     self.navHelper._UIBackdropEffectView.hidden = YES;
     self.navHelper.UIImageView.hidden = YES; // 去除UIImageView带来的线框
 }
