@@ -77,6 +77,7 @@
 #pragma mark - EAIntroView delegate
 - (void)introDidFinish:(EAIntroView *)introView {
     NSLog(@"introDidFinish callback");
+    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
 }
 
 - (void)skipIntroduction {
@@ -102,8 +103,6 @@
         self.intro.hideOffscreenPages = YES;
         [self.intro setDelegate:self];
         [self.intro showInView:self.view animateDuration:0.3];
-        
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"everLaunched"];
     }
 }
 
