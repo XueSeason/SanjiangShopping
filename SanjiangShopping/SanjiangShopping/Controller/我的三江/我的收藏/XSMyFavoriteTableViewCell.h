@@ -10,4 +10,10 @@
 
 @interface XSMyFavoriteTableViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *img;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceNowLabel;
+@property (weak, nonatomic) IBOutlet UILabel *priceOldLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+
 @end

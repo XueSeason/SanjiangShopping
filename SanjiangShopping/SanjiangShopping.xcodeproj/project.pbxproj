@@ -660,8 +660,8 @@
 		B161CD5E1B96CA7000D4689C /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				B1F43D951BC61094009F19DA /* FreshFoodView */,
 				B161CD5F1B96CA7000D4689C /* HomeView */,
+				B1F43D951BC61094009F19DA /* FreshFoodView */,
 				B161CD781B96CA7000D4689C /* SearchView */,
 				B19C25EE1BB4E9E8007F96CC /* CommodityView */,
 				B13FDBBC1BAA56AC00DB3381 /* OtherView */,

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -32,7 +32,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥2.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bZk-wH-wN4">
-                        <rect key="frame" x="120" y="60" width="51" height="21"/>
+                        <rect key="frame" x="120" y="60" width="43" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="YFz-7P-9Wd"/>
                             <constraint firstAttribute="width" constant="51" id="era-Gv-Gep"/>
@@ -40,6 +40,11 @@
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="era-Gv-Gep"/>
+                            </mask>
+                        </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2014/07/14" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MMq-9L-9PU">
                         <rect key="frame" x="120" y="89" width="87" height="21"/>
@@ -59,6 +64,20 @@
                         </constraints>
                         <state key="normal" image="ShoppingCart"/>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥2.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8cT-kC-q7Z">
+                        <rect key="frame" x="164" y="60" width="41" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="51" id="GjR-MC-vlw"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="GjR-MC-vlw"/>
+                            </mask>
+                        </variation>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="bZk-wH-wN4" firstAttribute="leading" secondItem="i7t-xZ-ydP" secondAttribute="trailing" constant="8" id="2xK-jP-Ic6"/>
@@ -69,12 +88,22 @@
                     <constraint firstAttribute="trailingMargin" secondItem="zBv-NZ-v9w" secondAttribute="trailing" id="Kai-sG-DyS"/>
                     <constraint firstAttribute="leadingMargin" secondItem="i7t-xZ-ydP" secondAttribute="leading" id="Pap-Nq-5sE"/>
                     <constraint firstAttribute="trailingMargin" secondItem="dVa-zc-aA4" secondAttribute="trailing" id="UBn-rq-3re"/>
+                    <constraint firstItem="8cT-kC-q7Z" firstAttribute="leading" secondItem="bZk-wH-wN4" secondAttribute="trailing" constant="1" id="UK6-8O-fsx"/>
                     <constraint firstItem="MMq-9L-9PU" firstAttribute="top" secondItem="bZk-wH-wN4" secondAttribute="bottom" constant="8" id="XXX-vV-KJn"/>
                     <constraint firstAttribute="topMargin" secondItem="i7t-xZ-ydP" secondAttribute="top" id="j2d-Jg-SzE"/>
                     <constraint firstAttribute="bottomMargin" secondItem="i7t-xZ-ydP" secondAttribute="bottom" id="kBa-Qa-Cww"/>
+                    <constraint firstItem="8cT-kC-q7Z" firstAttribute="bottom" secondItem="bZk-wH-wN4" secondAttribute="bottom" id="oCP-1D-jRp"/>
+                    <constraint firstItem="8cT-kC-q7Z" firstAttribute="top" secondItem="bZk-wH-wN4" secondAttribute="top" id="tjA-Yn-p5g"/>
                     <constraint firstItem="bZk-wH-wN4" firstAttribute="top" secondItem="dVa-zc-aA4" secondAttribute="bottom" constant="8" id="zhI-uh-y4v"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="MMq-9L-9PU" id="1P0-Nh-7cq"/>
+                <outlet property="img" destination="i7t-xZ-ydP" id="meV-MZ-tkA"/>
+                <outlet property="nameLabel" destination="dVa-zc-aA4" id="Pgv-VT-K5v"/>
+                <outlet property="priceNowLabel" destination="bZk-wH-wN4" id="N6A-fb-p1Q"/>
+                <outlet property="priceOldLabel" destination="8cT-kC-q7Z" id="b8W-SB-K5C"/>
+            </connections>
             <point key="canvasLocation" x="558" y="417.5"/>
         </tableViewCell>
     </objects>

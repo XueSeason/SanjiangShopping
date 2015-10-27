@@ -52,6 +52,7 @@
     shoppingCartNav.tabBarItem.title           = @"购物车";
     shoppingCartNav.tabBarItem.selectedImage   = [UIImage imageNamed:@"tab4_p"];
     shoppingCartNav.tabBarItem.image           = [UIImage imageNamed:@"tab4"];
+    shoppingCartNav.tabBarItem.badgeValue = @"1";
 
     XSAccountViewController *account           = [[XSAccountViewController alloc] init];
     UINavigationController *accountNav         = [[UINavigationController alloc] initWithRootViewController:account];
