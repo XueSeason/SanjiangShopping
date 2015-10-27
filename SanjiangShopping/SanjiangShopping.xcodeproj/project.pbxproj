@@ -12,6 +12,11 @@
 		B101BD871BC8C2DE002FF77E /* XSNearbyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B101BD851BC8C2DE002FF77E /* XSNearbyTableViewCell.m */; };
 		B101BD881BC8C2DE002FF77E /* XSNearbyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B101BD861BC8C2DE002FF77E /* XSNearbyTableViewCell.xib */; };
 		B101BD8C1BC8DB88002FF77E /* XSMarketViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B101BD8A1BC8DB88002FF77E /* XSMarketViewController.m */; };
+		B11335831BDF6C7400CA7A11 /* GuideView0.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11335821BDF6C7400CA7A11 /* GuideView0.xib */; };
+		B11335851BDF6C7E00CA7A11 /* GuideView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11335841BDF6C7E00CA7A11 /* GuideView1.xib */; };
+		B11335871BDF6C8600CA7A11 /* GuideView2.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11335861BDF6C8600CA7A11 /* GuideView2.xib */; };
+		B11335891BDF6C8D00CA7A11 /* GuideView3.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11335881BDF6C8D00CA7A11 /* GuideView3.xib */; };
+		B113358B1BDF6CB500CA7A11 /* GuideView4.xib in Resources */ = {isa = PBXBuildFile; fileRef = B113358A1BDF6CB500CA7A11 /* GuideView4.xib */; };
 		B14FB19E1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FB19D1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m */; };
 		B15AF7DA1BD88343002B20D0 /* XSLogisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B15AF7D81BD88343002B20D0 /* XSLogisticsViewController.m */; };
 		B15AF7DB1BD88343002B20D0 /* XSLogisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15AF7D91BD88343002B20D0 /* XSLogisticsViewController.xib */; };
@@ -190,6 +195,11 @@
 		B101BD861BC8C2DE002FF77E /* XSNearbyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSNearbyTableViewCell.xib; sourceTree = "<group>"; };
 		B101BD891BC8DB88002FF77E /* XSMarketViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMarketViewController.h; sourceTree = "<group>"; };
 		B101BD8A1BC8DB88002FF77E /* XSMarketViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMarketViewController.m; sourceTree = "<group>"; };
+		B11335821BDF6C7400CA7A11 /* GuideView0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideView0.xib; sourceTree = "<group>"; };
+		B11335841BDF6C7E00CA7A11 /* GuideView1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideView1.xib; sourceTree = "<group>"; };
+		B11335861BDF6C8600CA7A11 /* GuideView2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideView2.xib; sourceTree = "<group>"; };
+		B11335881BDF6C8D00CA7A11 /* GuideView3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideView3.xib; sourceTree = "<group>"; };
+		B113358A1BDF6CB500CA7A11 /* GuideView4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideView4.xib; sourceTree = "<group>"; };
 		B12D0F051BB13CF3003FFC5F /* ThemeColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeColor.h; sourceTree = "<group>"; };
 		B14FB19C1BD47BE500FF7D40 /* XSDeliveredInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSDeliveredInformationViewController.h; sourceTree = "<group>"; };
 		B14FB19D1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSDeliveredInformationViewController.m; sourceTree = "<group>"; };
@@ -490,6 +500,18 @@
 			path = "身边三江";
 			sourceTree = "<group>";
 		};
+		B11335811BDF6C6300CA7A11 /* WelcomeViews */ = {
+			isa = PBXGroup;
+			children = (
+				B11335821BDF6C7400CA7A11 /* GuideView0.xib */,
+				B11335841BDF6C7E00CA7A11 /* GuideView1.xib */,
+				B11335861BDF6C8600CA7A11 /* GuideView2.xib */,
+				B11335881BDF6C8D00CA7A11 /* GuideView3.xib */,
+				B113358A1BDF6CB500CA7A11 /* GuideView4.xib */,
+			);
+			path = WelcomeViews;
+			sourceTree = "<group>";
+		};
 		B13FDBBC1BAA56AC00DB3381 /* OtherView */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +674,7 @@
 		B161CD5D1B96CA7000D4689C /* General */ = {
 			isa = PBXGroup;
 			children = (
+				B11335811BDF6C6300CA7A11 /* WelcomeViews */,
 				B161CD5E1B96CA7000D4689C /* Views */,
 			);
 			path = General;
@@ -1552,6 +1575,7 @@
 				B101BD801BC8BBEE002FF77E /* NearbyView.xib in Resources */,
 				B1F43D7B1BC600E1009F19DA /* XSMutiCatagoryViewController.xib in Resources */,
 				B174E9621BD9CB790091E703 /* XSSummaryTableViewCell.xib in Resources */,
+				B11335851BDF6C7E00CA7A11 /* GuideView1.xib in Resources */,
 				B174E95C1BD9CB790091E703 /* XSItemListTableViewCell.xib in Resources */,
 				B1ED06311BCB454F0002F49D /* Market.xib in Resources */,
 				B1F43D701BC600E1009F19DA /* XSPromotionCell.xib in Resources */,
@@ -1569,6 +1593,7 @@
 				B19C260B1BB52F8E007F96CC /* MoreDetailView.xib in Resources */,
 				B1C45AF21BD60D5D00D2466E /* XSMyFavoriteTableViewCell.xib in Resources */,
 				B1D3D8D11BD492870060D340 /* FillSelfHelpView.xib in Resources */,
+				B11335871BDF6C8600CA7A11 /* GuideView2.xib in Resources */,
 				B1AA22EF1BD7716900AEAA36 /* XSSettingViewController.xib in Resources */,
 				B1C45AD11BD5D83700D2466E /* XSOrderTableViewCell.xib in Resources */,
 				B1F43D8B1BC600E1009F19DA /* XSFeedbackTableViewCell.xib in Resources */,
@@ -1580,6 +1605,7 @@
 				B1F43D941BC600E1009F19DA /* XSSearchTableViewController.xib in Resources */,
 				B1BB5D891BD86B2100500898 /* XSShareSettingTableViewCell.xib in Resources */,
 				B1C45AD61BD5DB0F00D2466E /* XSOrderHeaderTableViewCell.xib in Resources */,
+				B11335831BDF6C7400CA7A11 /* GuideView0.xib in Resources */,
 				B174E9591BD9CB790091E703 /* SubmitOrderView.xib in Resources */,
 				B1BCF6B81BB39C5C006020E3 /* RecommendView.xib in Resources */,
 				B174E9761BD9D3FD0091E703 /* XSTwoTableViewCell.xib in Resources */,
@@ -1596,6 +1622,8 @@
 				B1DC5C741BD086B6002B35DB /* XSMutiCatagoryCollectionViewCell.xib in Resources */,
 				B1C45ADB1BD5DB1C00D2466E /* XSOrderFooterTableViewCell.xib in Resources */,
 				B1F43D991BC61604009F19DA /* FreshFoodGoodView.xib in Resources */,
+				B11335891BDF6C8D00CA7A11 /* GuideView3.xib in Resources */,
+				B113358B1BDF6CB500CA7A11 /* GuideView4.xib in Resources */,
 				B1F43D7E1BC600E1009F19DA /* ControlPannel.xib in Resources */,
 				B161CD131B96C9F300D4689C /* Images.xcassets in Resources */,
 				B174E9711BD9D3F40091E703 /* XSOneTableViewCell.xib in Resources */,

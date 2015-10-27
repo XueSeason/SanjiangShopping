@@ -20,14 +20,16 @@
 
 #import <EAIntroView.h>
 
-@interface XSTabBarConteroller ()
-
+@interface XSTabBarConteroller () <EAIntroDelegate>
+@property (strong, nonatomic) EAIntroView *intro;
 @end
 
 @implementation XSTabBarConteroller
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self welcomeView];
     
     XSHomeViewController *home                 = [[XSHomeViewController alloc] init];
     UINavigationController *homeNav            = [[UINavigationController alloc] initWithRootViewController:home];
@@ -63,7 +65,6 @@
     // 设置 tabbar 控制器
     self.viewControllers  = @[homeNav, catagoryNav, promotionNav, shoppingCartNav, accountNav];
     self.tabBar.tintColor = THEME_RED;
-
 }
 
 - (void)didReceiveMemoryWarning {
@@ -71,6 +72,39 @@
     if ([self.view window] == nil) {
         self.view = nil;
     }
+}
+
+#pragma mark - EAIntroView delegate
+- (void)introDidFinish:(EAIntroView *)introView {
+    NSLog(@"introDidFinish callback");
+}
+
+- (void)skipIntroduction {
+    [self.intro hideWithFadeOutDuration:0.3];
+}
+
+#pragma mark - private methods
+- (void)welcomeView {
+    EAIntroPage *page1 = [EAIntroPage pageWithCustomViewFromNibNamed:@"GuideView0"];
+    
+    EAIntroPage *page2 = [EAIntroPage pageWithCustomViewFromNibNamed:@"GuideView1"];
+    
+    EAIntroPage *page3 = [EAIntroPage pageWithCustomViewFromNibNamed:@"GuideView2"];
+    
+    EAIntroPage *page4 = [EAIntroPage pageWithCustomViewFromNibNamed:@"GuideView3"];
+    
+    EAIntroPage *page5 = [EAIntroPage pageWithCustomViewFromNibNamed:@"GuideView4"];
+    UIButton *skipButton = (UIButton *)[page5.customView viewWithTag:101];
+    [skipButton addTarget:self action:@selector(skipIntroduction) forControlEvents:UIControlEventTouchUpInside];
+    
+    self.intro = [[EAIntroView alloc] initWithFrame:[UIScreen mainScreen].bounds andPages:@[page1, page2, page3, page4, page5]];
+    self.intro.skipButton = nil;
+    self.intro.pageControl.hidden = YES;
+    self.intro.swipeToExit = NO;
+    self.intro.hideOffscreenPages = YES;
+    [self.intro setDelegate:self];
+    
+    [self.intro showInView:self.view animateDuration:0.3];
 }
 
 @end

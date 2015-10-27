@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="guide_2" translatesAutoresizingMaskIntoConstraints="NO" id="Aze-KY-CZN">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Aze-KY-CZN" secondAttribute="bottom" id="IGa-H6-z8m"/>
+                <constraint firstItem="Aze-KY-CZN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UO0-wa-V52"/>
+                <constraint firstItem="Aze-KY-CZN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="s0g-4v-3Z4"/>
+                <constraint firstAttribute="trailing" secondItem="Aze-KY-CZN" secondAttribute="trailing" id="wjV-dV-13x"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="guide_2" width="375" height="667"/>
+    </resources>
+</document>
