@@ -20,6 +20,8 @@
 #import "XSFreshFoodViewController.h"
 #import "XSNearByViewController.h"
 
+#import "XSBuyNowViewController.h"
+
 #import "XS4211View.h"
 #import "XS1111GrayView.h"
 #import "XS1111WhiteView.h"
@@ -88,6 +90,7 @@ static const CGFloat step = 9.0f;
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
+    [self transparentizeNavigationBar];
     [self adjustView];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
@@ -251,6 +254,10 @@ static const CGFloat step = 9.0f;
     [self.navigationController pushViewController:nvc animated:YES];
 }
 
+- (void)buyNow {
+    [self.navigationController pushViewController:[[XSBuyNowViewController alloc] init] animated:YES];
+}
+
 #pragma mark - private methods
 - (void)adjustView {
     // 状态栏样式
@@ -272,7 +279,6 @@ static const CGFloat step = 9.0f;
 }
 
 - (void)customNavigationBar {
-    [self transparentizeNavigationBar];
     self.navigationItem.titleView = self.searchController.searchBar;
     self.navigationItem.leftBarButtonItem = self.scanButton;
 }
@@ -325,6 +331,9 @@ static const CGFloat step = 9.0f;
             tempView.floorModel = floor;
             [self.dynamicView addSubview:tempView];
             height += frame.size.height;
+            
+            // 添加事件
+            [tempView.moreControl addTarget:self action:@selector(buyNow) forControlEvents:UIControlEventTouchUpInside];
         } else if (floor.vt == 6) {
             height += step;
             CGRect frame = CGRectMake(0, height, width, width / 15.0 * 4.0 );
@@ -449,7 +458,7 @@ static const CGFloat step = 9.0f;
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未连接" message:@"无法加载数据" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
-        [weakSelf.scrollView.footer noticeNoMoreData];
+        [weakSelf.scrollView.footer endRefreshingWithNoMoreData];
     }];
 }
 

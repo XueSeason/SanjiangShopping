@@ -88,6 +88,9 @@
 		B1BCF6BC1BB3A0A6006020E3 /* XSMoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BCF6BB1BB3A0A6006020E3 /* XSMoreView.m */; };
 		B1BCF6C41BB3CEDF006020E3 /* XS1111WhiteView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BCF6C31BB3CEDF006020E3 /* XS1111WhiteView.m */; };
 		B1BCF6C71BB3CF7B006020E3 /* XS1111GrayView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BCF6C61BB3CF7B006020E3 /* XS1111GrayView.m */; };
+		B1BFDC1F1BE70C65009B8D80 /* XSBuyNowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BFDC1E1BE70C65009B8D80 /* XSBuyNowViewController.m */; };
+		B1BFDC231BE71183009B8D80 /* XSBuyNowTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1BFDC211BE71182009B8D80 /* XSBuyNowTableViewCell.m */; };
+		B1BFDC241BE71183009B8D80 /* XSBuyNowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1BFDC221BE71182009B8D80 /* XSBuyNowTableViewCell.xib */; };
 		B1C45AC61BD5CB7B00D2466E /* XSMyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C45AC51BD5CB7B00D2466E /* XSMyOrderViewController.m */; };
 		B1C45AD01BD5D83700D2466E /* XSOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1C45ACE1BD5D83700D2466E /* XSOrderTableViewCell.m */; };
 		B1C45AD11BD5D83700D2466E /* XSOrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1C45ACF1BD5D83700D2466E /* XSOrderTableViewCell.xib */; };
@@ -323,6 +326,11 @@
 		B1BCF6C31BB3CEDF006020E3 /* XS1111WhiteView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XS1111WhiteView.m; sourceTree = "<group>"; };
 		B1BCF6C51BB3CF7B006020E3 /* XS1111GrayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XS1111GrayView.h; sourceTree = "<group>"; };
 		B1BCF6C61BB3CF7B006020E3 /* XS1111GrayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XS1111GrayView.m; sourceTree = "<group>"; };
+		B1BFDC1D1BE70C65009B8D80 /* XSBuyNowViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSBuyNowViewController.h; sourceTree = "<group>"; };
+		B1BFDC1E1BE70C65009B8D80 /* XSBuyNowViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSBuyNowViewController.m; sourceTree = "<group>"; };
+		B1BFDC201BE71182009B8D80 /* XSBuyNowTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSBuyNowTableViewCell.h; sourceTree = "<group>"; };
+		B1BFDC211BE71182009B8D80 /* XSBuyNowTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSBuyNowTableViewCell.m; sourceTree = "<group>"; };
+		B1BFDC221BE71182009B8D80 /* XSBuyNowTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSBuyNowTableViewCell.xib; sourceTree = "<group>"; };
 		B1C45AC41BD5CB7B00D2466E /* XSMyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMyOrderViewController.h; sourceTree = "<group>"; };
 		B1C45AC51BD5CB7B00D2466E /* XSMyOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMyOrderViewController.m; sourceTree = "<group>"; };
 		B1C45ACD1BD5D83700D2466E /* XSOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSOrderTableViewCell.h; sourceTree = "<group>"; };
@@ -1458,6 +1466,11 @@
 		B1F43D9D1BC620C6009F19DA /* 秒杀专区 */ = {
 			isa = PBXGroup;
 			children = (
+				B1BFDC1D1BE70C65009B8D80 /* XSBuyNowViewController.h */,
+				B1BFDC1E1BE70C65009B8D80 /* XSBuyNowViewController.m */,
+				B1BFDC201BE71182009B8D80 /* XSBuyNowTableViewCell.h */,
+				B1BFDC211BE71182009B8D80 /* XSBuyNowTableViewCell.m */,
+				B1BFDC221BE71182009B8D80 /* XSBuyNowTableViewCell.xib */,
 			);
 			path = "秒杀专区";
 			sourceTree = "<group>";
@@ -1593,6 +1606,7 @@
 				B19C260B1BB52F8E007F96CC /* MoreDetailView.xib in Resources */,
 				B1C45AF21BD60D5D00D2466E /* XSMyFavoriteTableViewCell.xib in Resources */,
 				B1D3D8D11BD492870060D340 /* FillSelfHelpView.xib in Resources */,
+				B1BFDC241BE71183009B8D80 /* XSBuyNowTableViewCell.xib in Resources */,
 				B11335871BDF6C8600CA7A11 /* GuideView2.xib in Resources */,
 				B1AA22EF1BD7716900AEAA36 /* XSSettingViewController.xib in Resources */,
 				B1C45AD11BD5D83700D2466E /* XSOrderTableViewCell.xib in Resources */,
@@ -1708,6 +1722,7 @@
 				B1AA22EE1BD7716900AEAA36 /* XSSettingViewController.m in Sources */,
 				B1C45ADA1BD5DB1C00D2466E /* XSOrderFooterTableViewCell.m in Sources */,
 				B161CDC41B96CA7000D4689C /* MenuModel.m in Sources */,
+				B1BFDC1F1BE70C65009B8D80 /* XSBuyNowViewController.m in Sources */,
 				B1F43D811BC600E1009F19DA /* XSShoppingCartTableViewCell.m in Sources */,
 				B161CDC21B96CA7000D4689C /* BaseModel.m in Sources */,
 				B1C45AF11BD60D5D00D2466E /* XSMyFavoriteTableViewCell.m in Sources */,
@@ -1724,6 +1739,7 @@
 				B1F43D1E1BC6004F009F19DA /* XSMyMemberCardViewController.m in Sources */,
 				B1F43D261BC6004F009F19DA /* XSAccountCenterView.m in Sources */,
 				B174E95D1BD9CB790091E703 /* XSAddressSelectedTableViewCell.m in Sources */,
+				B1BFDC231BE71183009B8D80 /* XSBuyNowTableViewCell.m in Sources */,
 				B161CD081B96C9F300D4689C /* main.m in Sources */,
 				B1BCF6C41BB3CEDF006020E3 /* XS1111WhiteView.m in Sources */,
 				B1DC5C711BD086B6002B35DB /* XSBannerCollectionReusableView.m in Sources */,
