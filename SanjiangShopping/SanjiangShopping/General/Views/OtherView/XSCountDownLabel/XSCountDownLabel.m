@@ -8,6 +8,12 @@
 
 #import "XSCountDownLabel.h"
 
+@interface XSCountDownLabel ()
+@property (strong, nonatomic) UILabel *label0;
+@property (strong, nonatomic) UILabel *label1;
+
+@end
+
 @implementation XSCountDownLabel
 
 - (void)countDown:(int)totalTime {
@@ -47,43 +53,75 @@
     CGFloat width   = 24.0;
     CGFloat height  = 18.0;
     CGFloat space   = (self.frame.size.height - height) / 2.0;
-    _hourLabel      = [[UILabel alloc] initWithFrame:CGRectMake(0, space, width, height)];
-    UILabel *label0 = [[UILabel alloc] initWithFrame:CGRectMake(_hourLabel.frame.size.width + _hourLabel.frame.origin.x, space, 8, height)];
-    _minuteLabel    = [[UILabel alloc] initWithFrame:CGRectMake(label0.frame.origin.x + label0.frame.size.width, space, width, height)];
-    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(_minuteLabel.frame.origin.x + _minuteLabel.frame.size.width, space, 8, height)];
-    _secondLabel    = [[UILabel alloc] initWithFrame:CGRectMake(label1.frame.origin.x + label1.frame.size.width, space, width, height)];
+    self.hourLabel.frame   = CGRectMake(0, space, width, height);
+    self.label0.frame      = CGRectMake(self.hourLabel.frame.size.width + self.hourLabel.frame.origin.x, space, 8, height);
+    self.minuteLabel.frame = CGRectMake(self.label0.frame.origin.x + self.label0.frame.size.width, space, width, height);
+    self.label1.frame      = CGRectMake(self.minuteLabel.frame.origin.x + self.minuteLabel.frame.size.width, space, 8, height);
+    self.secondLabel.frame = CGRectMake(self.label1.frame.origin.x + self.label1.frame.size.width, space, width, height);
     
-    label0.text = @":";
-    label1.text = @":";
-    label0.textAlignment = NSTextAlignmentCenter;
-    label1.textAlignment = NSTextAlignmentCenter;
-    
-    _hourLabel.textColor       = [UIColor whiteColor];
-    _hourLabel.font            = [_hourLabel.font fontWithSize:14.0];
-    _hourLabel.textAlignment   = NSTextAlignmentCenter;
-    _minuteLabel.textColor     = [UIColor whiteColor];
-    _minuteLabel.font          = [_hourLabel.font fontWithSize:14.0];
-    _minuteLabel.textAlignment = NSTextAlignmentCenter;
-    _secondLabel.textColor     = [UIColor whiteColor];
-    _secondLabel.font          = [_hourLabel.font fontWithSize:14.0];
-    _secondLabel.textAlignment = NSTextAlignmentCenter;
-    
-    _hourLabel.backgroundColor   = [UIColor colorWithRed:102 / 255.0 green:102 / 255.0 blue:102 / 255.0 alpha:1.0];
-    _minuteLabel.backgroundColor = _hourLabel.backgroundColor;
-    _secondLabel.backgroundColor = _hourLabel.backgroundColor;
-    
-    _hourLabel.layer.cornerRadius   = 2.0f;
-    _minuteLabel.layer.cornerRadius = 2.0f;
-    _secondLabel.layer.cornerRadius = 2.0f;
-    
-    _hourLabel.clipsToBounds   = YES;
-    _minuteLabel.clipsToBounds = YES;
-    _secondLabel.clipsToBounds = YES;
-    
-    [self addSubview:_hourLabel];
-    [self addSubview:label0];
-    [self addSubview:_minuteLabel];
-    [self addSubview: label1];
-    [self addSubview:_secondLabel];
+    [self addSubview:self.hourLabel];
+    [self addSubview:self.label0];
+    [self addSubview:self.minuteLabel];
+    [self addSubview:self.label1];
+    [self addSubview:self.secondLabel];
 }
+
+#pragma mark - getters and setters
+- (UILabel *)hourLabel {
+    if (_hourLabel == nil) {
+        _hourLabel = [[UILabel alloc] init];
+        _hourLabel.textColor          = [UIColor whiteColor];
+        _hourLabel.font               = [_hourLabel.font fontWithSize:14.0];
+        _hourLabel.textAlignment      = NSTextAlignmentCenter;
+        _hourLabel.backgroundColor    = [UIColor colorWithRed:102 / 255.0 green:102 / 255.0 blue:102 / 255.0 alpha:1.0];
+        _hourLabel.layer.cornerRadius = 2.0f;
+        _hourLabel.clipsToBounds      = YES;
+    }
+    return _hourLabel;
+}
+
+- (UILabel *)minuteLabel {
+    if (_minuteLabel == nil) {
+        _minuteLabel = [[UILabel alloc] init];
+        _minuteLabel.textColor          = [UIColor whiteColor];
+        _minuteLabel.font               = [_hourLabel.font fontWithSize:14.0];
+        _minuteLabel.textAlignment      = NSTextAlignmentCenter;
+        _minuteLabel.backgroundColor    = [UIColor colorWithRed:102 / 255.0 green:102 / 255.0 blue:102 / 255.0 alpha:1.0];
+        _minuteLabel.layer.cornerRadius = 2.0f;
+        _minuteLabel.clipsToBounds      = YES;
+    }
+    return _minuteLabel;
+}
+
+- (UILabel *)secondLabel {
+    if (_secondLabel == nil) {
+        _secondLabel = [[UILabel alloc] init];
+        _secondLabel.textColor          = [UIColor whiteColor];
+        _secondLabel.font               = [_hourLabel.font fontWithSize:14.0];
+        _secondLabel.textAlignment      = NSTextAlignmentCenter;
+        _secondLabel.backgroundColor    = [UIColor colorWithRed:102 / 255.0 green:102 / 255.0 blue:102 / 255.0 alpha:1.0];
+        _secondLabel.layer.cornerRadius = 2.0f;
+        _secondLabel.clipsToBounds      = YES;
+    }
+    return _secondLabel;
+}
+
+- (UILabel *)label0 {
+    if (_label0 == nil) {
+        _label0 = [[UILabel alloc] init];
+        _label0.text = @":";
+        _label0.textAlignment = NSTextAlignmentCenter;
+    }
+    return _label0;
+}
+
+- (UILabel *)label1 {
+    if (_label1 == nil) {
+        _label1 = [[UILabel alloc] init];
+        _label1.text = @":";
+        _label1.textAlignment = NSTextAlignmentCenter;
+    }
+    return _label1;
+}
+
 @end
