@@ -60,7 +60,6 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    [self loadMenuData];
     // 状态栏样式
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.automaticallyAdjustsScrollViewInsets = YES;
@@ -103,6 +102,7 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
     
     _collectionView.contentInset = UIEdgeInsetsMake(64, 0, 49, 0);
     
+    [self loadMenuData];
 }
 
 #pragma mark - event response

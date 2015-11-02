@@ -177,7 +177,7 @@
         
         [itemView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[image]-10-|" options:0 metrics:nil views:nameMap]];
         [itemView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[name]-10-|" options:0 metrics:nil views:nameMap]];
-        [itemView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[now(==55)]-0-[old]-10-|" options:0 metrics:nil views:nameMap]];
+        [itemView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[now(<=55)]-0-[old]" options:0 metrics:nil views:nameMap]];
         [itemView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[image(==90)]-0-[name(==40)]-0-[now]-20-|" options:0 metrics:nil views:nameMap]];
         [itemView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[image(==90)]-0-[name(==40)]-0-[old]-20-|" options:0 metrics:nil views:nameMap]];
         [itemView layoutIfNeeded];
