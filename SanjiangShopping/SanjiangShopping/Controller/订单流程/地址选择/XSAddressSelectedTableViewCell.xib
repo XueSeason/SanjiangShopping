@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -20,6 +20,7 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="location" translatesAutoresizingMaskIntoConstraints="NO" id="3pe-mZ-zkC">
                                 <rect key="frame" x="8" y="23" width="30" height="30"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="30" id="9Be-dG-PP2"/>
                                     <constraint firstAttribute="height" constant="30" id="bwk-8u-QdX"/>
@@ -27,24 +28,28 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货人：孙悟空 15757821451" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="7" translatesAutoresizingMaskIntoConstraints="NO" id="HhE-cX-R5o">
                                 <rect key="frame" x="96" y="12" width="216" height="17"/>
+                                <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="address_line" translatesAutoresizingMaskIntoConstraints="NO" id="KqL-5q-kAe">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="3"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="uxU-oB-FDE"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="address_line" translatesAutoresizingMaskIntoConstraints="NO" id="vsS-PQ-j8w">
                                 <rect key="frame" x="0.0" y="72" width="320" height="3"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="3" id="1E2-eh-LNY"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[配送]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M88-MV-yjv">
                                 <rect key="frame" x="46" y="12" width="42" height="17"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="42" id="SLn-64-0bE"/>
                                 </constraints>
@@ -54,6 +59,7 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货地址：宁波市海曙区环城西路北段197号三江购物俱乐部股份有限公司4楼全渠道发展中心" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="yUQ-F4-qom">
                                 <rect key="frame" x="46" y="32" width="266" height="35"/>
+                                <animations/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Hin-pC-O1Q"/>
                                 </constraints>
@@ -62,6 +68,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
+                        <animations/>
                         <color key="backgroundColor" red="1" green="0.99607843139999996" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="HhE-cX-R5o" firstAttribute="bottom" secondItem="M88-MV-yjv" secondAttribute="bottom" id="AX5-TT-igZ"/>
@@ -85,6 +92,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <animations/>
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="bNX-GM-ce9" secondAttribute="trailing" constant="-8" id="HjG-dh-vhH"/>
                     <constraint firstItem="bNX-GM-ce9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="UP5-0o-Ygy"/>
@@ -92,6 +100,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="bNX-GM-ce9" secondAttribute="bottom" constant="-8" id="bKf-K1-5Vx"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <point key="canvasLocation" x="532" y="359"/>
         </tableViewCell>
     </objects>

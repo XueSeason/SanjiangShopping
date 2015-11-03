@@ -31,6 +31,7 @@
 
 @property (strong, nonatomic) CellView *memberCardView;
 @property (strong, nonatomic) CellView *favoriteView;
+@property (strong, nonatomic) CellView *addressView;
 
 @property (strong, nonatomic) CellView *couponView;
 @property (strong, nonatomic) CellView *scoreView;
@@ -38,6 +39,7 @@
 @property (strong, nonatomic) CellView *helpView;
 
 @property (strong, nonatomic) UIButton *loginButton;
+@property (strong, nonatomic) UILabel  *loginLabel;
 @property (strong, nonatomic) UIButton *settingButton;
 
 - (instancetype)initWithFrame:(CGRect)frame;

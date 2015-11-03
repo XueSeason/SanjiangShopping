@@ -19,6 +19,7 @@
 #import "XSMyOrderViewController.h"
 #import "XSMyCouponViewController.h"
 #import "XSMyFavoriteViewController.h"
+#import "XSAddressManageViewController.h"
 
 #import "XSWriteMemberNameViewController.h"
 #import "XSBindMemberCardViewController.h"
@@ -52,9 +53,13 @@
     [mainView.tradeView.waitFeedbackControl addTarget:self action:@selector(waitFeedback) forControlEvents:UIControlEventTouchUpInside];
     [mainView.memberCardView addTarget:self action:@selector(memberCard) forControlEvents:UIControlEventTouchUpInside];
     [mainView.favoriteView addTarget:self action:@selector(favorite) forControlEvents:UIControlEventTouchUpInside];
+    [mainView.addressView addTarget:self action:@selector(address) forControlEvents:UIControlEventTouchUpInside];
     [mainView.couponView addTarget:self action:@selector(coupon) forControlEvents:UIControlEventTouchUpInside];
     [mainView.scoreView addTarget:self action:@selector(score) forControlEvents:UIControlEventTouchUpInside];
     [mainView.helpView addTarget:self action:@selector(help) forControlEvents:UIControlEventTouchUpInside];
+    
+//    mainView.loginButton.hidden = YES;
+//    mainView.loginLabel.hidden = YES;
     
     [self.view addSubview:mainView];
 }
@@ -101,6 +106,10 @@
 
 - (void)favorite {
     [self.navigationController pushViewController:[[XSMyFavoriteViewController alloc] init] animated:YES];
+}
+
+- (void)address {
+    [self.navigationController pushViewController:[[XSAddressManageViewController alloc] init] animated:YES];
 }
 
 - (void)coupon {

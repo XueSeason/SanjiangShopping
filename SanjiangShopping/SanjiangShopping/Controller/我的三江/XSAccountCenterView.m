@@ -54,7 +54,10 @@ static const CGFloat step = 8.0f;
         _contentHeight  += _memberCardView.frame.size.height;
         _favoriteView   = [self generateCellView];
         [self addSubview:_favoriteView];
-        _contentHeight  += _favoriteView.frame.size.height + step;
+        _contentHeight  += _favoriteView.frame.size.height;
+        _addressView    = [self generateCellView];
+        [self addSubview:_addressView];
+        _contentHeight  += _addressView.frame.size.height + step;
 
         _couponView     = [self generateCellView];
         [self addSubview:_couponView];
@@ -84,6 +87,12 @@ static const CGFloat step = 8.0f;
         _favoriteView.logoImageView.image   = [UIImage imageNamed:@"favorite"];
         _favoriteView.arrow.image           = [UIImage imageNamed:@"arrow"];
         _favoriteView.arrow.contentMode     = UIViewContentModeScaleAspectFit;
+        
+        _addressView.titleLabel.text        = @"我的收货地址";
+        _addressView.subTitleLabel.text     = @"管理收获地址";
+        _addressView.logoImageView.image   = [UIImage imageNamed:@"address"];
+        _addressView.arrow.image           = [UIImage imageNamed:@"arrow"];
+        _addressView.arrow.contentMode     = UIViewContentModeScaleAspectFit;
 
         _couponView.titleLabel.text         = @"我的优惠券";
         _couponView.subTitleLabel.text      = @"您有3张优惠券";
@@ -114,25 +123,14 @@ static const CGFloat step = 8.0f;
     view.userInteractionEnabled = YES;
     view.image                  = [UIImage imageNamed:@"bannerBackground"];
     
-    UIButton *loginButton   = [[UIButton alloc] init];
-    UILabel *loginLabel     = [[UILabel alloc] init];
-    UIButton *settingButton = [[UIButton alloc] init];
-    
-    _loginButton   = loginButton;
-    _settingButton = settingButton;
-    
-    [view addSubview:loginButton];
-    [view addSubview:loginLabel];
-    [view addSubview:settingButton];
-    
-    loginButton.translatesAutoresizingMaskIntoConstraints   = NO;
-    loginLabel.translatesAutoresizingMaskIntoConstraints    = NO;
-    settingButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [view addSubview:self.loginButton];
+    [view addSubview:self.loginLabel];
+    [view addSubview:self.settingButton];
     
     NSDictionary *map = @{
-                          @"lb": loginButton,
-                          @"ll": loginLabel,
-                          @"sb": settingButton
+                          @"lb": self.loginButton,
+                          @"ll": self.loginLabel,
+                          @"sb": self.settingButton
                           };
     
     CGFloat space = (view.frame.size.width - 75) / 2.0;
@@ -144,16 +142,6 @@ static const CGFloat step = 8.0f;
     [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-%f-[lb]-%f-|", step, step] options:0 metrics:nil views:map]];
     [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[ll]-%f-|", space, space] options:0 metrics:nil views:map]];
     [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[lb]-0-[ll(==21)]" options:0 metrics:nil views:map]];
-
-    loginLabel.text          = @"登录/注册";
-    loginLabel.textAlignment = NSTextAlignmentCenter;
-    loginLabel.textColor     = [UIColor whiteColor];
-    loginLabel.font          = [loginLabel.font fontWithSize:14.0];
-    
-    loginButton.layer.cornerRadius = 37.5f;
-    loginButton.backgroundColor    = [UIColor whiteColor];
-    
-    [settingButton setImage:[UIImage imageNamed:@"setting"] forState:UIControlStateNormal];
     
     return view;
 }
@@ -282,6 +270,39 @@ static const CGFloat step = 8.0f;
     tradeView.layer.borderColor = [BACKGROUND_COLOR CGColor];
     
     return tradeView;
+}
+
+#pragma mark - getters and setters
+- (UILabel *)loginLabel {
+    if (_loginLabel == nil) {
+        _loginLabel = [[UILabel alloc] init];
+        _loginLabel.text          = @"登录/注册";
+        _loginLabel.textAlignment = NSTextAlignmentCenter;
+        _loginLabel.textColor     = [UIColor whiteColor];
+        _loginLabel.font          = [_loginLabel.font fontWithSize:14.0];
+        _loginLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _loginLabel;
+}
+
+- (UIButton *)loginButton {
+    if (_loginButton == nil) {
+        _loginButton = [[UIButton alloc] init];
+        _loginButton.layer.cornerRadius = 37.5f;
+        _loginButton.backgroundColor    = [UIColor whiteColor];
+        [_loginButton setImage:[UIImage imageNamed:@"unlogin"] forState:UIControlStateNormal];
+        _loginButton.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _loginButton;
+}
+
+- (UIButton *)settingButton {
+    if (_settingButton == nil) {
+        _settingButton = [[UIButton alloc] init];
+        [_settingButton setImage:[UIImage imageNamed:@"setting"] forState:UIControlStateNormal];
+        _settingButton.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _settingButton;
 }
 
 @end

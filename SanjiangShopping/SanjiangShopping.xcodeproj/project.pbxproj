@@ -173,6 +173,7 @@
 		B1F622291BB0DD3B0037C70F /* XSCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F622281BB0DD3B0037C70F /* XSCodeGenerator.m */; };
 		B1F9EF871BB389060040F9E0 /* XSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F9EF861BB389060040F9E0 /* XSScrollView.m */; };
 		B1FDF5861BB90B55008418E8 /* XSCountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FDF5851BB90B55008418E8 /* XSCountDownLabel.m */; };
+		B1FEF9331BE8912B00A94A1B /* XSAddressManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FEF9321BE8912B00A94A1B /* XSAddressManageViewController.m */; };
 		E60EE3714EAFCEA717DDB766 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08795A3937B2DB14EE781AA3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -462,6 +463,8 @@
 		B1F9EF861BB389060040F9E0 /* XSScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSScrollView.m; sourceTree = "<group>"; };
 		B1FDF5841BB90B55008418E8 /* XSCountDownLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCountDownLabel.h; sourceTree = "<group>"; };
 		B1FDF5851BB90B55008418E8 /* XSCountDownLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCountDownLabel.m; sourceTree = "<group>"; };
+		B1FEF9311BE8912B00A94A1B /* XSAddressManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAddressManageViewController.h; sourceTree = "<group>"; };
+		B1FEF9321BE8912B00A94A1B /* XSAddressManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSAddressManageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1257,6 +1260,7 @@
 				B1C45AC31BD5CB4800D2466E /* 我的订单 */,
 				B1C45AEA1BD60C6E00D2466E /* 我的收藏 */,
 				B1C45ADC1BD5E14100D2466E /* 我的优惠券 */,
+				B1FEF9301BE890DD00A94A1B /* 我的收货地址 */,
 				B1F43CF81BC6004F009F19DA /* ForgetPassword */,
 				B1F43CFC1BC6004F009F19DA /* Login */,
 				B1F43D001BC6004F009F19DA /* MemberCard */,
@@ -1482,6 +1486,15 @@
 				B1F622281BB0DD3B0037C70F /* XSCodeGenerator.m */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		B1FEF9301BE890DD00A94A1B /* 我的收货地址 */ = {
+			isa = PBXGroup;
+			children = (
+				B1FEF9311BE8912B00A94A1B /* XSAddressManageViewController.h */,
+				B1FEF9321BE8912B00A94A1B /* XSAddressManageViewController.m */,
+			);
+			path = "我的收货地址";
 			sourceTree = "<group>";
 		};
 		C55B08C3CAD128743CB1FF73 /* Frameworks */ = {
@@ -1718,6 +1731,7 @@
 				B174E9431BD9C4B00091E703 /* XSExchangeCouponViewController.m in Sources */,
 				B161CDC91B96CA7000D4689C /* PromotionModel.m in Sources */,
 				B161CDC11B96CA7000D4689C /* XSSearchBarHelper.m in Sources */,
+				B1FEF9331BE8912B00A94A1B /* XSAddressManageViewController.m in Sources */,
 				B19C25FE1BB51437007F96CC /* XSNameView.m in Sources */,
 				B1AA22EE1BD7716900AEAA36 /* XSSettingViewController.m in Sources */,
 				B1C45ADA1BD5DB1C00D2466E /* XSOrderFooterTableViewCell.m in Sources */,
