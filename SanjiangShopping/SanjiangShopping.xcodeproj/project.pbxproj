@@ -174,6 +174,8 @@
 		B1F9EF871BB389060040F9E0 /* XSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F9EF861BB389060040F9E0 /* XSScrollView.m */; };
 		B1FDF5861BB90B55008418E8 /* XSCountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FDF5851BB90B55008418E8 /* XSCountDownLabel.m */; };
 		B1FEF9331BE8912B00A94A1B /* XSAddressManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FEF9321BE8912B00A94A1B /* XSAddressManageViewController.m */; };
+		B1FEF9371BE8936000A94A1B /* XSAddressManageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FEF9351BE8936000A94A1B /* XSAddressManageTableViewCell.m */; };
+		B1FEF9381BE8936000A94A1B /* XSAddressManageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FEF9361BE8936000A94A1B /* XSAddressManageTableViewCell.xib */; };
 		E60EE3714EAFCEA717DDB766 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 08795A3937B2DB14EE781AA3 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -465,6 +467,9 @@
 		B1FDF5851BB90B55008418E8 /* XSCountDownLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCountDownLabel.m; sourceTree = "<group>"; };
 		B1FEF9311BE8912B00A94A1B /* XSAddressManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAddressManageViewController.h; sourceTree = "<group>"; };
 		B1FEF9321BE8912B00A94A1B /* XSAddressManageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSAddressManageViewController.m; sourceTree = "<group>"; };
+		B1FEF9341BE8936000A94A1B /* XSAddressManageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAddressManageTableViewCell.h; sourceTree = "<group>"; };
+		B1FEF9351BE8936000A94A1B /* XSAddressManageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSAddressManageTableViewCell.m; sourceTree = "<group>"; };
+		B1FEF9361BE8936000A94A1B /* XSAddressManageTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSAddressManageTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1493,6 +1498,9 @@
 			children = (
 				B1FEF9311BE8912B00A94A1B /* XSAddressManageViewController.h */,
 				B1FEF9321BE8912B00A94A1B /* XSAddressManageViewController.m */,
+				B1FEF9341BE8936000A94A1B /* XSAddressManageTableViewCell.h */,
+				B1FEF9351BE8936000A94A1B /* XSAddressManageTableViewCell.m */,
+				B1FEF9361BE8936000A94A1B /* XSAddressManageTableViewCell.xib */,
 			);
 			path = "我的收货地址";
 			sourceTree = "<group>";
@@ -1615,6 +1623,7 @@
 				B15AF7DB1BD88343002B20D0 /* XSLogisticsViewController.xib in Resources */,
 				B174E9801BD9D59E0091E703 /* XSFourTableViewCell.xib in Resources */,
 				B1F43D191BC6004F009F19DA /* XSForgetPasswordViewController.xib in Resources */,
+				B1FEF9381BE8936000A94A1B /* XSAddressManageTableViewCell.xib in Resources */,
 				B1C45AE41BD5E23600D2466E /* XSMyCouponTableViewCell.xib in Resources */,
 				B19C260B1BB52F8E007F96CC /* MoreDetailView.xib in Resources */,
 				B1C45AF21BD60D5D00D2466E /* XSMyFavoriteTableViewCell.xib in Resources */,
@@ -1758,6 +1767,7 @@
 				B1BCF6C41BB3CEDF006020E3 /* XS1111WhiteView.m in Sources */,
 				B1DC5C711BD086B6002B35DB /* XSBannerCollectionReusableView.m in Sources */,
 				B1D3D8D91BD4BFAB0060D340 /* XSEditAddressViewController.m in Sources */,
+				B1FEF9371BE8936000A94A1B /* XSAddressManageTableViewCell.m in Sources */,
 				B1C45ADF1BD5E16B00D2466E /* XSMyCouponViewController.m in Sources */,
 				B19C25AA1BB4CAB5007F96CC /* XSThemeView.m in Sources */,
 				B174E9611BD9CB790091E703 /* XSSummaryTableViewCell.m in Sources */,
