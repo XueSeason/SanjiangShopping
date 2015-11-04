@@ -41,5 +41,6 @@
 #define THEME_TRANSPARENT [UIColor colorWithRed:((float)((0xFFFFFF & 0xFF0000) >> 16))/255.0 green:((float)((0xFFFFFF & 0xFF00) >> 8))/255.0 blue:((float)(0xFFFFFF & 0xFF))/255.0 alpha:0.0]
 #define THEME_RED_FADE(value) [UIColor colorWithRed:((float)((0xF03838 & 0xFF0000) >> 16))/255.0 green:((float)((0xF03838 & 0xFF00) >> 8))/255.0 blue:((float)(0xF03838 & 0xFF))/255.0 alpha:value]
 #define THEME_WHITE_FADE(value) [UIColor colorWithRed:((float)((0xFFFFFF & 0xFF0000) >> 16))/255.0 green:((float)((0xFFFFFF & 0xFF00) >> 8))/255.0 blue:((float)(0xFFFFFF & 0xFF))/255.0 alpha:value]
+#define THEME_BLACK_FADE(value) [UIColor colorWithRed:((float)((0x000000 & 0xFF0000) >> 16))/255.0 green:((float)((0x000000 & 0xFF00) >> 8))/255.0 blue:((float)(0x000000 & 0xFF))/255.0 alpha:value]
 
 #endif /* ThemeColor_h */

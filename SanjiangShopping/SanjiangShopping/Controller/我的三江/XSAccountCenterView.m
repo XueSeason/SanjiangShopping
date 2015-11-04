@@ -48,7 +48,13 @@ static const CGFloat step = 8.0f;
         _tradeView = [self generateTradeView];
         [self addSubview:_tradeView];
         _contentHeight  += _tradeView.frame.size.height + step;
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - step, _contentWidth, 0.5)];
+        line.backgroundColor = COUPON_GRAY;
+        [self addSubview:line];
 
+        line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - 0.5, _contentWidth, 0.5)];
+        line.backgroundColor = COUPON_GRAY;
+        [self addSubview:line];
         _memberCardView = [self generateCellView];
         [self addSubview:_memberCardView];
         _contentHeight  += _memberCardView.frame.size.height;
@@ -58,56 +64,73 @@ static const CGFloat step = 8.0f;
         _addressView    = [self generateCellView];
         [self addSubview:_addressView];
         _contentHeight  += _addressView.frame.size.height + step;
+        line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - step, _contentWidth, 0.5)];
+        line.backgroundColor = COUPON_GRAY;
+        [self addSubview:line];
 
+        line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - 0.5, _contentWidth, 0.5)];
+        line.backgroundColor = COUPON_GRAY;
+        [self addSubview:line];
         _couponView     = [self generateCellView];
         [self addSubview:_couponView];
         _contentHeight  += _couponView.frame.size.height;
         _scoreView      = [self generateCellView];
         [self addSubview:_scoreView];
         _contentHeight  += _scoreView.frame.size.height + step;
+        line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - step, _contentWidth, 0.5)];
+        line.backgroundColor = COUPON_GRAY;
+        [self addSubview:line];
 
+
+        line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - 0.5, _contentWidth, 0.5)];
+        line.backgroundColor = COUPON_GRAY;
+        [self addSubview:line];
         _helpView       = [self generateCellView];
         [self addSubview:_helpView];
         _contentHeight  += _helpView.frame.size.height + step;
+        line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - step, _contentWidth, 0.5)];
+        line.backgroundColor = COUPON_GRAY;
+        [self addSubview:line];
+
         
         _orderView.titleLabel.text          = @"我的订单";
-        _orderView.subTitleLabel.text       = @"查看全部订单";
+//        _orderView.subTitleLabel.text       = @"查看全部订单";
         _orderView.logoImageView.image      = [UIImage imageNamed:@"order"];
         _orderView.arrow.image              = [UIImage imageNamed:@"arrow"];
         _orderView.arrow.contentMode        = UIViewContentModeScaleAspectFit;
 
         _memberCardView.titleLabel.text     = @"我的会员卡";
-        _memberCardView.subTitleLabel.text  = @"申请、绑定会员卡，续交会员费";
+//        _memberCardView.subTitleLabel.text  = @"申请、绑定会员卡，续交会员费";
         _memberCardView.logoImageView.image = [UIImage imageNamed:@"memberCard"];
         _memberCardView.arrow.image         = [UIImage imageNamed:@"arrow"];
         _memberCardView.arrow.contentMode   = UIViewContentModeScaleAspectFit;
 
         _favoriteView.titleLabel.text       = @"我的收藏";
-        _favoriteView.subTitleLabel.text    = @"查看全部订单";
+//        _favoriteView.subTitleLabel.text    = @"查看全部订单";
         _favoriteView.logoImageView.image   = [UIImage imageNamed:@"favorite"];
         _favoriteView.arrow.image           = [UIImage imageNamed:@"arrow"];
         _favoriteView.arrow.contentMode     = UIViewContentModeScaleAspectFit;
         
         _addressView.titleLabel.text        = @"我的收货地址";
-        _addressView.subTitleLabel.text     = @"管理收获地址";
+//        _addressView.subTitleLabel.text     = @"管理收获地址";
         _addressView.logoImageView.image   = [UIImage imageNamed:@"address"];
         _addressView.arrow.image           = [UIImage imageNamed:@"arrow"];
         _addressView.arrow.contentMode     = UIViewContentModeScaleAspectFit;
 
         _couponView.titleLabel.text         = @"我的优惠券";
-        _couponView.subTitleLabel.text      = @"您有3张优惠券";
+//        _couponView.subTitleLabel.text      = @"您有3张优惠券";
         _couponView.logoImageView.image     = [UIImage imageNamed:@"coupon"];
         _couponView.arrow.image             = [UIImage imageNamed:@"arrow"];
         _couponView.arrow.contentMode       = UIViewContentModeScaleAspectFit;
 
         _scoreView.titleLabel.text          = @"我的积分";
-        _scoreView.subTitleLabel.text       = @"查询积分、兑换优惠券";
+//        _scoreView.subTitleLabel.text       = @"查询积分、兑换优惠券";
         _scoreView.logoImageView.image      = [UIImage imageNamed:@"score"];
         _scoreView.arrow.image              = [UIImage imageNamed:@"arrow"];
         _scoreView.arrow.contentMode        = UIViewContentModeScaleAspectFit;
 
         _helpView.titleLabel.text           = @"帮助中心";
-        _helpView.subTitleLabel.text        = @"常见问题、在线留言";
+//        _helpView.subTitleLabel.text        = @"常见问题、在线留言";
         _helpView.logoImageView.image       = [UIImage imageNamed:@"help"];
         _helpView.arrow.image               = [UIImage imageNamed:@"arrow"];
         _helpView.arrow.contentMode         = UIViewContentModeScaleAspectFit;
@@ -127,6 +150,12 @@ static const CGFloat step = 8.0f;
     [view addSubview:self.loginLabel];
     [view addSubview:self.settingButton];
     
+    [view addSubview:self.avatar];
+    [view addSubview:self.nameLabel];
+    [view addSubview:self.memberLabel];
+    [view addSubview:self.updateMemberButton];
+    [view addSubview:self.memberImageView];
+    
     NSDictionary *map = @{
                           @"lb": self.loginButton,
                           @"ll": self.loginLabel,
@@ -142,6 +171,25 @@ static const CGFloat step = 8.0f;
     [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-%f-[lb]-%f-|", step, step] options:0 metrics:nil views:map]];
     [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[ll]-%f-|", space, space] options:0 metrics:nil views:map]];
     [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[lb]-0-[ll(==21)]" options:0 metrics:nil views:map]];
+    
+    NSDictionary *userMap = @{
+                              @"img0": self.avatar,
+                              @"name": self.nameLabel,
+                              @"member": self.memberLabel,
+                              @"btn": self.updateMemberButton,
+                              @"img1": self.memberImageView
+                              };
+    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[img0(==80)]-[name]" options:0 metrics:nil views:userMap]];
+    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-15-[img0(==80)]-[member(==45)]-[btn]" options:0 metrics:nil views:userMap]];
+    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[img1(==44)]-30-|" options:0 metrics:nil views:userMap]];
+    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-60-[img0(==80)]" options:0 metrics:nil views:userMap]];
+    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-70-[name]-[member(==23)]" options:0 metrics:nil views:userMap]];
+    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-70-[name]-[btn(==member)]" options:0 metrics:nil views:userMap]];
+    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-80-[img1(==35)]" options:0 metrics:nil views:userMap]];
+    // 临时数据
+//    self.avatar.image = [UIImage imageNamed:@""];
+    self.nameLabel.text = @"XueSeason";
+    self.memberLabel.text = @"惠用户";
     
     return view;
 }
@@ -193,7 +241,7 @@ static const CGFloat step = 8.0f;
     [cellView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[subTitle]-8-|" options:0 metrics:nil views:map]];
     [cellView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[arrow]-8-|" options:0 metrics:nil views:map]];
     
-    cellView.layer.borderWidth = 0.3f;
+    cellView.layer.borderWidth = 0.5f;
     cellView.layer.borderColor = [BACKGROUND_COLOR CGColor];
     
     return cellView;
@@ -254,20 +302,17 @@ static const CGFloat step = 8.0f;
         if (control == control0) {
             titleLabel.text     = @"待支付";
             picture.image       = [UIImage imageNamed:@"trade_pay"];
-            picture.contentMode = UIViewContentModeScaleAspectFit;
+            picture.contentMode = UIViewContentModeCenter;
         } else if (control == control1) {
             titleLabel.text     = @"待收货";
             picture.image       = [UIImage imageNamed:@"trade_rec"];
-            picture.contentMode = UIViewContentModeScaleAspectFit;
+            picture.contentMode = UIViewContentModeCenter;
         } else {
             titleLabel.text     = @"待评论";
             picture.image       = [UIImage imageNamed:@"trade_feedback"];
-            picture.contentMode = UIViewContentModeScaleAspectFit;
+            picture.contentMode = UIViewContentModeCenter;
         }
     }
-
-    tradeView.layer.borderWidth = 0.3f;
-    tradeView.layer.borderColor = [BACKGROUND_COLOR CGColor];
     
     return tradeView;
 }
@@ -304,5 +349,66 @@ static const CGFloat step = 8.0f;
     }
     return _settingButton;
 }
+
+- (UIImageView *)avatar {
+    if (_avatar == nil) {
+        _avatar = [[UIImageView alloc] init];
+        _avatar.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        _avatar.layer.cornerRadius = 40.0f;
+        _avatar.clipsToBounds = YES;
+        
+        _avatar.backgroundColor = [UIColor whiteColor];
+    }
+    return _avatar;
+}
+
+- (UILabel *)nameLabel {
+    if (_nameLabel == nil) {
+        _nameLabel = [[UILabel alloc] init];
+        _nameLabel.textAlignment = NSTextAlignmentCenter;
+        _nameLabel.textColor     = [UIColor whiteColor];
+        _nameLabel.font = [_nameLabel.font fontWithSize:16.0];
+        _nameLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _nameLabel;
+}
+
+- (UILabel *)memberLabel {
+    if (_memberLabel == nil) {
+        _memberLabel = [[UILabel alloc] init];
+        _memberLabel.textAlignment = NSTextAlignmentCenter;
+        _memberLabel.textColor     = [UIColor whiteColor];
+        _memberLabel.font = [_nameLabel.font fontWithSize:13.0];
+        _memberLabel.translatesAutoresizingMaskIntoConstraints = NO;
+        
+        _memberLabel.backgroundColor = THEME_BLACK_FADE(0.5);
+        _memberLabel.layer.cornerRadius = 5.0f;
+        _memberLabel.clipsToBounds = YES;
+    }
+    return _memberLabel;
+}
+
+- (UIButton *)updateMemberButton {
+    if (_updateMemberButton == nil) {
+        _updateMemberButton = [[UIButton alloc] init];
+        [_updateMemberButton setTitle:@"升级为会员 >" forState:UIControlStateNormal];
+        _updateMemberButton.tintColor = [UIColor whiteColor];
+        _updateMemberButton.titleLabel.font = [_updateMemberButton.titleLabel.font fontWithSize:12.0];
+        _updateMemberButton.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _updateMemberButton;
+}
+
+- (UIImageView *)memberImageView {
+    if (_memberImageView == nil) {
+        _memberImageView = [[UIImageView alloc] init];
+        _memberImageView.backgroundColor = [UIColor whiteColor];
+//        _memberImageView.image = [UIImage imageNamed:@""];
+        _memberImageView.translatesAutoresizingMaskIntoConstraints = NO;
+    }
+    return _memberImageView;
+}
+
 
 @end

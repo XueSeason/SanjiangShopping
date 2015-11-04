@@ -42,5 +42,11 @@
 @property (strong, nonatomic) UILabel  *loginLabel;
 @property (strong, nonatomic) UIButton *settingButton;
 
+@property (strong, nonatomic) UIImageView *avatar;
+@property (strong, nonatomic) UILabel *nameLabel;
+@property (strong, nonatomic) UILabel *memberLabel;
+@property (strong, nonatomic) UIButton *updateMemberButton;
+@property (strong, nonatomic) UIImageView *memberImageView;
+
 - (instancetype)initWithFrame:(CGRect)frame;
 @end

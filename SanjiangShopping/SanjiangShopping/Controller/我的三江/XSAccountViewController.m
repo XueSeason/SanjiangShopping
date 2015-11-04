@@ -60,7 +60,12 @@
     
 //    mainView.loginButton.hidden = YES;
 //    mainView.loginLabel.hidden = YES;
-    
+    mainView.avatar.hidden = YES;
+    mainView.nameLabel.hidden = YES;
+    mainView.memberLabel.hidden = YES;
+    mainView.updateMemberButton.hidden = YES;
+    mainView.memberImageView.hidden = YES;
+
     [self.view addSubview:mainView];
 }
 

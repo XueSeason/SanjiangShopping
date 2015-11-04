@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
@@ -21,16 +21,18 @@
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入优惠码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4ib-wd-xPN">
                             <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                            <animations/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="优惠码：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D06-Cj-VwT">
                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                            <animations/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="64" id="e4p-6N-dhm"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                             <variation key="default">
                                 <mask key="constraints">
@@ -44,6 +46,7 @@
                             </variation>
                         </label>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="4ib-wd-xPN" firstAttribute="top" secondItem="KRd-DG-ncW" secondAttribute="top" constant="10" id="2eS-iM-DPt"/>
@@ -62,13 +65,13 @@
                         </mask>
                         <mask key="constraints">
                             <exclude reference="frZ-UN-Nsb"/>
-                            <exclude reference="BWh-M9-H9s"/>
-                            <exclude reference="MbH-hX-rio"/>
-                            <exclude reference="uPr-aX-LSE"/>
                             <exclude reference="2eS-iM-DPt"/>
                             <exclude reference="OMB-UI-QFq"/>
                             <exclude reference="UNx-5u-s1m"/>
                             <exclude reference="ijF-L1-jKN"/>
+                            <exclude reference="BWh-M9-H9s"/>
+                            <exclude reference="MbH-hX-rio"/>
+                            <exclude reference="uPr-aX-LSE"/>
                         </mask>
                     </variation>
                     <variation key="heightClass=regular-widthClass=compact">
@@ -78,18 +81,19 @@
                         </mask>
                         <mask key="constraints">
                             <include reference="frZ-UN-Nsb"/>
-                            <include reference="BWh-M9-H9s"/>
-                            <include reference="MbH-hX-rio"/>
-                            <include reference="uPr-aX-LSE"/>
                             <include reference="2eS-iM-DPt"/>
                             <include reference="OMB-UI-QFq"/>
                             <include reference="UNx-5u-s1m"/>
                             <include reference="ijF-L1-jKN"/>
+                            <include reference="BWh-M9-H9s"/>
+                            <include reference="MbH-hX-rio"/>
+                            <include reference="uPr-aX-LSE"/>
                         </mask>
                     </variation>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mLq-ER-039">
                     <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                    <animations/>
                     <color key="backgroundColor" red="0.94117647058823528" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="38" id="M7J-bs-eRq"/>
@@ -112,6 +116,7 @@
                     </connections>
                 </button>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="KRd-DG-ncW" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="2rX-fc-RO7"/>
@@ -128,12 +133,12 @@
                     <exclude reference="mLq-ER-039"/>
                 </mask>
                 <mask key="constraints">
-                    <exclude reference="2rX-fc-RO7"/>
-                    <exclude reference="Vg3-BH-CIF"/>
-                    <exclude reference="d1H-Ba-NUf"/>
                     <exclude reference="Aqd-gu-VaI"/>
                     <exclude reference="E2m-DJ-xtr"/>
                     <exclude reference="YiG-ip-62N"/>
+                    <exclude reference="2rX-fc-RO7"/>
+                    <exclude reference="Vg3-BH-CIF"/>
+                    <exclude reference="d1H-Ba-NUf"/>
                 </mask>
             </variation>
             <variation key="heightClass=regular-widthClass=compact">
@@ -142,12 +147,12 @@
                     <include reference="mLq-ER-039"/>
                 </mask>
                 <mask key="constraints">
-                    <include reference="2rX-fc-RO7"/>
-                    <include reference="Vg3-BH-CIF"/>
-                    <include reference="d1H-Ba-NUf"/>
                     <include reference="Aqd-gu-VaI"/>
                     <include reference="E2m-DJ-xtr"/>
                     <include reference="YiG-ip-62N"/>
+                    <include reference="2rX-fc-RO7"/>
+                    <include reference="Vg3-BH-CIF"/>
+                    <include reference="d1H-Ba-NUf"/>
                 </mask>
             </variation>
         </view>

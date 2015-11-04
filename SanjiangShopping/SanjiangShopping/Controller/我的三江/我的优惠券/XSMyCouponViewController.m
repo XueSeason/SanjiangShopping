@@ -120,7 +120,7 @@ static NSString * const cellID = @"cell";
     if (_codeButton == nil) {
         _codeButton = [[UIButton alloc] init];
         [_codeButton setTitle:@"优惠码兑换" forState:UIControlStateNormal];
-        [_codeButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
+        [_codeButton setTitleColor:THEME_RED forState:UIControlStateNormal];
         _codeButton.titleLabel.font = [UIFont systemFontOfSize:16.0];
         _codeButton.layer.borderWidth = 0.5f;
         _codeButton.layer.borderColor = [[UIColor lightGrayColor] CGColor];

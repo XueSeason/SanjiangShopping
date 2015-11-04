@@ -19,8 +19,8 @@
     // Initialization code
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.contentView.backgroundColor = BACKGROUND_COLOR;
-    self.myView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
-    self.myView.layer.borderWidth = 0.5;
+//    self.myView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
+//    self.myView.layer.borderWidth = 0.5;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
