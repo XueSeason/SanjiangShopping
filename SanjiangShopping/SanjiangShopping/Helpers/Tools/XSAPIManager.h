@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void (^successBlock)(id responseObject);
-typedef void (^failureBlock)(NSError *error);
+typedef void (^successAPIBlock)(id responseObject);
+typedef void (^failureAPIBlock)(NSError *error);
 
 @interface XSAPIManager : NSObject
 
 + (instancetype)manager;
 
 // GET
-- (void)GET:(NSString *)URLString parameters:(id)parameters success:(successBlock)success failure:(failureBlock)failure;
+- (void)GET:(NSString *)URLString parameters:(id)parameters success:(successAPIBlock)success failure:(failureAPIBlock)failure;
 
 @end

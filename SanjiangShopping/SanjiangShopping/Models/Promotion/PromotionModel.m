@@ -7,6 +7,8 @@
 //
 
 #import "PromotionModel.h"
+#import "NetworkConstant.h"
+#import "XSAPIManager.h"
 
 #import <MJExtension.h>
 
@@ -45,5 +47,25 @@
 @end
 
 @implementation PromotionModel
+
+#pragma mark - private methods
+- (void)loadPromotionSuccess:(successPromotionBlock)success Failure:(failurePromotionBlock)failure {
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_PROMOTION];
+    XSAPIManager *manager = [XSAPIManager manager];
+    
+    __weak typeof(self) weakSelf = self;
+    
+    [manager GET:urlStr parameters:nil success:^(id responseObject) {
+        PromotionModel *model = [PromotionModel objectWithKeyValues:responseObject];
+        weakSelf.data         = model.data;
+        weakSelf.code         = model.code;
+        weakSelf.codeMessage  = model.codeMessage;
+        
+        success();
+        
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
 
 @end

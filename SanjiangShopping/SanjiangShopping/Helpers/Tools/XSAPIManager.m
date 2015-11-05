@@ -27,7 +27,7 @@ static XSAPIManager * _instance;
 }
 
 #pragma mark - public methods
-- (void)GET:(NSString *)URLString parameters:(id)parameters success:(successBlock)success failure:(failureBlock)failure {
+- (void)GET:(NSString *)URLString parameters:(id)parameters success:(successAPIBlock)success failure:(failureAPIBlock)failure {
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     [manager.requestSerializer setValue:@"utf-8" forHTTPHeaderField:@"charset"];

@@ -15,18 +15,14 @@
 #import "XSNavigationBarHelper.h"
 #import "XSCommodityListViewController.h"
 
-#import "NetworkConstant.h"
-#import "XSAPIManager.h"
-
 #import <UIImageView+WebCache.h>
-#import <MJExtension.h>
 #import <MJRefresh.h>
 
 static NSString * const promotionCellID = @"promotion";
 
 @interface XSPromotionViewController () <UITableViewDelegate>
 
-@property (strong, nonatomic) PromotionDataModel *data;
+@property (strong, nonatomic) PromotionModel *promotion;
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) XSPromotionDataSource *promotionDataSource;
@@ -41,17 +37,15 @@ static NSString * const promotionCellID = @"promotion";
     // 状态栏样式
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.tabBarController.tabBar.hidden = NO;
-    
-    _tableView.frame = self.view.bounds;
+    self.tableView.frame = self.view.bounds;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.navigationItem.title = @"活动促销";
     [XSNavigationBarHelper hackPlainNavigationBar:self.navigationController.navigationBar];
-    
     [self.view addSubview:self.tableView];
+    
     [self loadPromotionData];
 }
 
@@ -64,19 +58,26 @@ static NSString * const promotionCellID = @"promotion";
 
 #pragma mark - private methods
 - (void)loadPromotionData {
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_PROMOTION];
-    XSAPIManager *manager = [XSAPIManager manager];
-    
     __weak typeof(self) weakSelf = self;
-    [manager GET:urlStr parameters:nil success:^(id responseObject) {
-        weakSelf.data = [PromotionModel objectWithKeyValues:responseObject].data;
-        weakSelf.promotionDataSource.items = weakSelf.data.list;
+    [self.promotion loadPromotionSuccess:^{
+        weakSelf.promotionDataSource.items = weakSelf.promotion.data.list;
+        
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.header endRefreshing];
-    } failure:^(NSError *error) {
+    } Failure:^(NSError *error) {
         [weakSelf.tableView.header endRefreshing];
     }];
 }
+
+#pragma mark - Table View Delegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return ([UIScreen mainScreen].bounds.size.width - 16) / 72 * 25;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self.navigationController pushViewController:[[XSCommodityListViewController alloc] init] animated:YES];
+}
+
 
 #pragma mark - getters and setters
 - (UITableView *)tableView {
@@ -92,7 +93,7 @@ static NSString * const promotionCellID = @"promotion";
         _tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadPromotionData)];
         _tableView.separatorColor = [UIColor clearColor];
         
-        _tableView.delegate = self;
+        _tableView.delegate   = self;
         _tableView.dataSource = self.promotionDataSource;
     }
     return _tableView;
@@ -100,25 +101,23 @@ static NSString * const promotionCellID = @"promotion";
 
 - (XSPromotionDataSource *)promotionDataSource {
     if (_promotionDataSource == nil) {
-        _promotionDataSource = [[XSPromotionDataSource alloc] initWithItems:_data.list cellIdentifier:promotionCellID configureCellBlock:^(XSPromotionCell *cell, PromotionItemModel *item) {
+        _promotionDataSource = [[XSPromotionDataSource alloc] initWithItems:self.promotion.data.list cellIdentifier:promotionCellID configureCellBlock:^(XSPromotionCell *cell, PromotionItemModel *item) {
             // 配置 cell
             [cell.picture sd_setImageWithURL:[NSURL URLWithString:item.img]];
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
             cell.picture.layer.cornerRadius = 10;
-            cell.picture.clipsToBounds = YES;
+            cell.picture.clipsToBounds      = YES;
+            
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
         }];
     }
     return _promotionDataSource;
 }
 
-#pragma mark - Table View Delegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return ([UIScreen mainScreen].bounds.size.width - 16) / 72 * 25;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    [self.navigationController pushViewController:[[XSCommodityListViewController alloc] init] animated:YES];
+- (PromotionModel *)promotion {
+    if (_promotion == nil) {
+        _promotion = [[PromotionModel alloc] init];
+    }
+    return _promotion;
 }
 
 @end
