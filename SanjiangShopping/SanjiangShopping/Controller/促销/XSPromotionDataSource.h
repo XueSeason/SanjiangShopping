@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^TableViewCellConfigureBlock)(id cell, id item);
+typedef void (^PromotionTableViewCellConfigureBlock)(id cell, id item);
 
 @interface XSPromotionDataSource : NSObject <UITableViewDataSource>
 
 @property (nonatomic, copy) NSArray *items;
 
-- (id)initWithItems:(NSArray *)items cellIdentifier:(NSString *)cellIdentifier configureCellBlock:(TableViewCellConfigureBlock)configureCellBlock;
+- (id)initWithItems:(NSArray *)items cellIdentifier:(NSString *)cellIdentifier configureCellBlock:(PromotionTableViewCellConfigureBlock)configureCellBlock;
 
 - (id)itemAtIndexPath:(NSIndexPath *)indexPath;
 

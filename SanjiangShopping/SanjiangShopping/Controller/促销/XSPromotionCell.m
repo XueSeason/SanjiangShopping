@@ -14,7 +14,7 @@
 @implementation XSPromotionCell
 
 - (void)awakeFromNib {
-    // Initialization code
+
     self.picture.contentMode = UIViewContentModeScaleAspectFill;
     
     self.picture.layer.cornerRadius = 10;
@@ -23,8 +23,8 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-- (void)configureForPromotion:(PromotionItemModel *)promotion {
-    [self.picture sd_setImageWithURL:[NSURL URLWithString:promotion.img]];
+- (void)configureForPromotionItem:(PromotionItemModel *)promotionItem {
+    [self.picture sd_setImageWithURL:[NSURL URLWithString:promotionItem.img]];
 }
 
 @end

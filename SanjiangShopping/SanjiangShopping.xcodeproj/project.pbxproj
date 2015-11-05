@@ -113,6 +113,8 @@
 		B1D3D8DA1BD4BFAB0060D340 /* XSEditAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D3D8D81BD4BFAB0060D340 /* XSEditAddressViewController.xib */; };
 		B1D924281BEAE674008769CA /* XSPromotionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D924271BEAE674008769CA /* XSPromotionDataSource.m */; };
 		B1D9242E1BEAF4AA008769CA /* XSAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D9242D1BEAF4AA008769CA /* XSAPIManager.m */; };
+		B1D924311BEB27DE008769CA /* XSMutiCatagoryTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D924301BEB27DE008769CA /* XSMutiCatagoryTableViewDataSource.m */; };
+		B1D924341BEB385F008769CA /* XSMutiCatagoryCollectionViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D924331BEB385F008769CA /* XSMutiCatagoryCollectionViewDataSource.m */; };
 		B1D931F51B9EEB4800498D8B /* CartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D931F41B9EEB4800498D8B /* CartModel.m */; };
 		B1DC5C711BD086B6002B35DB /* XSBannerCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DC5C631BD086B6002B35DB /* XSBannerCollectionReusableView.m */; };
 		B1DC5C721BD086B6002B35DB /* XSBannerCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1DC5C641BD086B6002B35DB /* XSBannerCollectionReusableView.xib */; };
@@ -147,7 +149,6 @@
 		B1F43D701BC600E1009F19DA /* XSPromotionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D2B1BC600E1009F19DA /* XSPromotionCell.xib */; };
 		B1F43D711BC600E1009F19DA /* XSPromotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D2D1BC600E1009F19DA /* XSPromotionViewController.m */; };
 		B1F43D7A1BC600E1009F19DA /* XSMutiCatagoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D3C1BC600E1009F19DA /* XSMutiCatagoryViewController.m */; };
-		B1F43D7B1BC600E1009F19DA /* XSMutiCatagoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D3D1BC600E1009F19DA /* XSMutiCatagoryViewController.xib */; };
 		B1F43D7E1BC600E1009F19DA /* ControlPannel.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D441BC600E1009F19DA /* ControlPannel.xib */; };
 		B1F43D7F1BC600E1009F19DA /* XSAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D461BC600E1009F19DA /* XSAddressTableViewCell.m */; };
 		B1F43D801BC600E1009F19DA /* XSAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D471BC600E1009F19DA /* XSAddressTableViewCell.xib */; };
@@ -371,6 +372,10 @@
 		B1D924271BEAE674008769CA /* XSPromotionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSPromotionDataSource.m; sourceTree = "<group>"; };
 		B1D9242C1BEAF4AA008769CA /* XSAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAPIManager.h; sourceTree = "<group>"; };
 		B1D9242D1BEAF4AA008769CA /* XSAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSAPIManager.m; sourceTree = "<group>"; };
+		B1D9242F1BEB27DE008769CA /* XSMutiCatagoryTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMutiCatagoryTableViewDataSource.h; sourceTree = "<group>"; };
+		B1D924301BEB27DE008769CA /* XSMutiCatagoryTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMutiCatagoryTableViewDataSource.m; sourceTree = "<group>"; };
+		B1D924321BEB385F008769CA /* XSMutiCatagoryCollectionViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMutiCatagoryCollectionViewDataSource.h; sourceTree = "<group>"; };
+		B1D924331BEB385F008769CA /* XSMutiCatagoryCollectionViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMutiCatagoryCollectionViewDataSource.m; sourceTree = "<group>"; };
 		B1D931F31B9EEB4800498D8B /* CartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartModel.h; sourceTree = "<group>"; };
 		B1D931F41B9EEB4800498D8B /* CartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartModel.m; sourceTree = "<group>"; };
 		B1DC5C621BD086B6002B35DB /* XSBannerCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSBannerCollectionReusableView.h; sourceTree = "<group>"; };
@@ -426,7 +431,6 @@
 		B1F43D2D1BC600E1009F19DA /* XSPromotionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSPromotionViewController.m; sourceTree = "<group>"; };
 		B1F43D3B1BC600E1009F19DA /* XSMutiCatagoryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSMutiCatagoryViewController.h; sourceTree = "<group>"; };
 		B1F43D3C1BC600E1009F19DA /* XSMutiCatagoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSMutiCatagoryViewController.m; sourceTree = "<group>"; };
-		B1F43D3D1BC600E1009F19DA /* XSMutiCatagoryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSMutiCatagoryViewController.xib; sourceTree = "<group>"; };
 		B1F43D441BC600E1009F19DA /* ControlPannel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ControlPannel.xib; sourceTree = "<group>"; };
 		B1F43D451BC600E1009F19DA /* XSAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAddressTableViewCell.h; sourceTree = "<group>"; };
 		B1F43D461BC600E1009F19DA /* XSAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSAddressTableViewCell.m; sourceTree = "<group>"; };
@@ -1380,7 +1384,10 @@
 				B1DC5C651BD086B6002B35DB /* CollectionCell */,
 				B1F43D3B1BC600E1009F19DA /* XSMutiCatagoryViewController.h */,
 				B1F43D3C1BC600E1009F19DA /* XSMutiCatagoryViewController.m */,
-				B1F43D3D1BC600E1009F19DA /* XSMutiCatagoryViewController.xib */,
+				B1D9242F1BEB27DE008769CA /* XSMutiCatagoryTableViewDataSource.h */,
+				B1D924301BEB27DE008769CA /* XSMutiCatagoryTableViewDataSource.m */,
+				B1D924321BEB385F008769CA /* XSMutiCatagoryCollectionViewDataSource.h */,
+				B1D924331BEB385F008769CA /* XSMutiCatagoryCollectionViewDataSource.m */,
 			);
 			path = "分类页";
 			sourceTree = "<group>";
@@ -1617,7 +1624,6 @@
 				B1C45AE91BD5EBC300D2466E /* XSCouponInfoViewController.xib in Resources */,
 				B174E9821BD9DBDC0091E703 /* MyOrderViewButtonPannel.xib in Resources */,
 				B101BD801BC8BBEE002FF77E /* NearbyView.xib in Resources */,
-				B1F43D7B1BC600E1009F19DA /* XSMutiCatagoryViewController.xib in Resources */,
 				B174E9621BD9CB790091E703 /* XSSummaryTableViewCell.xib in Resources */,
 				B11335851BDF6C7E00CA7A11 /* GuideView1.xib in Resources */,
 				B174E95C1BD9CB790091E703 /* XSItemListTableViewCell.xib in Resources */,
@@ -1762,6 +1768,7 @@
 				B1C45AF11BD60D5D00D2466E /* XSMyFavoriteTableViewCell.m in Sources */,
 				B1BCF6BC1BB3A0A6006020E3 /* XSMoreView.m in Sources */,
 				B161CDBE1B96CA7000D4689C /* HotWordsView.m in Sources */,
+				B1D924341BEB385F008769CA /* XSMutiCatagoryCollectionViewDataSource.m in Sources */,
 				B1A61C501BB3DB0000AF8795 /* XSBuyNowView.m in Sources */,
 				B1D931F51B9EEB4800498D8B /* CartModel.m in Sources */,
 				B174E95A1BD9CB790091E703 /* XSConfirmOrderViewController.m in Sources */,
@@ -1824,6 +1831,7 @@
 				B1C45AD01BD5D83700D2466E /* XSOrderTableViewCell.m in Sources */,
 				B1F43D1A1BC6004F009F19DA /* XSLoginViewController.m in Sources */,
 				B1DC5C731BD086B6002B35DB /* XSMutiCatagoryCollectionViewCell.m in Sources */,
+				B1D924311BEB27DE008769CA /* XSMutiCatagoryTableViewDataSource.m in Sources */,
 				B1F43D901BC600E1009F19DA /* XSClearHistoryTableViewCell.m in Sources */,
 				B174E97A1BD9D40A0091E703 /* XSThreeTableViewCell.m in Sources */,
 				B15AF7DA1BD88343002B20D0 /* XSLogisticsViewController.m in Sources */,

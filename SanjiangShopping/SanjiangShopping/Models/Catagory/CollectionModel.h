@@ -8,6 +8,9 @@
 
 #import "BaseModel.h"
 
+typedef void (^SuccessCollectionBlock)();
+typedef void (^FailureCollectionBlock)(NSError *error);
+
 @interface CollectionItemModel : NSObject
 @property (copy, nonatomic) NSString *itemID;
 @property (copy, nonatomic) NSString *img;
@@ -26,4 +29,5 @@
 
 @interface CollectionModel : BaseModel
 @property (strong, nonatomic) CollectionDataModel *data;
+- (void)loadMenuSuccess:(SuccessCollectionBlock)success Failure:(FailureCollectionBlock)failure;
 @end

@@ -1,23 +1,22 @@
 //
-//  XSPromotionDataSource.m
+//  XSMutiCatagoryTableViewDataSource.m
 //  SanjiangShopping
 //
 //  Created by 薛纪杰 on 11/5/15.
 //  Copyright © 2015 Sanjiang Shopping Club Co., Ltd. All rights reserved.
 //
 
-#import "XSPromotionDataSource.h"
+#import "XSMutiCatagoryTableViewDataSource.h"
 
-@interface XSPromotionDataSource ()
+@interface XSMutiCatagoryTableViewDataSource ()
 
 @property (nonatomic, copy) NSString *cellIdentifier;
-@property (nonatomic, copy) PromotionTableViewCellConfigureBlock configureCellBlock;
-
+@property (nonatomic, copy) MutiCatagoryTableViewCellConfigureBlock configureCellBlock;
 @end
 
-@implementation XSPromotionDataSource
+@implementation XSMutiCatagoryTableViewDataSource
 
-- (id)initWithItems:(NSArray *)items cellIdentifier:(NSString *)cellIdentifier configureCellBlock:(PromotionTableViewCellConfigureBlock)configureCellBlock {
+- (id)initWithItems:(NSArray *)items cellIdentifier:(NSString *)cellIdentifier configureCellBlock:(MutiCatagoryTableViewCellConfigureBlock)configureCellBlock {
     self = [super init];
     if (self) {
         self.items = items;
@@ -45,5 +44,4 @@
     
     return cell;
 }
-
 @end

@@ -8,12 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class CollectionItemModel;
+
 @interface XSMutiCatagoryCollectionViewCell : UICollectionViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *picture;
-
 @property (weak, nonatomic) IBOutlet UILabel *name;
-
 @property (copy, nonatomic) NSString *itemID;
+
+- (void)configureForCollectionItem:(CollectionItemModel *)collectionItem;
 
 @end

@@ -58,6 +58,7 @@ static NSString * const promotionCellID = @"promotion";
 #pragma mark - private methods
 - (void)loadPromotionData {
     __weak typeof(self) weakSelf = self;
+
     [self.promotion loadPromotionSuccess:^{
         weakSelf.promotionDataSource.items = weakSelf.promotion.data.list;
         
@@ -100,7 +101,7 @@ static NSString * const promotionCellID = @"promotion";
 - (XSPromotionDataSource *)promotionDataSource {
     if (_promotionDataSource == nil) {
         _promotionDataSource = [[XSPromotionDataSource alloc] initWithItems:self.promotion.data.list cellIdentifier:promotionCellID configureCellBlock:^(XSPromotionCell *cell, PromotionItemModel *item) {
-            [cell configureForPromotion:item];
+            [cell configureForPromotionItem:item];
         }];
     }
     return _promotionDataSource;

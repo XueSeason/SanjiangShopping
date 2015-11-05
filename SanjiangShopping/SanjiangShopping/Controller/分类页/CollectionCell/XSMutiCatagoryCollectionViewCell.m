@@ -8,10 +8,20 @@
 
 #import "XSMutiCatagoryCollectionViewCell.h"
 
+#import "CollectionModel.h"
+
+#import <UIImageView+WebCache.h>
+
 @implementation XSMutiCatagoryCollectionViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    
+}
+
+- (void)configureForCollectionItem:(CollectionItemModel *)collectionItem {
+    self.itemID = collectionItem.itemID;
+    self.name.text = collectionItem.itemName;
+    [self.picture sd_setImageWithURL:[NSURL URLWithString:collectionItem.img]];
 }
 
 @end

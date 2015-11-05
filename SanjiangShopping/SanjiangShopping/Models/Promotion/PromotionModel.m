@@ -49,7 +49,7 @@
 @implementation PromotionModel
 
 #pragma mark - private methods
-- (void)loadPromotionSuccess:(successPromotionBlock)success Failure:(failurePromotionBlock)failure {
+- (void)loadPromotionSuccess:(SuccessPromotionBlock)success Failure:(FailurePromotionBlock)failure {
     NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_PROMOTION];
     XSAPIManager *manager = [XSAPIManager manager];
     

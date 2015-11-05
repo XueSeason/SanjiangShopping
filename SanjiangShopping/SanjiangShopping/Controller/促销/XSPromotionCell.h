@@ -12,6 +12,6 @@
 @interface XSPromotionCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *picture;
 
-- (void)configureForPromotion:(PromotionItemModel *)promotion;
+- (void)configureForPromotionItem:(PromotionItemModel *)promotionItem;
 
 @end

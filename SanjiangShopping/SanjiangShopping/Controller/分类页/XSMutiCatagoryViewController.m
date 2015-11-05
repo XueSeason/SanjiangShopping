@@ -7,6 +7,11 @@
 //
 
 #import "XSMutiCatagoryViewController.h"
+#import "XSMutiCatagoryTableViewDataSource.h"
+#import "XSMutiCatagoryCollectionViewDataSource.h"
+
+#import "XSAPIManager.h"
+
 #import "XSMutiCatagoryCollectionViewCell.h"
 #import "XSHeaderCollectionReusableView.h"
 #import "XSBannerCollectionReusableView.h"
@@ -36,16 +41,19 @@ static NSString * const collectionBannerID = @"banner";
 #define MENU_COLOR [UIColor colorWithRed:244 / 255.0 green:244 / 255.0 blue:244 / 255.0 alpha:1.0]
 
 @interface XSMutiCatagoryViewController ()
-<UITableViewDataSource, UITableViewDelegate,
-UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,
+<UITableViewDelegate,
+UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,
 UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
-@property (strong, nonatomic) MenuDataModel       *menuData;
-@property (strong, nonatomic) CollectionDataModel *collectionData;
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) XSMutiCatagoryTableViewDataSource *mutiCatagoryTableViewDataSource;
+@property (strong, nonatomic) XSMutiCatagoryCollectionViewDataSource *mutiCatagoryCollectionViewDataSource;
 
-@property (weak, nonatomic) IBOutlet UITableView      *tableView;
+@property (strong, nonatomic) MenuModel *menu;
+@property (strong, nonatomic) CollectionModel *collection;
+
 @property (assign, nonatomic) NSInteger currentMenuIndex;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (strong, nonatomic) UICollectionView *collectionView;
 
 @property (strong, nonatomic) UISearchController          *searchController;
 @property (strong, nonatomic) XSSearchTableViewController *searchTableViewController;
@@ -59,17 +67,18 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 #pragma mark - life cycle
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    
-    // 状态栏样式
+
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.automaticallyAdjustsScrollViewInsets = YES;
     
     self.tabBarController.tabBar.hidden = NO;
-    if (self.searchController.active) {
-        self.searchController.active = NO;
-    }
+    self.searchController.active = NO;
     self.definesPresentationContext = YES;
     
+    CGFloat height = [UIScreen mainScreen].bounds.size.height;
+    CGFloat width  = [UIScreen mainScreen].bounds.size.width;
+    self.tableView.frame      = CGRectMake(0, 0, width / 4, height);
+    self.collectionView.frame = CGRectMake(width / 4, 0, width / 4 * 3, height);
 }
 
 - (void)viewDidLoad {
@@ -77,203 +86,52 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
     [self customNavigationBar];
 
-    /**
-     *  设置 Table View
-     */
-    _tableView.delegate   = self;
-    _tableView.dataSource = self;
-    _tableView.backgroundColor = MENU_COLOR;
-    _tableView.separatorColor  = MENU_COLOR;
-    [_tableView registerClass:[XSMutiCatagoryTableViewCell class] forCellReuseIdentifier:tableCellId];
-    
-    /**
-     *  设置 Collection View
-     */
-    _collectionView.delegate = self;
-    _collectionView.dataSource = self;
-    [_collectionView registerClass:[XSMutiCatagoryCollectionViewCell class] forCellWithReuseIdentifier:collectionCellId];
-    [_collectionView registerNib:[UINib nibWithNibName:@"XSMutiCatagoryCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:collectionCellId];
-    
-    [_collectionView registerClass:[XSHeaderCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:collectionHeaderId];
-    [_collectionView registerNib:[UINib nibWithNibName:@"XSHeaderCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:collectionHeaderId];
-    
-    [_collectionView registerClass:[XSBannerCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:collectionBannerID];
-    [_collectionView registerNib:[UINib nibWithNibName:@"XSBannerCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:collectionBannerID];
-    
-    _collectionView.contentInset = UIEdgeInsetsMake(64, 0, 49, 0);
+    [self.view addSubview:self.tableView];
+    [self.view addSubview:self.collectionView];
     
     [self loadMenuData];
 }
 
 #pragma mark - event response
-- (void)scanQRCode {
-    NSLog(@"Scan QRCode");
-}
+//- (void)scanQRCode {
+//    NSLog(@"Scan QRCode");
+//}
 
 #pragma mark - private methods
 - (void)customNavigationBar {
     [XSNavigationBarHelper hackStandardNavigationBar:self.navigationController.navigationBar];
     self.navigationItem.titleView = self.searchController.searchBar;
-    self.navigationItem.leftBarButtonItem = self.scanButton;
+//    self.navigationItem.leftBarButtonItem = self.scanButton;
 }
 
 - (void)loadMenuData {
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    
-    NSString *URLString = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_CATAGORY_MENU];
-    NSDictionary *parameters = @{};
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setValue:@"utf-8" forHTTPHeaderField:@"charset"];
-    [manager.requestSerializer setValue:@"text/plain" forHTTPHeaderField:@"Content-Type"];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
-    
     __weak typeof(self) weakSelf = self;
-    [manager GET:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        weakSelf.menuData = [[MenuModel objectWithKeyValues:responseObject] data];
+    [self.menu loadMenuSuccess:^{
+        weakSelf.mutiCatagoryTableViewDataSource.items = weakSelf.menu.data.list;
         [weakSelf.tableView reloadData];
         [weakSelf.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionBottom];
         [weakSelf tableView:weakSelf.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未连接" message:@"无法加载数据" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
-        NSLog(@"%@", error);
-    }];
+    } Failure:nil];
 }
 
 - (void)loadCollectionData:(NSString *)menuID {
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    
     NSString *URLString = [NSString stringWithFormat:@"%@%@:%@%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_CATAGORY_COLLECTION, menuID];
-    NSDictionary *parameters = @{};
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setValue:@"utf-8" forHTTPHeaderField:@"charset"];
-    [manager.requestSerializer setValue:@"text/plain" forHTTPHeaderField:@"Content-Type"];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
     
     __weak typeof(self) weakSelf = self;
-    [manager GET:URLString parameters:parameters success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        weakSelf.collectionData = [[CollectionModel objectWithKeyValues:responseObject] data];
+    XSAPIManager *manager = [XSAPIManager manager];
+    [manager GET:URLString parameters:nil success:^(id responseObject) {
+        weakSelf.collection = [CollectionModel objectWithKeyValues:responseObject];
+        weakSelf.mutiCatagoryCollectionViewDataSource.data = weakSelf.collection.data;
         [weakSelf.collectionView reloadData];
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未连接" message:@"无法加载数据" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
-        NSLog(@"%@", error);
-    }];
-}
-
-#pragma mark - getters and setters
-- (XSResultTableViewController *)resultTableViewController {
-    if (_resultTableViewController == nil) {
-        _resultTableViewController = [[XSResultTableViewController alloc] init];
-    }
-    return _resultTableViewController;
-}
-
-- (UISearchController *)searchController {
-    if (_searchController == nil) {
-        _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultTableViewController];
-        _searchController.searchBar.searchBarStyle             = UISearchBarStyleMinimal;
-        _searchController.hidesNavigationBarDuringPresentation = NO;
-        _searchController.dimsBackgroundDuringPresentation     = NO;
-        
-        _searchController.delegate             = self;
-        _searchController.searchResultsUpdater = self;
-        _searchController.searchBar.delegate   = self;
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSDictionary *data = [defaults dictionaryForKey:@"HomeModel"];
-        NSString *keyword = [data[@"data"] objectForKey:@"keyword"];
-        if (keyword == nil) {
-            keyword = @"搜索商品名称/商品编号";
-        }
-        [XSSearchBarHelper hackStandardSearchBar:_searchController.searchBar keyword:keyword];
-    }
-    return _searchController;
-}
-
-- (UIBarButtonItem *)scanButton {
-    if (_scanButton == nil) {
-        _scanButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ScanQRCode"] style:UIBarButtonItemStylePlain target:self action:@selector(scanQRCode)];
-        _scanButton.tintColor = [UIColor lightGrayColor];
-    }
-    return _scanButton;
-}
-
-#pragma mark - UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _menuData.list.count;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    XSMutiCatagoryTableViewCell *cell = (XSMutiCatagoryTableViewCell *)[tableView dequeueReusableCellWithIdentifier:tableCellId forIndexPath:indexPath];
-    MenuItemModel *item              = (MenuItemModel *)_menuData.list[indexPath.row];
-    cell.textLabel.text              = item.ItemName;
-    cell.textLabel.font              = [UIFont systemFontOfSize:12];
-    cell.textLabel.textAlignment     = NSTextAlignmentCenter;
-    cell.menuID                      = item.ItemID;
-    cell.backgroundColor             = MENU_COLOR;
-    cell.contentView.backgroundColor = MENU_COLOR;
-    
-    cell.layer.borderWidth = 0.5f;
-    cell.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
-    return cell;
+    } failure:nil];
 }
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    XSMutiCatagoryTableViewCell *cell = (XSMutiCatagoryTableViewCell *)[tableView cellForRowAtIndexPath:indexPath];
-    cell.contentView.backgroundColor  = [UIColor whiteColor];
-    cell.backgroundColor              = [UIColor whiteColor];
-    cell.textLabel.textColor          = THEME_RED;
     // 滚动到顶部
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    [self loadCollectionData:[_menuData.list[indexPath.row] ItemID]];
+    [self loadCollectionData:[_menu.data.list[indexPath.row] ItemID]];
     _currentMenuIndex = indexPath.row;
-    cell.layer.borderWidth = 0.5f;
-    cell.layer.borderColor = [[UIColor whiteColor] CGColor];
-}
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell            = [tableView cellForRowAtIndexPath:indexPath];
-    cell.contentView.backgroundColor = MENU_COLOR;
-    cell.backgroundColor             = MENU_COLOR;
-    cell.textLabel.textColor         = [UIColor blackColor];
-    
-    cell.layer.borderWidth = 0.5f;
-    cell.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
-}
-
-#pragma mark - UICollectionViewDataSource
-- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-    return _collectionData.list.count + 1;
-}
-
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 0;
-    }
-    
-    return [_collectionData.list[section - 1] items].count;
-}
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return nil;
-    }
-    
-    XSMutiCatagoryCollectionViewCell *cell = (XSMutiCatagoryCollectionViewCell *)[collectionView dequeueReusableCellWithReuseIdentifier:collectionCellId forIndexPath:indexPath];
-  
-    CollectionItemModel *item = (CollectionItemModel *)[[_collectionData.list[indexPath.section - 1] items] objectAtIndex:indexPath.row];
-    
-    cell.itemID = item.itemID;
-    cell.name.text = item.itemName;
-    [cell.picture sd_setImageWithURL:[NSURL URLWithString:item.img]];
-    
-    return cell;
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -292,7 +150,7 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section {
     if (section == 0) {
-        if (_collectionData.headAD == nil) {
+        if (self.collection.data.headAD == nil) {
             return CGSizeZero;
         }
         return CGSizeMake(_collectionView.frame.size.width, _collectionView.frame.size.width / 3.0);
@@ -305,28 +163,10 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     XSCommodityListViewController *listViewController = [[XSCommodityListViewController alloc] init];
     self.definesPresentationContext = NO;
-    CollectionItemModel *item = (CollectionItemModel *)[[_collectionData.list[indexPath.section - 1] items] objectAtIndex:indexPath.row];
+    CollectionItemModel *item = (CollectionItemModel *)[[self.collection.data.list[indexPath.section - 1] items] objectAtIndex:indexPath.row];
     
     listViewController.searchWords = item.itemName;
     [self.navigationController pushViewController:listViewController animated:YES];
-}
-
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
-    if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
-        // 暂无
-        return nil;
-    } else {
-        if (indexPath.section == 0) {
-            XSBannerCollectionReusableView *header =  [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:collectionBannerID forIndexPath:indexPath];
-            [header.picture sd_setImageWithURL:[NSURL URLWithString:_collectionData.headAD]];
-            return header;
-        }
-        
-        XSHeaderCollectionReusableView *header =  [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:collectionHeaderId forIndexPath:indexPath];
-        header.titleLabel.text = [_collectionData.list[indexPath.section -1] title];
-        header.colorLabel.backgroundColor = THEME_RED;
-        return header;
-    }
 }
 
 #pragma mark - UISearchBarDelegate
@@ -401,5 +241,108 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 - (void)didDismissSearchController:(UISearchController *)searchController {
     NSLog(@"隐藏搜索");
 }
+
+#pragma mark - getters and setters
+- (UITableView *)tableView {
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc] init];
+        _tableView.backgroundColor = MENU_COLOR;
+        _tableView.separatorColor  = MENU_COLOR;
+        
+        [_tableView registerClass:[XSMutiCatagoryTableViewCell class] forCellReuseIdentifier:tableCellId];
+        [_tableView registerNib:[UINib nibWithNibName:@"XSMutiCatagoryTableViewCell" bundle:nil] forCellReuseIdentifier:tableCellId];
+        
+        _tableView.delegate   = self;
+        _tableView.dataSource = self.mutiCatagoryTableViewDataSource;
+    }
+    return _tableView;
+}
+
+- (XSMutiCatagoryTableViewDataSource *)mutiCatagoryTableViewDataSource {
+    if (_mutiCatagoryTableViewDataSource == nil) {
+        _mutiCatagoryTableViewDataSource = [[XSMutiCatagoryTableViewDataSource alloc] initWithItems:self.menu.data.list cellIdentifier:tableCellId configureCellBlock:^(XSMutiCatagoryTableViewCell *cell, MenuItemModel *item) {
+            [cell configureForMenuItem:item];
+        }];
+    }
+    return _mutiCatagoryTableViewDataSource;
+}
+
+- (MenuModel *)menu {
+    if (_menu == nil) {
+        _menu = [[MenuModel alloc] init];
+    }
+    return _menu;
+}
+
+- (UICollectionView *)collectionView {
+    if (_collectionView == nil) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        _collectionView.backgroundColor = [UIColor whiteColor];
+        _collectionView.showsHorizontalScrollIndicator = NO;
+        _collectionView.showsVerticalScrollIndicator   = NO;
+        
+        [_collectionView registerClass:[XSMutiCatagoryCollectionViewCell class] forCellWithReuseIdentifier:collectionCellId];
+        [_collectionView registerNib:[UINib nibWithNibName:@"XSMutiCatagoryCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:collectionCellId];
+        
+        [_collectionView registerClass:[XSHeaderCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:collectionHeaderId];
+        [_collectionView registerNib:[UINib nibWithNibName:@"XSHeaderCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:collectionHeaderId];
+        
+        [_collectionView registerClass:[XSBannerCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:collectionBannerID];
+        [_collectionView registerNib:[UINib nibWithNibName:@"XSBannerCollectionReusableView" bundle:nil] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:collectionBannerID];
+        
+        _collectionView.contentInset = UIEdgeInsetsMake(64, 0, 49, 0);
+        
+        _collectionView.delegate   = self;
+        _collectionView.dataSource = self.mutiCatagoryCollectionViewDataSource;
+    }
+    return _collectionView;
+}
+
+- (XSMutiCatagoryCollectionViewDataSource *)mutiCatagoryCollectionViewDataSource {
+    if (_mutiCatagoryCollectionViewDataSource == nil) {
+        _mutiCatagoryCollectionViewDataSource = [[XSMutiCatagoryCollectionViewDataSource alloc] initWithData:self.collection.data cellIdentifier:collectionCellId configureCellBlock:^(XSMutiCatagoryCollectionViewCell *cell, CollectionItemModel *item) {
+            [cell configureForCollectionItem:item];
+        }];
+    }
+    return _mutiCatagoryCollectionViewDataSource;
+}
+
+- (XSResultTableViewController *)resultTableViewController {
+    if (_resultTableViewController == nil) {
+        _resultTableViewController = [[XSResultTableViewController alloc] init];
+    }
+    return _resultTableViewController;
+}
+
+- (UISearchController *)searchController {
+    if (_searchController == nil) {
+        _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultTableViewController];
+        _searchController.searchBar.searchBarStyle             = UISearchBarStyleMinimal;
+        _searchController.hidesNavigationBarDuringPresentation = NO;
+        _searchController.dimsBackgroundDuringPresentation     = NO;
+        
+        _searchController.delegate             = self;
+        _searchController.searchResultsUpdater = self;
+        _searchController.searchBar.delegate   = self;
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSDictionary *data = [defaults dictionaryForKey:@"HomeModel"];
+        NSString *keyword = [data[@"data"] objectForKey:@"keyword"];
+        if (keyword == nil) {
+            keyword = @"搜索商品名称/商品编号";
+        }
+        [XSSearchBarHelper hackStandardSearchBar:_searchController.searchBar keyword:keyword];
+    }
+    return _searchController;
+}
+
+//- (UIBarButtonItem *)scanButton {
+//    if (_scanButton == nil) {
+//        _scanButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ScanQRCode"] style:UIBarButtonItemStylePlain target:self action:@selector(scanQRCode)];
+//        _scanButton.tintColor = [UIColor lightGrayColor];
+//    }
+//    return _scanButton;
+//}
 
 @end

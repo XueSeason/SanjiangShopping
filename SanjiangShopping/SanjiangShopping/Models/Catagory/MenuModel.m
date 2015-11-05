@@ -7,6 +7,8 @@
 //
 
 #import "MenuModel.h"
+#import "NetworkConstant.h"
+#import "XSAPIManager.h"
 
 #import <MJExtension.h>
 
@@ -44,5 +46,24 @@
 @end
 
 @implementation MenuModel
+
+- (void)loadMenuSuccess:(SuccessMenuBlock)success Failure:(FailureMenuBlock)failure {
+    NSString *URLString = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_CATAGORY_MENU];
+    
+    __weak typeof(self) weakSelf = self;
+    XSAPIManager *manager = [XSAPIManager manager];
+    [manager GET:URLString parameters:nil success:^(id responseObject) {
+        
+        MenuModel *model = [MenuModel objectWithKeyValues:responseObject];
+        weakSelf.data         = model.data;
+        weakSelf.code         = model.code;
+        weakSelf.codeMessage  = model.codeMessage;
+        
+        success();
+        
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
 
 @end

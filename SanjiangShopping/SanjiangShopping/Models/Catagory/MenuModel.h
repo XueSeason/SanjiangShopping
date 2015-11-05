@@ -8,6 +8,10 @@
 
 #import "BaseModel.h"
 
+typedef void (^SuccessMenuBlock)();
+typedef void (^FailureMenuBlock)(NSError *error);
+
+
 @interface MenuItemModel : NSObject
 @property (copy, nonatomic) NSString *ItemID;
 @property (copy, nonatomic) NSString *ItemName;
@@ -19,4 +23,5 @@
 
 @interface MenuModel : BaseModel
 @property (strong, nonatomic) MenuDataModel *data;
+- (void)loadMenuSuccess:(SuccessMenuBlock)success Failure:(FailureMenuBlock)failure;
 @end

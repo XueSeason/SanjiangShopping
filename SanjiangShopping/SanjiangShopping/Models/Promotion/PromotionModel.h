@@ -8,8 +8,8 @@
 
 #import "BaseModel.h"
 
-typedef void (^successPromotionBlock)();
-typedef void (^failurePromotionBlock)(NSError *error);
+typedef void (^SuccessPromotionBlock)();
+typedef void (^FailurePromotionBlock)(NSError *error);
 
 @interface PromotionItemModel : NSObject
 @property (copy, nonatomic) NSString *itemID;
@@ -29,5 +29,5 @@ typedef void (^failurePromotionBlock)(NSError *error);
 @interface PromotionModel : BaseModel
 @property (strong, nonatomic) PromotionDataModel *data;
 
-- (void)loadPromotionSuccess:(successPromotionBlock)success Failure:(failurePromotionBlock)failure;
+- (void)loadPromotionSuccess:(SuccessPromotionBlock)success Failure:(FailurePromotionBlock)failure;
 @end

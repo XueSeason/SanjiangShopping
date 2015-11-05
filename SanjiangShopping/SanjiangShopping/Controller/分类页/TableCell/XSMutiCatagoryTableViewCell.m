@@ -8,16 +8,42 @@
 
 #import "XSMutiCatagoryTableViewCell.h"
 
+#import "MenuModel.h"
+
+#import "ThemeColor.h"
+#define MENU_COLOR [UIColor colorWithRed:244 / 255.0 green:244 / 255.0 blue:244 / 255.0 alpha:1.0]
+
 @implementation XSMutiCatagoryTableViewCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.backgroundColor             = MENU_COLOR;
+    self.contentView.backgroundColor = MENU_COLOR;
+    self.layer.borderWidth           = 0.5f;
+    self.layer.borderColor           = [OTHER_SEPARATOR_COLOR CGColor];
+    
+    self.textLabel.font              = [UIFont systemFontOfSize:12];
+    self.textLabel.textAlignment     = NSTextAlignmentCenter;
+}
+
+- (void)configureForMenuItem:(MenuItemModel *)item {
+    self.textLabel.text = item.ItemName;
+    self.menuID         = item.ItemID;
+    self.selected = NO;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
+    if (selected) {
+        self.contentView.backgroundColor  = [UIColor whiteColor];
+        self.backgroundColor              = [UIColor whiteColor];
+        self.textLabel.textColor          = THEME_RED;
+        self.layer.borderColor            = [[UIColor whiteColor] CGColor];
+    } else {
+        self.contentView.backgroundColor = MENU_COLOR;
+        self.backgroundColor             = MENU_COLOR;
+        self.textLabel.textColor         = [UIColor blackColor];
+        self.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
 
-    // Configure the view for the selected state
+    }
 }
 
 @end

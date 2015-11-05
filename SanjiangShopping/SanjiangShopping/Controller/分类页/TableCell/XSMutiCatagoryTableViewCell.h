@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class MenuItemModel;
+
 @interface XSMutiCatagoryTableViewCell : UITableViewCell
+
 @property (copy, nonatomic) NSString *menuID;
+- (void)configureForMenuItem:(MenuItemModel *)item;
+
 @end
