@@ -14,11 +14,12 @@
 
 #import "XSNavigationBarHelper.h"
 #import "XSCommodityListViewController.h"
-#import "NetworkConstant.h"
 
-#import <AFNetworking.h>
-#import <MJExtension.h>
+#import "NetworkConstant.h"
+#import "XSAPIManager.h"
+
 #import <UIImageView+WebCache.h>
+#import <MJExtension.h>
 #import <MJRefresh.h>
 
 static NSString * const promotionCellID = @"promotion";
@@ -64,25 +65,16 @@ static NSString * const promotionCellID = @"promotion";
 #pragma mark - private methods
 - (void)loadPromotionData {
     NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_PROMOTION];
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setValue:@"utf-8" forHTTPHeaderField:@"charset"];
-    [manager.requestSerializer setValue:@"text/plain" forHTTPHeaderField:@"Content-Type"];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
+    XSAPIManager *manager = [XSAPIManager manager];
     
     __weak typeof(self) weakSelf = self;
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [manager GET:urlStr parameters:nil success:^(id responseObject) {
         weakSelf.data = [PromotionModel objectWithKeyValues:responseObject].data;
         weakSelf.promotionDataSource.items = weakSelf.data.list;
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.header endRefreshing];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未连接" message:@"无法加载数据" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
+    } failure:^(NSError *error) {
         [weakSelf.tableView.header endRefreshing];
-        NSLog(@"%@", error);
     }];
 }
 

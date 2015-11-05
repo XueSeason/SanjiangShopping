@@ -112,6 +112,7 @@
 		B1D3D8D91BD4BFAB0060D340 /* XSEditAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D3D8D71BD4BFAB0060D340 /* XSEditAddressViewController.m */; };
 		B1D3D8DA1BD4BFAB0060D340 /* XSEditAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D3D8D81BD4BFAB0060D340 /* XSEditAddressViewController.xib */; };
 		B1D924281BEAE674008769CA /* XSPromotionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D924271BEAE674008769CA /* XSPromotionDataSource.m */; };
+		B1D9242E1BEAF4AA008769CA /* XSAPIManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D9242D1BEAF4AA008769CA /* XSAPIManager.m */; };
 		B1D931F51B9EEB4800498D8B /* CartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D931F41B9EEB4800498D8B /* CartModel.m */; };
 		B1DC5C711BD086B6002B35DB /* XSBannerCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DC5C631BD086B6002B35DB /* XSBannerCollectionReusableView.m */; };
 		B1DC5C721BD086B6002B35DB /* XSBannerCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1DC5C641BD086B6002B35DB /* XSBannerCollectionReusableView.xib */; };
@@ -368,6 +369,8 @@
 		B1D3D8D81BD4BFAB0060D340 /* XSEditAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSEditAddressViewController.xib; sourceTree = "<group>"; };
 		B1D924261BEAE674008769CA /* XSPromotionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSPromotionDataSource.h; sourceTree = "<group>"; };
 		B1D924271BEAE674008769CA /* XSPromotionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSPromotionDataSource.m; sourceTree = "<group>"; };
+		B1D9242C1BEAF4AA008769CA /* XSAPIManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAPIManager.h; sourceTree = "<group>"; };
+		B1D9242D1BEAF4AA008769CA /* XSAPIManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSAPIManager.m; sourceTree = "<group>"; };
 		B1D931F31B9EEB4800498D8B /* CartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartModel.h; sourceTree = "<group>"; };
 		B1D931F41B9EEB4800498D8B /* CartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartModel.m; sourceTree = "<group>"; };
 		B1DC5C621BD086B6002B35DB /* XSBannerCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSBannerCollectionReusableView.h; sourceTree = "<group>"; };
@@ -1494,6 +1497,8 @@
 			children = (
 				B1F622271BB0DD3B0037C70F /* XSCodeGenerator.h */,
 				B1F622281BB0DD3B0037C70F /* XSCodeGenerator.m */,
+				B1D9242C1BEAF4AA008769CA /* XSAPIManager.h */,
+				B1D9242D1BEAF4AA008769CA /* XSAPIManager.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1751,6 +1756,7 @@
 				B1C45ADA1BD5DB1C00D2466E /* XSOrderFooterTableViewCell.m in Sources */,
 				B161CDC41B96CA7000D4689C /* MenuModel.m in Sources */,
 				B1BFDC1F1BE70C65009B8D80 /* XSBuyNowViewController.m in Sources */,
+				B1D9242E1BEAF4AA008769CA /* XSAPIManager.m in Sources */,
 				B1F43D811BC600E1009F19DA /* XSShoppingCartTableViewCell.m in Sources */,
 				B161CDC21B96CA7000D4689C /* BaseModel.m in Sources */,
 				B1C45AF11BD60D5D00D2466E /* XSMyFavoriteTableViewCell.m in Sources */,
