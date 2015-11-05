@@ -8,27 +8,27 @@
 
 #import "XSPromotionViewController.h"
 
-#import "XSNavigationBarHelper.h"
-
-#import "AppMacro.h"
-
-#import "NetworkConstant.h"
-#import <AFNetworking.h>
+#import "XSPromotionDataSource.h"
+#import "XSPromotionCell.h"
 #import "PromotionModel.h"
+
+#import "XSNavigationBarHelper.h"
+#import "XSCommodityListViewController.h"
+#import "NetworkConstant.h"
+
+#import <AFNetworking.h>
 #import <MJExtension.h>
 #import <UIImageView+WebCache.h>
-
 #import <MJRefresh.h>
-
-#import "XSPromotionCell.h"
-
-#import "XSCommodityListViewController.h"
 
 static NSString * const promotionCellID = @"promotion";
 
-@interface XSPromotionViewController ()
+@interface XSPromotionViewController () <UITableViewDelegate>
 
 @property (strong, nonatomic) PromotionDataModel *data;
+
+@property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) XSPromotionDataSource *promotionDataSource;
 
 @end
 
@@ -40,6 +40,8 @@ static NSString * const promotionCellID = @"promotion";
     // 状态栏样式
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     self.tabBarController.tabBar.hidden = NO;
+    
+    _tableView.frame = self.view.bounds;
 }
 
 - (void)viewDidLoad {
@@ -48,14 +50,7 @@ static NSString * const promotionCellID = @"promotion";
     self.navigationItem.title = @"活动促销";
     [XSNavigationBarHelper hackPlainNavigationBar:self.navigationController.navigationBar];
     
-    [self.tableView registerClass:[XSPromotionCell class] forCellReuseIdentifier:promotionCellID];
-    [self.tableView registerNib:[UINib nibWithNibName:@"XSPromotionCell" bundle:nil] forCellReuseIdentifier:promotionCellID];
-    
-    self.tableView.showsHorizontalScrollIndicator = NO;
-    self.tableView.showsVerticalScrollIndicator   = NO;
-    
-    self.tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadPromotionData)];
-    self.tableView.separatorColor = [UIColor clearColor];
+    [self.view addSubview:self.tableView];
     [self loadPromotionData];
 }
 
@@ -79,7 +74,7 @@ static NSString * const promotionCellID = @"promotion";
     [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         weakSelf.data = [PromotionModel objectWithKeyValues:responseObject].data;
-        
+        weakSelf.promotionDataSource.items = weakSelf.data.list;
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.header endRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -91,24 +86,41 @@ static NSString * const promotionCellID = @"promotion";
     }];
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.data.list count];
+#pragma mark - getters and setters
+- (UITableView *)tableView {
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc] init];
+        
+        [_tableView registerClass:[XSPromotionCell class] forCellReuseIdentifier:promotionCellID];
+        [_tableView registerNib:[UINib nibWithNibName:@"XSPromotionCell" bundle:nil] forCellReuseIdentifier:promotionCellID];
+        
+        _tableView.showsHorizontalScrollIndicator = NO;
+        _tableView.showsVerticalScrollIndicator   = NO;
+        
+        _tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadPromotionData)];
+        _tableView.separatorColor = [UIColor clearColor];
+        
+        _tableView.delegate = self;
+        _tableView.dataSource = self.promotionDataSource;
+    }
+    return _tableView;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    XSPromotionCell *cell = (XSPromotionCell *)[tableView dequeueReusableCellWithIdentifier:promotionCellID forIndexPath:indexPath];
-    [cell.picture sd_setImageWithURL:[NSURL URLWithString:[self.data.list[indexPath.row] img]]];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    cell.picture.layer.cornerRadius = 10;
-    cell.picture.clipsToBounds = YES;
-    return cell;
+- (XSPromotionDataSource *)promotionDataSource {
+    if (_promotionDataSource == nil) {
+        _promotionDataSource = [[XSPromotionDataSource alloc] initWithItems:_data.list cellIdentifier:promotionCellID configureCellBlock:^(XSPromotionCell *cell, PromotionItemModel *item) {
+            // 配置 cell
+            [cell.picture sd_setImageWithURL:[NSURL URLWithString:item.img]];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+            cell.picture.layer.cornerRadius = 10;
+            cell.picture.clipsToBounds = YES;
+        }];
+    }
+    return _promotionDataSource;
 }
 
 #pragma mark - Table View Delegate
-
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return ([UIScreen mainScreen].bounds.size.width - 16) / 72 * 25;
 }

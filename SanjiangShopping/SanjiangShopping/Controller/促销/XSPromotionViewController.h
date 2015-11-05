@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XSPromotionViewController : UITableViewController
+@interface XSPromotionViewController : UIViewController
 
 @end

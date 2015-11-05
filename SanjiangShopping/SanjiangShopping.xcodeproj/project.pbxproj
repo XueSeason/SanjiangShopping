@@ -111,6 +111,7 @@
 		B1D3D8D11BD492870060D340 /* FillSelfHelpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D3D8D01BD492870060D340 /* FillSelfHelpView.xib */; };
 		B1D3D8D91BD4BFAB0060D340 /* XSEditAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D3D8D71BD4BFAB0060D340 /* XSEditAddressViewController.m */; };
 		B1D3D8DA1BD4BFAB0060D340 /* XSEditAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D3D8D81BD4BFAB0060D340 /* XSEditAddressViewController.xib */; };
+		B1D924281BEAE674008769CA /* XSPromotionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D924271BEAE674008769CA /* XSPromotionDataSource.m */; };
 		B1D931F51B9EEB4800498D8B /* CartModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1D931F41B9EEB4800498D8B /* CartModel.m */; };
 		B1DC5C711BD086B6002B35DB /* XSBannerCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DC5C631BD086B6002B35DB /* XSBannerCollectionReusableView.m */; };
 		B1DC5C721BD086B6002B35DB /* XSBannerCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1DC5C641BD086B6002B35DB /* XSBannerCollectionReusableView.xib */; };
@@ -365,6 +366,8 @@
 		B1D3D8D61BD4BFAB0060D340 /* XSEditAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSEditAddressViewController.h; sourceTree = "<group>"; };
 		B1D3D8D71BD4BFAB0060D340 /* XSEditAddressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSEditAddressViewController.m; sourceTree = "<group>"; };
 		B1D3D8D81BD4BFAB0060D340 /* XSEditAddressViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSEditAddressViewController.xib; sourceTree = "<group>"; };
+		B1D924261BEAE674008769CA /* XSPromotionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSPromotionDataSource.h; sourceTree = "<group>"; };
+		B1D924271BEAE674008769CA /* XSPromotionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSPromotionDataSource.m; sourceTree = "<group>"; };
 		B1D931F31B9EEB4800498D8B /* CartModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartModel.h; sourceTree = "<group>"; };
 		B1D931F41B9EEB4800498D8B /* CartModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartModel.m; sourceTree = "<group>"; };
 		B1DC5C621BD086B6002B35DB /* XSBannerCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSBannerCollectionReusableView.h; sourceTree = "<group>"; };
@@ -1359,6 +1362,8 @@
 				B1F43D2B1BC600E1009F19DA /* XSPromotionCell.xib */,
 				B1F43D2C1BC600E1009F19DA /* XSPromotionViewController.h */,
 				B1F43D2D1BC600E1009F19DA /* XSPromotionViewController.m */,
+				B1D924261BEAE674008769CA /* XSPromotionDataSource.h */,
+				B1D924271BEAE674008769CA /* XSPromotionDataSource.m */,
 			);
 			path = "促销";
 			sourceTree = "<group>";
@@ -1758,6 +1763,7 @@
 				B1F43D221BC6004F009F19DA /* XSWriteMemberNameViewController.m in Sources */,
 				B1F43D241BC6004F009F19DA /* XSRegisterViewController.m in Sources */,
 				B1BB1C861BD8720100DE6D11 /* XSAboutUsViewController.m in Sources */,
+				B1D924281BEAE674008769CA /* XSPromotionDataSource.m in Sources */,
 				B174E9661BD9CD3D0091E703 /* XSMyOrderDetailViewController.m in Sources */,
 				B1F43D1E1BC6004F009F19DA /* XSMyMemberCardViewController.m in Sources */,
 				B1F43D261BC6004F009F19DA /* XSAccountCenterView.m in Sources */,
