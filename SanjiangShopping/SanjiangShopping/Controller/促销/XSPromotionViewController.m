@@ -15,7 +15,6 @@
 #import "XSNavigationBarHelper.h"
 #import "XSCommodityListViewController.h"
 
-#import <UIImageView+WebCache.h>
 #import <MJRefresh.h>
 
 static NSString * const promotionCellID = @"promotion";
@@ -78,7 +77,6 @@ static NSString * const promotionCellID = @"promotion";
     [self.navigationController pushViewController:[[XSCommodityListViewController alloc] init] animated:YES];
 }
 
-
 #pragma mark - getters and setters
 - (UITableView *)tableView {
     if (_tableView == nil) {
@@ -102,12 +100,7 @@ static NSString * const promotionCellID = @"promotion";
 - (XSPromotionDataSource *)promotionDataSource {
     if (_promotionDataSource == nil) {
         _promotionDataSource = [[XSPromotionDataSource alloc] initWithItems:self.promotion.data.list cellIdentifier:promotionCellID configureCellBlock:^(XSPromotionCell *cell, PromotionItemModel *item) {
-            // 配置 cell
-            [cell.picture sd_setImageWithURL:[NSURL URLWithString:item.img]];
-            cell.picture.layer.cornerRadius = 10;
-            cell.picture.clipsToBounds      = YES;
-            
-            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            [cell configureForPromotion:item];
         }];
     }
     return _promotionDataSource;

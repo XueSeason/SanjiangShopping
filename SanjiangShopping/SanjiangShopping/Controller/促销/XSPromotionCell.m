@@ -7,18 +7,24 @@
 //
 
 #import "XSPromotionCell.h"
-#import "AppMacro.h"
+#import "PromotionModel.h"
+
+#import <UIImageView+WebCache.h>
+
 @implementation XSPromotionCell
 
 - (void)awakeFromNib {
     // Initialization code
     self.picture.contentMode = UIViewContentModeScaleAspectFill;
+    
+    self.picture.layer.cornerRadius = 10;
+    self.picture.clipsToBounds      = YES;
+    
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)configureForPromotion:(PromotionItemModel *)promotion {
+    [self.picture sd_setImageWithURL:[NSURL URLWithString:promotion.img]];
 }
 
 @end

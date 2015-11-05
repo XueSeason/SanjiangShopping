@@ -7,8 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+@class PromotionItemModel;
 
 @interface XSPromotionCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *picture;
+
+- (void)configureForPromotion:(PromotionItemModel *)promotion;
 
 @end
