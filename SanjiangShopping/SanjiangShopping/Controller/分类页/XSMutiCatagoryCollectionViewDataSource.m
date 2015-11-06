@@ -17,24 +17,24 @@
 
 #import <UIImageView+WebCache.h>
 
-static NSString * const collectionFooterId = @"footer";
-static NSString * const collectionHeaderId = @"header";
-static NSString * const collectionBannerID = @"banner";
-
 @interface XSMutiCatagoryCollectionViewDataSource ()
 
 @property (nonatomic, copy) NSString *cellIdentifier;
+@property (nonatomic, copy) NSString *bannerIdentifier;
+@property (nonatomic, copy) NSString *headerIdentifier;
 @property (nonatomic, copy) MutiCatagoryCollectionViewCellConfigureBlock configureCellBlock;
 
 @end
 
 @implementation XSMutiCatagoryCollectionViewDataSource
 
-- (id)initWithData:(CollectionDataModel *)data cellIdentifier:(NSString *)cellIdentifier configureCellBlock:(MutiCatagoryCollectionViewCellConfigureBlock)configureCellBlock {
+- (id)initWithData:(CollectionDataModel *)data cellIdentifier:(NSString *)cellIdentifier bannerIdentifier:(NSString *)bannerIdentifier headerIdentifier:(NSString *)headerIdentifier configureCellBlock:(MutiCatagoryCollectionViewCellConfigureBlock)configureCellBlock {
     self = [super init];
     if (self) {
         self.data = data;
         self.cellIdentifier = cellIdentifier;
+        self.bannerIdentifier = bannerIdentifier;
+        self.headerIdentifier = headerIdentifier;
         self.configureCellBlock = configureCellBlock;
     }
     return self;
@@ -68,14 +68,13 @@ static NSString * const collectionBannerID = @"banner";
     if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
 
         if (indexPath.section == 0) {
-            XSBannerCollectionReusableView *header =  [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:collectionBannerID forIndexPath:indexPath];
-            [header.picture sd_setImageWithURL:[NSURL URLWithString:self.data.headAD]];
+            XSBannerCollectionReusableView *header =  [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:self.bannerIdentifier forIndexPath:indexPath];
+            [header configureForCollectionData:self.data];
             return header;
         }
         
-        XSHeaderCollectionReusableView *header =  [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:collectionHeaderId forIndexPath:indexPath];
-        header.titleLabel.text = [self.data.list[indexPath.section -1] title];
-        header.colorLabel.backgroundColor = THEME_RED;
+        XSHeaderCollectionReusableView *header =  [collectionView dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:self.headerIdentifier forIndexPath:indexPath];
+        [header configureForCollectionList:self.data.list[indexPath.section - 1]];
         return header;
     }
     return nil;

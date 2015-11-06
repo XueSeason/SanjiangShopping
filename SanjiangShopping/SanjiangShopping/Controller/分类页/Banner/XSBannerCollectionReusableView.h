@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class CollectionDataModel;
+
 @interface XSBannerCollectionReusableView : UICollectionReusableView
 @property (weak, nonatomic) IBOutlet UIImageView *picture;
+
+- (void)configureForCollectionData:(CollectionDataModel *)data;
 
 @end

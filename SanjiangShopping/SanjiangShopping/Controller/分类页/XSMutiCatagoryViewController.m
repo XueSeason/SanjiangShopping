@@ -10,17 +10,13 @@
 #import "XSMutiCatagoryTableViewDataSource.h"
 #import "XSMutiCatagoryCollectionViewDataSource.h"
 
-#import "XSAPIManager.h"
-
 #import "XSMutiCatagoryCollectionViewCell.h"
 #import "XSHeaderCollectionReusableView.h"
 #import "XSBannerCollectionReusableView.h"
 #import "XSMutiCatagoryTableViewCell.h"
-#import <UIImageView+WebCache.h>
-#import <AFNetworking.h>
-#import <MJExtension.h>
-#import "NetworkConstant.h"
+
 #import "XSNavigationBarHelper.h"
+
 #import "MenuModel.h"
 #import "CollectionModel.h"
 
@@ -28,21 +24,17 @@
 #import "XSResultTableViewController.h"
 #import "XSSearchBarHelper.h"
 
-#import "ThemeColor.h"
-
 #import "XSCommodityListViewController.h"
 
 static NSString * const tableCellId        = @"menu";
 static NSString * const collectionCellId   = @"item";
-static NSString * const collectionFooterId = @"footer";
 static NSString * const collectionHeaderId = @"header";
 static NSString * const collectionBannerID = @"banner";
 
 #define MENU_COLOR [UIColor colorWithRed:244 / 255.0 green:244 / 255.0 blue:244 / 255.0 alpha:1.0]
 
 @interface XSMutiCatagoryViewController ()
-<UITableViewDelegate,
-UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,
+<UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,
 UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
@@ -115,15 +107,11 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 }
 
 - (void)loadCollectionData:(NSString *)menuID {
-    NSString *URLString = [NSString stringWithFormat:@"%@%@:%@%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_CATAGORY_COLLECTION, menuID];
-    
     __weak typeof(self) weakSelf = self;
-    XSAPIManager *manager = [XSAPIManager manager];
-    [manager GET:URLString parameters:nil success:^(id responseObject) {
-        weakSelf.collection = [CollectionModel objectWithKeyValues:responseObject];
+    [self.collection loadCollectionWithMenuID:menuID Success:^{
         weakSelf.mutiCatagoryCollectionViewDataSource.data = weakSelf.collection.data;
         [weakSelf.collectionView reloadData];
-    } failure:nil];
+    } Failure:nil];
 }
 
 #pragma mark - UITableViewDelegate
@@ -274,6 +262,13 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
     return _menu;
 }
 
+- (CollectionModel *)collection {
+    if (_collection == nil) {
+        _collection = [[CollectionModel alloc] init];
+    }
+    return _collection;
+}
+
 - (UICollectionView *)collectionView {
     if (_collectionView == nil) {
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc]init];
@@ -301,7 +296,7 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 - (XSMutiCatagoryCollectionViewDataSource *)mutiCatagoryCollectionViewDataSource {
     if (_mutiCatagoryCollectionViewDataSource == nil) {
-        _mutiCatagoryCollectionViewDataSource = [[XSMutiCatagoryCollectionViewDataSource alloc] initWithData:self.collection.data cellIdentifier:collectionCellId configureCellBlock:^(XSMutiCatagoryCollectionViewCell *cell, CollectionItemModel *item) {
+        _mutiCatagoryCollectionViewDataSource = [[XSMutiCatagoryCollectionViewDataSource alloc] initWithData:self.collection.data cellIdentifier:collectionCellId bannerIdentifier:collectionBannerID headerIdentifier:collectionHeaderId configureCellBlock:^(id cell, id item) {
             [cell configureForCollectionItem:item];
         }];
     }

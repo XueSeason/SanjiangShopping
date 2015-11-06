@@ -10,6 +10,9 @@
 
 #import <MJExtension.h>
 
+#import "XSAPIManager.h"
+#import "NetworkConstant.h"
+
 @implementation CollectionItemModel
 - (instancetype)init
 {
@@ -64,34 +67,21 @@
 @end
 
 @implementation CollectionModel
-- (void)loadMenuSuccess:(SuccessCollectionBlock)success Failure:(FailureCollectionBlock)failure {
-//    NSString *URLString = [NSString stringWithFormat:@"%@%@:%@%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_CATAGORY_COLLECTION, menuID];
-//    
-//    __weak typeof(self) weakSelf = self;
-//    XSAPIManager *manager = [XSAPIManager manager];
-//    [manager GET:URLString parameters:nil success:^(id responseObject) {
-//        weakSelf.collection = [CollectionModel objectWithKeyValues:responseObject];
-//        weakSelf.mutiCatagoryCollectionViewDataSource.data = weakSelf.collection.data;
-//        [weakSelf.collectionView reloadData];
-//    } failure:nil];
-//    
-//    
-//    
-//    NSString *URLString = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_CATAGORY_MENU];
-//    
-//    __weak typeof(self) weakSelf = self;
-//    XSAPIManager *manager = [XSAPIManager manager];
-//    [manager GET:URLString parameters:nil success:^(id responseObject) {
-//        
-//        MenuModel *model = [MenuModel objectWithKeyValues:responseObject];
-//        weakSelf.data         = model.data;
-//        weakSelf.code         = model.code;
-//        weakSelf.codeMessage  = model.codeMessage;
-//        
-//        success();
-//        
-//    } failure:^(NSError *error) {
-//        failure(error);
-//    }];
+- (void)loadCollectionWithMenuID:(NSString *)menuID Success:(SuccessCollectionBlock)success Failure:(FailureCollectionBlock)failure {
+    NSString *URLString = [NSString stringWithFormat:@"%@%@:%@%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_CATAGORY_COLLECTION, menuID];
+    
+    __weak typeof(self) weakSelf = self;
+    XSAPIManager *manager = [XSAPIManager manager];
+    [manager GET:URLString parameters:nil success:^(id responseObject) {
+        CollectionModel *model = [CollectionModel objectWithKeyValues:responseObject];
+        weakSelf.data        = model.data;
+        weakSelf.code        = model.code;
+        weakSelf.codeMessage = model.codeMessage;
+        
+        success();
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
 }
+
 @end

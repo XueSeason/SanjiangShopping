@@ -29,5 +29,7 @@ typedef void (^FailureCollectionBlock)(NSError *error);
 
 @interface CollectionModel : BaseModel
 @property (strong, nonatomic) CollectionDataModel *data;
-- (void)loadMenuSuccess:(SuccessCollectionBlock)success Failure:(FailureCollectionBlock)failure;
+
+- (void)loadCollectionWithMenuID:(NSString *)menuID Success:(SuccessCollectionBlock)success Failure:(FailureCollectionBlock)failure;
+
 @end

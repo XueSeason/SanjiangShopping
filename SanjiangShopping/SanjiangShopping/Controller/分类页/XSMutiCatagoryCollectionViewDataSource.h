@@ -16,6 +16,10 @@ typedef void (^MutiCatagoryCollectionViewCellConfigureBlock)(id cell, id item);
 
 @property (nonatomic, strong) CollectionDataModel *data;
 
-- (id)initWithData:(CollectionDataModel *)data cellIdentifier:(NSString *)cellIdentifier configureCellBlock:(MutiCatagoryCollectionViewCellConfigureBlock)configureCellBlock;
+- (id)initWithData:(CollectionDataModel *)data
+    cellIdentifier:(NSString *)cellIdentifier
+  bannerIdentifier:(NSString *)bannerIdentifier
+  headerIdentifier:(NSString *)headerIdentifier
+configureCellBlock:(MutiCatagoryCollectionViewCellConfigureBlock)configureCellBlock;
 
 @end

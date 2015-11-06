@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+@class CollectionListModel;
+
 @interface XSHeaderCollectionReusableView : UICollectionReusableView
 @property (weak, nonatomic) IBOutlet UILabel *colorLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+- (void)configureForCollectionList:(CollectionListModel *)item;
 
 @end

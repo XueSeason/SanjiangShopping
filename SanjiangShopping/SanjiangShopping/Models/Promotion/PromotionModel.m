@@ -51,10 +51,9 @@
 #pragma mark - private methods
 - (void)loadPromotionSuccess:(SuccessPromotionBlock)success Failure:(FailurePromotionBlock)failure {
     NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_PROMOTION];
-    XSAPIManager *manager = [XSAPIManager manager];
     
     __weak typeof(self) weakSelf = self;
-    
+    XSAPIManager *manager = [XSAPIManager manager];
     [manager GET:urlStr parameters:nil success:^(id responseObject) {
         PromotionModel *model = [PromotionModel objectWithKeyValues:responseObject];
         weakSelf.data         = model.data;

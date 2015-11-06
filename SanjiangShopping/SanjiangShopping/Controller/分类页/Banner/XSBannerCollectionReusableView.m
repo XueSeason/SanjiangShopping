@@ -8,10 +8,17 @@
 
 #import "XSBannerCollectionReusableView.h"
 
+#import "CollectionModel.h"
+#import <UIImageView+WebCache.h>
+
 @implementation XSBannerCollectionReusableView
 
 - (void)awakeFromNib {
     // Initialization code
+}
+
+- (void)configureForCollectionData:(CollectionDataModel *)data {
+    [self.picture sd_setImageWithURL:[NSURL URLWithString:data.headAD]];
 }
 
 @end

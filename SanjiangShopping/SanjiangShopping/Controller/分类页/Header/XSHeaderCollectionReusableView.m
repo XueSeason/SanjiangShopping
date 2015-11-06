@@ -7,11 +7,17 @@
 //
 
 #import "XSHeaderCollectionReusableView.h"
+#import "CollectionModel.h"
+#import "ThemeColor.h"
 
 @implementation XSHeaderCollectionReusableView
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.colorLabel.backgroundColor = THEME_RED;
+}
+
+- (void)configureForCollectionList:(CollectionListModel *)item {
+    self.titleLabel.text = item.title;
 }
 
 @end
