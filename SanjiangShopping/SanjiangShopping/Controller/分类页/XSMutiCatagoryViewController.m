@@ -20,9 +20,8 @@
 #import "MenuModel.h"
 #import "CollectionModel.h"
 
-#import "XSSearchTableViewController.h"
 #import "XSResultTableViewController.h"
-#import "XSSearchBarHelper.h"
+#import "XSSearchController.h"
 
 #import "XSCommodityListViewController.h"
 
@@ -33,9 +32,7 @@ static NSString * const collectionBannerID = @"banner";
 
 #define MENU_COLOR [UIColor colorWithRed:244 / 255.0 green:244 / 255.0 blue:244 / 255.0 alpha:1.0]
 
-@interface XSMutiCatagoryViewController ()
-<UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout,
-UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
+@interface XSMutiCatagoryViewController () <UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) XSMutiCatagoryTableViewDataSource *mutiCatagoryTableViewDataSource;
@@ -47,10 +44,8 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 @property (assign, nonatomic) NSInteger currentMenuIndex;
 @property (strong, nonatomic) UICollectionView *collectionView;
 
-@property (strong, nonatomic) UISearchController          *searchController;
-@property (strong, nonatomic) XSSearchTableViewController *searchTableViewController;
+@property (strong, nonatomic) XSSearchController          *searchController;
 @property (strong, nonatomic) XSResultTableViewController *resultTableViewController;
-@property (strong, nonatomic) UIBarButtonItem *scanButton;
 
 @end
 
@@ -84,16 +79,10 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
     [self loadMenuData];
 }
 
-#pragma mark - event response
-//- (void)scanQRCode {
-//    NSLog(@"Scan QRCode");
-//}
-
 #pragma mark - private methods
 - (void)customNavigationBar {
     [XSNavigationBarHelper hackStandardNavigationBar:self.navigationController.navigationBar];
     self.navigationItem.titleView = self.searchController.searchBar;
-//    self.navigationItem.leftBarButtonItem = self.scanButton;
 }
 
 - (void)loadMenuData {
@@ -149,87 +138,14 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    XSCommodityListViewController *listViewController = [[XSCommodityListViewController alloc] init];
     self.definesPresentationContext = NO;
-    CollectionItemModel *item = (CollectionItemModel *)[[self.collection.data.list[indexPath.section - 1] items] objectAtIndex:indexPath.row];
     
+    XSCommodityListViewController *listViewController = [[XSCommodityListViewController alloc] init];
+    CollectionItemModel *item = (CollectionItemModel *)[[self.collection.data.list[indexPath.section - 1] items] objectAtIndex:indexPath.row];
     listViewController.searchWords = item.itemName;
+    
     [self.navigationController pushViewController:listViewController animated:YES];
 }
-
-#pragma mark - UISearchBarDelegate
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    NSLog(@"开始搜索");
-    if ([searchBar.text isEqualToString:@""]) {
-        NSLog(@"搜索默认热词");
-        XSSearchBarHelper *searchBarHelper = [[XSSearchBarHelper alloc] initWithNavigationBar:_searchController.searchBar];
-        [searchBarHelper peek];
-        searchBar.text = searchBarHelper.UISearchBarTextField.placeholder;
-    }
-    [_searchTableViewController.recentSearchData addUniqueString:searchBar.text];
-    [_searchTableViewController.tableView reloadData];
-    
-    [searchBar resignFirstResponder];
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [searchBar resignFirstResponder];
-}
-
-#pragma mark - UISearchResultsUpdating
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    NSLog(@"%@", searchController.searchBar.text);
-}
-
-#pragma mark - UISearchControllerDelegate
-- (void)presentSearchController:(UISearchController *)searchController {
-    NSLog(@"开始进入搜索");
-}
-
-- (void)willPresentSearchController:(UISearchController *)searchController {
-    NSLog(@"将要进入搜索");
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        self.navigationItem.leftBarButtonItem = nil;
-    }];
-    
-    _searchTableViewController = [[XSSearchTableViewController alloc] init];
-    _searchTableViewController.searchBar = _searchController.searchBar;
-    _searchTableViewController.contextViewController = self;
-    _searchTableViewController.tableView.frame = [UIScreen mainScreen].bounds;
-    [self.view addSubview:_searchTableViewController.tableView];
-    
-    _searchController.searchBar.showsCancelButton = YES; // 显示删除按钮
-    // 设置取消按钮的颜色
-    UIView *firstView = _searchController.searchBar.subviews[0];
-    for (UIView *secondView in firstView.subviews) {
-        if ([secondView isKindOfClass:NSClassFromString(@"UINavigationButton")]) {
-            UIButton *cancelButton = (UIButton *)secondView;
-            cancelButton.tintColor = [UIColor lightGrayColor];
-        }
-    }
-}
-
-- (void)didPresentSearchController:(UISearchController *)searchController {
-    NSLog(@"进入搜索");
-}
-
-- (void)willDismissSearchController:(UISearchController *)searchController {
-    NSLog(@"将要隐藏搜索");
-    if (_searchTableViewController != nil) {
-        [_searchTableViewController.tableView removeFromSuperview];
-        _searchTableViewController = nil;
-    }
-    
-    [UIView animateWithDuration:0.4 animations:^{
-        self.navigationItem.leftBarButtonItem = _scanButton;
-    }];
-}
-
-- (void)didDismissSearchController:(UISearchController *)searchController {
-    NSLog(@"隐藏搜索");
-}
-
 #pragma mark - getters and setters
 - (UITableView *)tableView {
     if (_tableView == nil) {
@@ -303,6 +219,7 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
     return _mutiCatagoryCollectionViewDataSource;
 }
 
+
 - (XSResultTableViewController *)resultTableViewController {
     if (_resultTableViewController == nil) {
         _resultTableViewController = [[XSResultTableViewController alloc] init];
@@ -310,34 +227,11 @@ UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
     return _resultTableViewController;
 }
 
-- (UISearchController *)searchController {
+- (XSSearchController *)searchController {
     if (_searchController == nil) {
-        _searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultTableViewController];
-        _searchController.searchBar.searchBarStyle             = UISearchBarStyleMinimal;
-        _searchController.hidesNavigationBarDuringPresentation = NO;
-        _searchController.dimsBackgroundDuringPresentation     = NO;
-        
-        _searchController.delegate             = self;
-        _searchController.searchResultsUpdater = self;
-        _searchController.searchBar.delegate   = self;
-        
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSDictionary *data = [defaults dictionaryForKey:@"HomeModel"];
-        NSString *keyword = [data[@"data"] objectForKey:@"keyword"];
-        if (keyword == nil) {
-            keyword = @"搜索商品名称/商品编号";
-        }
-        [XSSearchBarHelper hackStandardSearchBar:_searchController.searchBar keyword:keyword];
+        _searchController = [[XSSearchController alloc] initWithSearchResultsController:self.resultTableViewController];
     }
     return _searchController;
 }
-
-//- (UIBarButtonItem *)scanButton {
-//    if (_scanButton == nil) {
-//        _scanButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ScanQRCode"] style:UIBarButtonItemStylePlain target:self action:@selector(scanQRCode)];
-//        _scanButton.tintColor = [UIColor lightGrayColor];
-//    }
-//    return _scanButton;
-//}
 
 @end

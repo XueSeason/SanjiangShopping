@@ -11,5 +11,6 @@
 @implementation NotificationNameConstant
 
 NSString * const HomeModelNotificationName = @"Notification_HomeModel";
+NSString * const PresentSearchNotification = @"Notifiaction_PresentSearch";
 
 @end

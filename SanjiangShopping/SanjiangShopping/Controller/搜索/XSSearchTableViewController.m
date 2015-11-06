@@ -50,14 +50,14 @@ static NSString * const clearID  = @"clear";
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    self.automaticallyAdjustsScrollViewInsets = YES;
-    self.tabBarController.tabBar.hidden = YES;
     [self loadHotWords];
     [self loadHistoryRecord];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.automaticallyAdjustsScrollViewInsets = YES;
+    self.tableView.frame = [UIScreen mainScreen].bounds;
     
     [self loadHotWordsView];
     self.hotWordsView.backgroundColor = BACKGROUND_COLOR;
@@ -65,17 +65,10 @@ static NSString * const clearID  = @"clear";
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:recentID];
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:clearID];
     [self.tableView registerNib:[UINib nibWithNibName:@"XSClearHistoryTableViewCell" bundle:nil] forCellReuseIdentifier:clearID];
-
+    
     self.tableView.contentInset    = UIEdgeInsetsMake(64, 0.0f, 49, 0.0f);
     self.tableView.backgroundColor = BACKGROUND_COLOR;
     self.tableView.separatorStyle  = UITableViewCellSelectionStyleNone;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    if ([self.view window] == nil) {
-        self.view = nil;
-    }
 }
 
 - (void)clearHistory {
@@ -90,7 +83,7 @@ static NSString * const clearID  = @"clear";
     [defaults setObject:_recentSearchData forKey:@"histroyRecord"];
     [defaults synchronize];
     
-    if ([_contextViewController isKindOfClass:[XSCommodityListViewController class]]) {
+    if ([self.contextViewController isKindOfClass:[XSCommodityListViewController class]]) {
         XSCommodityListViewController *lvc = (XSCommodityListViewController *)_contextViewController;
         [lvc searchController].active = NO;
         lvc.searchWords = sender.titleLabel.text;
@@ -98,8 +91,8 @@ static NSString * const clearID  = @"clear";
     } else {
         XSCommodityListViewController *comListViewController = [[XSCommodityListViewController alloc] init];
         comListViewController.searchWords = sender.titleLabel.text;
-        _contextViewController.definesPresentationContext = NO;
-        [_contextViewController.navigationController pushViewController:comListViewController animated:YES];
+        self.contextViewController.definesPresentationContext = NO;
+        [self.contextViewController.navigationController pushViewController:comListViewController animated:YES];
     }
 
     [self.tableView reloadData];

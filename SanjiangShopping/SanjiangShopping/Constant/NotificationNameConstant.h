@@ -12,4 +12,6 @@
 
 extern NSString * const HomeModelNotificationName;
 
+extern NSString * const PresentSearchNotification;
+
 @end

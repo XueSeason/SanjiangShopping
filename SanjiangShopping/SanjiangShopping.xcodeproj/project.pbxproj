@@ -45,6 +45,7 @@
 		B161CDC91B96CA7000D4689C /* PromotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD9A1B96CA7000D4689C /* PromotionModel.m */; };
 		B161CDCA1B96CA7000D4689C /* HotWordsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD9D1B96CA7000D4689C /* HotWordsModel.m */; };
 		B16487751BB256C200778A07 /* XS4211View.m in Sources */ = {isa = PBXBuildFile; fileRef = B16487741BB256C200778A07 /* XS4211View.m */; };
+		B16D5AFC1BEC46DB00B72B3B /* XSSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16D5AFB1BEC46DB00B72B3B /* XSSearchController.m */; };
 		B174E9431BD9C4B00091E703 /* XSExchangeCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B174E9411BD9C4B00091E703 /* XSExchangeCouponViewController.m */; };
 		B174E9441BD9C4B00091E703 /* XSExchangeCouponViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B174E9421BD9C4B00091E703 /* XSExchangeCouponViewController.xib */; };
 		B174E9591BD9CB790091E703 /* SubmitOrderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B174E9461BD9CB790091E703 /* SubmitOrderView.xib */; };
@@ -266,6 +267,8 @@
 		B161CD9D1B96CA7000D4689C /* HotWordsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotWordsModel.m; sourceTree = "<group>"; };
 		B16487731BB256C200778A07 /* XS4211View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XS4211View.h; sourceTree = "<group>"; };
 		B16487741BB256C200778A07 /* XS4211View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XS4211View.m; sourceTree = "<group>"; };
+		B16D5AFA1BEC46DB00B72B3B /* XSSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSSearchController.h; sourceTree = "<group>"; };
+		B16D5AFB1BEC46DB00B72B3B /* XSSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSSearchController.m; sourceTree = "<group>"; };
 		B174E9401BD9C4B00091E703 /* XSExchangeCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSExchangeCouponViewController.h; sourceTree = "<group>"; };
 		B174E9411BD9C4B00091E703 /* XSExchangeCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSExchangeCouponViewController.m; sourceTree = "<group>"; };
 		B174E9421BD9C4B00091E703 /* XSExchangeCouponViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSExchangeCouponViewController.xib; sourceTree = "<group>"; };
@@ -1464,6 +1467,8 @@
 		B1F43D661BC600E1009F19DA /* 搜索 */ = {
 			isa = PBXGroup;
 			children = (
+				B16D5AFA1BEC46DB00B72B3B /* XSSearchController.h */,
+				B16D5AFB1BEC46DB00B72B3B /* XSSearchController.m */,
 				B1F43D671BC600E1009F19DA /* XSClearHistoryTableViewCell.h */,
 				B1F43D681BC600E1009F19DA /* XSClearHistoryTableViewCell.m */,
 				B1F43D691BC600E1009F19DA /* XSClearHistoryTableViewCell.xib */,
@@ -1808,6 +1813,7 @@
 				B101BD871BC8C2DE002FF77E /* XSNearbyTableViewCell.m in Sources */,
 				B174E97F1BD9D59E0091E703 /* XSFourTableViewCell.m in Sources */,
 				B1DC5C751BD086B6002B35DB /* XSHeaderCollectionReusableView.m in Sources */,
+				B16D5AFC1BEC46DB00B72B3B /* XSSearchController.m in Sources */,
 				B1F43D921BC600E1009F19DA /* XSResultTableViewController.m in Sources */,
 				B161CDA01B96CA7000D4689C /* NotificationNameConstant.m in Sources */,
 				B15AF7DF1BD890C9002B20D0 /* XSLogisticsTableViewCell.m in Sources */,

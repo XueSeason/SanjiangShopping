@@ -18,4 +18,7 @@
 @property (strong, nonatomic) NSMutableArray   *recentSearchData;
 @property (strong, nonatomic) UISearchBar      *searchBar;
 
+- (void)loadHotWords;
+- (void)loadHistoryRecord;
+
 @end
