@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HotWordsView : UIScrollView
+@class HotWordsDataModel;
 
+@interface HotWordsView : UIScrollView
+@property (strong, nonatomic) HotWordsDataModel *dataModel;
+@property (strong, nonatomic) void (^hotButtonClickBlock)(UIButton *sender);
 @end

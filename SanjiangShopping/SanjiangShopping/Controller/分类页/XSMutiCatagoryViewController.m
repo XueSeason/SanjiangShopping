@@ -107,8 +107,8 @@ static NSString * const collectionBannerID = @"banner";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // 滚动到顶部
     [tableView scrollToRowAtIndexPath:indexPath atScrollPosition:UITableViewScrollPositionTop animated:YES];
-    [self loadCollectionData:[_menu.data.list[indexPath.row] ItemID]];
-    _currentMenuIndex = indexPath.row;
+    [self loadCollectionData:[self.menu.data.list[indexPath.row] ItemID]];
+    self.currentMenuIndex = indexPath.row;
 }
 
 #pragma mark - UICollectionViewDelegateFlowLayout
@@ -117,7 +117,7 @@ static NSString * const collectionBannerID = @"banner";
         return CGSizeZero;
     }
     
-    CGFloat side = ( _collectionView.frame.size.width - 6 * 8 ) / 3.0 - 8.0;
+    CGFloat side = ( self.collectionView.frame.size.width - 6 * 8 ) / 3.0 - 8.0;
     return CGSizeMake(side, side + 20);
 }
 
@@ -130,10 +130,10 @@ static NSString * const collectionBannerID = @"banner";
         if (self.collection.data.headAD == nil) {
             return CGSizeZero;
         }
-        return CGSizeMake(_collectionView.frame.size.width, _collectionView.frame.size.width / 3.0);
+        return CGSizeMake(self.collectionView.frame.size.width, self.collectionView.frame.size.width / 3.0);
     }
     
-    return CGSizeMake(_collectionView.frame.size.width, 30);
+    return CGSizeMake(self.collectionView.frame.size.width, 30);
 }
 
 #pragma mark - UICollectionViewDelegate
@@ -230,6 +230,22 @@ static NSString * const collectionBannerID = @"banner";
 - (XSSearchController *)searchController {
     if (_searchController == nil) {
         _searchController = [[XSSearchController alloc] initWithSearchResultsController:self.resultTableViewController];
+        
+        __weak typeof(self) weakSelf = self;
+        _searchController.searchWordQuery = ^(NSString *searchWord) {
+            
+            if ([weakSelf isKindOfClass:[XSCommodityListViewController class]]) {
+                XSCommodityListViewController *lvc = (XSCommodityListViewController *)weakSelf;
+                [lvc searchController].active = NO;
+                lvc.searchWords = searchWord;
+                [lvc reloadData];
+            } else {
+                XSCommodityListViewController *comListViewController = [[XSCommodityListViewController alloc] init];
+                comListViewController.searchWords = searchWord;
+                weakSelf.definesPresentationContext = NO;
+                [weakSelf.navigationController pushViewController:comListViewController animated:YES];
+            }
+        };
     }
     return _searchController;
 }

@@ -16,6 +16,8 @@
 
 @interface XSSearchController : UISearchController
 
+@property (copy, nonatomic) void (^searchWordQuery)(NSString *searchWord);
+
 - (instancetype)initWithSearchResultsController:(XSResultTableViewController *)searchResultsController;
 
 @end

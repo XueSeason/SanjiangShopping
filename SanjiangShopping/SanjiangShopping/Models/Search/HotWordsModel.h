@@ -8,10 +8,15 @@
 
 #import "BaseModel.h"
 
+typedef void (^SuccessHotWordsBlock)();
+typedef void (^FailureHotWordsBlock)(NSError *error);
+
 @interface HotWordsDataModel : NSObject
 @property (copy, nonatomic) NSArray *list;
 @end
 
 @interface HotWordsModel : BaseModel
 @property (strong, nonatomic) HotWordsDataModel *data;
+
+- (void)loadHotWordsSuccess:(SuccessHotWordsBlock)success Failure:(FailureHotWordsBlock)failure;
 @end
