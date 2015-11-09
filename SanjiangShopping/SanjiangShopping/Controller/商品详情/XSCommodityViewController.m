@@ -25,13 +25,13 @@ static NSString * const feedbackID  = @"feedback";
 
 @property (strong, nonatomic) UIScrollView *scrollView;
 
+@property (strong, nonatomic) IBOutlet UIView   *pannelView;
 @property (weak, nonatomic)   IBOutlet UIButton *favoriteButton;
 @property (weak, nonatomic)   IBOutlet UIButton *shopCartButton;
 @property (weak, nonatomic)   IBOutlet UIButton *buyNowButton;
 @property (weak, nonatomic)   IBOutlet UIButton *addToShopCartButton;
 @property (weak, nonatomic)   IBOutlet UIView   *favoriteView;
 @property (weak, nonatomic)   IBOutlet UIView   *shopCartView;
-@property (strong, nonatomic) IBOutlet UIView   *pannelView;
 
 @property (strong, nonatomic) UIScrollView *mainScrollView;
 @property (strong, nonatomic) XSBannerView *bannerView;
@@ -50,52 +50,27 @@ static NSString * const feedbackID  = @"feedback";
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.automaticallyAdjustsScrollViewInsets = NO;
+    self.scrollView.frame       = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height * 2);
+    self.mainScrollView.frame   = [UIScreen mainScreen].bounds;
+    self.detailScrollView.frame = CGRectMake(0, self.mainScrollView.frame.size.height + self.mainScrollView.frame.origin.y, self.mainScrollView.frame.size.width, self.mainScrollView.frame.size.height);
+    
+    self.scrollView.contentSize   = CGSizeMake(self.detailScrollView.frame.size.width, self.detailScrollView.frame.origin.y + self.detailScrollView.frame.size.height);
+    self.detailScrollView.contentSize = CGSizeMake(self.detailScrollView.frame.size.width, self.detailScrollView.frame.size.height + 1);
+    
+    self.pannelView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height - 50, self.view.frame.size.width, 50);
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.navigationItem.title = @"商品详情";
-    self.view.backgroundColor = BACKGROUND_COLOR;
+    [self customNavigationBar];
     
-    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:self action:@selector(comeBack)];
-    leftButtonItem.tintColor = MAIN_TITLE_COLOR;
-    self.navigationItem.leftBarButtonItem = leftButtonItem;
-    self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
-    
-    _scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height * 2)];
-    _scrollView.showsHorizontalScrollIndicator = NO;
-    _scrollView.showsVerticalScrollIndicator   = NO;
-
-    _mainScrollView = [[UIScrollView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    _mainScrollView.showsHorizontalScrollIndicator = NO;
-    _mainScrollView.showsVerticalScrollIndicator   = NO;
-    _mainScrollView.delegate = self;
-    
-    _detailScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, _mainScrollView.frame.size.height + _mainScrollView.frame.origin.y, _mainScrollView.frame.size.width, _mainScrollView.frame.size.height)];
-    _detailScrollView.contentSize                    = CGSizeMake(_detailScrollView.frame.size.width, _detailScrollView.frame.size.height + 1);
-    _detailScrollView.showsHorizontalScrollIndicator = NO;
-    _detailScrollView.showsVerticalScrollIndicator   = NO;
-    _detailScrollView.delegate = self;
-    
-    _scrollView.contentSize = CGSizeMake(_detailScrollView.frame.size.width, _detailScrollView.frame.origin.y + _detailScrollView.frame.size.height);
-    [_scrollView addSubview:_mainScrollView];
-    [_scrollView addSubview:_detailScrollView];
-    [self.view addSubview:_scrollView];
+    [self.scrollView addSubview:self.mainScrollView];
+    [self.scrollView addSubview:self.detailScrollView];
+    [self.view addSubview:self.scrollView];
 
     // 设置购物面板
-    CGRect pannelFrame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height - 50, self.view.frame.size.width, 50);
-    UIView *tempView   = [[UIView alloc] initWithFrame:pannelFrame];
-    [self.view addSubview:tempView];
-    UIView *pannelView = [[[NSBundle mainBundle] loadNibNamed:@"BuyPannel" owner:self options:nil] objectAtIndex:0];
-    pannelView.frame = tempView.bounds;
-    [tempView addSubview:pannelView];
-    _pannelView.layer.borderWidth   = 0.5f;
-    _pannelView.layer.borderColor   = [OTHER_SEPARATOR_COLOR CGColor];
-    _favoriteView.layer.borderWidth = 0.5f;
-    _favoriteView.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
-    _shopCartView.layer.borderWidth = 0.5f;
-    _shopCartView.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
+    [self.view addSubview:self.pannelView];
     
     CGFloat step = 9.0f;
     CGFloat contentHeigth = 64.0f;
@@ -167,6 +142,76 @@ static NSString * const feedbackID  = @"feedback";
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - getters and setters
+- (UIScrollView *)scrollView {
+    if (_scrollView == nil) {
+        _scrollView = [[UIScrollView alloc] init];
+        _scrollView.showsHorizontalScrollIndicator = NO;
+        _scrollView.showsVerticalScrollIndicator   = NO;
+    }
+    return _scrollView;
+}
+
+- (UIScrollView *)mainScrollView {
+    if (_mainScrollView == nil) {
+        _mainScrollView = [[UIScrollView alloc] init];
+        _mainScrollView.showsHorizontalScrollIndicator = NO;
+        _mainScrollView.showsVerticalScrollIndicator   = NO;
+        _mainScrollView.delegate = self;
+    }
+    return _mainScrollView;
+}
+
+- (UIScrollView *)detailScrollView {
+    if (_detailScrollView == nil) {
+        _detailScrollView = [[UIScrollView alloc] init];
+        _detailScrollView.showsHorizontalScrollIndicator = NO;
+        _detailScrollView.showsVerticalScrollIndicator   = NO;
+        _detailScrollView.delegate = self;
+    }
+    return _detailScrollView;
+}
+
+- (UIView *)pannelView {
+    if (_pannelView == nil) {
+        _pannelView = [[[NSBundle mainBundle] loadNibNamed:@"BuyPannel" owner:self options:nil] objectAtIndex:0];
+        _pannelView.layer.borderWidth   = 0.5f;
+        _pannelView.layer.borderColor   = [OTHER_SEPARATOR_COLOR CGColor];
+        _favoriteView.layer.borderWidth = 0.5f;
+        _favoriteView.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
+        _shopCartView.layer.borderWidth = 0.5f;
+        _shopCartView.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
+    }
+    return _pannelView;
+}
+
+//- (XSBannerView *)bannerView {
+//    if (_bannerView == nil) {
+//        _bannerView = [[XSBannerView alloc] init];
+//        _bannerView.delegate = self;
+//    }
+//    return _bannerView;
+//}
+//
+//- (XSNameView *)nameView {
+//    if (_nameView == nil) {
+//        _nameView = [[XSNameView alloc] init];
+//        _nameView.backgroundColor = [UIColor whiteColor];
+//    }
+//    return _nameView;
+//}
+
+#pragma mark - private methods
+- (void)customNavigationBar {
+    self.navigationItem.title = @"商品详情";
+    self.view.backgroundColor = BACKGROUND_COLOR;
+    
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:self action:@selector(comeBack)];
+    leftButtonItem.tintColor = MAIN_TITLE_COLOR;
+    self.navigationItem.leftBarButtonItem = leftButtonItem;
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
 }
 
 - (void)comeBack {

@@ -175,6 +175,7 @@
 		B1FB4B4E1BF0628A004DEF09 /* XSShoppingCartTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FB4B481BF0628A004DEF09 /* XSShoppingCartTableViewCell.xib */; };
 		B1FB4B4F1BF0628A004DEF09 /* XSAddressTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FB4B4B1BF0628A004DEF09 /* XSAddressTableViewCell.m */; };
 		B1FB4B501BF0628A004DEF09 /* XSAddressTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1FB4B4C1BF0628A004DEF09 /* XSAddressTableViewCell.xib */; };
+		B1FB4B541BF06E61004DEF09 /* XSHelpCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FB4B531BF06E61004DEF09 /* XSHelpCenterViewController.m */; };
 		B1FDF5861BB90B55008418E8 /* XSCountDownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FDF5851BB90B55008418E8 /* XSCountDownLabel.m */; };
 		B1FEF9331BE8912B00A94A1B /* XSAddressManageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FEF9321BE8912B00A94A1B /* XSAddressManageViewController.m */; };
 		B1FEF9371BE8936000A94A1B /* XSAddressManageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1FEF9351BE8936000A94A1B /* XSAddressManageTableViewCell.m */; };
@@ -474,6 +475,8 @@
 		B1FB4B4A1BF0628A004DEF09 /* XSAddressTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAddressTableViewCell.h; sourceTree = "<group>"; };
 		B1FB4B4B1BF0628A004DEF09 /* XSAddressTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSAddressTableViewCell.m; sourceTree = "<group>"; };
 		B1FB4B4C1BF0628A004DEF09 /* XSAddressTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSAddressTableViewCell.xib; sourceTree = "<group>"; };
+		B1FB4B521BF06E61004DEF09 /* XSHelpCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSHelpCenterViewController.h; sourceTree = "<group>"; };
+		B1FB4B531BF06E61004DEF09 /* XSHelpCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSHelpCenterViewController.m; sourceTree = "<group>"; };
 		B1FDF5841BB90B55008418E8 /* XSCountDownLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCountDownLabel.h; sourceTree = "<group>"; };
 		B1FDF5851BB90B55008418E8 /* XSCountDownLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCountDownLabel.m; sourceTree = "<group>"; };
 		B1FEF9311BE8912B00A94A1B /* XSAddressManageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAddressManageViewController.h; sourceTree = "<group>"; };
@@ -1271,6 +1274,7 @@
 		B1F43CF71BC6004F009F19DA /* 我的三江 */ = {
 			isa = PBXGroup;
 			children = (
+				B1FB4B511BF06E32004DEF09 /* 帮助中心 */,
 				B15AF7D31BD880DC002B20D0 /* 物流跟踪 */,
 				B1AA22EA1BD7707200AEAA36 /* 设置 */,
 				B1C45AC31BD5CB4800D2466E /* 我的订单 */,
@@ -1526,6 +1530,15 @@
 				B1FB4B4C1BF0628A004DEF09 /* XSAddressTableViewCell.xib */,
 			);
 			path = "地址栏";
+			sourceTree = "<group>";
+		};
+		B1FB4B511BF06E32004DEF09 /* 帮助中心 */ = {
+			isa = PBXGroup;
+			children = (
+				B1FB4B521BF06E61004DEF09 /* XSHelpCenterViewController.h */,
+				B1FB4B531BF06E61004DEF09 /* XSHelpCenterViewController.m */,
+			);
+			path = "帮助中心";
 			sourceTree = "<group>";
 		};
 		B1FEF9301BE890DD00A94A1B /* 我的收货地址 */ = {
@@ -1833,6 +1846,7 @@
 				B15AF7DF1BD890C9002B20D0 /* XSLogisticsTableViewCell.m in Sources */,
 				B161CDC61B96CA7000D4689C /* HeadModel.m in Sources */,
 				B161CDCA1B96CA7000D4689C /* HotWordsModel.m in Sources */,
+				B1FB4B541BF06E61004DEF09 /* XSHelpCenterViewController.m in Sources */,
 				B174E9701BD9D3F40091E703 /* XSOneTableViewCell.m in Sources */,
 				B161CDC31B96CA7000D4689C /* CollectionModel.m in Sources */,
 				B1BB5D881BD86B2100500898 /* XSShareSettingTableViewCell.m in Sources */,

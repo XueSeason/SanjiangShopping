@@ -26,6 +26,8 @@
 
 #import "XSMyMemberCardViewController.h"
 
+#import "XSHelpCenterViewController.h"
+
 @interface XSAccountViewController ()
 
 @end
@@ -126,7 +128,7 @@
 }
 
 - (void)help {
-    NSLog(@"help");
+    [self.navigationController pushViewController:[[XSHelpCenterViewController alloc] init] animated:YES];
 }
 
 @end
