@@ -25,8 +25,8 @@
 
 - (void)resetViews {
     
-    if (self.subviews.count != 0) {
-        [self.subviews[0] removeFromSuperview];
+    for (UIView *subView in self.scrollView.subviews) {
+        [subView removeFromSuperview];
     }
     
     _scrollView.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, self.frame.size.height);
