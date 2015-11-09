@@ -7,6 +7,8 @@
 //
 
 #import "CartModel.h"
+#import "NetworkConstant.h"
+#import "XSAPIManager.h"
 
 #import <MJExtension.h>
 
@@ -41,5 +43,21 @@
 @end
 
 @implementation CartModel
-
+- (void)loadCartSuccess:(SuccessCartBlock)success Failure:(FailureCartBlock)failure {
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_CART_LIST];
+    
+    __weak typeof(self) weakSelf = self;
+    XSAPIManager *manager = [XSAPIManager manager];
+    [manager GET:urlStr parameters:nil success:^(id responseObject) {
+        CartModel *model = [CartModel objectWithKeyValues:responseObject];
+        weakSelf.data         = model.data;
+        weakSelf.code         = model.code;
+        weakSelf.codeMessage  = model.codeMessage;
+        
+        success();
+        
+    } failure:^(NSError *error) {
+        failure(error);
+    }];
+}
 @end

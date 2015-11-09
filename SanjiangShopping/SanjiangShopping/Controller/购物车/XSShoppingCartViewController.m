@@ -15,8 +15,6 @@
 
 #import "ThemeColor.h"
 
-#import <AFNetworking.h>
-#import "NetworkConstant.h"
 #import "CartModel.h"
 #import <MJExtension.h>
 
@@ -75,8 +73,7 @@ static NSString * const addressID = @"Address";
     self.editPanelView.frame     = pannelFrame;
     
     self.tableView.frame = CGRectMake(0, 0, pannelFrame.size.width, pannelFrame.origin.y);
-    
-    [self downLoadJSONData];
+    [self loadCartItem];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,41 +81,6 @@ static NSString * const addressID = @"Address";
     if ([self.view window] == nil) {
         self.view = nil;
     }
-}
-
-#pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    } else {
-        return self.cartModel.data.list.count;
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        XSAddressTableViewCell *cell = (XSAddressTableViewCell *)[tableView dequeueReusableCellWithIdentifier:addressID forIndexPath:indexPath];
-        cell.selectionStyle    = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor   = BACKGROUND_COLOR;
-        return cell;
-    }
-    
-    XSShoppingCartTableViewCell *cell = (XSShoppingCartTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    CartItemModel *item = self.cartModel.data.list[indexPath.row];
-    cell.item = item;
-
-    if (item.selected) {
-        cell.isSelected = YES;
-    } else {
-        cell.isSelected = NO;
-    }
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate
@@ -160,6 +122,41 @@ static NSString * const addressID = @"Address";
     return 0.5f;
 }
 
+#pragma mark - UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 2;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == 0) {
+        return 1;
+    } else {
+        return self.cartModel.data.list.count;
+    }
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 0) {
+        XSAddressTableViewCell *cell = (XSAddressTableViewCell *)[tableView dequeueReusableCellWithIdentifier:addressID forIndexPath:indexPath];
+        cell.selectionStyle    = UITableViewCellSelectionStyleNone;
+        cell.backgroundColor   = BACKGROUND_COLOR;
+        return cell;
+    }
+    
+    XSShoppingCartTableViewCell *cell = (XSShoppingCartTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    CartItemModel *item = self.cartModel.data.list[indexPath.row];
+    cell.item = item;
+    
+    if (item.selected) {
+        cell.isSelected = YES;
+    } else {
+        cell.isSelected = NO;
+    }
+    return cell;
+}
+
 #pragma mark - private methods
 - (void)customNavigationBar {
     self.navigationItem.title = @"购物车";
@@ -171,26 +168,12 @@ static NSString * const addressID = @"Address";
 
 }
 
-- (void)downLoadJSONData {
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_CART_LIST];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setValue:@"utf-8" forHTTPHeaderField:@"charset"];
-    [manager.requestSerializer setValue:@"text/plain" forHTTPHeaderField:@"Content-Type"];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+- (void)loadCartItem {
     __weak typeof(self) weakSelf = self;
-    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        weakSelf.cartModel = [CartModel objectWithKeyValues:responseObject];
+    
+    [self.cartModel loadCartSuccess:^{
         [weakSelf.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未连接" message:@"无法加载数据" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
-        NSLog(@"%@", error);
-    }];
+    } Failure:nil];
 }
 
 #pragma mark - event response
@@ -268,6 +251,13 @@ static NSString * const addressID = @"Address";
         [_tableView registerNib:[UINib nibWithNibName:@"XSShoppingCartTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     }
     return _tableView;
+}
+
+- (CartModel *)cartModel {
+    if (_cartModel == nil) {
+        _cartModel = [[CartModel alloc] init];
+    }
+    return _cartModel;
 }
 
 @end

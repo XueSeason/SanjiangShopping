@@ -8,6 +8,9 @@
 
 #import "BaseModel.h"
 
+typedef void (^SuccessCartBlock)();
+typedef void (^FailureCartBlock)(NSError *error);
+
 @interface CartItemModel : NSObject
 @property (copy, nonatomic) NSString  *itemID;
 @property (assign, nonatomic) NSInteger count;
@@ -25,4 +28,5 @@
 
 @interface CartModel : BaseModel
 @property (strong, nonatomic) CartDataModel *data;
+- (void)loadCartSuccess:(SuccessCartBlock)success Failure:(FailureCartBlock)failure;
 @end
