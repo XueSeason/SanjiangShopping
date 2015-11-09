@@ -35,11 +35,19 @@
     [self.scrollView addSubview:self.titleLabel];
     
     CGFloat x = self.titleLabel.frame.origin.x + self.titleLabel.frame.size.width + 8;
-    for (int i = 0; i < self.dataModel.list.count; i++) {
+    for (NSString *title in self.dataModel.list) {
+        UIButton *hotButton = [[UIButton alloc] init];
         
-        UIButton *hotButton = [self generateHotButton];
+        [hotButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        hotButton.titleLabel.font          = [hotButton.titleLabel.font fontWithSize:12.0];
+        hotButton.backgroundColor          = [UIColor whiteColor];
+        hotButton.titleLabel.textAlignment = NSTextAlignmentCenter;
         
-        [hotButton setTitle:self.dataModel.list[i] forState:UIControlStateNormal];
+        hotButton.layer.cornerRadius = 5.0;
+        hotButton.clipsToBounds      = YES;
+        
+        [hotButton addTarget:self action:@selector(hotWordsClick:) forControlEvents:UIControlEventTouchUpInside];
+        [hotButton setTitle:title forState:UIControlStateNormal];
         
         CGSize buttonSize = [hotButton sizeThatFits:self.frame.size];
         hotButton.frame   = CGRectMake(x, 8, buttonSize.width + 8, 28);
@@ -48,24 +56,8 @@
         
         x = hotButton.frame.origin.x + hotButton.frame.size.width + 8;
     }
+    
     self.scrollView.contentSize = CGSizeMake(x, 28);
-}
-
-- (UIButton *)generateHotButton {
-    UIButton *hotButton = [[UIButton alloc] init];
-    
-    [hotButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    
-    hotButton.titleLabel.font          = [hotButton.titleLabel.font fontWithSize:12.0];
-    hotButton.backgroundColor          = [UIColor whiteColor];
-    hotButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-    
-    hotButton.layer.cornerRadius = 5.0;
-    hotButton.clipsToBounds      = YES;
-    
-    [hotButton addTarget:self action:@selector(hotWordsClick:) forControlEvents:UIControlEventTouchUpInside];
-    
-    return hotButton;
 }
 
 - (void)hotWordsClick:(UIButton *)sender {
@@ -95,6 +87,7 @@
 
 - (void)setDataModel:(HotWordsDataModel *)dataModel {
     _dataModel = dataModel;
+    
     [self resetViews];
 }
 
