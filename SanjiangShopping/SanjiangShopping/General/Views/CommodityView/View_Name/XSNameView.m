@@ -56,4 +56,28 @@
     }
     return self;
 }
+
+- (void)layoutSubviews {
+    
+}
+//@property (strong, nonatomic) UILabel *nameLabel;
+//@property (strong, nonatomic) UILabel *moreInfoLabel;
+//@property (strong, nonatomic) UILabel *priceNowLabel;
+//@property (strong, nonatomic) UILabel *priceOldLabel;
+//@property (strong, nonatomic) UILabel *discountLabel;
+
+#pragma mark - getters and setters
+//- (UILabel *)nameLabel {
+//    if (_nameLabel == nil) {
+//        
+//    }
+//    return _nameLabel;
+//}
+//
+//- (UILabel *)moreInfoLabel {
+//    if (_moreInfoLabel =) {
+//        <#statements#>
+//    }
+//}
+
 @end

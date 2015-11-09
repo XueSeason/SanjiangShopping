@@ -122,7 +122,7 @@ static const CGFloat step = 9.0f;
     // 移除观察者
     [[NSNotificationCenter defaultCenter] removeObserver:self name:HomeModelNotificationName object:nil];
     self.navHelper._UINavigationBarBackground.opaque = YES;
-    self.scrollView.footer = nil;
+    self.scrollView.mj_footer = nil;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -341,11 +341,11 @@ static const CGFloat step = 9.0f;
         [weakSelf refreshView];
         
         NSLog(@"下载数据完成");
-        [weakSelf.scrollView.header endRefreshing];
+        [weakSelf.scrollView.mj_header endRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未连接" message:@"无法加载数据" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [weakSelf.scrollView.header endRefreshing];
+        [weakSelf.scrollView.mj_header endRefreshing];
         [alert show];
     }];
 }
@@ -369,12 +369,12 @@ static const CGFloat step = 9.0f;
         
         [weakSelf refreshDynamicView];
         
-        [weakSelf.scrollView.footer endRefreshing];
+        [weakSelf.scrollView.mj_footer endRefreshing];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未连接" message:@"无法加载数据" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
         [alert show];
-        [weakSelf.scrollView.footer endRefreshingWithNoMoreData];
+        [weakSelf.scrollView.mj_footer endRefreshingWithNoMoreData];
     }];
 }
 
@@ -397,8 +397,8 @@ static const CGFloat step = 9.0f;
     // 设置 ScrollView 的 contentSize
     self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.dynamicView.frame.origin.y + self.dynamicView.frame.size.height);
 
-    if (!self.scrollView.footer) {
-        self.scrollView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(downloadMoreData)];
+    if (!self.scrollView.mj_footer) {
+        self.scrollView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(downloadMoreData)];
     }
 }
 
@@ -412,7 +412,7 @@ static const CGFloat step = 9.0f;
         
         _scrollView.showsVerticalScrollIndicator   = NO;
         _scrollView.showsHorizontalScrollIndicator = NO;
-        _scrollView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downloadData)];
+        _scrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(downloadData)];
         
         // 加载静态视图
         [_scrollView addSubview:self.staticView];

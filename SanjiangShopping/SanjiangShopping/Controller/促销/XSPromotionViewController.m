@@ -63,9 +63,9 @@ static NSString * const promotionCellID = @"promotion";
         weakSelf.promotionDataSource.items = weakSelf.promotion.data.list;
         
         [weakSelf.tableView reloadData];
-        [weakSelf.tableView.header endRefreshing];
+        [weakSelf.tableView.mj_header endRefreshing];
     } Failure:^(NSError *error) {
-        [weakSelf.tableView.header endRefreshing];
+        [weakSelf.tableView.mj_header endRefreshing];
     }];
 }
 
@@ -89,7 +89,7 @@ static NSString * const promotionCellID = @"promotion";
         _tableView.showsHorizontalScrollIndicator = NO;
         _tableView.showsVerticalScrollIndicator   = NO;
         
-        _tableView.header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadPromotionData)];
+        _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadPromotionData)];
         _tableView.separatorColor = [UIColor clearColor];
         
         _tableView.delegate   = self;
