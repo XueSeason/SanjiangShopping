@@ -146,6 +146,7 @@ static NSString * const collectionBannerID = @"banner";
     
     [self.navigationController pushViewController:listViewController animated:YES];
 }
+
 #pragma mark - getters and setters
 - (UITableView *)tableView {
     if (_tableView == nil) {
@@ -218,7 +219,6 @@ static NSString * const collectionBannerID = @"banner";
     }
     return _mutiCatagoryCollectionViewDataSource;
 }
-
 
 - (XSResultTableViewController *)resultTableViewController {
     if (_resultTableViewController == nil) {

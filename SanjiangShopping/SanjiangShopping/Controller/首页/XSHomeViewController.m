@@ -12,7 +12,6 @@
 #import "XSNavigationBarHelper.h"
 #import "XSSearchBarHelper.h"
 
-#import "XSSearchTableViewController.h"
 #import "XSResultTableViewController.h"
 
 #import "XSBannerView.h"
@@ -37,9 +36,12 @@
 #import "NetworkConstant.h"
 #import "NotificationNameConstant.h"
 
+#import "XSSearchController.h"
+#import "XSCommodityListViewController.h"
+
 static const CGFloat step = 9.0f;
 
-@interface XSHomeViewController () <UIScrollViewDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
+@interface XSHomeViewController () <UIScrollViewDelegate>
 {
     CGSize dynamicSize;
 }
@@ -54,12 +56,12 @@ static const CGFloat step = 9.0f;
 
 // widget view
 @property (strong, nonatomic) UIButton        *toTopButton;
-@property (strong, nonatomic) UIBarButtonItem *scanButton;
 
 // other property
 @property (strong, nonatomic) XSNavigationBarHelper *navHelper;
-@property (strong, nonatomic) UISearchController *searchController;
-@property (strong, nonatomic) XSSearchTableViewController *searchTableViewController;
+
+// search controller
+@property (strong, nonatomic) XSSearchController *searchController;
 @property (strong, nonatomic) XSResultTableViewController *resultTableViewController;
 @property (assign, nonatomic) BOOL active;
 
@@ -146,91 +148,6 @@ static const CGFloat step = 9.0f;
     }
 }
 
-#pragma mark - UISearchBarDelegate
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    NSLog(@"开始搜索");
-    if ([searchBar.text isEqualToString:@""]) {
-        NSLog(@"搜索默认热词");
-        XSSearchBarHelper *searchBarHelper = [[XSSearchBarHelper alloc] initWithNavigationBar:_searchController.searchBar];
-        [searchBarHelper peek];
-        searchBar.text = searchBarHelper.UISearchBarTextField.placeholder;
-    }
-    [self.searchTableViewController.recentSearchData addUniqueString:searchBar.text];
-    [self.searchTableViewController.tableView reloadData];
-    
-    [searchBar resignFirstResponder];
-}
-
-- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar {
-    return YES;
-}
-
-- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
-    [searchBar resignFirstResponder];
-}
-
-#pragma mark - UISearchResultsUpdating
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    NSLog(@"%@", searchController.searchBar.text);
-}
-
-#pragma mark - UISearchControllerDelegate
-- (void)presentSearchController:(UISearchController *)searchController {
-    NSLog(@"开始进入搜索");
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    
-    self.active = NO;
-    [UIView animateWithDuration:0.5 animations:^{
-        self.navHelper._UINavigationBarBackground.backgroundColor = [UIColor whiteColor];
-    }];
-}
-
-- (void)willPresentSearchController:(UISearchController *)searchController {
-    NSLog(@"将要进入搜索");
-    
-    [UIView animateWithDuration:0.3 animations:^{
-        self.navigationItem.leftBarButtonItem = nil;
-    }];
-    
-    self.searchTableViewController.tableView.frame = [UIScreen mainScreen].bounds;
-    [self.view addSubview:self.searchTableViewController.tableView];
-    
-    self.navHelper.UIImageView.hidden = NO; // 显示UIImageView带来的线框
-}
-
-- (void)didPresentSearchController:(UISearchController *)searchController {
-    NSLog(@"进入搜索");
-}
-
-- (void)willDismissSearchController:(UISearchController *)searchController {
-    NSLog(@"将要隐藏搜索");
-    
-    if (self.searchTableViewController != nil) {
-        [self.searchTableViewController.tableView removeFromSuperview];
-        self.searchTableViewController = nil;
-    }
-    
-    [UIView animateWithDuration:0.4 animations:^{
-        self.navigationItem.leftBarButtonItem = self.scanButton;
-    }];
-    
-    self.active = YES;
-    CGFloat offset = self.scrollView.contentOffset.y;
-    if (offset < 216.75) {
-        self.navHelper._UINavigationBarBackground.backgroundColor = THEME_RED_FADE(offset / 255.0);
-    } else {
-        self.navHelper._UINavigationBarBackground.backgroundColor = THEME_RED_FADE(0.85);
-    }
-    
-    self.navHelper.UIImageView.hidden = YES; // 隐藏UIImageView带来的线框
-    
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-}
-
-- (void)didDismissSearchController:(UISearchController *)searchController {
-    NSLog(@"隐藏搜索");
-}
-
 #pragma mark - event response
 - (void)scanQRCode {
     NSLog(@"Scan QRCode");
@@ -280,7 +197,6 @@ static const CGFloat step = 9.0f;
 
 - (void)customNavigationBar {
     self.navigationItem.titleView = self.searchController.searchBar;
-    self.navigationItem.leftBarButtonItem = self.scanButton;
 }
 
 - (void)transparentizeNavigationBar {
@@ -520,37 +436,64 @@ static const CGFloat step = 9.0f;
     return _toTopButton;
 }
 
-- (UISearchController *)searchController {
+- (XSSearchController *)searchController {
     if (_searchController == nil) {
         _resultTableViewController = [[XSResultTableViewController alloc] init];
-        _searchController = [[UISearchController alloc] initWithSearchResultsController:_resultTableViewController];
-        _searchController.searchBar.searchBarStyle             = UISearchBarStyleMinimal;
-        _searchController.hidesNavigationBarDuringPresentation = NO;
-        _searchController.dimsBackgroundDuringPresentation     = NO;
+        _searchController = [[XSSearchController alloc] initWithSearchResultsController:self.resultTableViewController];
+
+        __weak typeof(self) weakSelf = self;
+        _searchController.searchWordQuery = ^(NSString *searchWord) {
+            
+            if ([weakSelf isKindOfClass:[XSCommodityListViewController class]]) {
+                XSCommodityListViewController *lvc = (XSCommodityListViewController *)weakSelf;
+                [lvc searchController].active = NO;
+                lvc.searchWords = searchWord;
+                [lvc reloadData];
+            } else {
+                XSCommodityListViewController *comListViewController = [[XSCommodityListViewController alloc] init];
+                comListViewController.searchWords = searchWord;
+                weakSelf.definesPresentationContext = NO;
+                [weakSelf.navigationController pushViewController:comListViewController animated:YES];
+            }
+        };
         
-        _searchController.delegate             = self;
-        _searchController.searchResultsUpdater = self;
-        _searchController.searchBar.delegate   = self;
+        _searchController.presentSearchBlock = ^(UISearchController *searchController) {
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
         
-        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSDictionary *data = [defaults dictionaryForKey:@"HomeModel"];
-        NSString *keyword = [data[@"data"] objectForKey:@"keyword"];
-        if (keyword == nil) {
-            keyword = @"搜索商品名称/商品编号";
-        }
+            weakSelf.active = NO;
+            [UIView animateWithDuration:0.5 animations:^{
+                weakSelf.navHelper._UINavigationBarBackground.backgroundColor = [UIColor whiteColor];
+            }];
+        };
         
-        [XSSearchBarHelper hackStandardSearchBar:_searchController.searchBar keyword:keyword];
+        _searchController.willPresentSearchBlock = ^(UISearchController *searchController) {
+            weakSelf.navHelper.UIImageView.hidden = NO; // 显示UIImageView带来的线框
+        };
+        
+        _searchController.willDismissSearchBlock = ^(UISearchController *searchController) {
+            weakSelf.active = YES;
+            CGFloat offset = weakSelf.scrollView.contentOffset.y;
+            if (offset < 216.75) {
+                weakSelf.navHelper._UINavigationBarBackground.backgroundColor = THEME_RED_FADE(offset / 255.0);
+            } else {
+                weakSelf.navHelper._UINavigationBarBackground.backgroundColor = THEME_RED_FADE(0.85);
+            }
+        
+            weakSelf.navHelper.UIImageView.hidden = YES; // 隐藏UIImageView带来的线框
+            
+            [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
+        };
     }
     return _searchController;
 }
 
-- (UIBarButtonItem *)scanButton {
-    if (_scanButton == nil) {
-        _scanButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"ScanQRCode"] style:UIBarButtonItemStylePlain target:self action:@selector(scanQRCode)];
-        _scanButton.tintColor = [UIColor whiteColor];
+- (XSResultTableViewController *)resultTableViewController {
+    if (_resultTableViewController == nil) {
+        _resultTableViewController = [[XSResultTableViewController alloc] init];
     }
-    return _scanButton;
+    return _resultTableViewController;
 }
+
 
 - (XSNavigationBarHelper *)navHelper {
     if (_navHelper == nil) {
@@ -558,24 +501,6 @@ static const CGFloat step = 9.0f;
         [_navHelper peek];
     }
     return _navHelper;
-}
-
-- (XSSearchTableViewController *)searchTableViewController {
-    if (_searchTableViewController == nil) {
-        _searchTableViewController = [[XSSearchTableViewController alloc] init];
-        _searchTableViewController.searchBar = _searchController.searchBar;
-        _searchTableViewController.contextViewController = self;
-        
-        _searchController.searchBar.showsCancelButton = YES;
-        UIView *firstView = _searchController.searchBar.subviews[0];
-        for (UIView *secondView in firstView.subviews) {
-            if ([secondView isKindOfClass:NSClassFromString(@"UINavigationButton")]) {
-                UIButton *cancelButton = (UIButton *)secondView;
-                cancelButton.tintColor = [UIColor lightGrayColor];
-            }
-        }
-    }
-    return _searchTableViewController;
 }
 
 - (UIView *)staticView {

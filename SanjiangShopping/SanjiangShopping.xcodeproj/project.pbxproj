@@ -169,8 +169,6 @@
 		B1F43D901BC600E1009F19DA /* XSClearHistoryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D681BC600E1009F19DA /* XSClearHistoryTableViewCell.m */; };
 		B1F43D911BC600E1009F19DA /* XSClearHistoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D691BC600E1009F19DA /* XSClearHistoryTableViewCell.xib */; };
 		B1F43D921BC600E1009F19DA /* XSResultTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D6B1BC600E1009F19DA /* XSResultTableViewController.m */; };
-		B1F43D931BC600E1009F19DA /* XSSearchTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D6D1BC600E1009F19DA /* XSSearchTableViewController.m */; };
-		B1F43D941BC600E1009F19DA /* XSSearchTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D6E1BC600E1009F19DA /* XSSearchTableViewController.xib */; };
 		B1F43D971BC610B3009F19DA /* FreshFoodRecommendView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D961BC610B3009F19DA /* FreshFoodRecommendView.xib */; };
 		B1F43D991BC61604009F19DA /* FreshFoodGoodView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1F43D981BC61604009F19DA /* FreshFoodGoodView.xib */; };
 		B1F43D9C1BC61E6E009F19DA /* XSRecomendScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1F43D9B1BC61E6E009F19DA /* XSRecomendScrollView.m */; };
@@ -465,9 +463,6 @@
 		B1F43D691BC600E1009F19DA /* XSClearHistoryTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSClearHistoryTableViewCell.xib; sourceTree = "<group>"; };
 		B1F43D6A1BC600E1009F19DA /* XSResultTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSResultTableViewController.h; sourceTree = "<group>"; };
 		B1F43D6B1BC600E1009F19DA /* XSResultTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSResultTableViewController.m; sourceTree = "<group>"; };
-		B1F43D6C1BC600E1009F19DA /* XSSearchTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSSearchTableViewController.h; sourceTree = "<group>"; };
-		B1F43D6D1BC600E1009F19DA /* XSSearchTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSSearchTableViewController.m; sourceTree = "<group>"; };
-		B1F43D6E1BC600E1009F19DA /* XSSearchTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSSearchTableViewController.xib; sourceTree = "<group>"; };
 		B1F43D961BC610B3009F19DA /* FreshFoodRecommendView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FreshFoodRecommendView.xib; sourceTree = "<group>"; };
 		B1F43D981BC61604009F19DA /* FreshFoodGoodView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FreshFoodGoodView.xib; sourceTree = "<group>"; };
 		B1F43D9A1BC61E6E009F19DA /* XSRecomendScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSRecomendScrollView.h; sourceTree = "<group>"; };
@@ -1474,9 +1469,6 @@
 				B1F43D691BC600E1009F19DA /* XSClearHistoryTableViewCell.xib */,
 				B1F43D6A1BC600E1009F19DA /* XSResultTableViewController.h */,
 				B1F43D6B1BC600E1009F19DA /* XSResultTableViewController.m */,
-				B1F43D6C1BC600E1009F19DA /* XSSearchTableViewController.h */,
-				B1F43D6D1BC600E1009F19DA /* XSSearchTableViewController.m */,
-				B1F43D6E1BC600E1009F19DA /* XSSearchTableViewController.xib */,
 			);
 			path = "搜索";
 			sourceTree = "<group>";
@@ -1659,7 +1651,6 @@
 				B1DC5C721BD086B6002B35DB /* XSBannerCollectionReusableView.xib in Resources */,
 				B1BB5D8E1BD86B3100500898 /* XSClearSettingTableViewCell.xib in Resources */,
 				B1D3D8CF1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.xib in Resources */,
-				B1F43D941BC600E1009F19DA /* XSSearchTableViewController.xib in Resources */,
 				B1BB5D891BD86B2100500898 /* XSShareSettingTableViewCell.xib in Resources */,
 				B1C45AD61BD5DB0F00D2466E /* XSOrderHeaderTableViewCell.xib in Resources */,
 				B11335831BDF6C7400CA7A11 /* GuideView0.xib in Resources */,
@@ -1827,7 +1818,6 @@
 				B1F43D871BC600E1009F19DA /* XSFilterViewController.m in Sources */,
 				B1F43D9C1BC61E6E009F19DA /* XSRecomendScrollView.m in Sources */,
 				B1C45AE81BD5EBC300D2466E /* XSCouponInfoViewController.m in Sources */,
-				B1F43D931BC600E1009F19DA /* XSSearchTableViewController.m in Sources */,
 				B1F43D7F1BC600E1009F19DA /* XSAddressTableViewCell.m in Sources */,
 				B1F43D7A1BC600E1009F19DA /* XSMutiCatagoryViewController.m in Sources */,
 				B14FB19E1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m in Sources */,

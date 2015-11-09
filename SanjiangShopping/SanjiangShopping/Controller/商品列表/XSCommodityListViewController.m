@@ -10,7 +10,6 @@
 
 #import "XSCommodityViewController.h"
 
-#import "XSSearchTableViewController.h"
 #import "XSResultTableViewController.h"
 #import "XSSearchBarHelper.h"
 #import "XSNavigationBarHelper.h"
@@ -32,12 +31,11 @@
 static NSString * const cellID = @"commodityList";
 
 @interface XSCommodityListViewController ()
-<XSSegmentControlDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
+<XSSegmentControlDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSMutableArray   *segmentArr;
 @property (strong, nonatomic) UITableView      *tableView;
 
 @property (strong, nonatomic) XSResultTableViewController *resultTableViewController;
-@property (strong, nonatomic) XSSearchTableViewController *searchTableViewController;
 
 @property (strong, nonatomic) CommodityListModel *commodityListModel;
 @property (copy, nonatomic)   NSString *urlStr;
@@ -103,13 +101,6 @@ static NSString * const cellID = @"commodityList";
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-//    [_searchTableViewController.tableView removeFromSuperview];
-//    _searchTableViewController = nil;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)comeBack {
@@ -181,25 +172,60 @@ static NSString * const cellID = @"commodityList";
 }
 
 - (void)loadSearchBar {
-
-    _resultTableViewController = [[XSResultTableViewController alloc] init];
-    _searchController = [[UISearchController alloc] initWithSearchResultsController:_resultTableViewController];
-    _searchController.searchBar.searchBarStyle             = UISearchBarStyleMinimal;
-    _searchController.hidesNavigationBarDuringPresentation = NO;
-    _searchController.dimsBackgroundDuringPresentation     = NO;
-    
-    _searchController.delegate             = self;
-    _searchController.searchResultsUpdater = self;
-    _searchController.searchBar.delegate   = self;
     
     // 设置搜索框样式
     NSString *keyword = _searchWords;
     if (keyword == nil) {
         keyword = @"搜索商品名称/商品编号";
     }
-    [XSSearchBarHelper hackStandardSearchBar:_searchController.searchBar keyword:keyword];
+    [XSSearchBarHelper hackStandardSearchBar:self.searchController.searchBar keyword:keyword];
     
     self.navigationItem.titleView = _searchController.searchBar;
+}
+
+#pragma mark - getters and setters
+- (XSResultTableViewController *)resultTableViewController {
+    if (_resultTableViewController == nil) {
+        _resultTableViewController = [[XSResultTableViewController alloc] init];
+    }
+    return _resultTableViewController;
+}
+
+- (XSSearchController *)searchController {
+    if (_searchController == nil) {
+        _searchController = [[XSSearchController alloc] initWithSearchResultsController:self.resultTableViewController];
+        
+        __weak typeof(self) weakSelf = self;
+        _searchController.searchWordQuery = ^(NSString *searchWord) {
+            
+            if ([weakSelf isKindOfClass:[XSCommodityListViewController class]]) {
+                XSCommodityListViewController *lvc = (XSCommodityListViewController *)weakSelf;
+                [lvc searchController].active = NO;
+                lvc.searchWords = searchWord;
+                [lvc reloadData];
+            } else {
+                XSCommodityListViewController *comListViewController = [[XSCommodityListViewController alloc] init];
+                comListViewController.searchWords = searchWord;
+                weakSelf.definesPresentationContext = NO;
+                [weakSelf.navigationController pushViewController:comListViewController animated:YES];
+            }
+        };
+        
+        _searchController.willPresentSearchBlock = ^(UISearchController *searchController) {
+            weakSelf.navigationItem.hidesBackButton = YES;
+            weakSelf.navigationItem.leftBarButtonItem = nil;
+        };
+        
+        _searchController.willDismissSearchBlock = ^(UISearchController *searchController) {
+            [UIView animateWithDuration:0.4 animations:^{
+                UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:weakSelf action:@selector(comeBack)];
+                leftButtonItem.tintColor = MAIN_TITLE_COLOR;
+                weakSelf.navigationItem.leftBarButtonItem = leftButtonItem;
+                weakSelf.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)weakSelf;
+            }];
+        };
+    }
+    return _searchController;
 }
 
 #pragma mark - Table View Data Source
@@ -231,73 +257,4 @@ static NSString * const cellID = @"commodityList";
     XSCommodityViewController *viewController = [[XSCommodityViewController alloc] init];
     [self.navigationController pushViewController:viewController animated:YES];
 }
-
-#pragma mark - Search Bar Delegate
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    NSLog(@"开始搜索");
-    if ([searchBar.text isEqualToString:@""]) {
-        NSLog(@"搜索默认热词");
-        XSSearchBarHelper *searchBarHelper = [[XSSearchBarHelper alloc] initWithNavigationBar:_searchController.searchBar];
-        [searchBarHelper peek];
-        searchBar.text = searchBarHelper.UISearchBarTextField.placeholder;
-    }
-    [_searchTableViewController.recentSearchData addUniqueString:searchBar.text];
-    [_searchTableViewController.tableView reloadData];
-}
-
-#pragma mark - Search Result Updater
-- (void)updateSearchResultsForSearchController:(UISearchController *)searchController {
-    NSLog(@"%@", searchController.searchBar.text);
-}
-
-#pragma mark - Search Controller Delegate
-- (void)presentSearchController:(UISearchController *)searchController {
-    NSLog(@"开始进入搜索");
-}
-
-- (void)willPresentSearchController:(UISearchController *)searchController {
-    NSLog(@"将要进入搜索");
-    
-    self.navigationItem.hidesBackButton = YES;
-    self.navigationItem.leftBarButtonItem = nil;
-    
-    _searchTableViewController = [[XSSearchTableViewController alloc] init];
-    _searchTableViewController.searchBar = _searchController.searchBar;
-    _searchTableViewController.contextViewController = self;
-    _searchTableViewController.tableView.frame = [UIScreen mainScreen].bounds;
-    [self.view addSubview:_searchTableViewController.tableView];
-    
-    _searchController.searchBar.showsCancelButton = YES;
-    UIView *firstView = _searchController.searchBar.subviews[0];
-    for (UIView *secondView in firstView.subviews) {
-        if ([secondView isKindOfClass:NSClassFromString(@"UINavigationButton")]) {
-            UIButton *cancelButton = (UIButton *)secondView;
-            cancelButton.tintColor = [UIColor lightGrayColor];
-        }
-    }
-}
-
-- (void)didPresentSearchController:(UISearchController *)searchController {
-    NSLog(@"进入搜索");
-}
-
-- (void)willDismissSearchController:(UISearchController *)searchController {
-    NSLog(@"将要隐藏搜索");
-    if (_searchTableViewController != nil) {
-        [_searchTableViewController.tableView removeFromSuperview];
-        _searchTableViewController = nil;
-    }
-    
-    [UIView animateWithDuration:0.4 animations:^{
-        UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:self action:@selector(comeBack)];
-        leftButtonItem.tintColor = MAIN_TITLE_COLOR;
-        self.navigationItem.leftBarButtonItem = leftButtonItem;
-        self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
-    }];
-}
-
-- (void)didDismissSearchController:(UISearchController *)searchController {
-    NSLog(@"隐藏搜索");
-}
-
 @end

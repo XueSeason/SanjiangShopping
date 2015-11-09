@@ -18,6 +18,14 @@
 
 @property (copy, nonatomic) void (^searchWordQuery)(NSString *searchWord);
 
+// delegate block
+@property (copy, nonatomic) void (^presentSearchBlock)(UISearchController *searchController);
+@property (copy, nonatomic) void (^willPresentSearchBlock)(UISearchController *searchController);
+@property (copy, nonatomic) void (^didPresentSearchBlock)(UISearchController *searchController);
+@property (copy, nonatomic) void (^willDismissSearchBlock)(UISearchController *searchController);
+@property (copy, nonatomic) void (^didDismissSearchBlock)(UISearchController *searchController);
+
+
 - (instancetype)initWithSearchResultsController:(XSResultTableViewController *)searchResultsController;
 
 @end

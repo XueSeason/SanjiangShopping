@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+
+#import "XSSearchController.h"
 #import "XSSegmentControl.h"
 
 @interface XSCommodityListViewController : UIViewController
 
-@property (strong, nonatomic) UISearchController *searchController;
+@property (strong, nonatomic) XSSearchController *searchController;
 @property (strong, nonatomic) XSSegmentControl   *segmentControl;
 @property (copy, nonatomic) NSString *searchWords;
 

@@ -55,6 +55,14 @@ static NSString * const clearID  = @"clear";
     if (self) {
         self.resultTableViewController = searchResultsController;
         self.searchBar.searchBarStyle  = UISearchBarStyleMinimal;
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        NSDictionary *data       = [defaults dictionaryForKey:@"HomeModel"];
+        NSString *keyword        = [data[@"data"] objectForKey:@"keyword"];
+        if (keyword == nil) {
+            keyword = @"搜索商品名称/商品编号";
+        }
+        [XSSearchBarHelper hackStandardSearchBar:self.searchBar keyword:keyword];
     }
     return self;
 }
@@ -80,21 +88,10 @@ static NSString * const clearID  = @"clear";
     
     self.tableView.frame = [UIScreen mainScreen].bounds;
     
-    [self setKeyWord];
     [self loadHistoryRecord];
 }
 
 #pragma mark - private methods
-- (void)setKeyWord {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *data       = [defaults dictionaryForKey:@"HomeModel"];
-    NSString *keyword        = [data[@"data"] objectForKey:@"keyword"];
-    if (keyword == nil) {
-        keyword = @"搜索商品名称/商品编号";
-    }
-    [XSSearchBarHelper hackStandardSearchBar:self.searchBar keyword:keyword];
-}
-
 - (void)loadHotWords {
     __weak typeof(self) weakSelf = self;
     [self.hotWordsModel loadHotWordsSuccess:^{
@@ -135,7 +132,6 @@ static NSString * const clearID  = @"clear";
 }
 
 #pragma mark - UITableViewDataSource
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
     return self.recentSearchData.count + 1;
@@ -215,6 +211,9 @@ static NSString * const clearID  = @"clear";
 #pragma mark - UISearchControllerDelegate
 - (void)presentSearchController:(UISearchController *)searchController {
     NSLog(@"开始进入搜索 发送广播");
+    if (self.presentSearchBlock) {
+        self.presentSearchBlock(searchController);
+    }
 }
 
 - (void)willPresentSearchController:(UISearchController *)searchController {
@@ -230,20 +229,36 @@ static NSString * const clearID  = @"clear";
             cancelButton.tintColor = [UIColor lightGrayColor];
         }
     }
+    
+    if (self.willPresentSearchBlock) {
+        self.willPresentSearchBlock(searchController);
+    }
 }
 
 - (void)didPresentSearchController:(UISearchController *)searchController {
     NSLog(@"进入搜索");
     [self loadHotWords];
     [self loadHistoryRecord];
+    
+    if (self.didPresentSearchBlock) {
+        self.didPresentSearchBlock(searchController);
+    }
 }
 
 - (void)willDismissSearchController:(UISearchController *)searchController {
     NSLog(@"将要隐藏搜索");
+    
+    if (self.willDismissSearchBlock) {
+        self.willDismissSearchBlock(searchController);
+    }
 }
 
 - (void)didDismissSearchController:(UISearchController *)searchController {
     NSLog(@"隐藏搜索");
+    
+    if (self.didDismissSearchBlock) {
+        self.didDismissSearchBlock(searchController);
+    }
 }
 
 #pragma mark - getters and setters
