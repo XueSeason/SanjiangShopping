@@ -17,6 +17,8 @@
 		B11335871BDF6C8600CA7A11 /* GuideView2.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11335861BDF6C8600CA7A11 /* GuideView2.xib */; };
 		B11335891BDF6C8D00CA7A11 /* GuideView3.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11335881BDF6C8D00CA7A11 /* GuideView3.xib */; };
 		B113358B1BDF6CB500CA7A11 /* GuideView4.xib in Resources */ = {isa = PBXBuildFile; fileRef = B113358A1BDF6CB500CA7A11 /* GuideView4.xib */; };
+		B14128861BF17A07008B6B7D /* UIView+State.m in Sources */ = {isa = PBXBuildFile; fileRef = B14128851BF17A07008B6B7D /* UIView+State.m */; };
+		B14128891BF18D73008B6B7D /* NoNetWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14128881BF18D73008B6B7D /* NoNetWorkView.xib */; };
 		B14FB19E1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FB19D1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m */; };
 		B15AF7DA1BD88343002B20D0 /* XSLogisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B15AF7D81BD88343002B20D0 /* XSLogisticsViewController.m */; };
 		B15AF7DB1BD88343002B20D0 /* XSLogisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15AF7D91BD88343002B20D0 /* XSLogisticsViewController.xib */; };
@@ -211,6 +213,9 @@
 		B11335881BDF6C8D00CA7A11 /* GuideView3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideView3.xib; sourceTree = "<group>"; };
 		B113358A1BDF6CB500CA7A11 /* GuideView4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideView4.xib; sourceTree = "<group>"; };
 		B12D0F051BB13CF3003FFC5F /* ThemeColor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ThemeColor.h; sourceTree = "<group>"; };
+		B14128841BF17A07008B6B7D /* UIView+State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+State.h"; sourceTree = "<group>"; };
+		B14128851BF17A07008B6B7D /* UIView+State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+State.m"; sourceTree = "<group>"; };
+		B14128881BF18D73008B6B7D /* NoNetWorkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoNetWorkView.xib; sourceTree = "<group>"; };
 		B14FB19C1BD47BE500FF7D40 /* XSDeliveredInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSDeliveredInformationViewController.h; sourceTree = "<group>"; };
 		B14FB19D1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSDeliveredInformationViewController.m; sourceTree = "<group>"; };
 		B15AF7D71BD88343002B20D0 /* XSLogisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSLogisticsViewController.h; sourceTree = "<group>"; };
@@ -552,6 +557,14 @@
 			path = OtherView;
 			sourceTree = "<group>";
 		};
+		B14128871BF18D3C008B6B7D /* StateViews */ = {
+			isa = PBXGroup;
+			children = (
+				B14128881BF18D73008B6B7D /* NoNetWorkView.xib */,
+			);
+			path = StateViews;
+			sourceTree = "<group>";
+		};
 		B14FB19B1BD4795200FF7D40 /* 收货信息 */ = {
 			isa = PBXGroup;
 			children = (
@@ -704,6 +717,7 @@
 		B161CD5D1B96CA7000D4689C /* General */ = {
 			isa = PBXGroup;
 			children = (
+				B14128871BF18D3C008B6B7D /* StateViews */,
 				B11335811BDF6C6300CA7A11 /* WelcomeViews */,
 				B161CD5E1B96CA7000D4689C /* Views */,
 			);
@@ -1508,6 +1522,8 @@
 				B1D9242D1BEAF4AA008769CA /* XSAPIManager.m */,
 				B1FB4B421BF04D76004DEF09 /* UIViewController+State.h */,
 				B1FB4B431BF04D76004DEF09 /* UIViewController+State.m */,
+				B14128841BF17A07008B6B7D /* UIView+State.h */,
+				B14128851BF17A07008B6B7D /* UIView+State.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1657,6 +1673,7 @@
 				B101BD801BC8BBEE002FF77E /* NearbyView.xib in Resources */,
 				B174E9621BD9CB790091E703 /* XSSummaryTableViewCell.xib in Resources */,
 				B11335851BDF6C7E00CA7A11 /* GuideView1.xib in Resources */,
+				B14128891BF18D73008B6B7D /* NoNetWorkView.xib in Resources */,
 				B174E95C1BD9CB790091E703 /* XSItemListTableViewCell.xib in Resources */,
 				B1ED06311BCB454F0002F49D /* Market.xib in Resources */,
 				B1F43D701BC600E1009F19DA /* XSPromotionCell.xib in Resources */,
@@ -1850,6 +1867,7 @@
 				B1F43D1C1BC6004F009F19DA /* XSBindMemberCardViewController.m in Sources */,
 				B161CDC71B96CA7000D4689C /* HomeModel.m in Sources */,
 				B1F43D6F1BC600E1009F19DA /* XSPromotionCell.m in Sources */,
+				B14128861BF17A07008B6B7D /* UIView+State.m in Sources */,
 				B161CDB51B96CA7000D4689C /* XSTabBarConteroller.m in Sources */,
 				B161CD9F1B96CA7000D4689C /* NetworkConstant.m in Sources */,
 				B101BD871BC8C2DE002FF77E /* XSNearbyTableViewCell.m in Sources */,

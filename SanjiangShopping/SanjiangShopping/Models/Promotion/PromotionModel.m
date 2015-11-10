@@ -60,10 +60,14 @@
         weakSelf.code         = model.code;
         weakSelf.codeMessage  = model.codeMessage;
         
-        success();
+        if (success) {
+            success();
+        }
         
     } failure:^(NSError *error) {
-        failure(error);
+        if (failure) {
+            failure(error);
+        }
     }];
 }
 

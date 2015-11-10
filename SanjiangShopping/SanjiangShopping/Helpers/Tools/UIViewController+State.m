@@ -9,6 +9,12 @@
 #import "UIViewController+State.h"
 #import <objc/runtime.h>
 
+@interface UIViewController ()
+@property (nonatomic, strong) UIView *noHTTPResponseView;
+@property (nonatomic, strong) UIView *noContentView;
+
+@end
+
 @implementation UIViewController (State)
 
 + (void)load {

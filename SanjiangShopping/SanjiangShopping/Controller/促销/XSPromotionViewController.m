@@ -17,9 +17,11 @@
 
 #import <MJRefresh.h>
 
+#import "UIView+State.h"
+
 static NSString * const promotionCellID = @"promotion";
 
-@interface XSPromotionViewController () <UITableViewDelegate>
+@interface XSPromotionViewController () <UITableViewDelegate, UIViewStateDelegate>
 
 @property (strong, nonatomic) PromotionModel *promotion;
 
@@ -61,15 +63,22 @@ static NSString * const promotionCellID = @"promotion";
 
     [self.promotion loadPromotionSuccess:^{
         weakSelf.promotionDataSource.items = weakSelf.promotion.data.list;
+        [weakSelf.tableView xs_switchToContentState];
         
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.mj_header endRefreshing];
     } Failure:^(NSError *error) {
         [weakSelf.tableView.mj_header endRefreshing];
+        [weakSelf.tableView xs_switchToErrorStateWithErrorCode:error.code];
     }];
 }
 
-#pragma mark - Table View Delegate
+#pragma mark - UIViewStateDelegate
+- (void)viewShouldRefresh {
+    [self loadPromotionData];
+}
+
+#pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return ([UIScreen mainScreen].bounds.size.width - 16) / 72 * 25;
 }

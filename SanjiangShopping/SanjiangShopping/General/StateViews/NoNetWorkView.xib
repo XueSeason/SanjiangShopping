@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8hC-9c-H5P">
+                    <rect key="frame" x="180" y="180" width="240" height="240"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="网络请求失败" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfW-7E-CGU">
+                            <rect key="frame" x="37" y="187" width="166" height="21"/>
+                            <animations/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请检查您的网络，点击刷新" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MgQ-3v-fct">
+                            <rect key="frame" x="37" y="216" width="166" height="16"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="166" id="hAO-qj-sOG"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="no_network" translatesAutoresizingMaskIntoConstraints="NO" id="ewh-ZF-I64">
+                            <rect key="frame" x="37" y="8" width="166" height="166"/>
+                            <animations/>
+                            <constraints>
+                                <constraint firstAttribute="width" secondItem="ewh-ZF-I64" secondAttribute="height" multiplier="1:1" id="8yl-A1-yTr"/>
+                                <constraint firstAttribute="height" constant="166" id="oye-dj-ZR1"/>
+                            </constraints>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="8yl-A1-yTr"/>
+                                </mask>
+                            </variation>
+                        </imageView>
+                    </subviews>
+                    <animations/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="JfW-7E-CGU" firstAttribute="trailing" secondItem="MgQ-3v-fct" secondAttribute="trailing" id="3v3-LT-nN5"/>
+                        <constraint firstAttribute="width" constant="240" id="6zQ-g6-Sm1"/>
+                        <constraint firstItem="ewh-ZF-I64" firstAttribute="top" secondItem="8hC-9c-H5P" secondAttribute="topMargin" id="Dhl-Sx-u6f"/>
+                        <constraint firstAttribute="bottom" secondItem="MgQ-3v-fct" secondAttribute="bottom" constant="8" id="U9x-ca-U43"/>
+                        <constraint firstItem="ewh-ZF-I64" firstAttribute="trailing" secondItem="JfW-7E-CGU" secondAttribute="trailing" id="YZn-04-4Gs"/>
+                        <constraint firstItem="MgQ-3v-fct" firstAttribute="centerX" secondItem="8hC-9c-H5P" secondAttribute="centerX" id="hoB-6e-HQl"/>
+                        <constraint firstItem="JfW-7E-CGU" firstAttribute="leading" secondItem="MgQ-3v-fct" secondAttribute="leading" id="qZv-Ju-9hH"/>
+                        <constraint firstItem="ewh-ZF-I64" firstAttribute="leading" secondItem="JfW-7E-CGU" secondAttribute="leading" id="s4L-mo-yYe"/>
+                        <constraint firstAttribute="height" constant="240" id="uye-mj-TDs"/>
+                        <constraint firstItem="MgQ-3v-fct" firstAttribute="top" secondItem="JfW-7E-CGU" secondAttribute="bottom" constant="8" id="yYc-o4-M0y"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="8hC-9c-H5P" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="9KG-Ot-DKC"/>
+                <constraint firstItem="8hC-9c-H5P" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="DCU-SD-aqr"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <point key="canvasLocation" x="631" y="492"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="no_network" width="116" height="116"/>
+    </resources>
+</document>
