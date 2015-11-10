@@ -20,10 +20,16 @@
 
 #import "XSConfirmOrderViewController.h"
 
+#import <MBProgressHUD.h>
+
+#import "UIView+State.h"
+
+#import "XSCommodityListViewController.h"
+
 static NSString * const cellID    = @"ShopCart";
 static NSString * const addressID = @"Address";
 
-@interface XSShoppingCartViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface XSShoppingCartViewController () <UITableViewDelegate, UITableViewDataSource, UIViewStateDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 
@@ -52,6 +58,8 @@ static NSString * const addressID = @"Address";
     [self.view addSubview:self.editPanelView];
     [self.view addSubview:self.controlPannelView];
     [self.view addSubview:self.tableView];
+    
+    self.view.delegate = self;
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -80,6 +88,15 @@ static NSString * const addressID = @"Address";
     [super didReceiveMemoryWarning];
     if ([self.view window] == nil) {
         self.view = nil;
+    }
+}
+
+#pragma mark - UIViewStateDelegate
+- (void)viewStateShouldChange {
+    if (self.cartModel.data.list.count == 0) {
+        [self.navigationController pushViewController:[[XSCommodityListViewController alloc] init] animated:YES];
+    } else {
+        [self loadCartItem];
     }
 }
 
@@ -170,10 +187,20 @@ static NSString * const addressID = @"Address";
 
 - (void)loadCartItem {
     __weak typeof(self) weakSelf = self;
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.cartModel loadCartSuccess:^{
         [weakSelf.tableView reloadData];
-    } Failure:nil];
+        [weakSelf.view xs_switchToContentState];
+
+        if (weakSelf.cartModel.data.list.count == 0) {
+            [weakSelf.view xs_switchToEmptyState];
+        }
+        
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+    } Failure:^(NSError *error) {
+        [weakSelf.view xs_switchToErrorStateWithErrorCode:error.code];
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+    }];
 }
 
 #pragma mark - event response

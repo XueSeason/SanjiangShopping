@@ -161,7 +161,7 @@ static NSString * const cellID = @"commodityList";
     __weak typeof(self) weakSelf = self;
     [manager GET:_urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        weakSelf.commodityListModel = [CommodityListModel objectWithKeyValues:responseObject];
+        weakSelf.commodityListModel = [CommodityListModel mj_objectWithKeyValues:responseObject];
         [weakSelf.tableView reloadData];
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

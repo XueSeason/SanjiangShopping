@@ -9,13 +9,16 @@
 #import "HomeMoreModel.h"
 #import <MJExtension.h>
 
+#import "XSAPIManager.h"
+#import "NetworkConstant.h"
+
 @implementation ListItemModel
 
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        [ListItemModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        [ListItemModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
                      @"itemID": @"id"
                      };
@@ -32,7 +35,7 @@
 {
     self = [super init];
     if (self) {
-        [HomeMoreDataModel setupObjectClassInArray:^NSDictionary *{
+        [HomeMoreDataModel mj_setupObjectClassInArray:^NSDictionary *{
             return @{
                      @"list": [ListItemModel class]
                      };
@@ -44,5 +47,27 @@
 @end
 
 @implementation HomeMoreModel
+
+- (void)loadHomeMoreSuccess:(SuccessHomeMoreBlock)success Failure:(FailureHomeMoreBlock)failure {
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_HOME_MORE];
+    
+    __weak typeof(self) weakSelf = self;
+    XSAPIManager *manager = [XSAPIManager manager];
+    [manager GET:urlStr parameters:nil success:^(id responseObject) {
+        HomeMoreModel *model = [HomeMoreModel mj_objectWithKeyValues:responseObject];
+        weakSelf.data         = model.data;
+        weakSelf.code         = model.code;
+        weakSelf.codeMessage  = model.codeMessage;
+        
+        if (success) {
+            success();
+        }
+        
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
 
 @end

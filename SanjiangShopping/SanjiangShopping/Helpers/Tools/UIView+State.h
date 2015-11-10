@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @protocol UIViewStateDelegate <NSObject>
-- (void)viewShouldRefresh;
+@optional
+- (void)viewStateShouldChange;
 @end
 
 @interface UIView (State)

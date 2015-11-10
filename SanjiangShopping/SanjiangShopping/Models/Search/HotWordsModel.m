@@ -18,7 +18,7 @@
 {
     self = [super init];
     if (self) {
-        [HotWordsDataModel setupObjectClassInArray:^NSDictionary *{
+        [HotWordsDataModel mj_setupObjectClassInArray:^NSDictionary *{
             return @{
                      @"list": [NSString class]
                      };
@@ -39,7 +39,7 @@
     XSAPIManager *manager = [XSAPIManager manager];
     [manager GET:URLString parameters:nil success:^(id responseObject) {
         
-        HotWordsModel *model = [HotWordsModel objectWithKeyValues:responseObject];
+        HotWordsModel *model = [HotWordsModel mj_objectWithKeyValues:responseObject];
         weakSelf.data         = model.data;
         weakSelf.code         = model.code;
         weakSelf.codeMessage  = model.codeMessage;

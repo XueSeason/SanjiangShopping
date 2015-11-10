@@ -17,7 +17,7 @@
 {
     self = [super init];
     if (self) {
-        [MenuItemModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        [MenuItemModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
                      @"ItemID": @"id",
                      @"ItemName": @"item"
@@ -34,7 +34,7 @@
 {
     self = [super init];
     if (self) {
-        [MenuDataModel setupObjectClassInArray:^NSDictionary *{
+        [MenuDataModel mj_setupObjectClassInArray:^NSDictionary *{
             return @{
                      @"list": [MenuItemModel class]
                      };
@@ -54,7 +54,7 @@
     XSAPIManager *manager = [XSAPIManager manager];
     [manager GET:URLString parameters:nil success:^(id responseObject) {
         
-        MenuModel *model = [MenuModel objectWithKeyValues:responseObject];
+        MenuModel *model = [MenuModel mj_objectWithKeyValues:responseObject];
         weakSelf.data         = model.data;
         weakSelf.code         = model.code;
         weakSelf.codeMessage  = model.codeMessage;

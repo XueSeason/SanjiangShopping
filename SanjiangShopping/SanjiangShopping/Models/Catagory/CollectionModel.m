@@ -18,7 +18,7 @@
 {
     self = [super init];
     if (self) {
-        [CollectionItemModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        [CollectionItemModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
                      @"itemID": @"id",
                      @"itemName": @"item"
@@ -34,13 +34,13 @@
 {
     self = [super init];
     if (self) {
-        [CollectionListModel setupObjectClassInArray:^NSDictionary *{
+        [CollectionListModel mj_setupObjectClassInArray:^NSDictionary *{
             return @{
                      @"items": [CollectionItemModel class]
                      };
         }];
         
-        [CollectionListModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        [CollectionListModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
                      @"title": @"subtitle",
                      @"items": @"subs"
@@ -56,7 +56,7 @@
 {
     self = [super init];
     if (self) {
-        [CollectionDataModel setupObjectClassInArray:^NSDictionary *{
+        [CollectionDataModel mj_setupObjectClassInArray:^NSDictionary *{
             return @{
                      @"list": [CollectionListModel class]
                      };
@@ -73,7 +73,7 @@
     __weak typeof(self) weakSelf = self;
     XSAPIManager *manager = [XSAPIManager manager];
     [manager GET:URLString parameters:nil success:^(id responseObject) {
-        CollectionModel *model = [CollectionModel objectWithKeyValues:responseObject];
+        CollectionModel *model = [CollectionModel mj_objectWithKeyValues:responseObject];
         weakSelf.data        = model.data;
         weakSelf.code        = model.code;
         weakSelf.codeMessage = model.codeMessage;

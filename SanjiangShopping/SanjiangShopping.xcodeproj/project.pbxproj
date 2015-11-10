@@ -19,6 +19,7 @@
 		B113358B1BDF6CB500CA7A11 /* GuideView4.xib in Resources */ = {isa = PBXBuildFile; fileRef = B113358A1BDF6CB500CA7A11 /* GuideView4.xib */; };
 		B14128861BF17A07008B6B7D /* UIView+State.m in Sources */ = {isa = PBXBuildFile; fileRef = B14128851BF17A07008B6B7D /* UIView+State.m */; };
 		B14128891BF18D73008B6B7D /* NoNetWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14128881BF18D73008B6B7D /* NoNetWorkView.xib */; };
+		B141288B1BF1CD71008B6B7D /* NoCommodityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B141288A1BF1CD71008B6B7D /* NoCommodityView.xib */; };
 		B14FB19E1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FB19D1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m */; };
 		B15AF7DA1BD88343002B20D0 /* XSLogisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B15AF7D81BD88343002B20D0 /* XSLogisticsViewController.m */; };
 		B15AF7DB1BD88343002B20D0 /* XSLogisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15AF7D91BD88343002B20D0 /* XSLogisticsViewController.xib */; };
@@ -216,6 +217,7 @@
 		B14128841BF17A07008B6B7D /* UIView+State.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+State.h"; sourceTree = "<group>"; };
 		B14128851BF17A07008B6B7D /* UIView+State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+State.m"; sourceTree = "<group>"; };
 		B14128881BF18D73008B6B7D /* NoNetWorkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoNetWorkView.xib; sourceTree = "<group>"; };
+		B141288A1BF1CD71008B6B7D /* NoCommodityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoCommodityView.xib; sourceTree = "<group>"; };
 		B14FB19C1BD47BE500FF7D40 /* XSDeliveredInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSDeliveredInformationViewController.h; sourceTree = "<group>"; };
 		B14FB19D1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSDeliveredInformationViewController.m; sourceTree = "<group>"; };
 		B15AF7D71BD88343002B20D0 /* XSLogisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSLogisticsViewController.h; sourceTree = "<group>"; };
@@ -561,6 +563,7 @@
 			isa = PBXGroup;
 			children = (
 				B14128881BF18D73008B6B7D /* NoNetWorkView.xib */,
+				B141288A1BF1CD71008B6B7D /* NoCommodityView.xib */,
 			);
 			path = StateViews;
 			sourceTree = "<group>";
@@ -1707,6 +1710,7 @@
 				B11335831BDF6C7400CA7A11 /* GuideView0.xib in Resources */,
 				B174E9591BD9CB790091E703 /* SubmitOrderView.xib in Resources */,
 				B1BCF6B81BB39C5C006020E3 /* RecommendView.xib in Resources */,
+				B141288B1BF1CD71008B6B7D /* NoCommodityView.xib in Resources */,
 				B174E9761BD9D3FD0091E703 /* XSTwoTableViewCell.xib in Resources */,
 				B1D3D8DA1BD4BFAB0060D340 /* XSEditAddressViewController.xib in Resources */,
 				B1BB5D841BD86B1000500898 /* XSAboutSettingTableViewCell.xib in Resources */,

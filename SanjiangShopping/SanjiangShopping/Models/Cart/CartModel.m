@@ -17,7 +17,7 @@
 {
     self = [super init];
     if (self) {
-        [CartItemModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        [CartItemModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
                      @"itemID": @"id"
                      };
@@ -32,7 +32,7 @@
 {
     self = [super init];
     if (self) {
-        [CartDataModel setupObjectClassInArray:^NSDictionary *{
+        [CartDataModel mj_setupObjectClassInArray:^NSDictionary *{
             return @{
                      @"list": [CartItemModel class]
                      };
@@ -49,7 +49,7 @@
     __weak typeof(self) weakSelf = self;
     XSAPIManager *manager = [XSAPIManager manager];
     [manager GET:urlStr parameters:nil success:^(id responseObject) {
-        CartModel *model = [CartModel objectWithKeyValues:responseObject];
+        CartModel *model = [CartModel mj_objectWithKeyValues:responseObject];
         weakSelf.data         = model.data;
         weakSelf.code         = model.code;
         weakSelf.codeMessage  = model.codeMessage;

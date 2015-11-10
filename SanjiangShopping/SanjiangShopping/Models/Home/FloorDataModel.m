@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        [FloorDataModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        [FloorDataModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
                      @"floorDataID": @"id"
                      };

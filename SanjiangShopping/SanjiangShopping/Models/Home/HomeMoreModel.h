@@ -8,6 +8,9 @@
 
 #import "BaseModel.h"
 
+typedef void (^SuccessHomeMoreBlock)();
+typedef void (^FailureHomeMoreBlock)(NSError *error);
+
 @interface ListItemModel : NSObject
 @property (copy, nonatomic) NSString *itemID;
 @property (assign, nonatomic) NSInteger jt;
@@ -23,5 +26,9 @@
 @end
 
 @interface HomeMoreModel : BaseModel
+
 @property (strong, nonatomic) HomeMoreDataModel *data;
+
+- (void)loadHomeMoreSuccess:(SuccessHomeMoreBlock)success Failure:(FailureHomeMoreBlock)failure;
+
 @end

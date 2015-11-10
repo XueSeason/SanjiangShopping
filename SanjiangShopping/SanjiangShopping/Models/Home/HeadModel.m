@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        [HeadModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        [HeadModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
                      @"headID": @"id"
                      };

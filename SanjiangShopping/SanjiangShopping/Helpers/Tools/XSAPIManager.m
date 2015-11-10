@@ -42,8 +42,6 @@ static XSAPIManager * _instance;
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未连接" message:@"无法加载数据" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
         NSLog(@"%@", error);
         failure(error);
     }];

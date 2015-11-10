@@ -18,7 +18,7 @@
 {
     self = [super init];
     if (self) {
-        [PromotionItemModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        [PromotionItemModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
                      @"itemID": @"id"
                      };
@@ -35,7 +35,7 @@
 {
     self = [super init];
     if (self) {
-        [PromotionDataModel setupObjectClassInArray:^NSDictionary *{
+        [PromotionDataModel mj_setupObjectClassInArray:^NSDictionary *{
             return @{
                      @"list": [PromotionItemModel class]
                      };
@@ -55,7 +55,7 @@
     __weak typeof(self) weakSelf = self;
     XSAPIManager *manager = [XSAPIManager manager];
     [manager GET:urlStr parameters:nil success:^(id responseObject) {
-        PromotionModel *model = [PromotionModel objectWithKeyValues:responseObject];
+        PromotionModel *model = [PromotionModel mj_objectWithKeyValues:responseObject];
         weakSelf.data         = model.data;
         weakSelf.code         = model.code;
         weakSelf.codeMessage  = model.codeMessage;

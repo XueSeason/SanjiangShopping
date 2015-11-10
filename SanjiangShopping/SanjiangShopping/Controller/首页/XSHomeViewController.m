@@ -12,14 +12,13 @@
 #import "XSNavigationBarHelper.h"
 #import "XSSearchBarHelper.h"
 
-#import "XSResultTableViewController.h"
-
 #import "XSBannerView.h"
 #import "XSButtonGridView.h"
+
 #import "XSFreshFoodViewController.h"
 #import "XSNearByViewController.h"
-
 #import "XSBuyNowViewController.h"
+#import "XSCommodityListViewController.h"
 
 #import "XS4211View.h"
 #import "XS1111GrayView.h"
@@ -29,15 +28,15 @@
 #import "XSThemeView.h"
 #import "XSMoreView.h"
 
-#import <AFNetworking.h>
 #import <MJRefresh.h>
 #import "HomeModel.h"
 #import "HomeMoreModel.h"
-#import "NetworkConstant.h"
 #import "NotificationNameConstant.h"
 
 #import "XSSearchController.h"
-#import "XSCommodityListViewController.h"
+#import "XSResultTableViewController.h"
+
+#import <MBProgressHUD.h>
 
 static const CGFloat step = 9.0f;
 
@@ -84,9 +83,6 @@ static const CGFloat step = 9.0f;
     
     // 添加置顶按钮
     [self.view addSubview:self.toTopButton];
-    
-    // 添加观察者
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(firstDownload) name:HomeModelNotificationName object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -310,70 +306,34 @@ static const CGFloat step = 9.0f;
     dynamicSize = CGSizeMake(tempWidth, tempHeight + moreView.frame.size.height);
 }
 
-- (void)firstDownload {
-    NSLog(@"首次加载");
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    id responseObject = [defaults objectForKey:@"HomeModel"];
-    self.homeModel = [HomeModel objectWithKeyValues:responseObject];
-    [self refreshView];
-}
-
 - (void)downloadData {
-    NSLog(@"下载数据");
-    
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_HOME];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setValue:@"utf-8" forHTTPHeaderField:@"charset"];
-    [manager.requestSerializer setValue:@"text/plain" forHTTPHeaderField:@"Content-Type"];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
-    
     __weak typeof(self) weakSelf = self;
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [self.homeModel loadHomeSuccess:^{        
+        [weakSelf refreshView];
+        [weakSelf.scrollView.mj_header endRefreshing];
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:responseObject forKey:@"HomeModel"];
+        [defaults setObject:weakSelf.homeModel.data.keyword forKey:@"keyWord"];
         [defaults synchronize];
         
-        weakSelf.homeModel = [HomeModel objectWithKeyValues:responseObject];
-        [weakSelf refreshView];
+    } Failure:^(NSError *error) {
+        [weakSelf.scrollView.mj_header endRefreshing];
         
-        NSLog(@"下载数据完成");
-        [weakSelf.scrollView.mj_header endRefreshing];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未连接" message:@"无法加载数据" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [weakSelf.scrollView.mj_header endRefreshing];
-        [alert show];
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
     }];
 }
 
 - (void)downloadMoreData {
-    NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_HOME_MORE];
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    
-    [manager.requestSerializer setValue:@"utf-8" forHTTPHeaderField:@"charset"];
-    [manager.requestSerializer setValue:@"text/plain" forHTTPHeaderField:@"Content-Type"];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
-    
     __weak typeof(self) weakSelf = self;
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    [manager GET:urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        weakSelf.homeMoreMedel = [HomeMoreModel objectWithKeyValues:responseObject];
-        
+    [self.homeMoreMedel loadHomeMoreSuccess:^{
         [weakSelf generateMoreView:weakSelf.homeMoreMedel.data.list];
         
         [weakSelf refreshDynamicView];
         
         [weakSelf.scrollView.mj_footer endRefreshing];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未连接" message:@"无法加载数据" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
+    } Failure:^(NSError *error) {
         [weakSelf.scrollView.mj_footer endRefreshingWithNoMoreData];
     }];
 }
@@ -494,7 +454,6 @@ static const CGFloat step = 9.0f;
     return _resultTableViewController;
 }
 
-
 - (XSNavigationBarHelper *)navHelper {
     if (_navHelper == nil) {
         _navHelper = [[XSNavigationBarHelper alloc] initWithNavigationBar:self.navigationController.navigationBar];
@@ -546,6 +505,20 @@ static const CGFloat step = 9.0f;
     _homeDataModel = homeDataModel;
     
     [self generateDynamicSubview];
+}
+
+- (HomeModel *)homeModel {
+    if (_homeModel == nil) {
+        _homeModel = [[HomeModel alloc] init];
+    }
+    return _homeModel;
+}
+
+- (HomeMoreModel *)homeMoreMedel {
+    if (_homeMoreMedel == nil) {
+        _homeMoreMedel = [[HomeMoreModel alloc] init];
+    }
+    return _homeMoreMedel;
 }
 
 @end

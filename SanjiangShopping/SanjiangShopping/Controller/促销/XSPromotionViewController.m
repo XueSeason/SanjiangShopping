@@ -18,6 +18,7 @@
 #import <MJRefresh.h>
 
 #import "UIView+State.h"
+#import <MBProgressHUD.h>
 
 static NSString * const promotionCellID = @"promotion";
 
@@ -60,21 +61,23 @@ static NSString * const promotionCellID = @"promotion";
 #pragma mark - private methods
 - (void)loadPromotionData {
     __weak typeof(self) weakSelf = self;
-
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.promotion loadPromotionSuccess:^{
         weakSelf.promotionDataSource.items = weakSelf.promotion.data.list;
         [weakSelf.tableView xs_switchToContentState];
         
         [weakSelf.tableView reloadData];
         [weakSelf.tableView.mj_header endRefreshing];
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
     } Failure:^(NSError *error) {
         [weakSelf.tableView.mj_header endRefreshing];
         [weakSelf.tableView xs_switchToErrorStateWithErrorCode:error.code];
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
     }];
 }
 
 #pragma mark - UIViewStateDelegate
-- (void)viewShouldRefresh {
+- (void)viewStateShouldChange {
     [self loadPromotionData];
 }
 

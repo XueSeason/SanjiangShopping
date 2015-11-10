@@ -25,6 +25,10 @@
 
 #import "XSCommodityListViewController.h"
 
+#import "UIView+State.h"
+
+#import <MBProgressHUD.h>
+
 static NSString * const tableCellId        = @"menu";
 static NSString * const collectionCellId   = @"item";
 static NSString * const collectionHeaderId = @"header";
@@ -32,7 +36,7 @@ static NSString * const collectionBannerID = @"banner";
 
 #define MENU_COLOR [UIColor colorWithRed:244 / 255.0 green:244 / 255.0 blue:244 / 255.0 alpha:1.0]
 
-@interface XSMutiCatagoryViewController () <UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface XSMutiCatagoryViewController () <UITableViewDelegate, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UIViewStateDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
 @property (strong, nonatomic) XSMutiCatagoryTableViewDataSource *mutiCatagoryTableViewDataSource;
@@ -72,7 +76,7 @@ static NSString * const collectionBannerID = @"banner";
     [super viewDidLoad];
 
     [self customNavigationBar];
-
+    self.view.delegate = self;
     [self.view addSubview:self.tableView];
     [self.view addSubview:self.collectionView];
     
@@ -87,20 +91,36 @@ static NSString * const collectionBannerID = @"banner";
 
 - (void)loadMenuData {
     __weak typeof(self) weakSelf = self;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.menu loadMenuSuccess:^{
+        [weakSelf.view xs_switchToContentState];
         weakSelf.mutiCatagoryTableViewDataSource.items = weakSelf.menu.data.list;
         [weakSelf.tableView reloadData];
         [weakSelf.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionBottom];
         [weakSelf tableView:weakSelf.tableView didSelectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    } Failure:nil];
+        
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+    } Failure:^(NSError *error) {
+        [weakSelf.view xs_switchToErrorStateWithErrorCode:error.code];
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+    }];
 }
 
 - (void)loadCollectionData:(NSString *)menuID {
     __weak typeof(self) weakSelf = self;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.collection loadCollectionWithMenuID:menuID Success:^{
         weakSelf.mutiCatagoryCollectionViewDataSource.data = weakSelf.collection.data;
         [weakSelf.collectionView reloadData];
-    } Failure:nil];
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+    } Failure:^(NSError *error) {
+        [MBProgressHUD hideAllHUDsForView:weakSelf.view animated:YES];
+    }];
+}
+
+#pragma mark - UIViewStateDelegate
+- (void)viewStateShouldChange {
+    [self loadMenuData];
 }
 
 #pragma mark - UITableViewDelegate

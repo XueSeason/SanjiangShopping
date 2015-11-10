@@ -11,7 +11,8 @@
 #import "HeadModel.h"
 #import "FloorDataModel.h"
 
-#import <MJExtension.h>
+typedef void (^SuccessHomeBlock)();
+typedef void (^FailureHomeBlock)(NSError *error);
 
 @interface FloorModel : NSObject
 
@@ -45,5 +46,7 @@
 @interface HomeModel : BaseModel
 
 @property (strong, nonatomic) HomeDataModel *data;
+
+- (void)loadHomeSuccess:(SuccessHomeBlock)success Failure:(FailureHomeBlock)failure;
 
 @end

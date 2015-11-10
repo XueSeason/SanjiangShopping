@@ -14,7 +14,7 @@
 {
     self = [super init];
     if (self) {
-        [CommodityListItemModel setupReplacedKeyFromPropertyName:^NSDictionary *{
+        [CommodityListItemModel mj_setupReplacedKeyFromPropertyName:^NSDictionary *{
             return @{
                      @"itemID": @"id"
                      };
@@ -29,7 +29,7 @@
 {
     self = [super init];
     if (self) {
-        [CommodityListDataModel setupObjectClassInArray:^NSDictionary *{
+        [CommodityListDataModel mj_setupObjectClassInArray:^NSDictionary *{
             return @{
                      @"list": [CommodityListItemModel class]
                      };

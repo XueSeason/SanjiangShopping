@@ -57,8 +57,7 @@ static NSString * const clearID  = @"clear";
         self.searchBar.searchBarStyle  = UISearchBarStyleMinimal;
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSDictionary *data       = [defaults dictionaryForKey:@"HomeModel"];
-        NSString *keyword        = [data[@"data"] objectForKey:@"keyword"];
+        NSString *keyword        = [defaults stringForKey:@"keyWord"];
         if (keyword == nil) {
             keyword = @"搜索商品名称/商品编号";
         }
