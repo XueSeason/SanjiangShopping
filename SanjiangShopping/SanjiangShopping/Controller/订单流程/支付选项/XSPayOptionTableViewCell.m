@@ -44,5 +44,4 @@
     _option = option;
 }
 
-
 @end

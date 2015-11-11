@@ -239,11 +239,11 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CMZ-Tv-Zau">
-                    <rect key="frame" x="8" y="557" width="584" height="35"/>
+                    <rect key="frame" x="8" y="552" width="584" height="40"/>
                     <animations/>
                     <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="35" id="lYb-qd-Qym"/>
+                        <constraint firstAttribute="height" constant="40" id="lYb-qd-Qym"/>
                     </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <state key="normal" title="完成">

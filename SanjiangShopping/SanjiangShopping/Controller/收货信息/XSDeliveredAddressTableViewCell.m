@@ -20,4 +20,15 @@
     // Configure the view for the selected state
 }
 
+- (void)setHasSelected:(BOOL)hasSelected {
+    _hasSelected = hasSelected;
+    if (_hasSelected) {
+        [self.selectButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+        self.defaultAddressLabel.hidden = NO;
+    } else {
+        [self.selectButton setImage:[UIImage imageNamed:@"unselected"] forState:UIControlStateNormal];
+        self.defaultAddressLabel.hidden = YES;
+    }
+}
+
 @end

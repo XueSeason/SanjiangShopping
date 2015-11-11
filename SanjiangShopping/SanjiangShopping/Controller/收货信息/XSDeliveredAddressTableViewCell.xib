@@ -15,13 +15,6 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="selected" translatesAutoresizingMaskIntoConstraints="NO" id="QSL-B5-bal">
-                        <rect key="frame" x="0.0" y="0.0" width="30" height="64"/>
-                        <animations/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="30" id="DfT-Yt-9pH"/>
-                        </constraints>
-                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KL2-nN-siE">
                         <rect key="frame" x="270" y="0.0" width="50" height="64"/>
                         <animations/>
@@ -40,24 +33,24 @@
                                 <rect key="frame" x="8" y="8" width="42" height="17"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="浙江省宁波市海曙区环城西路北段197号 三江购物俱乐部股份有限公司" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f51-tv-rfd">
                                 <rect key="frame" x="8" y="27" width="225" height="29"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="15757264748" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9j-1o-iWH">
                                 <rect key="frame" x="58" y="8" width="90" height="17"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[默认地址]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIn-nb-Srk">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="[默认地址]" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eIn-nb-Srk">
                                 <rect key="frame" x="166" y="8" width="67" height="17"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -70,37 +63,49 @@
                         <constraints>
                             <constraint firstItem="mXJ-cn-IAa" firstAttribute="top" secondItem="rHl-WQ-wTs" secondAttribute="top" constant="8" id="6Rc-4V-mUn"/>
                             <constraint firstItem="eIn-nb-Srk" firstAttribute="trailing" secondItem="f51-tv-rfd" secondAttribute="trailing" id="Ddf-rd-jLk"/>
+                            <constraint firstItem="mXJ-cn-IAa" firstAttribute="leading" secondItem="rHl-WQ-wTs" secondAttribute="leading" constant="8" id="J11-4h-6k2"/>
                             <constraint firstItem="W9j-1o-iWH" firstAttribute="top" secondItem="mXJ-cn-IAa" secondAttribute="top" id="PAW-Pc-Alj"/>
                             <constraint firstAttribute="bottom" secondItem="f51-tv-rfd" secondAttribute="bottom" constant="8" id="duA-gf-pSP"/>
+                            <constraint firstItem="f51-tv-rfd" firstAttribute="leading" secondItem="rHl-WQ-wTs" secondAttribute="leading" constant="8" id="lyc-4N-cdC"/>
                             <constraint firstItem="eIn-nb-Srk" firstAttribute="top" secondItem="rHl-WQ-wTs" secondAttribute="top" constant="8" id="vON-WM-BCj"/>
                             <constraint firstItem="W9j-1o-iWH" firstAttribute="leading" secondItem="mXJ-cn-IAa" secondAttribute="trailing" constant="8" id="x28-rR-ncX"/>
                         </constraints>
                     </view>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ly-Sd-J2c">
+                        <rect key="frame" x="8" y="0.0" width="22" height="64"/>
+                        <animations/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="22" id="MbC-vx-X1a"/>
+                        </constraints>
+                        <state key="normal" image="unselected"/>
+                    </button>
                 </subviews>
                 <animations/>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 <constraints>
-                    <constraint firstItem="QSL-B5-bal" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="2KP-QQ-ryN"/>
                     <constraint firstAttribute="trailingMargin" secondItem="KL2-nN-siE" secondAttribute="trailing" constant="-8" id="2R8-T2-tHV"/>
                     <constraint firstItem="KL2-nN-siE" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="5tE-kj-x7W"/>
                     <constraint firstAttribute="bottomMargin" secondItem="KL2-nN-siE" secondAttribute="bottom" constant="-8" id="Ipl-2Y-sj6"/>
-                    <constraint firstItem="f51-tv-rfd" firstAttribute="leading" secondItem="QSL-B5-bal" secondAttribute="trailing" constant="8" id="JVS-qQ-2Go"/>
                     <constraint firstAttribute="bottomMargin" secondItem="rHl-WQ-wTs" secondAttribute="bottom" constant="-8" id="Lrp-EF-BA5"/>
                     <constraint firstItem="KL2-nN-siE" firstAttribute="leading" secondItem="rHl-WQ-wTs" secondAttribute="trailing" constant="-1" id="N9h-cN-ldb"/>
-                    <constraint firstItem="mXJ-cn-IAa" firstAttribute="leading" secondItem="QSL-B5-bal" secondAttribute="trailing" constant="8" id="XS9-Mn-eAw"/>
+                    <constraint firstItem="2Ly-Sd-J2c" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="RQ2-lK-j7L"/>
                     <constraint firstItem="KL2-nN-siE" firstAttribute="leading" secondItem="f51-tv-rfd" secondAttribute="trailing" constant="7" id="brs-ld-f0K"/>
                     <constraint firstItem="rHl-WQ-wTs" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="fhK-dt-jyo"/>
-                    <constraint firstItem="QSL-B5-bal" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="kPJ-Ru-bwm"/>
-                    <constraint firstItem="rHl-WQ-wTs" firstAttribute="leading" secondItem="QSL-B5-bal" secondAttribute="trailing" id="kSC-6C-WrD"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="QSL-B5-bal" secondAttribute="bottom" constant="-8" id="mYX-vZ-9oY"/>
+                    <constraint firstItem="rHl-WQ-wTs" firstAttribute="leading" secondItem="2Ly-Sd-J2c" secondAttribute="trailing" id="pm1-yE-mzg"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="2Ly-Sd-J2c" secondAttribute="leading" id="xYw-wn-5ma"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="2Ly-Sd-J2c" secondAttribute="bottom" constant="-8" id="yF4-9w-Sbt"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>
+            <connections>
+                <outlet property="defaultAddressLabel" destination="eIn-nb-Srk" id="FpD-44-p3U"/>
+                <outlet property="selectButton" destination="2Ly-Sd-J2c" id="7cP-he-lIi"/>
+            </connections>
             <point key="canvasLocation" x="558" y="389.5"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="edit" width="14" height="14"/>
-        <image name="selected" width="18" height="18"/>
+        <image name="unselected" width="18" height="18"/>
     </resources>
 </document>

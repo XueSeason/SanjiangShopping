@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface XSDeliveredAddressTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *selectButton;
+@property (weak, nonatomic) IBOutlet UILabel *defaultAddressLabel;
 
+@property (assign, nonatomic) BOOL hasSelected;
 @end
