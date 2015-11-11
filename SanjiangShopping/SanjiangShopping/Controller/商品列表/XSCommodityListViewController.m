@@ -145,7 +145,8 @@ static NSString * const cellID = @"commodityList";
     if (keyword == nil) {
         keyword = @"搜索商品名称/商品编号";
     }
-    [XSSearchBarHelper hackStandardSearchBar:_searchController.searchBar keyword:keyword];
+    self.searchController.searchBar.text = keyword;
+    [XSSearchBarHelper hackStandardSearchBar:_searchController.searchBar keyword:nil];
     
     [self loadJSONData];
 }
@@ -177,8 +178,11 @@ static NSString * const cellID = @"commodityList";
     NSString *keyword = _searchWords;
     if (keyword == nil) {
         keyword = @"搜索商品名称/商品编号";
+        [XSSearchBarHelper hackStandardSearchBar:self.searchController.searchBar keyword:keyword];
+    } else {
+        self.searchController.searchBar.text = keyword;
     }
-    [XSSearchBarHelper hackStandardSearchBar:self.searchController.searchBar keyword:keyword];
+    
     
     self.navigationItem.titleView = _searchController.searchBar;
 }

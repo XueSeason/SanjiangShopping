@@ -83,6 +83,8 @@ static const CGFloat step = 9.0f;
     
     // 添加置顶按钮
     [self.view addSubview:self.toTopButton];
+    
+    [self downloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -90,9 +92,6 @@ static const CGFloat step = 9.0f;
     
     [self transparentizeNavigationBar];
     [self adjustView];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    self.homeModel = [defaults objectForKey:@"HomeModel"];
     
     self.definesPresentationContext = YES;
     
@@ -109,14 +108,12 @@ static const CGFloat step = 9.0f;
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[button(==44)]-57-|" options:0 metrics:nil views:@{@"button": self.toTopButton}]];
     [self.toTopButton layoutIfNeeded];
     self.toTopButton.layer.cornerRadius = self.toTopButton.frame.size.width / 2.0;
-    
-    [self downloadData];
+
+    [self refreshView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    // 移除观察者
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:HomeModelNotificationName object:nil];
     self.navHelper._UINavigationBarBackground.opaque = YES;
     self.scrollView.mj_footer = nil;
 }
@@ -311,13 +308,13 @@ static const CGFloat step = 9.0f;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.homeModel loadHomeSuccess:^{        
         [weakSelf refreshView];
-        [weakSelf.scrollView.mj_header endRefreshing];
-        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        [defaults setObject:weakSelf.homeModel.data.keyword forKey:@"keyWord"];
+        [defaults setObject:weakSelf.homeModel.data.keyword forKey:@"hotWord"];
         [defaults synchronize];
         
+        [weakSelf.scrollView.mj_header endRefreshing];
+        [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
     } Failure:^(NSError *error) {
         [weakSelf.scrollView.mj_header endRefreshing];
         
@@ -421,16 +418,14 @@ static const CGFloat step = 9.0f;
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
         
             weakSelf.active = NO;
-            [UIView animateWithDuration:0.5 animations:^{
-                weakSelf.navHelper._UINavigationBarBackground.backgroundColor = [UIColor whiteColor];
-            }];
+            weakSelf.navHelper._UINavigationBarBackground.backgroundColor = [UIColor whiteColor];
         };
         
         _searchController.willPresentSearchBlock = ^(UISearchController *searchController) {
             weakSelf.navHelper.UIImageView.hidden = NO; // 显示UIImageView带来的线框
         };
         
-        _searchController.willDismissSearchBlock = ^(UISearchController *searchController) {
+        _searchController.didDismissSearchBlock = ^(UISearchController *searchController) {
             weakSelf.active = YES;
             CGFloat offset = weakSelf.scrollView.contentOffset.y;
             if (offset < 216.75) {
@@ -438,7 +433,7 @@ static const CGFloat step = 9.0f;
             } else {
                 weakSelf.navHelper._UINavigationBarBackground.backgroundColor = THEME_RED_FADE(0.85);
             }
-        
+            
             weakSelf.navHelper.UIImageView.hidden = YES; // 隐藏UIImageView带来的线框
             
             [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];

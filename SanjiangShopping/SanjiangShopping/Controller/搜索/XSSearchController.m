@@ -57,11 +57,12 @@ static NSString * const clearID  = @"clear";
         self.searchBar.searchBarStyle  = UISearchBarStyleMinimal;
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-        NSString *keyword        = [defaults stringForKey:@"keyWord"];
-        if (keyword == nil) {
-            keyword = @"搜索商品名称/商品编号";
+        NSString *hotWord        = [defaults stringForKey:@"hotWord"];
+        if (hotWord == nil) {
+            [XSSearchBarHelper hackStandardSearchBar:self.searchBar keyword:@"搜索商品名称/商品编号"];
+        } else {
+            [XSSearchBarHelper hackStandardSearchBar:self.searchBar keyword:hotWord];
         }
-        [XSSearchBarHelper hackStandardSearchBar:self.searchBar keyword:keyword];
     }
     return self;
 }
@@ -118,16 +119,16 @@ static NSString * const clearID  = @"clear";
     [self.tableView reloadData];
 }
 
-- (void)hotWordsClick:(UIButton *)sender {
+- (void)hotWordsTap:(UIButton *)sender {
     [self.recentSearchData addUniqueString:[sender.titleLabel.text copy]];
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults setObject:self.recentSearchData forKey:@"histroyRecord"];
     [defaults synchronize];
     
-    self.searchWordQuery(sender.titleLabel.text);
-    
     [self.tableView reloadData];
+    
+    self.searchWordQuery(sender.titleLabel.text);
 }
 
 #pragma mark - UITableViewDataSource
@@ -186,16 +187,15 @@ static NSString * const clearID  = @"clear";
 
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    if ([searchBar.text isEqualToString:@""]) {
-        XSSearchBarHelper *searchBarHelper = [[XSSearchBarHelper alloc] initWithNavigationBar:self.searchBar];
-        [searchBarHelper peek];
-        searchBar.text = searchBarHelper.UISearchBarTextField.placeholder;
-    }
-    
     [self.recentSearchData addUniqueString:searchBar.text];
-    [self.tableView reloadData];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:self.recentSearchData forKey:@"histroyRecord"];
+    [defaults synchronize];
     
+    [self.tableView reloadData];
     [searchBar resignFirstResponder];
+    
+    self.searchWordQuery(searchBar.text);
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
@@ -209,7 +209,7 @@ static NSString * const clearID  = @"clear";
 
 #pragma mark - UISearchControllerDelegate
 - (void)presentSearchController:(UISearchController *)searchController {
-    NSLog(@"开始进入搜索 发送广播");
+    NSLog(@"开始进入搜索");
     if (self.presentSearchBlock) {
         self.presentSearchBlock(searchController);
     }
@@ -236,7 +236,6 @@ static NSString * const clearID  = @"clear";
 
 - (void)didPresentSearchController:(UISearchController *)searchController {
     NSLog(@"进入搜索");
-    [self loadHotWords];
     [self loadHistoryRecord];
     
     if (self.didPresentSearchBlock) {
@@ -302,7 +301,7 @@ static NSString * const clearID  = @"clear";
         
         __weak typeof(self) weakSelf = self;
         _hotWordsView.hotButtonClickBlock = ^(UIButton *sender) {
-            [weakSelf hotWordsClick:sender];
+            [weakSelf hotWordsTap:sender];
         };
     }
     return _hotWordsView;

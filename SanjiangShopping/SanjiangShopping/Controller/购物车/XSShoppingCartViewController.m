@@ -93,7 +93,7 @@ static NSString * const addressID = @"Address";
 
 #pragma mark - UIViewStateDelegate
 - (void)viewStateShouldChange {
-    if (self.cartModel.data.list.count == 0) {
+    if (self.cartModel.data != nil && self.cartModel.data.list.count == 0) {
         [self.navigationController pushViewController:[[XSCommodityListViewController alloc] init] animated:YES];
     } else {
         [self loadCartItem];

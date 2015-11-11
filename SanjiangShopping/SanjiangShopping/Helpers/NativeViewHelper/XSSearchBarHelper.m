@@ -16,7 +16,10 @@
     XSSearchBarHelper *searchBarHelper = [[XSSearchBarHelper alloc] initWithNavigationBar:searchBar];
     [searchBarHelper peek];
     
-    searchBarHelper.UISearchBarTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:keyword attributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0xAAAAAA, 1.0)}];
+    if (keyword) {
+        searchBarHelper.UISearchBarTextField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:keyword attributes:@{NSForegroundColorAttributeName: UIColorFromRGB(0xAAAAAA, 1.0)}];
+    }
+    
     searchBarHelper.UISearchBarTextField.textColor = UIColorFromRGB(0xAAAAAA, 1.0);
     searchBarHelper.UISearchBarTextField.enablesReturnKeyAutomatically = NO;
     searchBarHelper._UISearchBarSearchFieldBackgroundView.backgroundColor = UIColorFromRGB(0xF8F8F8, 0.85);
