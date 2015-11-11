@@ -16,7 +16,6 @@
 #import "ThemeColor.h"
 
 #import "CartModel.h"
-#import <MJExtension.h>
 
 #import "XSConfirmOrderViewController.h"
 
@@ -26,16 +25,20 @@
 
 #import "XSCommodityListViewController.h"
 
+#import "XSShoppingCartViewDataSource.h"
+
 static NSString * const cellID    = @"ShopCart";
 static NSString * const addressID = @"Address";
 
-@interface XSShoppingCartViewController () <UITableViewDelegate, UITableViewDataSource, UIViewStateDelegate>
+@interface XSShoppingCartViewController () <UITableViewDelegate, UIViewStateDelegate>
 
 @property (strong, nonatomic) UITableView *tableView;
+@property (strong, nonatomic) XSShoppingCartViewDataSource *shoppingCartDataSource;
 
 @property (strong, nonatomic) UIView *controlPannelView;
 
 @property (weak, nonatomic) IBOutlet UIButton *selectAllButton;
+@property (weak, nonatomic) IBOutlet UIButton *otherSelectAllButton;
 @property (weak, nonatomic) IBOutlet UILabel *priceNowLabel;
 @property (weak, nonatomic) IBOutlet UILabel *discountLabel;
 @property (weak, nonatomic) IBOutlet UIButton *settlementButton;
@@ -45,6 +48,8 @@ static NSString * const addressID = @"Address";
 @property (weak, nonatomic) IBOutlet UIButton *deleteButton;
 
 @property (strong, nonatomic) CartModel *cartModel;
+
+@property (assign, nonatomic) BOOL hasSelectedAll;
 
 @end
 
@@ -82,6 +87,8 @@ static NSString * const addressID = @"Address";
     
     self.tableView.frame = CGRectMake(0, 0, pannelFrame.size.width, pannelFrame.origin.y);
     [self loadCartItem];
+    
+    self.hasSelectedAll = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -139,41 +146,6 @@ static NSString * const addressID = @"Address";
     return 0.5f;
 }
 
-#pragma mark - UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 2;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    } else {
-        return self.cartModel.data.list.count;
-    }
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        XSAddressTableViewCell *cell = (XSAddressTableViewCell *)[tableView dequeueReusableCellWithIdentifier:addressID forIndexPath:indexPath];
-        cell.selectionStyle    = UITableViewCellSelectionStyleNone;
-        cell.backgroundColor   = BACKGROUND_COLOR;
-        return cell;
-    }
-    
-    XSShoppingCartTableViewCell *cell = (XSShoppingCartTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    
-    CartItemModel *item = self.cartModel.data.list[indexPath.row];
-    cell.item = item;
-    
-    if (item.selected) {
-        cell.isSelected = YES;
-    } else {
-        cell.isSelected = NO;
-    }
-    return cell;
-}
-
 #pragma mark - private methods
 - (void)customNavigationBar {
     self.navigationItem.title = @"购物车";
@@ -189,6 +161,7 @@ static NSString * const addressID = @"Address";
     __weak typeof(self) weakSelf = self;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [self.cartModel loadCartSuccess:^{
+        weakSelf.shoppingCartDataSource.items = weakSelf.cartModel.data.list;
         [weakSelf.tableView reloadData];
         [weakSelf.view xs_switchToContentState];
 
@@ -205,7 +178,18 @@ static NSString * const addressID = @"Address";
 
 #pragma mark - event response
 - (IBAction)selectAllButtonClick:(UIButton *)sender {
-    NSLog(@"全选");
+    
+    if (self.hasSelectedAll) {
+        for (CartItemModel *item in self.cartModel.data.list) {
+            item.selected = 0;
+        }
+    } else {
+        for (CartItemModel *item in self.cartModel.data.list) {
+            item.selected = 1;
+        }
+    }
+    [self.tableView reloadData];
+    self.hasSelectedAll = !self.hasSelectedAll;
 }
 
 - (IBAction)settlementButtonClick:(UIButton *)sender {
@@ -236,7 +220,7 @@ static NSString * const addressID = @"Address";
 #pragma mark - getters and setters
 - (UIView *)editPanelView {
     if (_editPanelView == nil) {
-        _editPanelView = [[[NSBundle mainBundle] loadNibNamed:@"ControlPannel" owner:self options:nil] objectAtIndex:1];
+        _editPanelView = [[[NSBundle mainBundle] loadNibNamed:@"EditPanelView" owner:self options:nil] objectAtIndex:0];
         _editPanelView.hidden = YES;
         _editPanelView.layer.borderWidth = 0.5f;
         _editPanelView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
@@ -253,7 +237,7 @@ static NSString * const addressID = @"Address";
 
 - (UIView *)controlPannelView {
     if (_controlPannelView == nil) {
-        _controlPannelView = [[[NSBundle mainBundle] loadNibNamed:@"ControlPannel" owner:self options:nil] objectAtIndex:0];
+        _controlPannelView = [[[NSBundle mainBundle] loadNibNamed:@"ControlPannelView" owner:self options:nil] objectAtIndex:0];
         _settlementButton.backgroundColor = THEME_RED;
         _controlPannelView.layer.borderWidth = 0.5f;
         _controlPannelView.layer.borderColor = [[UIColor lightGrayColor] CGColor];
@@ -266,7 +250,6 @@ static NSString * const addressID = @"Address";
         _tableView = [[UITableView alloc] init];
         _tableView.backgroundColor = BACKGROUND_COLOR;
         _tableView.delegate        = self;
-        _tableView.dataSource      = self;
         _tableView.contentInset    = UIEdgeInsetsMake(64, 0, 0, 0);
         _tableView.tableFooterView = [[UIView alloc] init];
         _tableView.showsHorizontalScrollIndicator = NO;
@@ -276,8 +259,26 @@ static NSString * const addressID = @"Address";
         [_tableView registerNib:[UINib nibWithNibName:@"XSAddressTableViewCell" bundle:nil] forCellReuseIdentifier:addressID];
         [_tableView registerClass:[XSShoppingCartTableViewCell class] forCellReuseIdentifier:cellID];
         [_tableView registerNib:[UINib nibWithNibName:@"XSShoppingCartTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
+        
+        _tableView.dataSource = self.shoppingCartDataSource;
     }
     return _tableView;
+}
+
+- (XSShoppingCartViewDataSource *)shoppingCartDataSource {
+    if (_shoppingCartDataSource == nil) {
+        _shoppingCartDataSource = [[XSShoppingCartViewDataSource alloc] initWithItems:self.cartModel.data.list addressIdentifier:addressID cellIdentifier:cellID configureAddressBlock:^(XSAddressTableViewCell *cell, CartItemModel *item) {
+            cell.backgroundColor = BACKGROUND_COLOR;
+        } configureCellBlock:^(XSShoppingCartTableViewCell *cell, CartItemModel *item) {
+            cell.item = item;
+            if (item.selected) {
+                cell.isSelected = YES;
+            } else {
+                cell.isSelected = NO;
+            }
+        }];
+    }
+    return _shoppingCartDataSource;
 }
 
 - (CartModel *)cartModel {
@@ -285,6 +286,17 @@ static NSString * const addressID = @"Address";
         _cartModel = [[CartModel alloc] init];
     }
     return _cartModel;
+}
+
+- (void)setHasSelectedAll:(BOOL)hasSelectedAll {
+    if (hasSelectedAll) {
+        [self.selectAllButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+        [self.otherSelectAllButton setImage:[UIImage imageNamed:@"selected"] forState:UIControlStateNormal];
+    } else {
+        [self.selectAllButton setImage:[UIImage imageNamed:@"unselected"] forState:UIControlStateNormal];
+        [self.otherSelectAllButton setImage:[UIImage imageNamed:@"unselected"] forState:UIControlStateNormal];
+    }
+    _hasSelectedAll = hasSelectedAll;
 }
 
 @end

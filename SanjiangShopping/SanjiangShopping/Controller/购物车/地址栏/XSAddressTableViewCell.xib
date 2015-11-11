@@ -34,8 +34,8 @@
                                     <constraint firstAttribute="height" constant="30" id="nSh-bc-Hsz"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货地址：宁波市海曙区环城西路北段197号三江购物俱乐部股份有限公司4楼全渠道发展中心" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="dIQ-ro-wDh">
-                                <rect key="frame" x="46" y="32" width="228" height="35"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货地址：宁波市海曙区环城西路北段197号三江购物俱乐部股份有限公司4楼全渠道发展中心" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="dIQ-ro-wDh">
+                                <rect key="frame" x="46" y="32" width="228" height="33"/>
                                 <animations/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -51,11 +51,11 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（如果您选择门店自提，请点击前往选择要自提的门店）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="5" translatesAutoresizingMaskIntoConstraints="NO" id="gVF-sV-RvQ">
-                                <rect key="frame" x="46" y="71" width="228" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（如果您选择门店自提，请点击前往选择要自提的门店）" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="gVF-sV-RvQ">
+                                <rect key="frame" x="46" y="64" width="228" height="28"/>
                                 <animations/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="b3r-4x-gga"/>
+                                    <constraint firstAttribute="height" constant="28" id="b3r-4x-gga"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -89,7 +89,7 @@
                             <constraint firstItem="NSr-cb-53l" firstAttribute="leading" secondItem="DCG-jg-4je" secondAttribute="leading" constant="8" id="PpV-rQ-MQb"/>
                             <constraint firstAttribute="bottom" secondItem="gVF-sV-RvQ" secondAttribute="bottom" constant="8" id="Rl0-X4-FnH"/>
                             <constraint firstItem="mUb-2h-3s7" firstAttribute="leading" secondItem="dIQ-ro-wDh" secondAttribute="trailing" constant="8" id="RsI-uD-YtT"/>
-                            <constraint firstItem="gVF-sV-RvQ" firstAttribute="top" secondItem="dIQ-ro-wDh" secondAttribute="bottom" constant="4" id="TMw-R0-wOQ"/>
+                            <constraint firstItem="gVF-sV-RvQ" firstAttribute="top" secondItem="dIQ-ro-wDh" secondAttribute="bottom" constant="-1" id="TMw-R0-wOQ"/>
                             <constraint firstItem="mUb-2h-3s7" firstAttribute="leading" secondItem="gVF-sV-RvQ" secondAttribute="trailing" constant="8" id="TRc-1W-kMb"/>
                             <constraint firstItem="NSr-cb-53l" firstAttribute="centerY" secondItem="DCG-jg-4je" secondAttribute="centerY" id="jzD-W2-h3g"/>
                             <constraint firstAttribute="trailing" secondItem="mUb-2h-3s7" secondAttribute="trailing" constant="8" id="oF8-GG-akU"/>

@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XSShoppingCartViewController">
+            <connections>
+                <outlet property="addToFavoritesButton" destination="EsN-C6-LcG" id="h6v-fe-JiC"/>
+                <outlet property="deleteButton" destination="9Qx-Cz-07g" id="kaf-p1-j7Y"/>
+                <outlet property="otherSelectAllButton" destination="VtK-23-3b8" id="BI7-4o-Bp4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="9tF-mk-Cwb">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VtK-23-3b8" userLabel="全选按钮">
+                    <rect key="frame" x="8" y="0.0" width="30" height="49"/>
+                    <animations/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="VtK-23-3b8" secondAttribute="height" multiplier="1:1" constant="-19" id="qEG-yt-ABT"/>
+                    </constraints>
+                    <state key="normal" image="unselected">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="selectAllButtonClick:" destination="-1" eventType="touchUpInside" id="cOy-Yy-yWA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Qx-Cz-07g">
+                    <rect key="frame" x="232" y="10" width="80" height="30"/>
+                    <animations/>
+                    <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="zmk-Q6-boP"/>
+                    </constraints>
+                    <state key="normal" title="删除">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="delete:" destination="-1" eventType="touchUpInside" id="NKT-mX-JCc"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EsN-C6-LcG">
+                    <rect key="frame" x="144" y="10" width="80" height="30"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="1T0-dA-9pz"/>
+                    </constraints>
+                    <state key="normal" title="加入收藏">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="addToFavorites:" destination="-1" eventType="touchUpInside" id="UYv-Vm-fKm"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全选" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XSM-58-1tk">
+                    <rect key="frame" x="46" y="13" width="30" height="21"/>
+                    <animations/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="AnJ-R0-mbR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.3921568627" green="0.3921568627" blue="0.47843137250000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <animations/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9Qx-Cz-07g" firstAttribute="leading" secondItem="EsN-C6-LcG" secondAttribute="trailing" constant="8" id="06f-4s-n7L"/>
+                <constraint firstItem="EsN-C6-LcG" firstAttribute="top" secondItem="9tF-mk-Cwb" secondAttribute="top" constant="10" id="0EJ-R5-Xa0"/>
+                <constraint firstAttribute="bottom" secondItem="VtK-23-3b8" secondAttribute="bottom" id="3Lf-SB-a7c"/>
+                <constraint firstItem="VtK-23-3b8" firstAttribute="leading" secondItem="9tF-mk-Cwb" secondAttribute="leading" constant="8" id="P5x-qI-MuS"/>
+                <constraint firstItem="9Qx-Cz-07g" firstAttribute="top" secondItem="9tF-mk-Cwb" secondAttribute="top" constant="10" id="S3C-Dy-JXP"/>
+                <constraint firstAttribute="bottom" secondItem="EsN-C6-LcG" secondAttribute="bottom" constant="9" id="bBM-K6-S5j"/>
+                <constraint firstItem="XSM-58-1tk" firstAttribute="top" secondItem="VtK-23-3b8" secondAttribute="top" constant="13" id="bom-qz-OeS"/>
+                <constraint firstItem="XSM-58-1tk" firstAttribute="bottom" secondItem="VtK-23-3b8" secondAttribute="bottom" constant="-15" id="diM-mL-Wgz"/>
+                <constraint firstAttribute="bottom" secondItem="9Qx-Cz-07g" secondAttribute="bottom" constant="9" id="etP-mb-uDE"/>
+                <constraint firstItem="XSM-58-1tk" firstAttribute="leading" secondItem="VtK-23-3b8" secondAttribute="trailing" constant="8" id="fNW-ds-dpp"/>
+                <constraint firstItem="VtK-23-3b8" firstAttribute="top" secondItem="9tF-mk-Cwb" secondAttribute="top" id="oi9-wz-hhZ"/>
+                <constraint firstAttribute="trailing" secondItem="9Qx-Cz-07g" secondAttribute="trailing" constant="8" id="yqC-8c-bBP"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="517" y="298.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="unselected" width="18" height="18"/>
+    </resources>
+</document>

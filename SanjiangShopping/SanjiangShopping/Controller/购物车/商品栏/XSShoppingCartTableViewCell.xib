@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
@@ -18,12 +18,14 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DPN-ZX-veM">
                         <rect key="frame" x="37" y="8" width="68" height="68"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="DPN-ZX-veM" secondAttribute="height" multiplier="1:1" id="Pjp-mE-k3y"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥9999.99" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="70" translatesAutoresizingMaskIntoConstraints="NO" id="IHe-yf-sB3">
                         <rect key="frame" x="242" y="32" width="70" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="0gr-Yx-FXY"/>
                             <constraint firstAttribute="height" constant="21" id="ECc-2x-I9r"/>
@@ -34,6 +36,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="光明莫斯利氨酸牛奶钻石原味" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="121" translatesAutoresizingMaskIntoConstraints="NO" id="Woz-uV-58g">
                         <rect key="frame" x="113" y="8" width="121" height="42"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="42" id="a1P-wH-DQM"/>
                         </constraints>
@@ -43,6 +46,7 @@
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UhK-3v-E4z">
                         <rect key="frame" x="113" y="55" width="21" height="21"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="UhK-3v-E4z" secondAttribute="height" multiplier="1:1" id="O25-13-Is2"/>
@@ -57,6 +61,7 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ut2-l0-xmM">
                         <rect key="frame" x="177" y="55" width="21" height="21"/>
+                        <animations/>
                         <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="calibratedRGB"/>
                         <state key="normal" title="+">
                             <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -68,6 +73,7 @@
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="43" translatesAutoresizingMaskIntoConstraints="NO" id="VgY-Mi-on8">
                         <rect key="frame" x="134" y="55" width="43" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="43" id="aml-sI-0WM"/>
                         </constraints>
@@ -76,7 +82,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RvD-vt-zdd">
-                        <rect key="frame" x="0.0" y="0.0" width="29" height="84"/>
+                        <rect key="frame" x="8" y="0.0" width="29" height="84"/>
+                        <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="84" id="cud-dH-Fhj"/>
@@ -90,10 +97,11 @@
                         </connections>
                     </button>
                 </subviews>
+                <animations/>
                 <constraints>
-                    <constraint firstItem="DPN-ZX-veM" firstAttribute="leading" secondItem="RvD-vt-zdd" secondAttribute="trailing" constant="8" id="9Gv-j3-e4S"/>
+                    <constraint firstItem="DPN-ZX-veM" firstAttribute="leading" secondItem="RvD-vt-zdd" secondAttribute="trailing" id="9Gv-j3-e4S"/>
                     <constraint firstItem="UhK-3v-E4z" firstAttribute="leading" secondItem="DPN-ZX-veM" secondAttribute="trailing" constant="8" id="BQd-E4-xjY"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="RvD-vt-zdd" secondAttribute="leading" constant="8" id="Bys-YH-dJQ"/>
+                    <constraint firstAttribute="leadingMargin" secondItem="RvD-vt-zdd" secondAttribute="leading" id="Bys-YH-dJQ"/>
                     <constraint firstItem="UhK-3v-E4z" firstAttribute="top" secondItem="Woz-uV-58g" secondAttribute="bottom" constant="5" id="CXm-Gx-HE0"/>
                     <constraint firstItem="Woz-uV-58g" firstAttribute="top" secondItem="DPN-ZX-veM" secondAttribute="top" id="Guf-jd-T5G"/>
                     <constraint firstItem="IHe-yf-sB3" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="LMP-jG-NEv"/>
@@ -113,6 +121,7 @@
                     <constraint firstItem="ut2-l0-xmM" firstAttribute="top" secondItem="UhK-3v-E4z" secondAttribute="top" id="xew-PM-W58"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="countLabel" destination="VgY-Mi-on8" id="IOW-qu-URO"/>
                 <outlet property="img" destination="DPN-ZX-veM" id="OCO-ce-mG6"/>

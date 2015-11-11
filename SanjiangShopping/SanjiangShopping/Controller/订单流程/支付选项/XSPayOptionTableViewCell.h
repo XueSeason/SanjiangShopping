@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface XSPayOptionTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIButton *onlineButton;
+@property (weak, nonatomic) IBOutlet UIButton *offlineButton;
+
+@property (assign, nonatomic) NSInteger option;
 
 @end
