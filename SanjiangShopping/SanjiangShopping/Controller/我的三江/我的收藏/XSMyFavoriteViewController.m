@@ -47,6 +47,11 @@ static NSString * const cellID = @"cell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     XSMyFavoriteTableViewCell *cell = (XSMyFavoriteTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    if (indexPath.row % 2 == 0) {
+        [cell invalid];
+    }
+    
     return cell;
 }
 

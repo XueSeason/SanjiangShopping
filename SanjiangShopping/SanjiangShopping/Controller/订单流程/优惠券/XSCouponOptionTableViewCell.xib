@@ -30,13 +30,13 @@
                         </constraints>
                     </imageView>
                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uKX-HD-J5H">
-                        <rect key="frame" x="61" y="10" width="70" height="30"/>
+                        <rect key="frame" x="61" y="16" width="61" height="18"/>
                         <animations/>
                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="70" id="21w-DD-oVZ"/>
+                            <constraint firstAttribute="height" constant="18" id="Mhf-yW-HA7"/>
                         </constraints>
-                        <state key="normal" title="0张可用">
+                        <state key="normal" title="10张可用">
                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <userDefinedRuntimeAttributes>

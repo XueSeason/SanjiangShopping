@@ -94,6 +94,10 @@ static NSString * const clearID = @"clear";
     }
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50.0;
+}
+
 #pragma mark - private methods
 - (void)customNavigationBar {
     self.navigationItem.title = @"设置";

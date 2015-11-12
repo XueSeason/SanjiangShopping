@@ -15,5 +15,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *priceNowLabel;
 @property (weak, nonatomic) IBOutlet UILabel *priceOldLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dateLabel;
+@property (weak, nonatomic) IBOutlet UIButton *shoppingCartButton;
+@property (weak, nonatomic) IBOutlet UILabel *invalidLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *labelButton;
+
+- (void)invalid;
 @end

@@ -32,7 +32,7 @@
         
         UILabel *label      = [[UILabel alloc] init];
         label.text          = _titles[i];
-        label.font          = [label.font fontWithSize:17.0];
+        label.font          = [label.font fontWithSize:16.0];
         label.minimumScaleFactor = 14.0 / label.font.pointSize;
         label.frame         = CGRectInset(segmentItem.bounds, 10, 8);
         label.textAlignment = NSTextAlignmentCenter;

@@ -20,6 +20,7 @@
 		B14128861BF17A07008B6B7D /* UIView+State.m in Sources */ = {isa = PBXBuildFile; fileRef = B14128851BF17A07008B6B7D /* UIView+State.m */; };
 		B14128891BF18D73008B6B7D /* NoNetWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14128881BF18D73008B6B7D /* NoNetWorkView.xib */; };
 		B141288B1BF1CD71008B6B7D /* NoCommodityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B141288A1BF1CD71008B6B7D /* NoCommodityView.xib */; };
+		B14F6D941BF4362F002BD904 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = B14F6D931BF4362F002BD904 /* UIImage+Filter.m */; };
 		B14FB19E1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FB19D1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m */; };
 		B15AF7DA1BD88343002B20D0 /* XSLogisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B15AF7D81BD88343002B20D0 /* XSLogisticsViewController.m */; };
 		B15AF7DB1BD88343002B20D0 /* XSLogisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15AF7D91BD88343002B20D0 /* XSLogisticsViewController.xib */; };
@@ -222,6 +223,8 @@
 		B14128851BF17A07008B6B7D /* UIView+State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+State.m"; sourceTree = "<group>"; };
 		B14128881BF18D73008B6B7D /* NoNetWorkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoNetWorkView.xib; sourceTree = "<group>"; };
 		B141288A1BF1CD71008B6B7D /* NoCommodityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoCommodityView.xib; sourceTree = "<group>"; };
+		B14F6D921BF4362F002BD904 /* UIImage+Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
+		B14F6D931BF4362F002BD904 /* UIImage+Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
 		B14FB19C1BD47BE500FF7D40 /* XSDeliveredInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSDeliveredInformationViewController.h; sourceTree = "<group>"; };
 		B14FB19D1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSDeliveredInformationViewController.m; sourceTree = "<group>"; };
 		B15AF7D71BD88343002B20D0 /* XSLogisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSLogisticsViewController.h; sourceTree = "<group>"; };
@@ -1551,6 +1554,8 @@
 				B1FB4B431BF04D76004DEF09 /* UIViewController+State.m */,
 				B14128841BF17A07008B6B7D /* UIView+State.h */,
 				B14128851BF17A07008B6B7D /* UIView+State.m */,
+				B14F6D921BF4362F002BD904 /* UIImage+Filter.h */,
+				B14F6D931BF4362F002BD904 /* UIImage+Filter.m */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -1883,6 +1888,7 @@
 				B1FEF9371BE8936000A94A1B /* XSAddressManageTableViewCell.m in Sources */,
 				B1C45ADF1BD5E16B00D2466E /* XSMyCouponViewController.m in Sources */,
 				B19C25AA1BB4CAB5007F96CC /* XSThemeView.m in Sources */,
+				B14F6D941BF4362F002BD904 /* UIImage+Filter.m in Sources */,
 				B174E9611BD9CB790091E703 /* XSSummaryTableViewCell.m in Sources */,
 				B101BD8C1BC8DB88002FF77E /* XSMarketViewController.m in Sources */,
 				B174E96B1BD9D3E90091E703 /* XSZeroTableViewCell.m in Sources */,
