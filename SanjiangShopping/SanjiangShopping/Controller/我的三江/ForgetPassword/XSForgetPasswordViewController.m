@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *verifyButton;
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;
+@property (weak, nonatomic) IBOutlet UIButton *pwdSwitchButton;
 
 @end
 
@@ -25,12 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = BACKGROUND_COLOR;
-    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
-    self.navigationItem.title = @"忘记密码";
-    [XSNavigationBarHelper hackStandardNavigationBar:self.navigationController.navigationBar];
+    [self customNavigationBar];
     
     _verifyButton.layer.borderColor = [[UIColor colorWithRed:240 / 255.0 green:56 / 255.0 blue:56 / 255.0 alpha:1.0] CGColor];
-    
     [_phoneNumberTextField addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
     [_verifyCodeTextField addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
     [_passwordTextField addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
@@ -41,8 +39,22 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - 按钮事件
+#pragma mark - private methods
+- (void)customNavigationBar {
+    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
+    self.navigationItem.title = @"忘记密码";
+    [XSNavigationBarHelper hackStandardNavigationBar:self.navigationController.navigationBar];
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:self action:@selector(comeBack)];
+    leftButtonItem.tintColor = MAIN_TITLE_COLOR;
+    self.navigationItem.leftBarButtonItem = leftButtonItem;
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+}
 
+- (void)comeBack {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - response events
 - (void)textFieldDidChange {
     if (_phoneNumberTextField.text && _phoneNumberTextField.text.length > 0
         && _passwordTextField.text && _passwordTextField.text.length > 0
@@ -63,6 +75,10 @@
     [_passwordTextField resignFirstResponder];
 }
 
+- (IBAction)pwdSwitch:(UIButton *)sender {
+    _passwordTextField.secureTextEntry = !_passwordTextField.secureTextEntry;
+    [self.pwdSwitchButton setImage:_passwordTextField.secureTextEntry ? [UIImage imageNamed:@"pwd_eye_open"] : [UIImage imageNamed:@"pwd_eye_close"] forState:UIControlStateNormal];
+}
 
 /*
 #pragma mark - Navigation

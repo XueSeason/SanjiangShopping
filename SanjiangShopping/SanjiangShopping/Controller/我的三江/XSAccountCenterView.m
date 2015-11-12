@@ -43,94 +43,111 @@ static const CGFloat step = 8.0f;
 
         _orderView      = [self generateCellView];
         [self addSubview:_orderView];
+        CALayer *line = [[CALayer alloc] init];
+        line.frame = CGRectMake(10, _orderView.frame.origin.y + _orderView.frame.size.height - 0.5, frame.size.width, 0.5);
+        line.backgroundColor = [OTHER_SEPARATOR_COLOR CGColor];
+        [self.layer addSublayer:line];
+        
         _contentHeight  += _orderView.frame.size.height;
 
         _tradeView = [self generateTradeView];
         [self addSubview:_tradeView];
         _contentHeight  += _tradeView.frame.size.height + step;
-        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - step, _contentWidth, 0.5)];
-        line.backgroundColor = COUPON_GRAY;
-        [self addSubview:line];
+        line = [[CALayer alloc] init];
+        line.frame = CGRectMake(0, _contentHeight - step, _contentWidth, 0.5);
+        line.backgroundColor = [OTHER_SEPARATOR_COLOR CGColor];
+        [self.layer addSublayer:line];
 
-        line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - 0.5, _contentWidth, 0.5)];
-        line.backgroundColor = COUPON_GRAY;
-        [self addSubview:line];
+        line = [[CALayer alloc] init];
+        line.frame = CGRectMake(0, _contentHeight - 0.5, _contentWidth, 0.5);
+        line.backgroundColor = [OTHER_SEPARATOR_COLOR CGColor];
+        [self.layer addSublayer:line];
         _memberCardView = [self generateCellView];
         [self addSubview:_memberCardView];
+        line = [[CALayer alloc] init];
+        line.frame = CGRectMake(10, _memberCardView.frame.origin.y + _memberCardView.frame.size.height - 0.5, frame.size.width, 0.5);
+        line.backgroundColor = [OTHER_SEPARATOR_COLOR CGColor];
+        [self.layer addSublayer:line];
         _contentHeight  += _memberCardView.frame.size.height;
         _favoriteView   = [self generateCellView];
         [self addSubview:_favoriteView];
+        line = [[CALayer alloc] init];
+        line.frame = CGRectMake(10, _favoriteView.frame.origin.y + _favoriteView.frame.size.height - 0.5, frame.size.width, 0.5);
+        line.backgroundColor = [OTHER_SEPARATOR_COLOR CGColor];
+        [self.layer addSublayer:line];
         _contentHeight  += _favoriteView.frame.size.height;
         _addressView    = [self generateCellView];
         [self addSubview:_addressView];
         _contentHeight  += _addressView.frame.size.height + step;
-        line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - step, _contentWidth, 0.5)];
-        line.backgroundColor = COUPON_GRAY;
-        [self addSubview:line];
+        line = [[CALayer alloc] init];
+        line.frame = CGRectMake(0, _contentHeight - step, _contentWidth, 0.5);
+        line.backgroundColor = [OTHER_SEPARATOR_COLOR CGColor];
+        [self.layer addSublayer:line];
 
-        line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - 0.5, _contentWidth, 0.5)];
-        line.backgroundColor = COUPON_GRAY;
-        [self addSubview:line];
+        line = [[CALayer alloc] init];
+        line.frame = CGRectMake(0, _contentHeight - 0.5, _contentWidth, 0.5);
+        line.backgroundColor = [OTHER_SEPARATOR_COLOR CGColor];
+        [self.layer addSublayer:line];
         _couponView     = [self generateCellView];
         [self addSubview:_couponView];
+        line = [[CALayer alloc] init];
+        line.frame = CGRectMake(10, _couponView.frame.origin.y + _couponView.frame.size.height - 0.5, frame.size.width, 0.5);
+        line.backgroundColor = [OTHER_SEPARATOR_COLOR CGColor];
+        [self.layer addSublayer:line];
         _contentHeight  += _couponView.frame.size.height;
         _scoreView      = [self generateCellView];
         [self addSubview:_scoreView];
         _contentHeight  += _scoreView.frame.size.height + step;
-        line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - step, _contentWidth, 0.5)];
-        line.backgroundColor = COUPON_GRAY;
-        [self addSubview:line];
+        line = [[CALayer alloc] init];
+        line.frame = CGRectMake(0, _contentHeight - step, _contentWidth, 0.5);
+        line.backgroundColor = [OTHER_SEPARATOR_COLOR CGColor];
+        [self.layer addSublayer:line];
 
 
-        line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - 0.5, _contentWidth, 0.5)];
-        line.backgroundColor = COUPON_GRAY;
-        [self addSubview:line];
+        line = [[CALayer alloc] init];
+        line.frame = CGRectMake(0, _contentHeight - 0.5, _contentWidth, 0.5);
+        line.backgroundColor = [OTHER_SEPARATOR_COLOR CGColor];
+        [self.layer addSublayer:line];
         _helpView       = [self generateCellView];
         [self addSubview:_helpView];
         _contentHeight  += _helpView.frame.size.height + step;
-        line = [[UIView alloc] initWithFrame:CGRectMake(0, _contentHeight - step, _contentWidth, 0.5)];
-        line.backgroundColor = COUPON_GRAY;
-        [self addSubview:line];
+        line = [[CALayer alloc] init];
+        line.frame = CGRectMake(0, _contentHeight - step, _contentWidth, 0.5);
+        line.backgroundColor = [OTHER_SEPARATOR_COLOR CGColor];
+        [self.layer addSublayer:line];
 
         
         _orderView.titleLabel.text          = @"我的订单";
-//        _orderView.subTitleLabel.text       = @"查看全部订单";
         _orderView.logoImageView.image      = [UIImage imageNamed:@"order"];
         _orderView.arrow.image              = [UIImage imageNamed:@"arrow"];
         _orderView.arrow.contentMode        = UIViewContentModeScaleAspectFit;
 
         _memberCardView.titleLabel.text     = @"我的会员卡";
-//        _memberCardView.subTitleLabel.text  = @"申请、绑定会员卡，续交会员费";
         _memberCardView.logoImageView.image = [UIImage imageNamed:@"memberCard"];
         _memberCardView.arrow.image         = [UIImage imageNamed:@"arrow"];
         _memberCardView.arrow.contentMode   = UIViewContentModeScaleAspectFit;
 
         _favoriteView.titleLabel.text       = @"我的收藏";
-//        _favoriteView.subTitleLabel.text    = @"查看全部订单";
         _favoriteView.logoImageView.image   = [UIImage imageNamed:@"favorite"];
         _favoriteView.arrow.image           = [UIImage imageNamed:@"arrow"];
         _favoriteView.arrow.contentMode     = UIViewContentModeScaleAspectFit;
         
         _addressView.titleLabel.text        = @"我的收货地址";
-//        _addressView.subTitleLabel.text     = @"管理收获地址";
         _addressView.logoImageView.image   = [UIImage imageNamed:@"address"];
         _addressView.arrow.image           = [UIImage imageNamed:@"arrow"];
         _addressView.arrow.contentMode     = UIViewContentModeScaleAspectFit;
 
         _couponView.titleLabel.text         = @"我的优惠券";
-//        _couponView.subTitleLabel.text      = @"您有3张优惠券";
         _couponView.logoImageView.image     = [UIImage imageNamed:@"coupon"];
         _couponView.arrow.image             = [UIImage imageNamed:@"arrow"];
         _couponView.arrow.contentMode       = UIViewContentModeScaleAspectFit;
 
         _scoreView.titleLabel.text          = @"我的积分";
-//        _scoreView.subTitleLabel.text       = @"查询积分、兑换优惠券";
         _scoreView.logoImageView.image      = [UIImage imageNamed:@"score"];
         _scoreView.arrow.image              = [UIImage imageNamed:@"arrow"];
         _scoreView.arrow.contentMode        = UIViewContentModeScaleAspectFit;
 
         _helpView.titleLabel.text           = @"帮助中心";
-//        _helpView.subTitleLabel.text        = @"常见问题、在线留言";
         _helpView.logoImageView.image       = [UIImage imageNamed:@"help"];
         _helpView.arrow.image               = [UIImage imageNamed:@"arrow"];
         _helpView.arrow.contentMode         = UIViewContentModeScaleAspectFit;
@@ -165,8 +182,8 @@ static const CGFloat step = 8.0f;
     CGFloat space = (view.frame.size.width - 75) / 2.0;
     CGFloat step  = (view.frame.size.height - 75) / 2.0;
     
-    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[sb(==21)]-8-|" options:0 metrics:nil views:map]];
-    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-28-[sb(==21)]" options:0 metrics:nil views:map]];
+    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[sb(==27)]-8-|" options:0 metrics:nil views:map]];
+    [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-28-[sb(==27)]" options:0 metrics:nil views:map]];
     [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[lb]-%f-|", space, space] options:0 metrics:nil views:map]];
     [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"V:|-%f-[lb]-%f-|", step, step] options:0 metrics:nil views:map]];
     [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:[NSString stringWithFormat:@"H:|-%f-[ll]-%f-|", space, space] options:0 metrics:nil views:map]];
@@ -235,14 +252,11 @@ static const CGFloat step = 8.0f;
                           @"subTitle": subTitle,
                           @"arrow": arrow
                           };
-    [cellView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-8-[logo(==28)]-8-[title(==100)]-8-[subTitle]-8-[arrow(==12)]-8-|" options:0 metrics:nil views:map]];
+    [cellView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-10-[logo(==28)]-8-[title(==100)]-8-[subTitle]-8-[arrow(==12)]-10-|" options:0 metrics:nil views:map]];
     [cellView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[logo]-8-|" options:0 metrics:nil views:map]];
     [cellView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[title]-8-|" options:0 metrics:nil views:map]];
     [cellView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[subTitle]-8-|" options:0 metrics:nil views:map]];
     [cellView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-8-[arrow]-8-|" options:0 metrics:nil views:map]];
-    
-    cellView.layer.borderWidth = 0.5f;
-    cellView.layer.borderColor = [BACKGROUND_COLOR CGColor];
     
     return cellView;
 }

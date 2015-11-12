@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton *registerButton;
 @property (weak, nonatomic) IBOutlet UIButton *verifyButton;
+@property (weak, nonatomic) IBOutlet UIButton *pwdSwitchButton;
 
 //@property (strong, nonatomic) NSTimer *timer;
 
@@ -26,10 +27,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // 隐藏返回按钮文字
-    self.navigationItem.title = @"注册";
-    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
-    [XSNavigationBarHelper hackStandardNavigationBar:self.navigationController.navigationBar];
+    [self customNavigationBar];
     
     self.view.backgroundColor = BACKGROUND_COLOR;
     
@@ -43,6 +41,21 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - private methods
+- (void)customNavigationBar {
+    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
+    self.navigationItem.title = @"注册";
+    [XSNavigationBarHelper hackStandardNavigationBar:self.navigationController.navigationBar];
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:self action:@selector(comeBack)];
+    leftButtonItem.tintColor = MAIN_TITLE_COLOR;
+    self.navigationItem.leftBarButtonItem = leftButtonItem;
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+}
+
+- (void)comeBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - 按钮事件
@@ -59,6 +72,12 @@
         [_registerButton setTitleColor:[UIColor lightGrayColor] forState:UIControlStateNormal];
     }
 }
+
+- (IBAction)pwdSwitch:(UIButton *)sender {
+    _passwordTextField.secureTextEntry = !_passwordTextField.secureTextEntry;
+    [self.pwdSwitchButton setImage:_passwordTextField.secureTextEntry ? [UIImage imageNamed:@"pwd_eye_open"] : [UIImage imageNamed:@"pwd_eye_close"] forState:UIControlStateNormal];
+}
+
 
 - (IBAction)registerAccount:(UIButton *)sender {
 

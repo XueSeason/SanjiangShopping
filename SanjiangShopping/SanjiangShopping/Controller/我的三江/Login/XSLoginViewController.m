@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UIButton    *loginButton;
-@property (weak, nonatomic) IBOutlet UIImageView *pwdSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *pwdSwitchButton;
 
 @end
 
@@ -34,8 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"登录";
-    [XSNavigationBarHelper hackStandardNavigationBar:self.navigationController.navigationBar];
+    [self customNavigationBar];
     self.view.backgroundColor = BACKGROUND_COLOR;
     
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"快速注册" style:UIBarButtonItemStylePlain target:self action:@selector(registerAccount)];
@@ -46,9 +45,6 @@
     [leftButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
     self.navigationItem.leftBarButtonItem = leftButtonItem;
     
-    _pwdSwitch.userInteractionEnabled = YES;
-    [_pwdSwitch addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(passwordStateSwitch)]];
-    
     [_accountTextField addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
     [_passwordTextField addTarget:self action:@selector(textFieldDidChange) forControlEvents:UIControlEventEditingChanged];
 }
@@ -56,6 +52,21 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - private methods
+- (void)customNavigationBar {
+    [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
+    self.navigationItem.title = @"登录";
+    [XSNavigationBarHelper hackStandardNavigationBar:self.navigationController.navigationBar];
+    UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:self action:@selector(comeBack)];
+    leftButtonItem.tintColor = MAIN_TITLE_COLOR;
+    self.navigationItem.leftBarButtonItem = leftButtonItem;
+    self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+}
+
+- (void)comeBack {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - 按钮事件
@@ -72,8 +83,9 @@
     [self.navigationController pushViewController:forgetPassword animated:YES];
 }
 
-- (void)passwordStateSwitch {
+- (IBAction)pwdSwitch:(UIButton *)sender {
     _passwordTextField.secureTextEntry = !_passwordTextField.secureTextEntry;
+    [self.pwdSwitchButton setImage:_passwordTextField.secureTextEntry ? [UIImage imageNamed:@"pwd_eye_open"] : [UIImage imageNamed:@"pwd_eye_close"] forState:UIControlStateNormal];
 }
 
 - (void)back {
