@@ -24,6 +24,11 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## Bugly
+
+Copyright 2015 tencent.com. All rights reserved.
+
+
 ## EAIntroView
 
 Copyright (c) 2013-2015 Evgeny Aleksandrov

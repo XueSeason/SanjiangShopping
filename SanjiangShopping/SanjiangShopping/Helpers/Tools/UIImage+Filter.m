@@ -23,7 +23,7 @@
         return nil;
     }
     
-    CGContextDrawImage(context,CGRectMake(0, 0, width, height), sourceImage.CGImage);
+    CGContextDrawImage(context, CGRectMake(0, 0, width, height), sourceImage.CGImage);
     CGImageRef grayImageRef = CGBitmapContextCreateImage(context);
     UIImage *grayImage      = [UIImage imageWithCGImage:grayImageRef];
     CGContextRelease(context);

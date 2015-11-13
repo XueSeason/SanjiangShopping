@@ -15,6 +15,8 @@
 
 #import "NotificationNameConstant.h"
 
+#import <Bugly/CrashReporter.h>
+
 @interface AppDelegate ()
 
 @property (strong, nonatomic) XSTabBarConteroller *tabBarController;
@@ -23,8 +25,9 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+     [[CrashReporter sharedInstance] installWithAppId:@"900012628"];
+    
     NSURLCache *sharedCache = [[NSURLCache alloc] initWithMemoryCapacity:4 * 1024 * 1024 diskCapacity:20 * 1024 * 1024 diskPath:nil];
     [NSURLCache setSharedURLCache:sharedCache];
     
