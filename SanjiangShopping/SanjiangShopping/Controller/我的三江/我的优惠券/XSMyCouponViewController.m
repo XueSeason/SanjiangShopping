@@ -85,6 +85,7 @@ static NSString * const cellID = @"cell";
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"使用说明" style:UIBarButtonItemStylePlain target:self action:@selector(useDetail)];
     rightButtonItem.tintColor = MAIN_TITLE_COLOR;
     self.navigationItem.rightBarButtonItem = rightButtonItem;
+    [rightButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
 }
 
 - (void)comeBack {

@@ -26,6 +26,7 @@
 		B1108D4A1BF573D7004273A7 /* XSSummaryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1108D3E1BF573D7004273A7 /* XSSummaryTableViewCell.xib */; };
 		B1108D4E1BF57403004273A7 /* XSOrderCompletedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1108D4D1BF57403004273A7 /* XSOrderCompletedViewController.m */; };
 		B1108D501BF57414004273A7 /* XSOrderCompletedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1108D4F1BF57414004273A7 /* XSOrderCompletedViewController.xib */; };
+		B1108D541BF58565004273A7 /* XSSelectCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1108D531BF58565004273A7 /* XSSelectCouponViewController.m */; };
 		B11335831BDF6C7400CA7A11 /* GuideView0.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11335821BDF6C7400CA7A11 /* GuideView0.xib */; };
 		B11335851BDF6C7E00CA7A11 /* GuideView1.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11335841BDF6C7E00CA7A11 /* GuideView1.xib */; };
 		B11335871BDF6C8600CA7A11 /* GuideView2.xib in Resources */ = {isa = PBXBuildFile; fileRef = B11335861BDF6C8600CA7A11 /* GuideView2.xib */; };
@@ -236,6 +237,8 @@
 		B1108D4C1BF57403004273A7 /* XSOrderCompletedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSOrderCompletedViewController.h; sourceTree = "<group>"; };
 		B1108D4D1BF57403004273A7 /* XSOrderCompletedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSOrderCompletedViewController.m; sourceTree = "<group>"; };
 		B1108D4F1BF57414004273A7 /* XSOrderCompletedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSOrderCompletedViewController.xib; sourceTree = "<group>"; };
+		B1108D521BF58565004273A7 /* XSSelectCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSSelectCouponViewController.h; sourceTree = "<group>"; };
+		B1108D531BF58565004273A7 /* XSSelectCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSSelectCouponViewController.m; sourceTree = "<group>"; };
 		B11335821BDF6C7400CA7A11 /* GuideView0.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideView0.xib; sourceTree = "<group>"; };
 		B11335841BDF6C7E00CA7A11 /* GuideView1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideView1.xib; sourceTree = "<group>"; };
 		B11335861BDF6C8600CA7A11 /* GuideView2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GuideView2.xib; sourceTree = "<group>"; };
@@ -628,6 +631,15 @@
 				B1108D4F1BF57414004273A7 /* XSOrderCompletedViewController.xib */,
 			);
 			path = "订单完成";
+			sourceTree = "<group>";
+		};
+		B1108D511BF58540004273A7 /* 选择优惠券 */ = {
+			isa = PBXGroup;
+			children = (
+				B1108D521BF58565004273A7 /* XSSelectCouponViewController.h */,
+				B1108D531BF58565004273A7 /* XSSelectCouponViewController.m */,
+			);
+			path = "选择优惠券";
 			sourceTree = "<group>";
 		};
 		B11335811BDF6C6300CA7A11 /* WelcomeViews */ = {
@@ -1161,6 +1173,7 @@
 		B1C45ADC1BD5E14100D2466E /* 我的优惠券 */ = {
 			isa = PBXGroup;
 			children = (
+				B1108D511BF58540004273A7 /* 选择优惠券 */,
 				B1C45ADD1BD5E16B00D2466E /* XSMyCouponViewController.h */,
 				B1C45ADE1BD5E16B00D2466E /* XSMyCouponViewController.m */,
 				B1C45AE01BD5E23600D2466E /* XSMyCouponTableViewCell.h */,
@@ -1923,6 +1936,7 @@
 				B16487751BB256C200778A07 /* XS4211View.m in Sources */,
 				B1BB5D8D1BD86B3100500898 /* XSClearSettingTableViewCell.m in Sources */,
 				B1F041EF1BB2404B0045B9A5 /* XSBannerView.m in Sources */,
+				B1108D541BF58565004273A7 /* XSSelectCouponViewController.m in Sources */,
 				B1F43D831BC600E1009F19DA /* XSShoppingCartViewController.m in Sources */,
 				B1E9EABE1BAF92FA0008A839 /* XSSegmentControl.m in Sources */,
 				B1F43D201BC6004F009F19DA /* XSPhoneNumberVerifyViewController.m in Sources */,

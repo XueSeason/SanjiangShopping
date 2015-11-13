@@ -71,6 +71,7 @@ static NSString * const cellID = @"cell";
     
     // 编辑
     self.navigationItem.rightBarButtonItem = self.rightButtonItem;
+    [self.rightButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor blackColor], NSFontAttributeName: [UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
 }
 
 - (void)comeBack {

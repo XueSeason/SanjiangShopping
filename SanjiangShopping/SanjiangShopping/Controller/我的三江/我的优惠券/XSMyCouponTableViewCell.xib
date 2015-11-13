@@ -17,7 +17,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDQ-ac-Hk6">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="99"/>
+                        <rect key="frame" x="0.0" y="5" width="300" height="99"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueCoupon" translatesAutoresizingMaskIntoConstraints="NO" id="Hke-1e-bYK">
                                 <rect key="frame" x="0.0" y="0.0" width="300" height="100"/>
@@ -138,10 +138,10 @@
                 </subviews>
                 <animations/>
                 <constraints>
-                    <constraint firstAttribute="bottomMargin" secondItem="fDQ-ac-Hk6" secondAttribute="bottom" constant="2" id="EXp-Qs-AOV"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="fDQ-ac-Hk6" secondAttribute="bottom" constant="-3" id="EXp-Qs-AOV"/>
                     <constraint firstItem="fDQ-ac-Hk6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="TQn-BF-Urb"/>
                     <constraint firstAttribute="trailingMargin" secondItem="fDQ-ac-Hk6" secondAttribute="trailing" constant="-8" id="iAE-O7-HIc"/>
-                    <constraint firstItem="fDQ-ac-Hk6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="tyY-do-GNY"/>
+                    <constraint firstItem="fDQ-ac-Hk6" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-3" id="tyY-do-GNY"/>
                 </constraints>
             </tableViewCellContentView>
             <animations/>

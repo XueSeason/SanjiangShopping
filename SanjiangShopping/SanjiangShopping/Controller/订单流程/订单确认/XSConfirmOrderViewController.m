@@ -18,6 +18,7 @@
 #import "XSItemListTableViewCell.h"
 
 #import "XSOrderCompletedViewController.h"
+#import "XSSelectCouponViewController.h"
 
 static NSString * const addressID   = @"address";
 static NSString * const payID       = @"pay";
@@ -145,6 +146,13 @@ static NSString * const listID      = @"list";
 }
 
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.section == 2) {
+        [self.navigationController pushViewController:[[XSSelectCouponViewController alloc] init] animated:YES];
+    }
+}
+
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
         return 76.0;
