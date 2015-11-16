@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -17,12 +17,14 @@
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="36o-gp-PfZ">
                         <rect key="frame" x="8" y="10" width="100" height="100"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="width" constant="100" id="cMR-ub-cW2"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZdB-PA-6wa">
                         <rect key="frame" x="278" y="75" width="34" height="34"/>
+                        <animations/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="34" id="Hjj-mI-LRn"/>
@@ -32,6 +34,7 @@
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="乐事美国零食原味马铃薯片 155g 美国经典原味马铃薯片" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="196" translatesAutoresizingMaskIntoConstraints="NO" id="CkQ-7V-zBA">
                         <rect key="frame" x="116" y="10" width="196" height="48"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="48" id="MGk-yQ-s7O"/>
                         </constraints>
@@ -41,12 +44,14 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="好评98%" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="153" translatesAutoresizingMaskIntoConstraints="NO" id="gbA-Vt-ShA">
                         <rect key="frame" x="116" y="89" width="153" height="21"/>
+                        <animations/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.59607843140000005" green="0.59607843140000005" blue="0.59607843140000005" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥8.54" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="153" translatesAutoresizingMaskIntoConstraints="NO" id="cvg-Ar-q6h">
-                        <rect key="frame" x="116" y="66" width="153" height="21"/>
+                        <rect key="frame" x="116" y="66" width="52" height="21"/>
+                        <animations/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="odW-fQ-L6v"/>
                         </constraints>
@@ -55,6 +60,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <animations/>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 <constraints>
                     <constraint firstItem="CkQ-7V-zBA" firstAttribute="top" secondItem="36o-gp-PfZ" secondAttribute="top" id="02d-88-iDu"/>
@@ -64,7 +70,6 @@
                     <constraint firstItem="cvg-Ar-q6h" firstAttribute="leading" secondItem="36o-gp-PfZ" secondAttribute="trailing" constant="8" id="EXv-HQ-nYP"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ZdB-PA-6wa" secondAttribute="bottom" constant="2" id="IdU-Tf-lbF"/>
                     <constraint firstItem="cvg-Ar-q6h" firstAttribute="top" secondItem="CkQ-7V-zBA" secondAttribute="bottom" constant="8" id="KMF-ei-n7c"/>
-                    <constraint firstItem="ZdB-PA-6wa" firstAttribute="leading" secondItem="cvg-Ar-q6h" secondAttribute="trailing" constant="9" id="ejo-EU-2N3"/>
                     <constraint firstItem="gbA-Vt-ShA" firstAttribute="leading" secondItem="36o-gp-PfZ" secondAttribute="trailing" constant="8" id="fJb-qp-hE7"/>
                     <constraint firstAttribute="leadingMargin" secondItem="36o-gp-PfZ" secondAttribute="leading" id="fbk-br-BPG"/>
                     <constraint firstItem="36o-gp-PfZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="m7N-X0-Vkm"/>
@@ -74,6 +79,7 @@
                     <constraint firstAttribute="bottomMargin" secondItem="36o-gp-PfZ" secondAttribute="bottom" constant="1" id="w0E-SS-oCV"/>
                 </constraints>
             </tableViewCellContentView>
+            <animations/>
             <connections>
                 <outlet property="name" destination="CkQ-7V-zBA" id="lgi-09-Jvo"/>
                 <outlet property="picture" destination="36o-gp-PfZ" id="2dO-rB-FA6"/>

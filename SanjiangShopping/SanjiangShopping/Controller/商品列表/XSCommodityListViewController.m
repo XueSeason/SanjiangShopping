@@ -20,10 +20,7 @@
 
 #import "UtilsMacro.h"
 
-#import <AFNetworking.h>
-#import "NetworkConstant.h"
 #import "CommodityListModel.h"
-#import <MJExtension.h>
 #import <UIImageView+WebCache.h>
 
 #import "ThemeColor.h"
@@ -69,8 +66,13 @@ static NSString * const cellID = @"commodityList";
     CGFloat height = [UIScreen mainScreen].bounds.size.height - y;
     self.tableView.frame = CGRectMake(x, y, width, height);
     
-    [self loadSearchBar];
+    [self loadSearchWord];
     [self reloadDataWithQuery:@"1"];
+}
+
+- (void)dealloc {
+    [self.searchController.view removeFromSuperview]; // It works!
+//    [self.searchController loadViewIfNeeded];
 }
 
 #pragma mark - prviate methods
@@ -80,6 +82,8 @@ static NSString * const cellID = @"commodityList";
     leftButtonItem.tintColor = MAIN_TITLE_COLOR;
     self.navigationItem.leftBarButtonItem = leftButtonItem;
     self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
+    
+    self.navigationItem.titleView = self.searchController.searchBar;
 }
 
 - (void)comeBack {
@@ -93,16 +97,14 @@ static NSString * const cellID = @"commodityList";
     } Failure:nil];
 }
 
-- (void)loadSearchBar {
-    NSString *keyword = _searchWords;
+- (void)loadSearchWord {
+    NSString *keyword = self.searchWords;
     if (keyword == nil) {
         keyword = @"搜索商品名称/商品编号";
         [XSSearchBarHelper hackStandardSearchBar:self.searchController.searchBar keyword:keyword];
     } else {
         self.searchController.searchBar.text = keyword;
     }
-    
-    self.navigationItem.titleView = _searchController.searchBar;
 }
 
 #pragma mark - XSSegmentControlDelegate
@@ -215,7 +217,7 @@ static NSString * const cellID = @"commodityList";
                 XSCommodityListViewController *lvc = (XSCommodityListViewController *)weakSelf;
                 [lvc searchController].active = NO;
                 lvc.searchWords = searchWord;
-                [lvc loadSearchBar];
+                [lvc loadSearchWord];
                 [lvc reloadDataWithQuery:@"1"];
             } else {
                 XSCommodityListViewController *comListViewController = [[XSCommodityListViewController alloc] init];
@@ -231,12 +233,16 @@ static NSString * const cellID = @"commodityList";
         };
         
         _searchController.willDismissSearchBlock = ^(UISearchController *searchController) {
+            UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:weakSelf action:@selector(comeBack)];
+            leftButtonItem.tintColor = MAIN_TITLE_COLOR;
+            weakSelf.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)weakSelf;
             [UIView animateWithDuration:0.4 animations:^{
-                UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:weakSelf action:@selector(comeBack)];
-                leftButtonItem.tintColor = MAIN_TITLE_COLOR;
                 weakSelf.navigationItem.leftBarButtonItem = leftButtonItem;
-                weakSelf.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)weakSelf;
             }];
+        };
+        
+        _searchController.didDismissSearchBlock = ^(UISearchController *searchController) {
+            weakSelf.searchController.searchBar.text = weakSelf.searchWords;
         };
     }
     return _searchController;

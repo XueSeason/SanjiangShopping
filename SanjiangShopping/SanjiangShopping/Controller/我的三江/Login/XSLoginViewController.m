@@ -14,6 +14,8 @@
 #import "ThemeColor.h"
 #import "XSNavigationBarHelper.h"
 
+#import "UserModel.h"
+
 @interface XSLoginViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *accountTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -75,7 +77,11 @@
 }
 
 - (IBAction)login:(UIButton *)sender {
+    UserModel *user = [[UserModel alloc] init];
+    NSData *userData = [NSKeyedArchiver archivedDataWithRootObject:user];
+    [[NSUserDefaults standardUserDefaults] setObject:userData forKey:@"user"];
     
+    [self.parentViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)forgetPassword:(UIButton *)sender {
@@ -108,15 +114,5 @@
     [_accountTextField resignFirstResponder];
     [_passwordTextField resignFirstResponder];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -10,6 +10,8 @@
 #import "XSAccountCenterView.h"
 #import "AppMacro.h"
 
+#import "UserModel.h"
+
 #import "XSSettingViewController.h"
 
 #import "XSLoginViewController.h"
@@ -29,10 +31,17 @@
 #import "XSHelpCenterViewController.h"
 
 @interface XSAccountViewController ()
-
+@property (strong, nonatomic) XSAccountCenterView *mainView;
+@property (strong, nonatomic) UserModel *user;
 @end
 
 @implementation XSAccountViewController
+
+#pragma mark - life cycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self.view addSubview:self.mainView];
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -41,37 +50,57 @@
     self.navigationController.navigationBarHidden = YES;
     self.tabBarController.tabBar.hidden           = NO;
     self.automaticallyAdjustsScrollViewInsets     = NO;
+    
+    if (self.user != nil) {
+        self.mainView.loginButton.hidden = YES;
+        self.mainView.loginLabel.hidden = YES;
+        
+        self.mainView.avatar.hidden = NO;
+        self.mainView.nameLabel.hidden = NO;
+        self.mainView.memberLabel.hidden = NO;
+        self.mainView.updateMemberButton.hidden = NO;
+        self.mainView.memberImageView.hidden = NO;
+    } else {
+        self.mainView.loginButton.hidden = NO;
+        self.mainView.loginLabel.hidden = NO;
+        
+        self.mainView.avatar.hidden = YES;
+        self.mainView.nameLabel.hidden = YES;
+        self.mainView.memberLabel.hidden = YES;
+        self.mainView.updateMemberButton.hidden = YES;
+        self.mainView.memberImageView.hidden = YES;
+
+    }
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    XSAccountCenterView *mainView = [[XSAccountCenterView alloc] initWithFrame:[UIScreen mainScreen].bounds];
-    
-    [mainView.loginButton addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
-    [mainView.settingButton addTarget:self action:@selector(setting) forControlEvents:UIControlEventTouchUpInside];
-    [mainView.orderView addTarget:self action:@selector(order) forControlEvents:UIControlEventTouchUpInside];
-    [mainView.tradeView.waitPayControl addTarget:self action:@selector(waitPay) forControlEvents:UIControlEventTouchUpInside];
-    [mainView.tradeView.waitReceiptControl addTarget:self action:@selector(waitReceipt) forControlEvents:UIControlEventTouchUpInside];
-    [mainView.tradeView.waitFeedbackControl addTarget:self action:@selector(waitFeedback) forControlEvents:UIControlEventTouchUpInside];
-    [mainView.memberCardView addTarget:self action:@selector(memberCard) forControlEvents:UIControlEventTouchUpInside];
-    [mainView.favoriteView addTarget:self action:@selector(favorite) forControlEvents:UIControlEventTouchUpInside];
-    [mainView.addressView addTarget:self action:@selector(address) forControlEvents:UIControlEventTouchUpInside];
-    [mainView.couponView addTarget:self action:@selector(coupon) forControlEvents:UIControlEventTouchUpInside];
-    [mainView.scoreView addTarget:self action:@selector(score) forControlEvents:UIControlEventTouchUpInside];
-    [mainView.helpView addTarget:self action:@selector(help) forControlEvents:UIControlEventTouchUpInside];
-    
-//    mainView.loginButton.hidden = YES;
-//    mainView.loginLabel.hidden = YES;
-    mainView.avatar.hidden = YES;
-    mainView.nameLabel.hidden = YES;
-    mainView.memberLabel.hidden = YES;
-    mainView.updateMemberButton.hidden = YES;
-    mainView.memberImageView.hidden = YES;
-
-    [self.view addSubview:mainView];
+#pragma mark - getters and setters
+- (XSAccountCenterView *)mainView {
+    if (_mainView == nil) {
+        _mainView = [[XSAccountCenterView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        
+        [_mainView.loginButton addTarget:self action:@selector(login) forControlEvents:UIControlEventTouchUpInside];
+        [_mainView.settingButton addTarget:self action:@selector(setting) forControlEvents:UIControlEventTouchUpInside];
+        [_mainView.orderView addTarget:self action:@selector(order) forControlEvents:UIControlEventTouchUpInside];
+        [_mainView.tradeView.waitPayControl addTarget:self action:@selector(waitPay) forControlEvents:UIControlEventTouchUpInside];
+        [_mainView.tradeView.waitReceiptControl addTarget:self action:@selector(waitReceipt) forControlEvents:UIControlEventTouchUpInside];
+        [_mainView.tradeView.waitFeedbackControl addTarget:self action:@selector(waitFeedback) forControlEvents:UIControlEventTouchUpInside];
+        [_mainView.memberCardView addTarget:self action:@selector(memberCard) forControlEvents:UIControlEventTouchUpInside];
+        [_mainView.favoriteView addTarget:self action:@selector(favorite) forControlEvents:UIControlEventTouchUpInside];
+        [_mainView.addressView addTarget:self action:@selector(address) forControlEvents:UIControlEventTouchUpInside];
+        [_mainView.couponView addTarget:self action:@selector(coupon) forControlEvents:UIControlEventTouchUpInside];
+        [_mainView.scoreView addTarget:self action:@selector(score) forControlEvents:UIControlEventTouchUpInside];
+        [_mainView.helpView addTarget:self action:@selector(help) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _mainView;
 }
 
-#pragma mark 按钮点击事件
+#pragma mark - private methods
+- (UserModel *)user {
+    _user = [NSKeyedUnarchiver unarchiveObjectWithData:[[NSUserDefaults standardUserDefaults] objectForKey:@"user"]];
+    return _user;
+}
+
+#pragma mark - event response
 - (void)login {
     XSLoginViewController *loginViewController = [[XSLoginViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:loginViewController];
@@ -83,48 +112,88 @@
 }
 
 - (void)order {
-    [self.navigationController pushViewController:[[XSMyOrderViewController alloc] init] animated:YES];
+    if (self.user) {
+        [self.navigationController pushViewController:[[XSMyOrderViewController alloc] init] animated:YES];
+    } else {
+        [self login];
+    }
 }
 
 - (void)waitPay {
     NSLog(@"waitPay");
+    if (self.user) {
+
+    } else {
+        [self login];
+    }
 }
 
 - (void)waitReceipt {
-    [self.navigationController pushViewController:[[XSLogisticsViewController alloc] init] animated:YES];
+    if (self.user) {
+        [self.navigationController pushViewController:[[XSLogisticsViewController alloc] init] animated:YES];
+    } else {
+        [self login];
+    }
 }
 
 - (void)waitFeedback {
     NSLog(@"wait feed back");
+    if (self.user) {
+
+    } else {
+        [self login];
+    }
 }
 
 - (void)memberCard {
     NSLog(@"memberCard");
-    
-//    XSWriteMemberNameViewController *wvc = [[XSWriteMemberNameViewController alloc] init];
-//    [self.navigationController pushViewController:wvc animated:YES];
-    
-    XSBindMemberCardViewController *bvc = [[XSBindMemberCardViewController alloc] init];
-    [self.navigationController pushViewController:bvc animated:YES];
-    
-//    XSMyMemberCardViewController *mvc = [[XSMyMemberCardViewController alloc] init];
-//    [self.navigationController pushViewController:mvc animated:YES];
+
+    if (self.user) {
+        //    XSWriteMemberNameViewController *wvc = [[XSWriteMemberNameViewController alloc] init];
+        //    [self.navigationController pushViewController:wvc animated:YES];
+        
+        XSBindMemberCardViewController *bvc = [[XSBindMemberCardViewController alloc] init];
+        [self.navigationController pushViewController:bvc animated:YES];
+        
+        //    XSMyMemberCardViewController *mvc = [[XSMyMemberCardViewController alloc] init];
+        //    [self.navigationController pushViewController:mvc animated:YES];
+    } else {
+        [self login];
+    }
 }
 
 - (void)favorite {
-    [self.navigationController pushViewController:[[XSMyFavoriteViewController alloc] init] animated:YES];
+    if (self.user) {
+        [self.navigationController pushViewController:[[XSMyFavoriteViewController alloc] init] animated:YES];
+    } else {
+        [self login];
+    }
 }
 
 - (void)address {
-    [self.navigationController pushViewController:[[XSAddressManageViewController alloc] init] animated:YES];
+    if (self.user) {
+        [self.navigationController pushViewController:[[XSAddressManageViewController alloc] init] animated:YES];
+    } else {
+        [self login];
+    }
 }
 
 - (void)coupon {
-    [self.navigationController pushViewController:[[XSMyCouponViewController alloc] init] animated:YES];
+    if (self.user) {
+        [self.navigationController pushViewController:[[XSMyCouponViewController alloc] init] animated:YES];
+    } else {
+        [self login];
+    }
 }
 
 - (void)score {
     NSLog(@"score");
+    
+    if (self.user) {
+
+    } else {
+        [self login];
+    }
 }
 
 - (void)help {

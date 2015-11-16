@@ -65,6 +65,7 @@
 		B161CDCA1B96CA7000D4689C /* HotWordsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B161CD9D1B96CA7000D4689C /* HotWordsModel.m */; };
 		B16487751BB256C200778A07 /* XS4211View.m in Sources */ = {isa = PBXBuildFile; fileRef = B16487741BB256C200778A07 /* XS4211View.m */; };
 		B16D5AFC1BEC46DB00B72B3B /* XSSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = B16D5AFB1BEC46DB00B72B3B /* XSSearchController.m */; };
+		B172637D1BF9ACAE00412546 /* UserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B172637C1BF9ACAE00412546 /* UserModel.m */; };
 		B174E9431BD9C4B00091E703 /* XSExchangeCouponViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B174E9411BD9C4B00091E703 /* XSExchangeCouponViewController.m */; };
 		B174E9441BD9C4B00091E703 /* XSExchangeCouponViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B174E9421BD9C4B00091E703 /* XSExchangeCouponViewController.xib */; };
 		B174E9661BD9CD3D0091E703 /* XSMyOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B174E9651BD9CD3D0091E703 /* XSMyOrderDetailViewController.m */; };
@@ -309,6 +310,8 @@
 		B16487741BB256C200778A07 /* XS4211View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XS4211View.m; sourceTree = "<group>"; };
 		B16D5AFA1BEC46DB00B72B3B /* XSSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSSearchController.h; sourceTree = "<group>"; };
 		B16D5AFB1BEC46DB00B72B3B /* XSSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSSearchController.m; sourceTree = "<group>"; };
+		B172637B1BF9ACAE00412546 /* UserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserModel.h; sourceTree = "<group>"; };
+		B172637C1BF9ACAE00412546 /* UserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserModel.m; sourceTree = "<group>"; };
 		B174E9401BD9C4B00091E703 /* XSExchangeCouponViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSExchangeCouponViewController.h; sourceTree = "<group>"; };
 		B174E9411BD9C4B00091E703 /* XSExchangeCouponViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSExchangeCouponViewController.m; sourceTree = "<group>"; };
 		B174E9421BD9C4B00091E703 /* XSExchangeCouponViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSExchangeCouponViewController.xib; sourceTree = "<group>"; };
@@ -921,6 +924,7 @@
 				B161CD981B96CA7000D4689C /* Promotion */,
 				B1D931F21B9EEB0700498D8B /* Cart */,
 				B161CD9B1B96CA7000D4689C /* Search */,
+				B172637A1BF9AC8600412546 /* AccountCenter */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -967,6 +971,15 @@
 				B161CD9D1B96CA7000D4689C /* HotWordsModel.m */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		B172637A1BF9AC8600412546 /* AccountCenter */ = {
+			isa = PBXGroup;
+			children = (
+				B172637B1BF9ACAE00412546 /* UserModel.h */,
+				B172637C1BF9ACAE00412546 /* UserModel.m */,
+			);
+			path = AccountCenter;
 			sourceTree = "<group>";
 		};
 		B174E9451BD9CB790091E703 /* 订单流程 */ = {
@@ -1921,6 +1934,7 @@
 				B1F43D1E1BC6004F009F19DA /* XSMyMemberCardViewController.m in Sources */,
 				B1F43D261BC6004F009F19DA /* XSAccountCenterView.m in Sources */,
 				B1BFDC231BE71183009B8D80 /* XSBuyNowTableViewCell.m in Sources */,
+				B172637D1BF9ACAE00412546 /* UserModel.m in Sources */,
 				B161CD081B96C9F300D4689C /* main.m in Sources */,
 				B1BCF6C41BB3CEDF006020E3 /* XS1111WhiteView.m in Sources */,
 				B1DC5C711BD086B6002B35DB /* XSBannerCollectionReusableView.m in Sources */,

@@ -113,6 +113,7 @@ static NSString * const clearID = @"clear";
 }
 
 - (void)logout {
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"user"];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 

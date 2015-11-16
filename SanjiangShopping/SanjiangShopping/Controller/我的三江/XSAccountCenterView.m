@@ -204,7 +204,7 @@ static const CGFloat step = 8.0f;
     [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-70-[name]-[btn(==member)]" options:0 metrics:nil views:userMap]];
     [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-80-[img1(==35)]" options:0 metrics:nil views:userMap]];
     // 临时数据
-//    self.avatar.image = [UIImage imageNamed:@""];
+    self.avatar.image = [UIImage imageNamed:@""];
     self.nameLabel.text = @"XueSeason";
     self.memberLabel.text = @"惠用户";
     
