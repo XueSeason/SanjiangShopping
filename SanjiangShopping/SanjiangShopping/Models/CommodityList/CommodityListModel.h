@@ -8,6 +8,9 @@
 
 #import "BaseModel.h"
 
+typedef void (^SuccessCommodityListBlock)();
+typedef void (^FailureCommodityListBlock)(NSError *error);
+
 @interface CommodityListItemModel : NSObject
 @property (copy, nonatomic) NSString *itemID;
 @property (assign, nonatomic) NSInteger jt;
@@ -24,4 +27,5 @@
 
 @interface CommodityListModel : BaseModel
 @property (strong, nonatomic) CommodityListDataModel *data;
+- (void)loadCommodityListWithQueryFormat:(NSString *)query Success:(SuccessCommodityListBlock)success Failure:(FailureCommodityListBlock)failure;
 @end

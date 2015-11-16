@@ -17,6 +17,6 @@
 @property (strong, nonatomic) XSSegmentControl   *segmentControl;
 @property (copy, nonatomic) NSString *searchWords;
 
-- (void)reloadData;
+- (void)reloadDataWithQuery:(NSString *)query;
 
 @end

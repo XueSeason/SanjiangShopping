@@ -9,6 +9,9 @@
 #import "CommodityListModel.h"
 #import <MJExtension.h>
 
+#import "XSAPIManager.h"
+#import "NetworkConstant.h"
+
 @implementation CommodityListItemModel
 - (instancetype)init
 {
@@ -41,5 +44,26 @@
 
 
 @implementation CommodityListModel
+- (void)loadCommodityListWithQueryFormat:(NSString *)query Success:(SuccessCommodityListBlock)success Failure:(FailureCommodityListBlock)failure {
+    
+    NSString *urlStr = [NSString stringWithFormat:@"%@%@:%@%@%@", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_COMMODITY_LIST, query];
 
+    __weak typeof(self) weakSelf = self;
+    XSAPIManager *manager = [XSAPIManager manager];
+    [manager GET:urlStr parameters:nil success:^(id responseObject) {
+        CommodityListModel *model = [CommodityListModel mj_objectWithKeyValues:responseObject];
+        weakSelf.data             = model.data;
+        weakSelf.code             = model.code;
+        weakSelf.codeMessage      = model.codeMessage;
+        
+        if (success) {
+            success();
+        }
+        
+    } failure:^(NSError *error) {
+        if (failure) {
+            failure(error);
+        }
+    }];
+}
 @end

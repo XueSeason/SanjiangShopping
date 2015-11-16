@@ -258,7 +258,7 @@ static NSString * const collectionBannerID = @"banner";
                 XSCommodityListViewController *lvc = (XSCommodityListViewController *)weakSelf;
                 [lvc searchController].active = NO;
                 lvc.searchWords = searchWord;
-                [lvc reloadData];
+                [lvc reloadDataWithQuery:@"1"];
             } else {
                 XSCommodityListViewController *comListViewController = [[XSCommodityListViewController alloc] init];
                 comListViewController.searchWords = searchWord;

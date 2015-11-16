@@ -30,15 +30,13 @@
 
 static NSString * const cellID = @"commodityList";
 
-@interface XSCommodityListViewController ()
-<XSSegmentControlDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface XSCommodityListViewController () <XSSegmentControlDelegate, UITableViewDataSource, UITableViewDelegate>
 @property (strong, nonatomic) NSMutableArray   *segmentArr;
 @property (strong, nonatomic) UITableView      *tableView;
 
 @property (strong, nonatomic) XSResultTableViewController *resultTableViewController;
 
 @property (strong, nonatomic) CommodityListModel *commodityListModel;
-@property (copy, nonatomic)   NSString *urlStr;
 
 @property (strong, nonatomic) XSFilterViewController *filterController;
 
@@ -46,135 +44,56 @@ static NSString * const cellID = @"commodityList";
 
 @implementation XSCommodityListViewController
 
+#pragma mark - life cycle
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    [self customNavigationBar];
+    [self loadSearchBar];
+    
+    [self.view addSubview:self.segmentControl];
+    [self.view addSubview:self.tableView];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     
-    // 状态栏样式
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    // 隐藏TabBar
     self.tabBarController.tabBar.hidden = YES;
-    self.definesPresentationContext = YES;
+    self.definesPresentationContext     = YES;
+    self.searchController.active        = NO;
     
-    if (self.searchController.active) {
-        self.searchController.active = NO;
-    }
+    self.segmentControl.selectedIndex = 0;
     
-    _segmentControl.selectedIndex = 0;
+    CGFloat x = 0;
+    CGFloat y = self.segmentControl.frame.origin.y + self.segmentControl.frame.size.height;
+    CGFloat width  = self.segmentControl.frame.size.width;
+    CGFloat height = [UIScreen mainScreen].bounds.size.height - y;
+    self.tableView.frame = CGRectMake(x, y, width, height);
     
-    _urlStr = [NSString stringWithFormat:@"%@%@:%@%@1", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_COMMODITY_LIST];
-    [self reloadData];
+    [self reloadDataWithQuery:@"1"];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+#pragma mark - prviate methods
+- (void)customNavigationBar {
     [self.navigationController.navigationBar setTintColor:[UIColor darkGrayColor]];
     UIBarButtonItem *leftButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"arrow_left"] style:UIBarButtonItemStylePlain target:self action:@selector(comeBack)];
     leftButtonItem.tintColor = MAIN_TITLE_COLOR;
     self.navigationItem.leftBarButtonItem = leftButtonItem;
     self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
-    
-    // 加载搜索框
-    [self loadSearchBar];
-    
-    NSArray *segmentTitles = @[@"综合排序", @"销量", @"价格", @"筛选"];
-    _segmentControl = [[XSSegmentControl alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 44)];
-    _segmentControl.titles = segmentTitles;
-    _segmentControl.delegate = self;
-    _segmentControl.selectedIndex = 0;
-    _segmentControl.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
-    _segmentControl.layer.borderWidth = 1.0f;
-    [self.view addSubview:_segmentControl];
-    
-    CGFloat x = 0;
-    CGFloat y = _segmentControl.frame.origin.y + _segmentControl.frame.size.height;
-    CGFloat width = _segmentControl.frame.size.width;
-    CGFloat height = [UIScreen mainScreen].bounds.size.height - y;
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(x, y, width, height)];
-    _tableView.dataSource = self;
-    _tableView.delegate = self;
-    _tableView.backgroundColor = OTHER_SEPARATOR_COLOR;
-    [self.view addSubview:_tableView];
-    
-    [_tableView registerClass:[XSCommodityListTableViewCell class] forCellReuseIdentifier:cellID];
-    [_tableView registerNib:[UINib nibWithNibName:@"XSCommodityListTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
-}
-
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:animated];
 }
 
 - (void)comeBack {
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (void)segmentItemSelected:(XSSegmentControlItem *)item {
-    
-    if (item.tag == 3) {
-        
-        if (!_filterController) {
-            _filterController = [[XSFilterViewController alloc] init];
-        }
-        
-        if (![self.view.subviews containsObject:_filterController.view]) {
-            [self.view addSubview:_filterController.view];
-            _filterController.view.frame = CGRectMake(_tableView.frame.origin.x + _tableView.frame.size.width, _tableView.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height);
-            [UIView animateWithDuration:0.4 animations:^{
-                _filterController.view.frame = _tableView.frame;
-            }];
-        }
-        
-        return;
-    }
-    
-    if (_filterController != nil) {
-        [UIView animateWithDuration:0.4 animations:^{
-            _filterController.view.frame = CGRectMake(_tableView.frame.origin.x + _tableView.frame.size.width, _tableView.frame.origin.y, _tableView.frame.size.width, _tableView.frame.size.height);
-        } completion:^(BOOL finished) {
-            [_filterController.view removeFromSuperview];
-            _filterController = nil;
-        }];
-    }
-    
-    _urlStr = [NSString stringWithFormat:@"%@%@:%@%@%ld", PROTOCOL, SERVICE_ADDRESS, DEFAULT_PORT, ROUTER_COMMODITY_LIST, (long)item.tag % 3 + 1];
-    [self loadJSONData];
-}
-
-#pragma mark - 加载搜索框
-- (void)reloadData {
-    NSString *keyword = _searchWords;
-    if (keyword == nil) {
-        keyword = @"搜索商品名称/商品编号";
-    }
-    self.searchController.searchBar.text = keyword;
-    [XSSearchBarHelper hackStandardSearchBar:_searchController.searchBar keyword:nil];
-    
-    [self loadJSONData];
-}
-
-- (void)loadJSONData {
-    
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    [manager.requestSerializer setValue:@"utf-8" forHTTPHeaderField:@"charset"];
-    [manager.requestSerializer setValue:@"text/plain" forHTTPHeaderField:@"Content-Type"];
-    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", nil];
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+- (void)reloadDataWithQuery:(NSString *)query {
     __weak typeof(self) weakSelf = self;
-    [manager GET:_urlStr parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        weakSelf.commodityListModel = [CommodityListModel mj_objectWithKeyValues:responseObject];
+    [self.commodityListModel loadCommodityListWithQueryFormat:query Success:^{
         [weakSelf.tableView reloadData];
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"未连接" message:@"无法加载数据" delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil];
-        [alert show];
-        NSLog(@"%@", error);
-    }];
+    } Failure:nil];
 }
 
 - (void)loadSearchBar {
-    
-    // 设置搜索框样式
     NSString *keyword = _searchWords;
     if (keyword == nil) {
         keyword = @"搜索商品名称/商品编号";
@@ -183,11 +102,101 @@ static NSString * const cellID = @"commodityList";
         self.searchController.searchBar.text = keyword;
     }
     
-    
     self.navigationItem.titleView = _searchController.searchBar;
 }
 
+#pragma mark - XSSegmentControlDelegate
+- (void)segmentItemSelected:(XSSegmentControlItem *)item {
+    
+    if (item.tag == 3) {
+        
+        if (![self.view.subviews containsObject:self.filterController.view]) {
+            [self.view addSubview:self.filterController.view];
+            self.filterController.view.frame = CGRectMake(self.tableView.frame.origin.x + self.tableView.frame.size.width, self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height);
+            [UIView animateWithDuration:0.4 animations:^{
+                self.filterController.view.frame = self.tableView.frame;
+            }];
+        }
+        
+        return;
+    }
+    
+    if (_filterController != nil) {
+        [UIView animateWithDuration:0.4 animations:^{
+            self.filterController.view.frame = CGRectMake(self.tableView.frame.origin.x + self.tableView.frame.size.width, self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height);
+        } completion:^(BOOL finished) {
+            [self.filterController.view removeFromSuperview];
+            self.filterController = nil;
+        }];
+    }
+    
+    [self reloadDataWithQuery:[NSString stringWithFormat:@"%ld", (long)item.tag % 3 + 1]];
+}
+
+#pragma mark - UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.commodityListModel.data.list.count;
+}
+
+- (XSCommodityListTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    XSCommodityListTableViewCell *cell = (XSCommodityListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    
+    CommodityListItemModel *item = self.commodityListModel.data.list[indexPath.row];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.backgroundColor = BACKGROUND_COLOR;
+    
+    [cell.picture sd_setImageWithURL:[NSURL URLWithString:item.img]];
+    cell.name.text = item.name;
+    cell.pn.text = [NSString stringWithFormat:@"￥%@", item.pn];
+    cell.rate.text = [NSString stringWithFormat:@"好评率%@%%", item.rate];
+    
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 120;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    XSCommodityViewController *viewController = [[XSCommodityViewController alloc] init];
+    [self.navigationController pushViewController:viewController animated:YES];
+}
+
 #pragma mark - getters and setters
+- (XSSegmentControl *)segmentControl {
+    if (_segmentControl == nil) {
+        NSArray *segmentTitles = @[@"综合排序", @"销量", @"价格", @"筛选"];
+        _segmentControl = [[XSSegmentControl alloc] initWithFrame:CGRectMake(0, 64, [UIScreen mainScreen].bounds.size.width, 44)];
+        _segmentControl.titles = segmentTitles;
+        _segmentControl.delegate = self;
+        _segmentControl.selectedIndex = 0;
+        _segmentControl.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
+        _segmentControl.layer.borderWidth = 1.0f;
+    }
+    return _segmentControl;
+}
+
+- (UITableView *)tableView {
+    if (_tableView == nil) {
+        _tableView = [[UITableView alloc] init];
+        _tableView.dataSource = self;
+        _tableView.delegate   = self;
+        _tableView.backgroundColor = OTHER_SEPARATOR_COLOR;
+        
+        [_tableView registerClass:[XSCommodityListTableViewCell class] forCellReuseIdentifier:cellID];
+        [_tableView registerNib:[UINib nibWithNibName:@"XSCommodityListTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
+    }
+    return _tableView;
+}
+
+- (CommodityListModel *)commodityListModel {
+    if (_commodityListModel == nil) {
+        _commodityListModel = [[CommodityListModel alloc] init];
+    }
+    return _commodityListModel;
+}
+
 - (XSResultTableViewController *)resultTableViewController {
     if (_resultTableViewController == nil) {
         _resultTableViewController = [[XSResultTableViewController alloc] init];
@@ -206,7 +215,7 @@ static NSString * const cellID = @"commodityList";
                 XSCommodityListViewController *lvc = (XSCommodityListViewController *)weakSelf;
                 [lvc searchController].active = NO;
                 lvc.searchWords = searchWord;
-                [lvc reloadData];
+                [lvc reloadDataWithQuery:@"1"];
             } else {
                 XSCommodityListViewController *comListViewController = [[XSCommodityListViewController alloc] init];
                 comListViewController.searchWords = searchWord;
@@ -232,33 +241,11 @@ static NSString * const cellID = @"commodityList";
     return _searchController;
 }
 
-#pragma mark - Table View Data Source
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return _commodityListModel.data.list.count;
+- (XSFilterViewController *)filterController {
+    if (_filterController == nil) {
+        _filterController = [[XSFilterViewController alloc] init];
+    }
+    return _filterController;
 }
 
-- (XSCommodityListTableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    XSCommodityListTableViewCell *cell = (XSCommodityListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-    
-    CommodityListItemModel *item = _commodityListModel.data.list[indexPath.row];
-
-    [cell.picture sd_setImageWithURL:[NSURL URLWithString:item.img]];
-    cell.name.text = item.name;
-    cell.pn.text = [NSString stringWithFormat:@"￥%@", item.pn];
-    cell.rate.text = [NSString stringWithFormat:@"好评率%@%%", item.rate];
-    
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    cell.backgroundColor = BACKGROUND_COLOR;
-    return cell;
-}
-
-#pragma mark - Table View Delegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 120;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    XSCommodityViewController *viewController = [[XSCommodityViewController alloc] init];
-    [self.navigationController pushViewController:viewController animated:YES];
-}
 @end
