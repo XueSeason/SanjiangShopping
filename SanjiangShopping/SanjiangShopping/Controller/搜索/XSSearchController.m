@@ -119,6 +119,7 @@ static NSString * const clearID  = @"clear";
     [self.tableView reloadData];
 }
 
+#pragma mark - event response
 - (void)hotWordsTap:(UIButton *)sender {
     [self.recentSearchData addUniqueString:[sender.titleLabel.text copy]];
     

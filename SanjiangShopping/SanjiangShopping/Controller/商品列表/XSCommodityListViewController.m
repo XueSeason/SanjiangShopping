@@ -48,7 +48,6 @@ static NSString * const cellID = @"commodityList";
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self customNavigationBar];
-    [self loadSearchBar];
     
     [self.view addSubview:self.segmentControl];
     [self.view addSubview:self.tableView];
@@ -70,6 +69,7 @@ static NSString * const cellID = @"commodityList";
     CGFloat height = [UIScreen mainScreen].bounds.size.height - y;
     self.tableView.frame = CGRectMake(x, y, width, height);
     
+    [self loadSearchBar];
     [self reloadDataWithQuery:@"1"];
 }
 
@@ -215,6 +215,7 @@ static NSString * const cellID = @"commodityList";
                 XSCommodityListViewController *lvc = (XSCommodityListViewController *)weakSelf;
                 [lvc searchController].active = NO;
                 lvc.searchWords = searchWord;
+                [lvc loadSearchBar];
                 [lvc reloadDataWithQuery:@"1"];
             } else {
                 XSCommodityListViewController *comListViewController = [[XSCommodityListViewController alloc] init];
