@@ -18,6 +18,7 @@
 @interface XSSegmentControlItem : UIControl
 @property (strong, nonatomic) UILabel *label;
 @property (strong, nonatomic) UILabel *line;
+@property (strong, nonatomic) UIImageView *switchImageView;
 @end
 
 @interface XSSegmentControl : UIView
