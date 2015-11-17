@@ -19,36 +19,29 @@
 
 #import "XSCommodityListViewController.h"
 
+#import <FMDB.h>
+
 static NSString * const recentID = @"recent";
 static NSString * const clearID  = @"clear";
-
-@implementation NSMutableArray (add)
-
-- (void)addUniqueString:(NSString *)str {
-    for (NSString *temp in self) {
-        if ([temp isEqualToString:str]) {
-            return;
-        }
-    }
-    [self addObject:str];
-}
-
-@end
 
 @interface XSSearchController () <UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate, UITableViewDataSource, UITableViewDelegate>
 
 @property (strong, nonatomic) XSResultTableViewController *resultTableViewController;
 
-@property (strong, nonatomic) NSMutableArray   *recentSearchData;
+@property (strong, nonatomic) NSMutableArray   *recentSearchArr;
 
 @property (strong, nonatomic) UITableView   *tableView;
 @property (strong, nonatomic) UIView        *headerView;
 @property (strong, nonatomic) HotWordsView  *hotWordsView;
 @property (strong, nonatomic) HotWordsModel *hotWordsModel;
 
+@property (strong, nonatomic, readonly) NSString *dbPath;
+
 @end
 
 @implementation XSSearchController
+
+@synthesize dbPath = _dbPath;
 
 - (instancetype)initWithSearchResultsController:(XSResultTableViewController *)searchResultsController {
     self = [super initWithSearchResultsController:searchResultsController];
@@ -80,6 +73,12 @@ static NSString * const clearID  = @"clear";
     
     [self.view addSubview:self.tableView];
     
+    FMDatabase *db = [FMDatabase databaseWithPath:self.dbPath];
+    if ([db open]) {
+        [db executeUpdate:@"CREATE TABLE IF NOT EXISTS HistoryRecord (content text PRIMARY KEY, date datetime)"];
+        [db close];
+    }
+    
     [self loadHotWords];
 }
 
@@ -100,32 +99,41 @@ static NSString * const clearID  = @"clear";
 }
 
 - (void)loadHistoryRecord {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    if ([defaults objectForKey:@"histroyRecord"] != nil) {
-        self.recentSearchData = [[defaults objectForKey:@"histroyRecord"] mutableCopy];
-    } else {
-        self.recentSearchData = [[NSMutableArray alloc] init];
+    
+    FMDatabase *db = [FMDatabase databaseWithPath:self.dbPath];
+    if ([db open]) {
+        [self.recentSearchArr removeAllObjects];
+        FMResultSet *s = [db executeQuery:@"SELECT * FROM HistoryRecord ORDER BY date DESC"];
+        while ([s next]) {
+            NSString *str = [s stringForColumn:@"content"];
+            [self.recentSearchArr addObject:str];
+        }
+        [db close];
+        [self.tableView reloadData];
     }
-    [self.tableView reloadData];
 }
 
 - (void)clearHistory {
-    [self.recentSearchData removeAllObjects];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:nil forKey:@"histroyRecord"];
-    [defaults synchronize];
-    
-    [self.tableView reloadData];
+    FMDatabase *db = [FMDatabase databaseWithPath:self.dbPath];
+    if ([db open]) {
+        [db executeUpdate:@"DROP TABLE HistoryRecord"];
+        [db executeUpdate:@"CREATE TABLE IF NOT EXISTS HistoryRecord (content text PRIMARY KEY, date datetime)"];
+        [db close];
+        [self.recentSearchArr removeAllObjects];
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - event response
 - (void)hotWordsTap:(UIButton *)sender {
-    [self.recentSearchData addUniqueString:[sender.titleLabel.text copy]];
-    
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:self.recentSearchData forKey:@"histroyRecord"];
-    [defaults synchronize];
+    FMDatabase *db = [FMDatabase databaseWithPath:self.dbPath];
+    if ([db open]) {
+        BOOL res = [db executeUpdate:@"INSERT INTO HistoryRecord VALUES (?, ?)", sender.titleLabel.text, [NSDate date]];
+        if (!res) {
+            [db executeUpdate:@"UPDATE HistoryRecord SET date = ? WHERE content = ?", [NSDate date], sender.titleLabel.text];
+        }
+        [db close];
+    }
     
     [self.tableView reloadData];
     
@@ -135,11 +143,11 @@ static NSString * const clearID  = @"clear";
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.recentSearchData.count + 1;
+    return self.recentSearchArr.count + 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == self.recentSearchData.count) {
+    if (indexPath.row == self.recentSearchArr.count) {
         // 清除历史
         XSClearHistoryTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:clearID forIndexPath:indexPath];
         [cell.clearButton addTarget:self action:@selector(clearHistory) forControlEvents:UIControlEventTouchUpInside];
@@ -147,7 +155,7 @@ static NSString * const clearID  = @"clear";
     }
     
     UITableViewCell *cell    = [tableView dequeueReusableCellWithIdentifier:recentID forIndexPath:indexPath];
-    cell.textLabel.text      = self.recentSearchData[indexPath.row];
+    cell.textLabel.text      = self.recentSearchArr[indexPath.row];
     cell.backgroundColor     = [UIColor clearColor];
     cell.selectionStyle      = UITableViewCellSelectionStyleNone;
     cell.textLabel.font      = [cell.textLabel.font fontWithSize:14.0];
@@ -170,7 +178,7 @@ static NSString * const clearID  = @"clear";
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == self.recentSearchData.count) {
+    if (indexPath.row == self.recentSearchArr.count) {
         return 250;
     }
     return 40.0;
@@ -178,20 +186,29 @@ static NSString * const clearID  = @"clear";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    __weak typeof(self) weakSelf = self;
-    if (indexPath.row != self.recentSearchData.count) {
+    if (indexPath.row != self.recentSearchArr.count) {
         UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        weakSelf.searchWordQuery(cell.textLabel.text);
+        self.searchWordQuery(cell.textLabel.text);
+        FMDatabase *db = [FMDatabase databaseWithPath:self.dbPath];
+        if ([db open]) {
+            [db executeUpdate:@"UPDATE HistoryRecord SET date = ? WHERE content = ?", [NSDate date], cell.textLabel.text];
+            [db close];
+        }
     }
     [self.searchBar resignFirstResponder];
 }
 
 #pragma mark - UISearchBarDelegate
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [self.recentSearchData addUniqueString:searchBar.text];
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:self.recentSearchData forKey:@"histroyRecord"];
-    [defaults synchronize];
+    FMDatabase *db = [FMDatabase databaseWithPath:self.dbPath];
+    if ([db open]) {
+        BOOL res = [db executeUpdate:@"INSERT INTO HistoryRecord (content, date) VALUES (?, ?)", searchBar.text, [NSDate date]];
+        if (!res) {
+            [db executeUpdate:@"UPDATE HistoryRecord SET date = ? WHERE content = ?", [NSDate date], searchBar.text];
+        }
+        [db close];
+    }
+    
     
     [self.tableView reloadData];
     [searchBar resignFirstResponder];
@@ -313,6 +330,23 @@ static NSString * const clearID  = @"clear";
         _hotWordsModel = [[HotWordsModel alloc] init];
     }
     return _hotWordsModel;
+}
+
+- (NSMutableArray *)recentSearchArr {
+    if (_recentSearchArr == nil) {
+        _recentSearchArr = [[NSMutableArray alloc] init];
+    }
+    return _recentSearchArr;
+}
+
+- (NSString *)dbPath {
+    if (_dbPath == nil) {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        NSString *documentDirectory = [paths lastObject];
+        _dbPath = [documentDirectory stringByAppendingPathComponent:@"sanjiang.sqlite"];
+        NSLog(@"%@", _dbPath);
+    }
+    return _dbPath;
 }
 
 @end

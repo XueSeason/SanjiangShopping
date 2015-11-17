@@ -10,10 +10,6 @@
 
 @class XSResultTableViewController;
 
-@interface NSMutableArray (add)
-- (void)addUniqueString:(NSString *)str;
-@end
-
 @interface XSSearchController : UISearchController
 
 @property (copy, nonatomic) void (^searchWordQuery)(NSString *searchWord);
