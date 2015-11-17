@@ -14,11 +14,11 @@ Xcode 7, iOS 8 or later.
 - pod install
 
 ## Showcase
-![image](https://github.com/XueSeason/SanjiangShopping/IMG_0052.PNG)
-![image](https://github.com/XueSeason/SanjiangShopping/IMG_0053.PNG)
-![image](https://github.com/XueSeason/SanjiangShopping/IMG_0054.PNG)
-![image](https://github.com/XueSeason/SanjiangShopping/IMG_0055.PNG)
-![image](https://github.com/XueSeason/SanjiangShopping/IMG_0056.PNG)
+![image](https://github.com/XueSeason/SanjiangShopping/blob/master/showcase/IMG_0052.PNG)
+![image](https://github.com/XueSeason/SanjiangShopping/blob/master/showcase/IMG_0053.PNG)
+![image](https://github.com/XueSeason/SanjiangShopping/blob/master/showcase/IMG_0054.PNG)
+![image](https://github.com/XueSeason/SanjiangShopping/blob/master/showcase/IMG_0055.PNG)
+![image](https://github.com/XueSeason/SanjiangShopping/blob/master/showcase/IMG_0056.PNG)
 
 ## Communication
 
