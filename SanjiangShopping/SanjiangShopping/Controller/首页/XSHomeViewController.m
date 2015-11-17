@@ -95,21 +95,15 @@ static const CGFloat step = 9.0f;
     
     self.definesPresentationContext = YES;
     
-    self.scrollView.frame         = self.view.bounds;
-    self.scrollView.contentInset  = UIEdgeInsetsMake(0.0f, 0.0f, self.tabBarController.tabBar.frame.size.height, 0.0f);
-    self.staticView.frame         = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width / 375.0 * 379.0);
-    self.bannerView.frame         = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width / 25 * 14);
-    self.buttonGridView.frame     = CGRectMake(0, self.bannerView.frame.size.height + self.bannerView.frame.origin.y, self.view.frame.size.width, self.view.frame.size.width / 750 * 338);
-    self.staticView.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
-    self.staticView.layer.borderWidth = 0.5f;
-    self.scrollView.contentSize   = CGSizeMake(self.view.frame.size.width, self.staticView.frame.origin.y + self.staticView.frame.size.height);
+    self.scrollView.frame        = self.view.bounds;
+    self.staticView.frame        = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width / 375.0 * 379.0);
+    self.bannerView.frame        = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.width / 25 * 14);
+    self.buttonGridView.frame    = CGRectMake(0, self.bannerView.frame.size.height + self.bannerView.frame.origin.y, self.view.frame.size.width, self.view.frame.size.width / 750 * 338);
     
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[button(==44)]-8-|" options:0 metrics:nil views:@{@"button": self.toTopButton}]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[button(==44)]-57-|" options:0 metrics:nil views:@{@"button": self.toTopButton}]];
     [self.toTopButton layoutIfNeeded];
     self.toTopButton.layer.cornerRadius = self.toTopButton.frame.size.width / 2.0;
-
-    [self refreshView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -313,6 +307,7 @@ static const CGFloat step = 9.0f;
         [defaults setObject:weakSelf.homeModel.data.keyword forKey:@"hotWord"];
         [defaults synchronize];
         
+        [weakSelf refreshView];
         [weakSelf.scrollView.mj_header endRefreshing];
         [MBProgressHUD hideHUDForView:weakSelf.view animated:YES];
     } Failure:^(NSError *error) {
@@ -336,6 +331,9 @@ static const CGFloat step = 9.0f;
 }
 
 - (void)refreshView {
+    
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.staticView.frame.origin.y + self.staticView.frame.size.height);
+    
     [self refreshStaticView];
     [self refreshDynamicView];
 }
@@ -460,6 +458,9 @@ static const CGFloat step = 9.0f;
 - (UIView *)staticView {
     if (_staticView == nil) {
         _staticView = [[UIView alloc] init];
+        _staticView.layer.borderColor = [OTHER_SEPARATOR_COLOR CGColor];
+        _staticView.layer.borderWidth = 0.5f;
+        _scrollView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, self.tabBarController.tabBar.frame.size.height, 0.0f);
         [_staticView addSubview:self.bannerView];
         [_staticView addSubview:self.buttonGridView];
     }
