@@ -80,6 +80,7 @@
 		B174E97F1BD9D59E0091E703 /* XSFourTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B174E97D1BD9D59E0091E703 /* XSFourTableViewCell.m */; };
 		B174E9801BD9D59E0091E703 /* XSFourTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B174E97E1BD9D59E0091E703 /* XSFourTableViewCell.xib */; };
 		B174E9821BD9DBDC0091E703 /* MyOrderViewButtonPannel.xib in Resources */ = {isa = PBXBuildFile; fileRef = B174E9811BD9DBDC0091E703 /* MyOrderViewButtonPannel.xib */; };
+		B1847B4E1BFAF70700AFAF26 /* XSBuyNowTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = B1847B4D1BFAF70700AFAF26 /* XSBuyNowTableViewHeader.m */; };
 		B19C25AA1BB4CAB5007F96CC /* XSThemeView.m in Sources */ = {isa = PBXBuildFile; fileRef = B19C25A91BB4CAB5007F96CC /* XSThemeView.m */; };
 		B19C25F61BB4F6C2007F96CC /* BuyPannel.xib in Resources */ = {isa = PBXBuildFile; fileRef = B19C25F51BB4F6C2007F96CC /* BuyPannel.xib */; };
 		B19C25FE1BB51437007F96CC /* XSNameView.m in Sources */ = {isa = PBXBuildFile; fileRef = B19C25FD1BB51437007F96CC /* XSNameView.m */; };
@@ -333,6 +334,8 @@
 		B174E97D1BD9D59E0091E703 /* XSFourTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSFourTableViewCell.m; sourceTree = "<group>"; };
 		B174E97E1BD9D59E0091E703 /* XSFourTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSFourTableViewCell.xib; sourceTree = "<group>"; };
 		B174E9811BD9DBDC0091E703 /* MyOrderViewButtonPannel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyOrderViewButtonPannel.xib; sourceTree = "<group>"; };
+		B1847B4C1BFAF70700AFAF26 /* XSBuyNowTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSBuyNowTableViewHeader.h; sourceTree = "<group>"; };
+		B1847B4D1BFAF70700AFAF26 /* XSBuyNowTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSBuyNowTableViewHeader.m; sourceTree = "<group>"; };
 		B19C25A81BB4CAB5007F96CC /* XSThemeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSThemeView.h; sourceTree = "<group>"; };
 		B19C25A91BB4CAB5007F96CC /* XSThemeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSThemeView.m; sourceTree = "<group>"; };
 		B19C25F51BB4F6C2007F96CC /* BuyPannel.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BuyPannel.xib; sourceTree = "<group>"; };
@@ -1589,6 +1592,8 @@
 				B1BFDC201BE71182009B8D80 /* XSBuyNowTableViewCell.h */,
 				B1BFDC211BE71182009B8D80 /* XSBuyNowTableViewCell.m */,
 				B1BFDC221BE71182009B8D80 /* XSBuyNowTableViewCell.xib */,
+				B1847B4C1BFAF70700AFAF26 /* XSBuyNowTableViewHeader.h */,
+				B1847B4D1BFAF70700AFAF26 /* XSBuyNowTableViewHeader.m */,
 			);
 			path = "秒杀专区";
 			sourceTree = "<group>";
@@ -1909,6 +1914,7 @@
 				B174E9751BD9D3FD0091E703 /* XSTwoTableViewCell.m in Sources */,
 				B174E9431BD9C4B00091E703 /* XSExchangeCouponViewController.m in Sources */,
 				B161CDC91B96CA7000D4689C /* PromotionModel.m in Sources */,
+				B1847B4E1BFAF70700AFAF26 /* XSBuyNowTableViewHeader.m in Sources */,
 				B161CDC11B96CA7000D4689C /* XSSearchBarHelper.m in Sources */,
 				B1FEF9331BE8912B00A94A1B /* XSAddressManageViewController.m in Sources */,
 				B19C25FE1BB51437007F96CC /* XSNameView.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "XSBuyNowViewController.h"
 
+#import "XSBuyNowTableViewHeader.h"
 #import "XSBuyNowTableViewCell.h"
 
 #import "XSNavigationBarHelper.h"
@@ -67,6 +68,22 @@ static NSString * const cellID = @"buynow";
     return 125.0;
 }
 
+#pragma mark - UITableViewDelegate
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    XSBuyNowTableViewHeader *header = [[XSBuyNowTableViewHeader alloc] init];
+    header.timeLabel.text = @"10-12点";
+    header.descLabel.text = @"疯抢中";
+    return header;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    if (section != 0) {
+        return 40.0;
+    } else {
+        return 0.0;
+    }
+}
+
 #pragma mark - private method
 - (void)customNavigationBar {
     self.navigationItem.title = @"今日秒杀";
@@ -76,7 +93,7 @@ static NSString * const cellID = @"buynow";
     self.navigationController.interactivePopGestureRecognizer.delegate = (id<UIGestureRecognizerDelegate>)self;
     
     UIBarButtonItem *rightButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"秒杀说明" style:UIBarButtonItemStylePlain target:self action:@selector(buyNowDetail)];
-    rightButtonItem.tintColor = [UIColor darkGrayColor];
+    [rightButtonItem setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor darkGrayColor], NSFontAttributeName: [UIFont systemFontOfSize:14]} forState:UIControlStateNormal];
     self.navigationItem.rightBarButtonItem = rightButtonItem;
 }
 

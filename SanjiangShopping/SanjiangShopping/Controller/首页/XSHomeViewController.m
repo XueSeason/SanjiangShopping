@@ -104,6 +104,13 @@ static const CGFloat step = 9.0f;
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[button(==44)]-57-|" options:0 metrics:nil views:@{@"button": self.toTopButton}]];
     [self.toTopButton layoutIfNeeded];
     self.toTopButton.layer.cornerRadius = self.toTopButton.frame.size.width / 2.0;
+    
+    CGFloat offset = self.scrollView.contentOffset.y;
+    if (offset < 216.75) {
+        self.navHelper._UINavigationBarBackground.backgroundColor = THEME_RED_FADE(offset / 255.0);
+    } else {
+        self.navHelper._UINavigationBarBackground.backgroundColor = THEME_RED_FADE(0.85);
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
