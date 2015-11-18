@@ -82,10 +82,6 @@ static NSString * const promotionCellID = @"promotion";
 }
 
 #pragma mark - UITableViewDelegate
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return ([UIScreen mainScreen].bounds.size.width - 16) / 72 * 25;
-}
-
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self.navigationController pushViewController:[[XSCommodityListViewController alloc] init] animated:YES];
 }
@@ -106,6 +102,8 @@ static NSString * const promotionCellID = @"promotion";
         
         _tableView.delegate   = self;
         _tableView.dataSource = self.promotionDataSource;
+        
+        _tableView.rowHeight = ([UIScreen mainScreen].bounds.size.width - 16) / 72 * 25;
     }
     return _tableView;
 }

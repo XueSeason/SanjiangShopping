@@ -5,34 +5,22 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="XSCommodityViewController">
-            <connections>
-                <outlet property="addToShopCartButton" destination="vee-6h-JSX" id="xfK-Ot-K6n"/>
-                <outlet property="buyNowButton" destination="aCA-ck-Ouo" id="NHW-rz-k1D"/>
-                <outlet property="favoriteButton" destination="p82-Vu-1V9" id="I7m-Eu-LUt"/>
-                <outlet property="favoriteView" destination="6yI-q3-Dr9" id="DHs-iI-x2W"/>
-                <outlet property="pannelView" destination="iN0-l3-epB" id="RPc-m3-YF0"/>
-                <outlet property="shopCartButton" destination="LYJ-dn-hCd" id="GRR-Nm-97q"/>
-                <outlet property="shopCartView" destination="DHM-M8-HGQ" id="6Q5-aA-Dpz"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="XSCommodityPannelView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6yI-q3-Dr9" userLabel="收藏">
-                    <rect key="frame" x="0.0" y="275" width="65" height="50"/>
+                    <rect key="frame" x="0.0" y="0.0" width="65" height="50"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p82-Vu-1V9">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p82-Vu-1V9">
                             <rect key="frame" x="10" y="0.0" width="45" height="35"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="tmt-uj-jpN"/>
                             </constraints>
-                            <connections>
-                                <action selector="addToFavorite:" destination="-1" eventType="touchUpInside" id="6jm-Rr-mNf"/>
-                            </connections>
+                            <state key="normal" image="favorite_no"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收藏" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U1h-Mp-OOX">
                             <rect key="frame" x="10" y="35" width="45" height="15"/>
@@ -57,17 +45,15 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DHM-M8-HGQ" userLabel="购物车">
-                    <rect key="frame" x="65" y="275" width="65" height="50"/>
+                    <rect key="frame" x="65" y="0.0" width="65" height="50"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYJ-dn-hCd">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LYJ-dn-hCd">
                             <rect key="frame" x="10" y="0.0" width="45" height="35"/>
                             <animations/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="35" id="cHP-uW-oNv"/>
                             </constraints>
-                            <connections>
-                                <action selector="enterShoppingCart:" destination="-1" eventType="touchUpInside" id="W1x-5M-W0i"/>
-                            </connections>
+                            <state key="normal" image="shoppingcart_white"/>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购物车" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7SD-lj-epX">
                             <rect key="frame" x="10" y="35" width="45" height="15"/>
@@ -92,7 +78,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aCA-ck-Ouo">
-                    <rect key="frame" x="130" y="275" width="235" height="50"/>
+                    <rect key="frame" x="130" y="0.0" width="235" height="50"/>
                     <animations/>
                     <color key="backgroundColor" red="0.92156862745098034" green="0.66274509803921566" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -101,12 +87,9 @@
                     <state key="normal" title="立即购买">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="buyNow:" destination="-1" eventType="touchUpInside" id="xs9-Jg-HIE"/>
-                    </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vee-6h-JSX">
-                    <rect key="frame" x="365" y="275" width="235" height="50"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vee-6h-JSX" userLabel="Add To Shopping Cart Button">
+                    <rect key="frame" x="365" y="0.0" width="235" height="50"/>
                     <animations/>
                     <color key="backgroundColor" red="0.94117647058823528" green="0.2196078431372549" blue="0.2196078431372549" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -115,9 +98,6 @@
                     <state key="normal" title="加入购物车">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
-                    <connections>
-                        <action selector="addToShoppingCart:" destination="-1" eventType="touchUpInside" id="ORf-Xt-J0E"/>
-                    </connections>
                 </button>
             </subviews>
             <animations/>
@@ -135,6 +115,20 @@
                 <constraint firstAttribute="trailing" secondItem="vee-6h-JSX" secondAttribute="trailing" id="kbh-Qa-4OI"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="addToShoppingCartButton" destination="vee-6h-JSX" id="2LI-oR-ZzK"/>
+                <outlet property="buyNowButton" destination="aCA-ck-Ouo" id="wg8-RF-gD4"/>
+                <outlet property="favoriteButton" destination="p82-Vu-1V9" id="Lds-VL-q2P"/>
+                <outlet property="favoriteContentView" destination="6yI-q3-Dr9" id="hP9-p7-b4l"/>
+                <outlet property="shoppingCartButton" destination="LYJ-dn-hCd" id="Gdi-oC-xmX"/>
+                <outlet property="shoppingCartContentView" destination="DHM-M8-HGQ" id="ELr-zJ-Yjn"/>
+            </connections>
+            <point key="canvasLocation" x="479" y="486"/>
         </view>
     </objects>
+    <resources>
+        <image name="favorite_no" width="22" height="22"/>
+        <image name="shoppingcart_white" width="22" height="22"/>
+    </resources>
 </document>

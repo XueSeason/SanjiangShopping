@@ -1,5 +1,5 @@
 //
-//  XSCommodityViewController.h
+//  XSCommodityMoreTableViewCell.h
 //  SanjiangShopping
 //
 //  Created by 薛纪杰 on 11/18/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XSCommodityViewController : UIViewController
+@interface XSCommodityMoreTableViewCell : UITableViewCell
 
 @end

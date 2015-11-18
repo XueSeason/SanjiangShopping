@@ -116,7 +116,6 @@ static const CGFloat step = 9.0f;
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navHelper._UINavigationBarBackground.opaque = YES;
-    self.scrollView.mj_footer = nil;
 }
 
 - (void)didReceiveMemoryWarning {

@@ -1,14 +1,14 @@
 //
-//  XSFeedbackTableViewCell.m
+//  XSCommodityOptionTableViewCell.m
 //  SanjiangShopping
 //
-//  Created by 薛纪杰 on 15/9/25.
-//  Copyright © 2015年 Sanjiang Shopping Club Co., Ltd. All rights reserved.
+//  Created by 薛纪杰 on 11/18/15.
+//  Copyright © 2015 Sanjiang Shopping Club Co., Ltd. All rights reserved.
 //
 
-#import "XSFeedbackTableViewCell.h"
+#import "XSCommodityOptionTableViewCell.h"
 
-@implementation XSFeedbackTableViewCell
+@implementation XSCommodityOptionTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code

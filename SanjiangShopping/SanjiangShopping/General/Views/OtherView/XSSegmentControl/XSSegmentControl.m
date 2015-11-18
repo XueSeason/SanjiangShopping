@@ -23,7 +23,7 @@
 - (void)layoutSubviews {
     [super layoutSubviews];
     self.label.frame  = CGRectInset(self.bounds, 10, 8);
-    self.line.frame   = CGRectMake(self.label.frame.origin.x, self.label.frame.origin.y + self.label.frame.size.height + 6, self.label.frame.size.width, 2);
+    self.line.frame   = CGRectMake(self.label.frame.origin.x, self.label.frame.origin.y + self.label.frame.size.height + 6, self.label.frame.size.width, 1);
 }
 
 #pragma mark - getters and setters
@@ -43,13 +43,6 @@
         _line = [[UILabel alloc] init];
     }
     return _line;
-}
-
-- (UIImageView *)switchImageView {
-    if (_switchImageView == nil) {
-        _switchImageView = [[UIImageView alloc] init];
-    }
-    return _switchImageView;
 }
 @end
 

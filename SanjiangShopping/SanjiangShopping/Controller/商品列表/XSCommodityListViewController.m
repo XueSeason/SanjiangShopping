@@ -110,6 +110,10 @@ static NSString * const cellID = @"commodityList";
 #pragma mark - XSSegmentControlDelegate
 - (void)segmentItemSelected:(XSSegmentControlItem *)item {
     
+    if (item.tag == 2) {
+        
+    }
+    
     if (item.tag == 3) {
         
         if (![self.view.subviews containsObject:self.filterController.view]) {
