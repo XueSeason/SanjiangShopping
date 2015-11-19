@@ -9,5 +9,9 @@
 #import <UIKit/UIKit.h>
 
 @interface XSCommodityOptionTableViewCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UIView *selectView;
+@property (weak, nonatomic) IBOutlet UITextField *selectAddressTextField;
+
+@property (copy, nonatomic) void (^selectBlock)();
 
 @end

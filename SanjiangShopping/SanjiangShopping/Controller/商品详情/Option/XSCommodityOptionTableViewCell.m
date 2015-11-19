@@ -10,15 +10,11 @@
 
 #import "ThemeColor.h"
 
-#import "XSCommoditySelectView.h"
-
 @interface XSCommodityOptionTableViewCell () <UIPickerViewDataSource, UIPickerViewDelegate>
 @property (weak, nonatomic) IBOutlet UIView *mainView;
 
 @property (weak, nonatomic) IBOutlet UIView *promotionView;
 @property (weak, nonatomic) IBOutlet UIView *addressView;
-@property (weak, nonatomic) IBOutlet UIView *selectView;
-@property (weak, nonatomic) IBOutlet UITextField *selectAddressTextField;
 
 @property (strong, nonatomic) UIView *inputView;
 @property (strong, nonatomic) UIPickerView *pickerView;
@@ -50,7 +46,7 @@
     self.selectAddressTextField.tintColor = [UIColor clearColor];
     
     self.selectView.userInteractionEnabled = YES;
-    [self.selectView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(showCommoditySelectView)]];
+    [self.selectView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selectViewTap)]];
 }
 
 #pragma mark - events response
@@ -61,6 +57,12 @@
 
 - (void)selectAddressClose {
     [self.selectAddressTextField endEditing:YES];
+}
+
+- (void)selectViewTap {
+    if (self.selectBlock) {
+        self.selectBlock();
+    }
 }
 
 #pragma mark - UIPickerViewDataSource

@@ -20,6 +20,8 @@
 
 #import "XSCommodityDetailView.h"
 
+#import "XSSelectCommodityViewController.h"
+
 static NSString * const showcaseID = @"showcase";
 static NSString * const descriptionID = @"desc";
 static NSString * const optionID = @"option";
@@ -39,6 +41,9 @@ static CGFloat const moreHeight = 54;
 
 @property (strong, nonatomic) XSCommodityDetailView *detailView;
 
+@property (strong, nonatomic) XSSelectCommodityViewController *selectCommodityViewController;
+@property (strong, nonatomic) UIView *maskView;
+
 @end
 
 @implementation XSCommodityViewController
@@ -54,6 +59,7 @@ static CGFloat const moreHeight = 54;
     [self.view addSubview:self.pannelView];
     self.view.backgroundColor = BACKGROUND_COLOR;
     
+    [self.maskView addSubview:self.selectCommodityViewController.view];
     _canInspect = YES;
 }
 
@@ -62,6 +68,8 @@ static CGFloat const moreHeight = 54;
     self.tableView.frame = self.view.bounds;
     self.detailView.frame = CGRectMake(0, self.tableView.frame.size.height + self.tableView.frame.origin.y, self.tableView.frame.size.width, self.tableView.frame.size.height);
     self.pannelView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height - 50, self.view.frame.size.width, 50);
+    
+    self.selectCommodityViewController.view.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width - 50, [UIScreen mainScreen].bounds.size.height);
 }
 
 #pragma mark - private methods
@@ -79,34 +87,54 @@ static CGFloat const moreHeight = 54;
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - events response
+- (void)hideSelectCommodityView {
+    __weak typeof(self) weakSelf = self;
+    [UIView animateWithDuration:0.5 animations:^{
+        weakSelf.selectCommodityViewController.view.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width - 50, [UIScreen mainScreen].bounds.size.height);
+    } completion:^(BOOL finished) {
+        weakSelf.maskView.hidden = YES;
+    }];
+}
+
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell;
-    
-    switch (indexPath.row) {
-        case 0:
-            cell = [tableView dequeueReusableCellWithIdentifier:showcaseID forIndexPath:indexPath];
-            break;
-        case 1:
-            cell = [tableView dequeueReusableCellWithIdentifier:descriptionID forIndexPath:indexPath];
-            break;
-        case 2:
-            cell = [tableView dequeueReusableCellWithIdentifier:optionID forIndexPath:indexPath];
-            break;
-        case 3:
-            cell = [tableView dequeueReusableCellWithIdentifier:recommendID forIndexPath:indexPath];
-            break;
-        case 4:
-            cell = [tableView dequeueReusableCellWithIdentifier:moreID forIndexPath:indexPath];
-        default:
-            break;
+    if (indexPath.row == 0) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:showcaseID forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    } else if (indexPath.row == 1) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:descriptionID forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    } else if (indexPath.row == 2) {
+        XSCommodityOptionTableViewCell *cell = (XSCommodityOptionTableViewCell *)[tableView dequeueReusableCellWithIdentifier:optionID forIndexPath:indexPath];
+        __weak typeof(self) weakSelf = self;
+        cell.selectBlock = ^{
+            UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
+            [currentWindow addSubview:weakSelf.maskView];
+            weakSelf.maskView.hidden = NO;
+            [UIView animateWithDuration:0.5 animations:^{
+                weakSelf.selectCommodityViewController.view.frame = CGRectMake(50, 0, [UIScreen mainScreen].bounds.size.width - 50, [UIScreen mainScreen].bounds.size.height);
+            }];
+        };
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    } else if (indexPath.row == 3) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:recommendID forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    } else if (indexPath.row == 4) {
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:moreID forIndexPath:indexPath];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    } else {
+        return nil;
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    return cell;
 }
 
 #pragma mark - UITableViewDelegate
@@ -209,6 +237,26 @@ static CGFloat const moreHeight = 54;
         _pannelView.layer.borderColor   = [OTHER_SEPARATOR_COLOR CGColor];
     }
     return _pannelView;
+}
+
+- (XSSelectCommodityViewController *)selectCommodityViewController {
+    if (_selectCommodityViewController == nil) {
+        _selectCommodityViewController = [[XSSelectCommodityViewController alloc] init];
+        
+    }
+    return _selectCommodityViewController;
+}
+
+- (UIView *)maskView {
+    if (_maskView == nil) {
+        _maskView = [[UIView alloc] initWithFrame:[UIScreen mainScreen].bounds];
+        _maskView.userInteractionEnabled = YES;
+        _maskView.backgroundColor = [UIColor colorWithRed:0.1 green:0.1 blue:0.1 alpha:0.5];
+        [_maskView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideSelectCommodityView)]];
+        
+        _maskView.hidden = YES;
+    }
+    return _maskView;
 }
 
 @end

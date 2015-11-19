@@ -1,5 +1,5 @@
 //
-//  XSCommoditySelectView.h
+//  XSSelectCommodityViewController.h
 //  SanjiangShopping
 //
 //  Created by 薛纪杰 on 11/19/15.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface XSCommoditySelectView : UIView
+@interface XSSelectCommodityViewController : UIViewController
 
 @end
