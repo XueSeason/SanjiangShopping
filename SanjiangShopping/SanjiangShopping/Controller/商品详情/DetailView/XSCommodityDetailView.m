@@ -47,7 +47,7 @@ static NSString * const cellID = @"detail";
 
 #pragma mark - UIScorllViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    CGFloat estimate = -100;
+    CGFloat estimate = -80;
     CGFloat limit = -64 * 2 + estimate;
     if (scrollView.contentOffset.y < limit && _canInspect) {
         NSLog(@"上边界超出");

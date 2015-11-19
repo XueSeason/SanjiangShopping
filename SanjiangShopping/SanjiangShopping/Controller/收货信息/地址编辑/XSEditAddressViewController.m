@@ -19,11 +19,12 @@
 @property (strong, nonatomic) UIView *inputView;
 @property (strong, nonatomic) UIPickerView *pickerView;
 
-@property (assign, nonatomic) NSInteger row0;
-@property (assign, nonatomic) NSInteger row1;
 @end
 
 @implementation XSEditAddressViewController
+{
+    NSInteger _row0, _row1;
+}
 
 #pragma mark - life cycle
 - (void)viewDidLoad {
@@ -56,11 +57,11 @@
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
 
     if (component == 0) {
-        self.row0 = row;
+        _row0 = row;
     }
     
     if (component == 1) {
-        self.row1 = row;
+        _row1 = row;
     }
 }
 
@@ -104,8 +105,8 @@
         toolbar.items = @[closeItem, spaceItem, completeItem];
         
         self.pickerView.frame = CGRectMake(0, 44, CGRectGetWidth(_inputView.bounds), 200);
-        self.row0 = 0;
-        self.row1 = 0;
+        _row0 = 0;
+        _row1 = 0;
         [_inputView addSubview:self.pickerView];
     }
     return _inputView;
@@ -119,15 +120,5 @@
     }
     return _pickerView;
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
