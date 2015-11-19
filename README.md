@@ -28,8 +28,8 @@ Xcode 7, iOS 8 or later.
 
 ## Author
 
-[XueSeason](https://github/xueseason)
-Weibo: [XueSeason](http://weibo/smartseason)
+[XueSeason](https://github.com/xueseason)
+Weibo: [XueSeason](http://weibo.com/smartseason)
 
 ## License
 
