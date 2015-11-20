@@ -72,6 +72,14 @@ static CGFloat const moreHeight = 54;
     self.selectCommodityViewController.view.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, 0, [UIScreen mainScreen].bounds.size.width - 50, [UIScreen mainScreen].bounds.size.height);
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
+    if ([currentWindow.subviews containsObject:self.maskView]) {
+        [self.maskView removeFromSuperview];
+    }
+}
+
 #pragma mark - private methods
 - (void)customNavigationBar {
     self.navigationItem.title = @"商品详情";
@@ -193,7 +201,7 @@ static CGFloat const moreHeight = 54;
         _tableView.backgroundColor = BACKGROUND_COLOR;
         
         _tableView.tableFooterView = [UIView new];
-        _tableView.separatorColor  = [UIColor clearColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
         _tableView.showsHorizontalScrollIndicator = NO;
         _tableView.showsVerticalScrollIndicator   = NO;

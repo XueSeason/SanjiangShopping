@@ -106,7 +106,7 @@ static NSString * const cellID = @"cell";
         
         _tableView.contentInset = UIEdgeInsetsMake(10, 0, 0, 0);
         _tableView.backgroundColor = BACKGROUND_COLOR;
-        _tableView.separatorColor = [UIColor clearColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [_tableView registerClass:[XSLogisticsTableViewCell class] forCellReuseIdentifier:cellID];
         [_tableView registerNib:[UINib nibWithNibName:@"XSLogisticsTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];
     }

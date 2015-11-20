@@ -37,21 +37,25 @@
 		B14128861BF17A07008B6B7D /* UIView+State.m in Sources */ = {isa = PBXBuildFile; fileRef = B14128851BF17A07008B6B7D /* UIView+State.m */; };
 		B14128891BF18D73008B6B7D /* NoNetWorkView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B14128881BF18D73008B6B7D /* NoNetWorkView.xib */; };
 		B141288B1BF1CD71008B6B7D /* NoCommodityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B141288A1BF1CD71008B6B7D /* NoCommodityView.xib */; };
+		B148FCB31BFEB42C007A1C9D /* XSCommodityDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B148FC9E1BFEB42C007A1C9D /* XSCommodityDescriptionTableViewCell.m */; };
+		B148FCB41BFEB42C007A1C9D /* XSCommodityDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B148FC9F1BFEB42C007A1C9D /* XSCommodityDescriptionTableViewCell.xib */; };
+		B148FCB51BFEB42C007A1C9D /* XSCommodityMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B148FCA21BFEB42C007A1C9D /* XSCommodityMoreTableViewCell.m */; };
+		B148FCB61BFEB42C007A1C9D /* XSCommodityMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B148FCA31BFEB42C007A1C9D /* XSCommodityMoreTableViewCell.xib */; };
+		B148FCB71BFEB42C007A1C9D /* XSCommodityOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B148FCA61BFEB42C007A1C9D /* XSCommodityOptionTableViewCell.m */; };
+		B148FCB81BFEB42C007A1C9D /* XSCommodityOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B148FCA71BFEB42C007A1C9D /* XSCommodityOptionTableViewCell.xib */; };
+		B148FCB91BFEB42C007A1C9D /* XSCommodityRecommendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B148FCAA1BFEB42C007A1C9D /* XSCommodityRecommendTableViewCell.m */; };
+		B148FCBA1BFEB42C007A1C9D /* XSCommodityRecommendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B148FCAB1BFEB42C007A1C9D /* XSCommodityRecommendTableViewCell.xib */; };
+		B148FCBB1BFEB42C007A1C9D /* XSCommodityShowcaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B148FCAE1BFEB42C007A1C9D /* XSCommodityShowcaseTableViewCell.m */; };
+		B148FCBC1BFEB42C007A1C9D /* XSCommodityShowcaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B148FCAF1BFEB42C007A1C9D /* XSCommodityShowcaseTableViewCell.xib */; };
+		B148FCC01BFEB45E007A1C9D /* XSSelectCommodityRadioTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B148FCBE1BFEB45E007A1C9D /* XSSelectCommodityRadioTableViewCell.m */; };
+		B148FCC11BFEB45E007A1C9D /* XSSelectCommodityRadioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B148FCBF1BFEB45E007A1C9D /* XSSelectCommodityRadioTableViewCell.xib */; };
+		B148FCCA1BFEB4D0007A1C9D /* XSSelectCommodityCountTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B148FCC81BFEB4D0007A1C9D /* XSSelectCommodityCountTableViewCell.m */; };
+		B148FCCB1BFEB4D0007A1C9D /* XSSelectCommodityCountTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B148FCC91BFEB4D0007A1C9D /* XSSelectCommodityCountTableViewCell.xib */; };
 		B14F6D941BF4362F002BD904 /* UIImage+Filter.m in Sources */ = {isa = PBXBuildFile; fileRef = B14F6D931BF4362F002BD904 /* UIImage+Filter.m */; };
 		B14FB19E1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B14FB19D1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m */; };
 		B153FA1E1BFC0AC80095C0F3 /* XSCommodityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B153FA1D1BFC0AC80095C0F3 /* XSCommodityViewController.m */; };
 		B153FA261BFC0CD60095C0F3 /* XSCommodityPannelView.m in Sources */ = {isa = PBXBuildFile; fileRef = B153FA241BFC0CD60095C0F3 /* XSCommodityPannelView.m */; };
 		B153FA271BFC0CD60095C0F3 /* XSCommodityPannelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B153FA251BFC0CD60095C0F3 /* XSCommodityPannelView.xib */; };
-		B153FA2F1BFC15860095C0F3 /* XSCommodityShowcaseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B153FA2D1BFC15860095C0F3 /* XSCommodityShowcaseTableViewCell.m */; };
-		B153FA301BFC15860095C0F3 /* XSCommodityShowcaseTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B153FA2E1BFC15860095C0F3 /* XSCommodityShowcaseTableViewCell.xib */; };
-		B153FA341BFC17860095C0F3 /* XSCommodityDescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B153FA321BFC17860095C0F3 /* XSCommodityDescriptionTableViewCell.m */; };
-		B153FA351BFC17860095C0F3 /* XSCommodityDescriptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B153FA331BFC17860095C0F3 /* XSCommodityDescriptionTableViewCell.xib */; };
-		B153FA391BFC17A40095C0F3 /* XSCommodityOptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B153FA371BFC17A40095C0F3 /* XSCommodityOptionTableViewCell.m */; };
-		B153FA3A1BFC17A40095C0F3 /* XSCommodityOptionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B153FA381BFC17A40095C0F3 /* XSCommodityOptionTableViewCell.xib */; };
-		B153FA471BFC18930095C0F3 /* XSCommodityRecommendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B153FA451BFC18930095C0F3 /* XSCommodityRecommendTableViewCell.m */; };
-		B153FA481BFC18930095C0F3 /* XSCommodityRecommendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B153FA461BFC18930095C0F3 /* XSCommodityRecommendTableViewCell.xib */; };
-		B153FA4D1BFC1B270095C0F3 /* XSCommodityMoreTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B153FA4B1BFC1B270095C0F3 /* XSCommodityMoreTableViewCell.m */; };
-		B153FA4E1BFC1B270095C0F3 /* XSCommodityMoreTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B153FA4C1BFC1B270095C0F3 /* XSCommodityMoreTableViewCell.xib */; };
 		B153FA521BFC578E0095C0F3 /* XSCommodityDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = B153FA511BFC578E0095C0F3 /* XSCommodityDetailView.m */; };
 		B15AF7DA1BD88343002B20D0 /* XSLogisticsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B15AF7D81BD88343002B20D0 /* XSLogisticsViewController.m */; };
 		B15AF7DB1BD88343002B20D0 /* XSLogisticsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B15AF7D91BD88343002B20D0 /* XSLogisticsViewController.xib */; };
@@ -264,6 +268,27 @@
 		B14128851BF17A07008B6B7D /* UIView+State.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+State.m"; sourceTree = "<group>"; };
 		B14128881BF18D73008B6B7D /* NoNetWorkView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoNetWorkView.xib; sourceTree = "<group>"; };
 		B141288A1BF1CD71008B6B7D /* NoCommodityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NoCommodityView.xib; sourceTree = "<group>"; };
+		B148FC9D1BFEB42C007A1C9D /* XSCommodityDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityDescriptionTableViewCell.h; sourceTree = "<group>"; };
+		B148FC9E1BFEB42C007A1C9D /* XSCommodityDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityDescriptionTableViewCell.m; sourceTree = "<group>"; };
+		B148FC9F1BFEB42C007A1C9D /* XSCommodityDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCommodityDescriptionTableViewCell.xib; sourceTree = "<group>"; };
+		B148FCA11BFEB42C007A1C9D /* XSCommodityMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityMoreTableViewCell.h; sourceTree = "<group>"; };
+		B148FCA21BFEB42C007A1C9D /* XSCommodityMoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityMoreTableViewCell.m; sourceTree = "<group>"; };
+		B148FCA31BFEB42C007A1C9D /* XSCommodityMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCommodityMoreTableViewCell.xib; sourceTree = "<group>"; };
+		B148FCA51BFEB42C007A1C9D /* XSCommodityOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityOptionTableViewCell.h; sourceTree = "<group>"; };
+		B148FCA61BFEB42C007A1C9D /* XSCommodityOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityOptionTableViewCell.m; sourceTree = "<group>"; };
+		B148FCA71BFEB42C007A1C9D /* XSCommodityOptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCommodityOptionTableViewCell.xib; sourceTree = "<group>"; };
+		B148FCA91BFEB42C007A1C9D /* XSCommodityRecommendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityRecommendTableViewCell.h; sourceTree = "<group>"; };
+		B148FCAA1BFEB42C007A1C9D /* XSCommodityRecommendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityRecommendTableViewCell.m; sourceTree = "<group>"; };
+		B148FCAB1BFEB42C007A1C9D /* XSCommodityRecommendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCommodityRecommendTableViewCell.xib; sourceTree = "<group>"; };
+		B148FCAD1BFEB42C007A1C9D /* XSCommodityShowcaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityShowcaseTableViewCell.h; sourceTree = "<group>"; };
+		B148FCAE1BFEB42C007A1C9D /* XSCommodityShowcaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityShowcaseTableViewCell.m; sourceTree = "<group>"; };
+		B148FCAF1BFEB42C007A1C9D /* XSCommodityShowcaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCommodityShowcaseTableViewCell.xib; sourceTree = "<group>"; };
+		B148FCBD1BFEB45E007A1C9D /* XSSelectCommodityRadioTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSSelectCommodityRadioTableViewCell.h; sourceTree = "<group>"; };
+		B148FCBE1BFEB45E007A1C9D /* XSSelectCommodityRadioTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSSelectCommodityRadioTableViewCell.m; sourceTree = "<group>"; };
+		B148FCBF1BFEB45E007A1C9D /* XSSelectCommodityRadioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSSelectCommodityRadioTableViewCell.xib; sourceTree = "<group>"; };
+		B148FCC71BFEB4D0007A1C9D /* XSSelectCommodityCountTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSSelectCommodityCountTableViewCell.h; sourceTree = "<group>"; };
+		B148FCC81BFEB4D0007A1C9D /* XSSelectCommodityCountTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSSelectCommodityCountTableViewCell.m; sourceTree = "<group>"; };
+		B148FCC91BFEB4D0007A1C9D /* XSSelectCommodityCountTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSSelectCommodityCountTableViewCell.xib; sourceTree = "<group>"; };
 		B14F6D921BF4362F002BD904 /* UIImage+Filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Filter.h"; sourceTree = "<group>"; };
 		B14F6D931BF4362F002BD904 /* UIImage+Filter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Filter.m"; sourceTree = "<group>"; };
 		B14FB19C1BD47BE500FF7D40 /* XSDeliveredInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSDeliveredInformationViewController.h; sourceTree = "<group>"; };
@@ -273,21 +298,6 @@
 		B153FA231BFC0CD60095C0F3 /* XSCommodityPannelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityPannelView.h; sourceTree = "<group>"; };
 		B153FA241BFC0CD60095C0F3 /* XSCommodityPannelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityPannelView.m; sourceTree = "<group>"; };
 		B153FA251BFC0CD60095C0F3 /* XSCommodityPannelView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCommodityPannelView.xib; sourceTree = "<group>"; };
-		B153FA2C1BFC15860095C0F3 /* XSCommodityShowcaseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityShowcaseTableViewCell.h; sourceTree = "<group>"; };
-		B153FA2D1BFC15860095C0F3 /* XSCommodityShowcaseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityShowcaseTableViewCell.m; sourceTree = "<group>"; };
-		B153FA2E1BFC15860095C0F3 /* XSCommodityShowcaseTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCommodityShowcaseTableViewCell.xib; sourceTree = "<group>"; };
-		B153FA311BFC17860095C0F3 /* XSCommodityDescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityDescriptionTableViewCell.h; sourceTree = "<group>"; };
-		B153FA321BFC17860095C0F3 /* XSCommodityDescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityDescriptionTableViewCell.m; sourceTree = "<group>"; };
-		B153FA331BFC17860095C0F3 /* XSCommodityDescriptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCommodityDescriptionTableViewCell.xib; sourceTree = "<group>"; };
-		B153FA361BFC17A40095C0F3 /* XSCommodityOptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityOptionTableViewCell.h; sourceTree = "<group>"; };
-		B153FA371BFC17A40095C0F3 /* XSCommodityOptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityOptionTableViewCell.m; sourceTree = "<group>"; };
-		B153FA381BFC17A40095C0F3 /* XSCommodityOptionTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCommodityOptionTableViewCell.xib; sourceTree = "<group>"; };
-		B153FA441BFC18930095C0F3 /* XSCommodityRecommendTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityRecommendTableViewCell.h; sourceTree = "<group>"; };
-		B153FA451BFC18930095C0F3 /* XSCommodityRecommendTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityRecommendTableViewCell.m; sourceTree = "<group>"; };
-		B153FA461BFC18930095C0F3 /* XSCommodityRecommendTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCommodityRecommendTableViewCell.xib; sourceTree = "<group>"; };
-		B153FA4A1BFC1B270095C0F3 /* XSCommodityMoreTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityMoreTableViewCell.h; sourceTree = "<group>"; };
-		B153FA4B1BFC1B270095C0F3 /* XSCommodityMoreTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityMoreTableViewCell.m; sourceTree = "<group>"; };
-		B153FA4C1BFC1B270095C0F3 /* XSCommodityMoreTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = XSCommodityMoreTableViewCell.xib; sourceTree = "<group>"; };
 		B153FA501BFC578E0095C0F3 /* XSCommodityDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSCommodityDetailView.h; sourceTree = "<group>"; };
 		B153FA511BFC578E0095C0F3 /* XSCommodityDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSCommodityDetailView.m; sourceTree = "<group>"; };
 		B15AF7D71BD88343002B20D0 /* XSLogisticsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSLogisticsViewController.h; sourceTree = "<group>"; };
@@ -705,6 +715,97 @@
 			path = StateViews;
 			sourceTree = "<group>";
 		};
+		B148FC9B1BFEB42C007A1C9D /* CommodityViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				B148FC9C1BFEB42C007A1C9D /* Description */,
+				B148FCA01BFEB42C007A1C9D /* More */,
+				B148FCA41BFEB42C007A1C9D /* Option */,
+				B148FCA81BFEB42C007A1C9D /* Recommend */,
+				B148FCAC1BFEB42C007A1C9D /* Showcase */,
+			);
+			path = CommodityViewCell;
+			sourceTree = "<group>";
+		};
+		B148FC9C1BFEB42C007A1C9D /* Description */ = {
+			isa = PBXGroup;
+			children = (
+				B148FC9D1BFEB42C007A1C9D /* XSCommodityDescriptionTableViewCell.h */,
+				B148FC9E1BFEB42C007A1C9D /* XSCommodityDescriptionTableViewCell.m */,
+				B148FC9F1BFEB42C007A1C9D /* XSCommodityDescriptionTableViewCell.xib */,
+			);
+			path = Description;
+			sourceTree = "<group>";
+		};
+		B148FCA01BFEB42C007A1C9D /* More */ = {
+			isa = PBXGroup;
+			children = (
+				B148FCA11BFEB42C007A1C9D /* XSCommodityMoreTableViewCell.h */,
+				B148FCA21BFEB42C007A1C9D /* XSCommodityMoreTableViewCell.m */,
+				B148FCA31BFEB42C007A1C9D /* XSCommodityMoreTableViewCell.xib */,
+			);
+			path = More;
+			sourceTree = "<group>";
+		};
+		B148FCA41BFEB42C007A1C9D /* Option */ = {
+			isa = PBXGroup;
+			children = (
+				B148FCA51BFEB42C007A1C9D /* XSCommodityOptionTableViewCell.h */,
+				B148FCA61BFEB42C007A1C9D /* XSCommodityOptionTableViewCell.m */,
+				B148FCA71BFEB42C007A1C9D /* XSCommodityOptionTableViewCell.xib */,
+			);
+			path = Option;
+			sourceTree = "<group>";
+		};
+		B148FCA81BFEB42C007A1C9D /* Recommend */ = {
+			isa = PBXGroup;
+			children = (
+				B148FCA91BFEB42C007A1C9D /* XSCommodityRecommendTableViewCell.h */,
+				B148FCAA1BFEB42C007A1C9D /* XSCommodityRecommendTableViewCell.m */,
+				B148FCAB1BFEB42C007A1C9D /* XSCommodityRecommendTableViewCell.xib */,
+			);
+			path = Recommend;
+			sourceTree = "<group>";
+		};
+		B148FCAC1BFEB42C007A1C9D /* Showcase */ = {
+			isa = PBXGroup;
+			children = (
+				B148FCAD1BFEB42C007A1C9D /* XSCommodityShowcaseTableViewCell.h */,
+				B148FCAE1BFEB42C007A1C9D /* XSCommodityShowcaseTableViewCell.m */,
+				B148FCAF1BFEB42C007A1C9D /* XSCommodityShowcaseTableViewCell.xib */,
+			);
+			path = Showcase;
+			sourceTree = "<group>";
+		};
+		B148FCB01BFEB42C007A1C9D /* SelectCommodityCell */ = {
+			isa = PBXGroup;
+			children = (
+				B148FCB11BFEB42C007A1C9D /* Count */,
+				B148FCB21BFEB42C007A1C9D /* Radio */,
+			);
+			path = SelectCommodityCell;
+			sourceTree = "<group>";
+		};
+		B148FCB11BFEB42C007A1C9D /* Count */ = {
+			isa = PBXGroup;
+			children = (
+				B148FCC71BFEB4D0007A1C9D /* XSSelectCommodityCountTableViewCell.h */,
+				B148FCC81BFEB4D0007A1C9D /* XSSelectCommodityCountTableViewCell.m */,
+				B148FCC91BFEB4D0007A1C9D /* XSSelectCommodityCountTableViewCell.xib */,
+			);
+			path = Count;
+			sourceTree = "<group>";
+		};
+		B148FCB21BFEB42C007A1C9D /* Radio */ = {
+			isa = PBXGroup;
+			children = (
+				B148FCBD1BFEB45E007A1C9D /* XSSelectCommodityRadioTableViewCell.h */,
+				B148FCBE1BFEB45E007A1C9D /* XSSelectCommodityRadioTableViewCell.m */,
+				B148FCBF1BFEB45E007A1C9D /* XSSelectCommodityRadioTableViewCell.xib */,
+			);
+			path = Radio;
+			sourceTree = "<group>";
+		};
 		B14FB19B1BD4795200FF7D40 /* 收货信息 */ = {
 			isa = PBXGroup;
 			children = (
@@ -727,56 +828,6 @@
 				B153FA251BFC0CD60095C0F3 /* XSCommodityPannelView.xib */,
 			);
 			path = PannelView;
-			sourceTree = "<group>";
-		};
-		B153FA281BFC15510095C0F3 /* Description */ = {
-			isa = PBXGroup;
-			children = (
-				B153FA311BFC17860095C0F3 /* XSCommodityDescriptionTableViewCell.h */,
-				B153FA321BFC17860095C0F3 /* XSCommodityDescriptionTableViewCell.m */,
-				B153FA331BFC17860095C0F3 /* XSCommodityDescriptionTableViewCell.xib */,
-			);
-			path = Description;
-			sourceTree = "<group>";
-		};
-		B153FA291BFC15510095C0F3 /* Option */ = {
-			isa = PBXGroup;
-			children = (
-				B153FA361BFC17A40095C0F3 /* XSCommodityOptionTableViewCell.h */,
-				B153FA371BFC17A40095C0F3 /* XSCommodityOptionTableViewCell.m */,
-				B153FA381BFC17A40095C0F3 /* XSCommodityOptionTableViewCell.xib */,
-			);
-			path = Option;
-			sourceTree = "<group>";
-		};
-		B153FA2B1BFC15510095C0F3 /* Showcase */ = {
-			isa = PBXGroup;
-			children = (
-				B153FA2C1BFC15860095C0F3 /* XSCommodityShowcaseTableViewCell.h */,
-				B153FA2D1BFC15860095C0F3 /* XSCommodityShowcaseTableViewCell.m */,
-				B153FA2E1BFC15860095C0F3 /* XSCommodityShowcaseTableViewCell.xib */,
-			);
-			path = Showcase;
-			sourceTree = "<group>";
-		};
-		B153FA431BFC18790095C0F3 /* Recommend */ = {
-			isa = PBXGroup;
-			children = (
-				B153FA441BFC18930095C0F3 /* XSCommodityRecommendTableViewCell.h */,
-				B153FA451BFC18930095C0F3 /* XSCommodityRecommendTableViewCell.m */,
-				B153FA461BFC18930095C0F3 /* XSCommodityRecommendTableViewCell.xib */,
-			);
-			path = Recommend;
-			sourceTree = "<group>";
-		};
-		B153FA491BFC1B1B0095C0F3 /* More */ = {
-			isa = PBXGroup;
-			children = (
-				B153FA4A1BFC1B270095C0F3 /* XSCommodityMoreTableViewCell.h */,
-				B153FA4B1BFC1B270095C0F3 /* XSCommodityMoreTableViewCell.m */,
-				B153FA4C1BFC1B270095C0F3 /* XSCommodityMoreTableViewCell.xib */,
-			);
-			path = More;
 			sourceTree = "<group>";
 		};
 		B153FA4F1BFC57670095C0F3 /* DetailView */ = {
@@ -1575,12 +1626,9 @@
 		B1F43D561BC600E1009F19DA /* 商品详情 */ = {
 			isa = PBXGroup;
 			children = (
+				B148FC9B1BFEB42C007A1C9D /* CommodityViewCell */,
+				B148FCB01BFEB42C007A1C9D /* SelectCommodityCell */,
 				B153FA4F1BFC57670095C0F3 /* DetailView */,
-				B153FA491BFC1B1B0095C0F3 /* More */,
-				B153FA2B1BFC15510095C0F3 /* Showcase */,
-				B153FA281BFC15510095C0F3 /* Description */,
-				B153FA291BFC15510095C0F3 /* Option */,
-				B153FA431BFC18790095C0F3 /* Recommend */,
 				B153FA221BFC0CD60095C0F3 /* PannelView */,
 				B153FA1C1BFC0AC80095C0F3 /* XSCommodityViewController.h */,
 				B153FA1D1BFC0AC80095C0F3 /* XSCommodityViewController.m */,
@@ -1801,7 +1849,9 @@
 			files = (
 				B15AF7E01BD890C9002B20D0 /* XSLogisticsTableViewCell.xib in Resources */,
 				B161CD161B96C9F300D4689C /* LaunchScreen.xib in Resources */,
+				B148FCB61BFEB42C007A1C9D /* XSCommodityMoreTableViewCell.xib in Resources */,
 				B1F43D1B1BC6004F009F19DA /* XSLoginViewController.xib in Resources */,
+				B148FCCB1BFEB4D0007A1C9D /* XSSelectCommodityCountTableViewCell.xib in Resources */,
 				B10ADF921BFDB1CF00002178 /* XSSelectCommodityViewController.xib in Resources */,
 				B1DC5C781BD086B6002B35DB /* XSMutiCatagoryTableViewCell.xib in Resources */,
 				B1C45AE91BD5EBC300D2466E /* XSCouponInfoViewController.xib in Resources */,
@@ -1815,14 +1865,12 @@
 				B1F43D1D1BC6004F009F19DA /* XSBindMemberCardViewController.xib in Resources */,
 				B174E9441BD9C4B00091E703 /* XSExchangeCouponViewController.xib in Resources */,
 				B1F43D851BC600E1009F19DA /* XSCommodityListTableViewCell.xib in Resources */,
-				B153FA481BFC18930095C0F3 /* XSCommodityRecommendTableViewCell.xib in Resources */,
 				B1F43D881BC600E1009F19DA /* XSFilterViewController.xib in Resources */,
 				B174E97B1BD9D40A0091E703 /* XSThreeTableViewCell.xib in Resources */,
 				B15AF7DB1BD88343002B20D0 /* XSLogisticsViewController.xib in Resources */,
 				B174E9801BD9D59E0091E703 /* XSFourTableViewCell.xib in Resources */,
 				B1F43D191BC6004F009F19DA /* XSForgetPasswordViewController.xib in Resources */,
 				B1FEF9381BE8936000A94A1B /* XSAddressManageTableViewCell.xib in Resources */,
-				B153FA4E1BFC1B270095C0F3 /* XSCommodityMoreTableViewCell.xib in Resources */,
 				B1C45AE41BD5E23600D2466E /* XSMyCouponTableViewCell.xib in Resources */,
 				B1C45AF21BD60D5D00D2466E /* XSMyFavoriteTableViewCell.xib in Resources */,
 				B1D3D8D11BD492870060D340 /* FillSelfHelpView.xib in Resources */,
@@ -1834,12 +1882,13 @@
 				B1C45AD11BD5D83700D2466E /* XSOrderTableViewCell.xib in Resources */,
 				B1F43D971BC610B3009F19DA /* FreshFoodRecommendView.xib in Resources */,
 				B101BD881BC8C2DE002FF77E /* XSNearbyTableViewCell.xib in Resources */,
+				B148FCB81BFEB42C007A1C9D /* XSCommodityOptionTableViewCell.xib in Resources */,
+				B148FCBA1BFEB42C007A1C9D /* XSCommodityRecommendTableViewCell.xib in Resources */,
 				B1DC5C721BD086B6002B35DB /* XSBannerCollectionReusableView.xib in Resources */,
 				B1BB5D8E1BD86B3100500898 /* XSClearSettingTableViewCell.xib in Resources */,
 				B1D3D8CF1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.xib in Resources */,
 				B1BB5D891BD86B2100500898 /* XSShareSettingTableViewCell.xib in Resources */,
 				B1C45AD61BD5DB0F00D2466E /* XSOrderHeaderTableViewCell.xib in Resources */,
-				B153FA301BFC15860095C0F3 /* XSCommodityShowcaseTableViewCell.xib in Resources */,
 				B11335831BDF6C7400CA7A11 /* GuideView0.xib in Resources */,
 				B1BCF6B81BB39C5C006020E3 /* RecommendView.xib in Resources */,
 				B141288B1BF1CD71008B6B7D /* NoCommodityView.xib in Resources */,
@@ -1851,7 +1900,7 @@
 				B153FA271BFC0CD60095C0F3 /* XSCommodityPannelView.xib in Resources */,
 				B1F43D1F1BC6004F009F19DA /* XSMyMemberCardViewController.xib in Resources */,
 				B174E96C1BD9D3E90091E703 /* XSZeroTableViewCell.xib in Resources */,
-				B153FA351BFC17860095C0F3 /* XSCommodityDescriptionTableViewCell.xib in Resources */,
+				B148FCB41BFEB42C007A1C9D /* XSCommodityDescriptionTableViewCell.xib in Resources */,
 				B1BB1C871BD8720100DE6D11 /* XSAboutUsViewController.xib in Resources */,
 				B1FB4B4E1BF0628A004DEF09 /* XSShoppingCartTableViewCell.xib in Resources */,
 				B1F43D211BC6004F009F19DA /* XSPhoneNumberVerifyViewController.xib in Resources */,
@@ -1859,13 +1908,14 @@
 				B1108D461BF573D7004273A7 /* XSAddressSelectedTableViewCell.xib in Resources */,
 				B1F43D251BC6004F009F19DA /* XSRegisterViewController.xib in Resources */,
 				B1DC5C741BD086B6002B35DB /* XSMutiCatagoryCollectionViewCell.xib in Resources */,
+				B148FCBC1BFEB42C007A1C9D /* XSCommodityShowcaseTableViewCell.xib in Resources */,
 				B1C45ADB1BD5DB1C00D2466E /* XSOrderFooterTableViewCell.xib in Resources */,
+				B148FCC11BFEB45E007A1C9D /* XSSelectCommodityRadioTableViewCell.xib in Resources */,
 				B1F43D991BC61604009F19DA /* FreshFoodGoodView.xib in Resources */,
 				B1108D481BF573D7004273A7 /* XSPayOptionTableViewCell.xib in Resources */,
 				B11335891BDF6C8D00CA7A11 /* GuideView3.xib in Resources */,
 				B113358B1BDF6CB500CA7A11 /* GuideView4.xib in Resources */,
 				B1F43D7E1BC600E1009F19DA /* ControlPannelView.xib in Resources */,
-				B153FA3A1BFC17A40095C0F3 /* XSCommodityOptionTableViewCell.xib in Resources */,
 				B1108D501BF57414004273A7 /* XSOrderCompletedViewController.xib in Resources */,
 				B161CD131B96C9F300D4689C /* Images.xcassets in Resources */,
 				B174E9711BD9D3F40091E703 /* XSOneTableViewCell.xib in Resources */,
@@ -1956,6 +2006,8 @@
 				B1C45AED1BD60C7E00D2466E /* XSMyFavoriteViewController.m in Sources */,
 				B1D3D8CE1BD488AF0060D340 /* XSDeliveredAddressTableViewCell.m in Sources */,
 				B1108D4E1BF57403004273A7 /* XSOrderCompletedViewController.m in Sources */,
+				B148FCBB1BFEB42C007A1C9D /* XSCommodityShowcaseTableViewCell.m in Sources */,
+				B148FCB51BFEB42C007A1C9D /* XSCommodityMoreTableViewCell.m in Sources */,
 				B1F43D271BC6004F009F19DA /* XSAccountViewController.m in Sources */,
 				B1FB4B4D1BF0628A004DEF09 /* XSShoppingCartTableViewCell.m in Sources */,
 				B1C45AD51BD5DB0F00D2466E /* XSOrderHeaderTableViewCell.m in Sources */,
@@ -1974,17 +2026,16 @@
 				B1C45ADA1BD5DB1C00D2466E /* XSOrderFooterTableViewCell.m in Sources */,
 				B161CDC41B96CA7000D4689C /* MenuModel.m in Sources */,
 				B1BFDC1F1BE70C65009B8D80 /* XSBuyNowViewController.m in Sources */,
-				B153FA341BFC17860095C0F3 /* XSCommodityDescriptionTableViewCell.m in Sources */,
 				B1D9242E1BEAF4AA008769CA /* XSAPIManager.m in Sources */,
-				B153FA4D1BFC1B270095C0F3 /* XSCommodityMoreTableViewCell.m in Sources */,
+				B148FCC01BFEB45E007A1C9D /* XSSelectCommodityRadioTableViewCell.m in Sources */,
 				B161CDC21B96CA7000D4689C /* BaseModel.m in Sources */,
 				B153FA521BFC578E0095C0F3 /* XSCommodityDetailView.m in Sources */,
 				B1C45AF11BD60D5D00D2466E /* XSMyFavoriteTableViewCell.m in Sources */,
 				B1BCF6BC1BB3A0A6006020E3 /* XSMoreView.m in Sources */,
-				B153FA391BFC17A40095C0F3 /* XSCommodityOptionTableViewCell.m in Sources */,
 				B161CDBE1B96CA7000D4689C /* HotWordsView.m in Sources */,
 				B1108D471BF573D7004273A7 /* XSPayOptionTableViewCell.m in Sources */,
 				B1D924341BEB385F008769CA /* XSMutiCatagoryCollectionViewDataSource.m in Sources */,
+				B148FCB71BFEB42C007A1C9D /* XSCommodityOptionTableViewCell.m in Sources */,
 				B1A61C501BB3DB0000AF8795 /* XSBuyNowView.m in Sources */,
 				B1D931F51B9EEB4800498D8B /* CartModel.m in Sources */,
 				B1F43D8C1BC600E1009F19DA /* XSFreshFoodViewController.m in Sources */,
@@ -2002,7 +2053,6 @@
 				B153FA1E1BFC0AC80095C0F3 /* XSCommodityViewController.m in Sources */,
 				B1DC5C711BD086B6002B35DB /* XSBannerCollectionReusableView.m in Sources */,
 				B1D3D8D91BD4BFAB0060D340 /* XSEditAddressViewController.m in Sources */,
-				B153FA2F1BFC15860095C0F3 /* XSCommodityShowcaseTableViewCell.m in Sources */,
 				B1FEF9371BE8936000A94A1B /* XSAddressManageTableViewCell.m in Sources */,
 				B1C45ADF1BD5E16B00D2466E /* XSMyCouponViewController.m in Sources */,
 				B19C25AA1BB4CAB5007F96CC /* XSThemeView.m in Sources */,
@@ -2025,6 +2075,7 @@
 				B1F43D6F1BC600E1009F19DA /* XSPromotionCell.m in Sources */,
 				B14128861BF17A07008B6B7D /* UIView+State.m in Sources */,
 				B161CDB51B96CA7000D4689C /* XSTabBarConteroller.m in Sources */,
+				B148FCB91BFEB42C007A1C9D /* XSCommodityRecommendTableViewCell.m in Sources */,
 				B161CD9F1B96CA7000D4689C /* NetworkConstant.m in Sources */,
 				B101BD871BC8C2DE002FF77E /* XSNearbyTableViewCell.m in Sources */,
 				B174E97F1BD9D59E0091E703 /* XSFourTableViewCell.m in Sources */,
@@ -2046,7 +2097,6 @@
 				B1F43D9C1BC61E6E009F19DA /* XSRecomendScrollView.m in Sources */,
 				B1C45AE81BD5EBC300D2466E /* XSCouponInfoViewController.m in Sources */,
 				B1F43D7A1BC600E1009F19DA /* XSMutiCatagoryViewController.m in Sources */,
-				B153FA471BFC18930095C0F3 /* XSCommodityRecommendTableViewCell.m in Sources */,
 				B14FB19E1BD47BE500FF7D40 /* XSDeliveredInformationViewController.m in Sources */,
 				B1F43D8F1BC600E1009F19DA /* XSHomeViewController.m in Sources */,
 				B1E9AA5E1BB902FA00CFDFD3 /* CommodityModel.m in Sources */,
@@ -2055,7 +2105,9 @@
 				B1F43D1A1BC6004F009F19DA /* XSLoginViewController.m in Sources */,
 				B1DC5C731BD086B6002B35DB /* XSMutiCatagoryCollectionViewCell.m in Sources */,
 				B1108D411BF573D7004273A7 /* XSCouponOptionTableViewCell.m in Sources */,
+				B148FCB31BFEB42C007A1C9D /* XSCommodityDescriptionTableViewCell.m in Sources */,
 				B1D924311BEB27DE008769CA /* XSMutiCatagoryTableViewDataSource.m in Sources */,
+				B148FCCA1BFEB4D0007A1C9D /* XSSelectCommodityCountTableViewCell.m in Sources */,
 				B1F43D901BC600E1009F19DA /* XSClearHistoryTableViewCell.m in Sources */,
 				B174E97A1BD9D40A0091E703 /* XSThreeTableViewCell.m in Sources */,
 				B15AF7DA1BD88343002B20D0 /* XSLogisticsViewController.m in Sources */,

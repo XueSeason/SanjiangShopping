@@ -137,7 +137,7 @@ static NSString * const footerID = @"footer";
         _tableView.delegate   = self;
         _tableView.dataSource = self;
         _tableView.backgroundColor = BACKGROUND_COLOR;
-        _tableView.separatorColor = [UIColor clearColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.showsHorizontalScrollIndicator = NO;
         _tableView.showsVerticalScrollIndicator   = NO;
         

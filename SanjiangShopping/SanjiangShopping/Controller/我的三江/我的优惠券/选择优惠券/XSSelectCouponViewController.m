@@ -95,7 +95,7 @@ static NSString * const cellID = @"coupon";
         _tableView.dataSource = self;
         
         _tableView.tableFooterView = [UIView new];
-        _tableView.separatorColor  = [UIColor clearColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
         [_tableView registerClass:[XSMyCouponTableViewCell class] forCellReuseIdentifier:cellID];
         [_tableView registerNib:[UINib nibWithNibName:@"XSMyCouponTableViewCell" bundle:nil] forCellReuseIdentifier:cellID];

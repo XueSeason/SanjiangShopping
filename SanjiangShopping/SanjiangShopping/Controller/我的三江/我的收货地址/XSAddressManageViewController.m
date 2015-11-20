@@ -79,7 +79,7 @@ static NSString * const cellID = @"address";
         _tableView = [[UITableView alloc] init];
         _tableView.tableFooterView = [UIView new];
         _tableView.backgroundColor = BACKGROUND_COLOR;
-        _tableView.separatorColor  = [UIColor clearColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
         _tableView.delegate   = self;
         _tableView.dataSource = self;

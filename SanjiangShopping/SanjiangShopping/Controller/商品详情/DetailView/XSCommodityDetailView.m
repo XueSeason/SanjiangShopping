@@ -100,7 +100,7 @@ static NSString * const cellID = @"detail";
         _tableView.dataSource = self;
         
         _tableView.backgroundColor = BACKGROUND_COLOR;
-        _tableView.separatorColor  = [UIColor clearColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.tableFooterView = [UIView new];
         
         _tableView.showsHorizontalScrollIndicator = NO;

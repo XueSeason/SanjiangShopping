@@ -98,7 +98,7 @@ static NSString * const promotionCellID = @"promotion";
         _tableView.showsVerticalScrollIndicator   = NO;
         
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadPromotionData)];
-        _tableView.separatorColor = [UIColor clearColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
         _tableView.delegate   = self;
         _tableView.dataSource = self.promotionDataSource;

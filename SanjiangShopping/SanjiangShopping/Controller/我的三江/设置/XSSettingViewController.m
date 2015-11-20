@@ -130,7 +130,7 @@ static NSString * const clearID = @"clear";
         
         _tableView.tableFooterView = [UIView new];
         _tableView.backgroundColor = BACKGROUND_COLOR;
-        _tableView.separatorColor  = [UIColor clearColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         
         [_tableView registerClass:[XSAboutSettingTableViewCell class] forCellReuseIdentifier:aboutID];
         [_tableView registerNib:[UINib nibWithNibName:@"XSAboutSettingTableViewCell" bundle:nil] forCellReuseIdentifier:aboutID];

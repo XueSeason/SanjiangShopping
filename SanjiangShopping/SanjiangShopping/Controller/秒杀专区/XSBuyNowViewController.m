@@ -115,7 +115,7 @@ static NSString * const cellID = @"buynow";
         _tableView.showsVerticalScrollIndicator   = NO;
         
         _tableView.tableFooterView = [UIView new];
-        _tableView.separatorColor  = [UIColor clearColor];
+        _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _tableView.contentInset = UIEdgeInsetsMake(64, 0, 0, 0);
         
         _tableView.delegate   = self;
